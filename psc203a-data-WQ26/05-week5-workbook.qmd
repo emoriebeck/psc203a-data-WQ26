@@ -1,0 +1,772 @@
+---
+title: "Week 5 Workbook"
+author: "Emorie D Beck"
+format: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+---
+
+```{r, echo = F}
+options(htmltools.dir.version = FALSE
+        , knitr.kable.NA = "")
+```
+
+```{r, echo = T}
+library(knitr)
+library(psych)
+library(lme4)
+library(broom)
+library(broom.mixed)
+library(kableExtra)
+library(plyr)
+library(tidyverse)
+```
+
+# Week 5: Functions, Iteration, and `purrr`
+
+# Outline
+
+1.  Questions on Homework
+2.  Functions
+3.  `purrr`
+4.  Problem Set and Question Time
+
+# Functions
+
+-   A **`function`** or subroutine is a sequence of program instructions that performs a specific task, packaged as a unit.
+-   Functions typically take some input and return some specified output
+
+## Why Write Your Own Functions?
+
+-   Automate your workflow
+-   Prevent copy-paste errors (only need to update the function, not update the same task in a bunch of areas)
+-   Saves you time by providing tools that port to new projects
+-   Functions make you *think*, which improves the quality of our work
+
+## When Should You Write Your Own Functions?
+
+-   Hadley Wickham's rule of thumb (which is common in a lot of CS and DS circles) is that if you have to copy-paste something more than twice, you should write a function
+-   But really you can write one whenever you'd like
+-   I often write functions when a link of code starts getting because it's usually a good signal that I'm trying to do too much at once.
+
+## Types of Functions
+
+-   Vector functions take one or more vectors as input and return a vector as output.
+-   Data frame functions take a data frame as input and return a data frame as output.
+-   Plot functions that take a data frame as input and return a plot as output.
+-   and so on...
+-   We'll talk extensively about this again when we talk about building figures and tables into your workflow in Week 8
+
+## Vector Functions
+
+-   In my work, I often want to POMP (**P**ercentage **O**f **M**aximum **P**ossible) score or z-score (standardize) variables, which allows me to get data on a standard and interpretable scale (percentage or standard deviations)
+-   I often want to do this with lots of variables, so to do each one separately would take forever and introduce chances for error.
+
+```{r}
+bfi %>%
+  select(matches("1$")) %>%
+  mutate(
+    E1 = (E1 - min(E1, na.rm = T))/(max(E1, na.rm = T) - min(E1, na.rm = T))*100
+    , A1 = (A1 - min(A1, na.rm = T))/(max(A1, na.rm = T) - min(A1, na.rm = T))*100
+    , C1 = (C1 - min(C1, na.rm = T))/(max(C1, na.rm = T) - min(C1, na.rm = T))*100
+    , N1 = (N1 - min(N1, na.rm = T))/(max(N1, na.rm = T) - min(N1, na.rm = T))*100
+    , O1 = (O1 - min(O1, na.rm = T))/(max(O1, na.rm = T) - min(O1, na.rm = T))*100
+  ) %>%
+  head(10)
+```
+
+-   Instead we could make this a function because I don't want to talk about how long it took me to do that copy-pasting 😭
+
+```{r}
+pomp <- function(x, na) (x - min(x, na.rm = na))/(max(x, na.rm = na) - min(x, na.rm = na))*100
+bfi %>%
+  select(matches("1$")) %>%
+  mutate(
+    E1 = pomp(E1, T)
+    , A1 =  pomp(A1, T)
+    , C1 =  pomp(C1, T)
+    , N1 =  pomp(N1, T)
+    , O1 =  pomp(O1, T)
+  ) %>%
+  head(10)
+```
+
+-   And remember, we could simplify this even more with `mutate_at()`!
+-   And I know in this example it saved us about four lines of code, but having a function like this that you can just reference, especially in conjunction with `mutate_at()` saves you ***time*** in the short and long run.[^1]
+
+[^1]: Fun fact. I wrote this example and used POMP scores because I like to make them my personality and then noticed it's the same example used by R4DS
+
+```{r}
+pomp <- function(x, na) (x - min(x, na.rm = na))/(max(x, na.rm = na) - min(x, na.rm = na))*100
+bfi %>%
+  select(matches("1$")) %>%
+  mutate_at(vars(matches("1$")), pomp, na = T) %>%
+  head(10)
+```
+
+## Writing Functions
+
+-   The first step in writing a function is to find the *pattern*:
+-   Let's look back at the code above:
+
+```{r, eval = F}
+E1 = (E1 - min(E1, na.rm = T))/(max(E1, na.rm = T) - min(E1, na.rm = T))*100
+A1 = (A1 - min(A1, na.rm = T))/(max(A1, na.rm = T) - min(A1, na.rm = T))*100
+C1 = (C1 - min(C1, na.rm = T))/(max(C1, na.rm = T) - min(C1, na.rm = T))*100
+N1 = (N1 - min(N1, na.rm = T))/(max(N1, na.rm = T) - min(N1, na.rm = T))*100
+O1 = (O1 - min(O1, na.rm = T))/(max(O1, na.rm = T) - min(O1, na.rm = T))*100
+```
+
+-   Do you see the pattern?
+
+```{r, eval = F}
+(█ - min(█, na.rm = TRUE)) / (max(█, na.rm = TRUE) - min(█, na.rm = TRUE))
+```
+
+We need three things to turn this into a function:
+
+1.  **A name.** Here we'll use rescale01 because this function rescales a vector to lie between 0 and 1.
+2.  **The arguments.** The arguments are things that vary across calls and our analysis above tells us that we have just one. We'll call it x because this is the conventional name for a numeric vector.
+3.  **The body.** The body is the code that's repeated across all the calls.
+
+-   The template of a function looks something like this:
+
+```{r, eval = F}
+name <- function(arguments){
+  body
+}
+```
+
+-   Although for local functions, I suggest something like this:
+
+```{r, eval = F}
+name <- function(
+    argument1 # description of first argument
+    , argument2 # description of second argument
+    ){
+  body
+}
+```
+
+-   That's not going to fit well on my slides, so I will minimally do it in class.
+
+-   Following this, we return to our function:
+
+```{r}
+pomp <- function(x, na) {
+  (x - min(x, na.rm = na))/(max(x, na.rm = na) - min(x, na.rm = na))*100
+}
+```
+
+## Function Efficiency
+
+-   For most of our purposes, we may not care that much about how fast our code is
+-   Unless you're working with huge data, things typically run fast
+-   But with a function like POMP, I may need to run it on 100+ variables each with 10,000+ observations, so speed may be a consideration
+-   So how do you speed up your functions?
+    1.  Avoid computing something twice
+    2.  Try to anticipate where things could go wrong
+-   So in our function, we calculate `min()` twice and `min()` once
+-   We could just calculate `range()` instead, which reduces that computation time
+-   Watch (note you have to run this in your console to see the difference)!
+
+::: columns
+::: column
+```{r}
+pomp <- function(x) {
+  (x - min(x, na.rm = T))/(max(x, na.rm = T) - min(x, na.rm = T))*100
+}
+
+start <- Sys.time()
+tmp <- bfi %>%
+  select(matches("1$")) %>%
+  mutate_at(vars(matches("1$")), pomp)
+(diff1 <- Sys.time() - start)
+```
+:::
+:::
+
+::: column
+```{r}
+pomp <- function(x) {
+  rng <- range(x, na.rm = T)
+  (x - rng[1])/(rng[2] - rng[1])*100
+}
+
+start <- Sys.time()
+tmp <- bfi %>%
+  select(matches("1$")) %>%
+  mutate_at(vars(matches("1$")), pomp)
+(diff2 <- Sys.time() - start)
+```
+:::
+
+::::
+
+-   But those differences are really minimal right? Just `r round(as.numeric(diff1 - diff2), 4)` seconds.
+-   But across 150 variables that's `r round(as.numeric(diff1 - diff2)*150, 4)` seconds.
+
+## Cautionary note on outputs
+
+-   The function we wrote above could be a "mutate()" function because the output is the same length / size as the input.
+-   If you write a function that drops cases, you will get an error because R can't make the resulting vector fit back into the data frame
+-   Or, if you write a function that returns length `1` within mutate, it will just repeat that value for every row
+-   So, just be careful to think about what the output is and make sure that it matches the use case you are working with!
+
+## More notes on outputs
+
+-   You can output anything you want from a function!
+    -   data frames
+    -   vectors
+    -   single values
+    -   strings
+    -   lists (very common for base R and package functions!!)
+    -   model objects
+    -   plots
+    -   tables
+    -   etc.!
+
+## You Try:
+
+Try turning the following into functions:
+
+```{r, eval = F}
+mean(is.na(x))
+mean(is.na(y))
+mean(is.na(z))
+
+x / sum(x, na.rm = TRUE)
+y / sum(y, na.rm = TRUE)
+z / sum(z, na.rm = TRUE)
+
+round(x / sum(x, na.rm = TRUE) * 100, 1)
+round(y / sum(y, na.rm = TRUE) * 100, 1)
+round(z / sum(z, na.rm = TRUE) * 100, 1)
+
+(x - mean(x, na.rm = T))/sd(x, na.rm = T)
+(y - mean(y, na.rm = T))/sd(y, na.rm = T)
+(z - mean(z, na.rm = T))/sd(z, na.rm = T)
+```
+
+```{r}
+prop_missing <- function(x) mean(is.na(x))
+
+prop_total   <- function(x) x / sum(x, na.rm = T)
+
+round_prop   <- function(x) round(prop_total(x)*100, 1)
+
+z_score      <- function(x) (x - mean(x, na.rm = T))/sd(x, na.rm = T)
+```
+
+## Data Frame Functions
+
+-   All the functions we've covered so far are vector functions (i.e. they input a vector, not a matrix or data frame and work well within `mutate()` calls)
+
+-   But if you have a long string of dplyr verbs, it can be useful to put these into a data frame function where you provide a data frame input and flexible way of naming the columns
+
+-   I'm going to give a brief example here, but suggest that you check out more in [*R for Data Science*](https://r4ds.hadley.nz/functions#data-frame-functions).
+
+-   Let's start with a brief example. To do it, let's first make the bfi data frame long
+
+```{r}
+bfi_long <- bfi %>%
+  rownames_to_column("SID") %>%
+  pivot_longer(
+    cols = c(-SID, -education, -gender, -age)
+    , names_to = c("trait", "item")
+    , names_sep = -1
+    , values_to = "value"
+    , values_drop_na = T
+  )
+head(bfi_long, 8)
+```
+
+-   So maybe I want to get means for each of the Big Five from this, so I write a function like this:
+
+```{r, error=FALSE, eval=FALSE}
+grouped_mean <- function(df, group_var, mean_var) {
+  df %>%
+    group_by(group_var) %>%
+    summarize(mean(mean_var))
+}
+
+bfi_long %>% grouped_mean(trait, value)
+```
+
+-   That didn't work because we can't specify grouping variables like that
+-   To get around it, we have to use something called **embracing**: We have to wrap the variables like this {{ trait }}
+-   This just nudges the dplyr functions to look inside the data frame for the column you specify
+
+```{r}
+tidy_describe <- function(df, var) {
+  df %>%
+    summarize(
+      mean   = mean({{ var }},   na.rm = TRUE),
+      sd     = sd({{ var }},     na.rm = TRUE),
+      median = median({{ var }}, na.rm = TRUE),
+      min    = min({{ var }},    na.rm = TRUE),
+      max    = max({{ var }},    na.rm = TRUE),
+      n      = n(),
+      n_miss = sum(is.na({{ var }})),
+      .groups = "drop"
+      )
+}
+
+bfi_long %>% 
+  group_by(trait) %>%
+  tidy_describe(value)
+```
+
+-   Or remember when I had us getting counts and proportions for continuous x categorical relationships?
+
+```{r}
+count_prop <- function(df, var, sort = FALSE) {
+  df %>%
+    count({{ var }}, sort = sort) %>%
+    mutate(prop = n / sum(n))
+}
+
+bfi_long %>% 
+  count_prop(education)
+```
+
+## Wrap-Up
+
+-   This is just a brief introduction to functions.
+-   Functions are absolutely essential part of workflows, and you'll see them pop up in every lesson from here on out (and you already saw them pop up in previous lessons)
+-   As we continue to see them, I'll ramp up their complexity, showing you how to write functions for estimating models, model predictions, figures, tables, and more
+
+# Iteration and `purrr`
+
+## Iteration
+
+Iteration is everywhere. It underpins much of mathematics and statistics. If you've ever seen the $\Sigma$ symbol, then you've seen (and probably used) iteration.
+
+Reasons for iteration:\
+- reading in multiple files from a directory\
+- running the same operation multiple times\
+- running different combinations of the same model\
+- creating similar figures / tables / outputs
+
+## `for` loops
+
+Enter `for` loops. `for` loops are the "OG" form of iteration in computer science. The basic syntax is below. Basically, we can use a for loop to loop through and print a series of things.
+
+```{r basic loop}
+for(i in letters[1:5]){
+  print(i)
+}
+```
+
+-   The code above "loops" through 5 times, printing the iteration letter.
+
+## `_apply()` family
+
+-   A somewhat faster version of `for` loops comes from the `_apply()` family of functions, including:
+    -   `apply()`, `lapply()`, `sapply()`, and `mapply()`. Unlike `for` loops, these are vectorized, which makes them more efficient.
+
+```{r apply functions}
+lapply(letters[1:5], print)
+sapply(letters[1:5], print)
+mapply(print, letters[1:5])
+```
+
+## `purrr` and `_map_()` functions
+
+-   Today, though, we'll focus on the `map()` family of functions, which is the functions through which `purrr` iterates.
+
+```{r map functions}
+map(letters[1:5], print)
+```
+
+-   **For a more thorough comparison of `for` loops, the `_apply()` family, and `_map_()` functions, see https://jennybc.github.io/purrr-tutorial/**
+
+## `purrr` and `_map_()` predicates {.smaller}
+
+-   Today, though, we'll focus on the `map()` family of functions, which is the functions through which `purrr` iterates.
+
+```{r map functions 2, eval = F}
+map(letters[1:5], print)
+```
+
+-   Note that this returns a list, which we may not always want.
+-   With `purrr`, we can change the kind of output of `map()` by adding a predicate, like `lgl`, `dbl`, `chr`, and `df`.
+-   So in the example above, we may have wanted just the characters to print. To do that we'd call `map_chr()`:
+
+```{r basic map_chr}
+map_chr(letters[1:5], print)
+```
+
+-   Note that it also returns the concatenated character vector as well as printing each letter individually (i.e. iteratively).
+
+## `purrr` and `_map_()` antecedents
+
+-   How many mappings?
+    -   Single mapping: `map_()`\
+    -   Parallel (2) mapping(s): `map2_()`\
+    -   3 or more mappings: `pmap_()`
+
+```{r}
+map2_chr(letters[1:5], 1:5, paste)
+```
+
+-   Note here that we can use `map2()` and `pmap()` with the predicates from above.
+
+## List Columns and the Power of `purrr`
+
+-   On the previous slide, we saw a data frame **inside** of a data frame. This is called a list column within a nested data frame.
+
+-   In this case, we created a list column using map, but one of the best things about `purrr` is how it combines with the `nest()` and `unnest()` functions from the `tidyr` package.
+
+-   We'll return to `nest()` later to demonstrate how anything you would iterate across is also something we can `nest()` by in long format data frames.
+
+## Use Cases
+
+1.  Reading Data\
+2.  Cleaning Data
+3.  Running Models\
+4.  (Plotting Figures - Week 8)\
+5.  (Creating Tables - Week 8)
+
+### Reading Data
+
+There are a number of different cases where `purrr` and `map()` maybe useful for reading in data including:
+
+-   subject-level files for an experimental task\
+-   subject- and task-level files for an experimental task
+-   EMA data\
+-   longitudinal data\
+-   web scraping and text mining
+
+#### Reading Data: Participant-Level EMA
+
+For this first example, I'll show you how this would look with a `for` loop before I show you how it looks with `purrr`.
+
+Assuming you have all the data in a single folder and the format is reasonably similar, you have the following basic syntax:
+
+```{r simple reading loop, eval = F}
+files <- list.files(data_path)
+data <- list()
+for(i in files){
+  data[[i]] <- read_csv(i)
+}
+data <- combine(data)
+```
+
+-   This works fine in this simple case, but where `purrr` really shines in when you need to make modifications to your data before combining, whether this be recoding, removing missing cases, or renaming variables.
+
+-   But first, the simple case of reading data. The code below will download a .zip file when you run it. Once, you do, navigate to your Desktop to unzip the folder. Open the R Project and you should be able to run the rest of the code
+
+```{r get data}
+data_source <- "https://github.com/emoriebeck/psc290-data-FQ23/raw/main/04-workshops/05-week5-purrr/05-week5-purrr.zip"
+data_dest <- "~/Desktop/05-week5-purrr.zip"
+download.file(data_source, data_dest)
+```
+
+```{r read data ex1, eval = T}
+df1 <- tibble(
+  ID = list.files("data/example_1")
+  ) %>%
+  mutate(data = map(ID, ~read_csv(sprintf("data/example_1/%s", .)))) %>%
+  unnest(data) 
+```
+
+-   The code above creates a list of ID's from the data path (files named for each person), reads the data in using the `map()` function from `purrr`, removes the ".csv" from the ID variable, then unnests the data, resulting in a data frame for each person.
+
+-   Now, we're going to combine with what we learned about last time with codebooks.
+
+```{r codebook}
+codebook <- read_csv("data/codebook_ex1.csv")
+codebook
+```
+
+-   Now, that we have a codebook, what are the next steps?
+
+```{r read data ex1 2, eval = T}
+df1 <- tibble(
+  ID = list.files("data/example_1")
+  ) %>%
+  mutate(data = map(ID, ~read_csv(sprintf("data/example_1/%s", .)))) %>%
+  unnest(data) 
+head(df1, 6)
+```
+
+1.  pull old names in raw data from codebook\
+2.  pull new names from codebook\
+3.  select columns from codebook in loaded data\
+4.  rename columns with new names
+
+```{r read data complex ex1, eval = T}
+old.names <- codebook$old_name # pull old names in raw data from codebook  
+new.names <- codebook$item_name # pull new names from codebook  
+df1 <- tibble(
+  ID = list.files("data/example_1")
+  ) %>%
+  mutate(data = map(ID, ~read_csv(sprintf("data/example_1/%s", .)))
+         , ID = str_remove_all(ID, ".csv")) %>%
+  unnest(data) %>%
+  select(ID, count, all_of(old.names)) %>% # select columns from codebook in loaded data  
+  setNames(c("ID", "count", new.names)) # rename columns with new names  
+head(df1, 6)
+```
+
+#### Descriptives: Within-Person Correlations
+
+With these kinds of data, the first thing, we may want to do is look at within-person correlations, which we can do with `purrr`.
+
+```{r}
+cor_fun <- function(x) cor(x %>% select(-count), use = "pairwise")
+
+nested_r <- df1 %>%
+  group_by(ID) %>%
+  nest() %>%
+  ungroup() %>%
+  mutate(r = map(data, cor_fun))
+head(nested_r, 6)
+```
+
+We can access it like a list:
+
+```{r}
+nested_r$data[[1]]
+```
+
+-   But we can't easily (well, nicely) just `unnest()` a matrix
+-   We've lost a lot of information along the way
+-   So what do we do?
+
+```{r}
+nested_r %>%
+  select(-data) %>%
+  unnest(r)
+```
+
+-   Write a function, of course!
+
+```{r}
+cor_fun <- function(x) {
+  r <- cor(x %>% select(-count), use = "pairwise")
+  r %>% 
+    data.frame() %>%
+    rownames_to_column("var") %>%
+    as_tibble()
+}
+
+nested_r <- nested_r %>%
+  mutate(r = map(data, cor_fun))
+head(nested_r, 10)
+```
+
+-   Let's try unnesting again:
+
+```{r}
+nested_r %>%
+  select(-data) %>%
+  unnest(r) %>% 
+  arrange(desc(var))
+```
+
+-   There's more I would usually do here to format a correlation table for each participant and output the file as a PDF or html so I can post it on GitHub / OSF
+-   But we'll get there in Week 8/9!
+
+#### Descriptives: Means, sds, etc.
+
+```{r}
+tidy_describe <- function(df) {
+  df %>%
+    pivot_longer(
+      -count
+      , names_to = "item"
+      , values_to = "value"
+      , values_drop_na = T
+      ) %>%
+    group_by(item) %>%
+    summarize(
+      mean   = mean(value,   na.rm = TRUE),
+      sd     = sd(value,     na.rm = TRUE),
+      median = median(value, na.rm = TRUE),
+      min    = min(value,    na.rm = TRUE),
+      max    = max(value,    na.rm = TRUE),
+      n      = n(),
+      n_miss = sum(is.na(value)),
+      .groups = "drop"
+      )
+}
+```
+
+```{r}
+nested_r <- nested_r %>%
+  mutate(desc = map(data, tidy_describe)) 
+nested_r
+```
+
+```{r}
+nested_r %>%
+  select(-data, -r) %>%
+  unnest(desc)
+```
+
+#### Models
+
+-   We can put essentially anything into a nested data frame.
+
+-   The magic happens because everything is indexed by the other columns in the data frame, so we can keep track of it
+
+-   And unlike a normal list, we aren't stuck with nested list structures that are really hard to parse and navigate through
+
+-   Next, I'm going to show you how to use purrr with models
+
+-   Modeling is not a focus of this class, but I want to demonstrate this as a ~workflow~ because it completely revolutionized mine!
+
+-   But first, we need to format our data:
+
+```{r}
+df_long <- df1 %>%
+  select(-satisfaction) %>%
+  pivot_longer(
+    cols = c(-count, -ID)
+    , names_to = c("trait", "item")
+    , names_sep = "_"
+    , values_to = "value"
+    , values_drop_na = T
+    )
+df_long
+```
+
+To create composites, we'll:\
+1. separate traits from items 2. `group_by()` trait, count, and ID 3. calculate the composites using `summarize()`
+
+```{r}
+df_long <- df_long %>%
+  group_by(ID, count, trait) %>%
+  summarize(value = mean(value)) %>%
+  ungroup() %>%
+  left_join(df1 %>% select(ID, count, satisfaction))
+df_long
+```
+
+Then we'll get within-person centered values using our own little function!
+
+```{r}
+center <- function(x) x - mean(x, na.rm = T)
+
+df_long <- df_long %>%
+  group_by(ID, trait) %>%
+  mutate(value_c = center(value)) %>%
+  ungroup()
+df_long
+```
+
+And grand-mean centered within-person averages
+
+```{r}
+df_long <- df_long %>%
+  group_by(ID, trait) %>%
+  mutate(value_gmc = mean(value)) %>%
+  group_by(trait) %>%
+  mutate(value_gmc = center(value_gmc)) %>%
+  ungroup()
+df_long
+```
+
+And now we are ready to run our models. But first, we'll `nest()` our data.
+
+```{r}
+nested_mods <- df_long %>%
+  group_by(trait) %>%
+  nest() %>%
+  ungroup() 
+nested_mods
+```
+
+And now run the models.
+
+```{r}
+run_model <- function(d) lmer(satisfaction ~ value_c * value_gmc + (1 | ID), data = d)
+
+nested_mods <- df_long %>%
+  group_by(trait) %>%
+  nest() %>%
+  ungroup() %>% 
+  mutate(model = map(data, run_model))
+nested_mods
+```
+
+And get data frames of the results:
+
+```{r}
+sprintfna <- function(x) ifelse(is.na(x), NA_character_, sprintf("%.2f", x))
+
+tidy_tab <- function(m){
+  tidy(m, conf.int = T) %>%
+    mutate(pval = pnorm(abs(estimate/`std.error`), lower.tail = FALSE),
+           p = round(pval, digits = 3),
+           p = ifelse(pval < .001, "p &lt; .001", paste0("p = ", p))) %>%
+    mutate_at(vars(estimate, conf.low, conf.high), sprintfna) %>%
+    mutate(CI = ifelse(is.na(conf.low), "", sprintf("[%s,%s]", conf.low, conf.high))) %>%
+    dplyr::select(term, estimate, CI, p)
+}
+
+nested_mods <- nested_mods %>%
+  mutate(tidy = map(model, tidy_tab))
+nested_mods
+```
+
+##### Unnesting
+
+Which we can print into pretty data frames
+
+```{r}
+nested_mods %>%
+  select(trait, tidy) %>%
+  unnest(tidy)
+```
+
+##### Unnesting & Tabling
+
+Which we can pretty easily turn into tables:
+
+```{r}
+mod_tab <- nested_mods %>%
+  select(trait, tidy) %>%
+  unnest(tidy) %>%
+  pivot_wider(
+    names_from = "trait"
+    , names_glue = "{trait}_{.value}"
+    , values_from = c("estimate", "CI", "p")
+  ) %>%
+  select(term, starts_with("E"), starts_with("A"), starts_with("C"), starts_with("N"), starts_with("O"))
+
+mod_tab
+```
+
+```{r}
+hdr <- c(1, rep(3, 5))
+names(hdr) <- c(" ", "Extraversion", "Agreeableness", "Conscientiousness", "Neuroticism", "Openness")
+
+mod_tab <- mod_tab %>%
+  kable(.
+        , "html"
+        , escape = F
+        , col.names = c("Term", rep(c("<em>b</em>", "CI", "<em>p</em>"), times = 5))
+        , align = c("r", rep("c", 15))
+        , caption = "<strong>Table 1</strong><br><em>Multilevel Model Estimates of Between- and Within-Person Big Five-State Satisfaction Associations"
+        ) %>%
+  kable_classic(full_width = F, html_font = "Times", font_size = 15) %>%
+  add_header_above(hdr)
+mod_tab
+```
+
+# Appendix
+
+## Appendix: Sourcing Functions

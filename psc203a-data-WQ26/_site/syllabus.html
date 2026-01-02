@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Cleaning and Management (FQ23) - Syllabus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Cleaning and Management (FQ23)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./syllabus.html" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="./01-week1-slides.html">
+ <span class="dropdown-text">Week 1 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./01-week1-workbook.html">
+ <span class="dropdown-text">Week 1 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-week2-slides.html">
+ <span class="dropdown-text">Week 2 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-week2-workbook.html">
+ <span class="dropdown-text">Week 2 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-week3-slides.html">
+ <span class="dropdown-text">Week 3 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-week3-workbook.html">
+ <span class="dropdown-text">Week 3 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-week4-slides.html">
+ <span class="dropdown-text">Week 4 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-week4-workbook.html">
+ <span class="dropdown-text">Week 4 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./05-week5-slides.html">
+ <span class="dropdown-text">Week 5 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./05-week5-workbook.html">
+ <span class="dropdown-text">Week 5 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06-week6-slides.html">
+ <span class="dropdown-text">Week 6 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06-week6-workbook.html">
+ <span class="dropdown-text">Week 6 - Review</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-week7-slides.html">
+ <span class="dropdown-text">Week 7 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-week7-workbook.html">
+ <span class="dropdown-text">Week 7 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./08-week8-slides.html">
+ <span class="dropdown-text">Week 8 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./08-week8-workbook.html">
+ <span class="dropdown-text">Week 8 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-week9-slides.html">
+ <span class="dropdown-text">Week 9 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-week9-workbook.html">
+ <span class="dropdown-text">Week 9 Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-week10-slides.html">
+ <span class="dropdown-text">Week 9 Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-week10-workbook.html">
+ <span class="dropdown-text">Week 10 Workbook</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-problem-sets" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Problem Sets</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-problem-sets">    
+        <li>
+    <a class="dropdown-item" href="./ps1-week1.html">
+ <span class="dropdown-text">Problem Set Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps2-week2.html">
+ <span class="dropdown-text">Problem Set Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps3-week3.html">
+ <span class="dropdown-text">Problem Set Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps4-week4.html">
+ <span class="dropdown-text">Problem Set Week 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps5-week5.html">
+ <span class="dropdown-text">Problem Set Week 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps7-week7.html">
+ <span class="dropdown-text">Problem Set Week 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ps8-week8.html">
+ <span class="dropdown-text">Problem Set Week 8</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Final Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project">    
+        <li>
+    <a class="dropdown-item" href="./final-project.html">
+ <span class="dropdown-text">Final Project Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./final-project-submission.html">
+ <span class="dropdown-text">Final Project Submission</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./final-project-rubric.html">
+ <span class="dropdown-text">Final Project Paper Rubric</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes"><strong>Learning Outcomes</strong></a></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><strong>Course Materials</strong></a></li>
+  <li><a href="#technology-requirements" id="toc-technology-requirements" class="nav-link" data-scroll-target="#technology-requirements"><strong>Technology Requirements</strong></a></li>
+  <li><a href="#minimum-technical-skills-needed" id="toc-minimum-technical-skills-needed" class="nav-link" data-scroll-target="#minimum-technical-skills-needed"><strong>Minimum Technical Skills Needed</strong></a></li>
+  <li><a href="#course-assignments-and-grading" id="toc-course-assignments-and-grading" class="nav-link" data-scroll-target="#course-assignments-and-grading"><strong>Course Assignments and Grading</strong></a>
+  <ul class="collapse">
+  <li><a href="#general-assignment-information" id="toc-general-assignment-information" class="nav-link" data-scroll-target="#general-assignment-information">General Assignment Information</a></li>
+  <li><a href="#weekly-assignments" id="toc-weekly-assignments" class="nav-link" data-scroll-target="#weekly-assignments">Weekly Assignments</a></li>
+  <li><a href="#final-exam" id="toc-final-exam" class="nav-link" data-scroll-target="#final-exam">Final Exam</a></li>
+  <li><a href="#extra-credit" id="toc-extra-credit" class="nav-link" data-scroll-target="#extra-credit">Extra Credit</a></li>
+  <li><a href="#evaluation-and-grading-scale" id="toc-evaluation-and-grading-scale" class="nav-link" data-scroll-target="#evaluation-and-grading-scale">Evaluation and Grading Scale</a></li>
+  </ul></li>
+  <li><a href="#course-policies-and-procedures" id="toc-course-policies-and-procedures" class="nav-link" data-scroll-target="#course-policies-and-procedures"><strong>Course Policies and Procedures</strong></a>
+  <ul class="collapse">
+  <li><a href="#attendance-policy" id="toc-attendance-policy" class="nav-link" data-scroll-target="#attendance-policy">Attendance Policy</a></li>
+  <li><a href="#late-workmake-up-policy" id="toc-late-workmake-up-policy" class="nav-link" data-scroll-target="#late-workmake-up-policy">Late Work/Make-up Policy</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic Integrity</a></li>
+  <li><a href="#incomplete-grades" id="toc-incomplete-grades" class="nav-link" data-scroll-target="#incomplete-grades">Incomplete Grades</a></li>
+  <li><a href="#instructional-methods" id="toc-instructional-methods" class="nav-link" data-scroll-target="#instructional-methods">Instructional Methods</a></li>
+  <li><a href="#diversity-and-inclusion" id="toc-diversity-and-inclusion" class="nav-link" data-scroll-target="#diversity-and-inclusion">Diversity and Inclusion</a></li>
+  <li><a href="#copyrightfair-use" id="toc-copyrightfair-use" class="nav-link" data-scroll-target="#copyrightfair-use">Copyright/Fair Use</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Syllabus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes"><strong>Learning Outcomes</strong></h2>
+<p>After successful completion of this course, you will be able to:<br>
+1. &nbsp; &nbsp;Build your own research workflow that can be ported to future projects.&nbsp;<br>
+2. &nbsp; &nbsp;Learn new programming skills that will help you efficiently, accurately, and deliberately clean and manage your data. &nbsp;<br>
+3. &nbsp; &nbsp;Create a bank of code and tools that can be used for a variety of types of research.&nbsp;</p>
+</section>
+<section id="course-materials" class="level2">
+<h2 class="anchored" data-anchor-id="course-materials"><strong>Course Materials</strong></h2>
+<p>There is no official textbook for this course (but if there was, it’d be Wickham, Cetinkaya-Rundel, &amp; Grolemund’s R for Data Science [2nd edition]). However, many of you are coming in with different levels of knowledge and different types of questions, so I am providing some suggested readings below.&nbsp;</p>
+<p>I have arranged for students in this course to receive free access to Data Camp, a library of R (other programming languages) tutorials. Sign up using your UC Davis email&nbsp;<a href="https://www.datacamp.com/groups/shared_links/7d2260b0c46c4914c6543c5177372584c5b5971fbc44e6dca8a784093f3b7429">here</a>.&nbsp;</p>
+<p>We will pull from the following two (freely available) books:</p>
+<p>Hadley Wickham &amp; Garret Grolemund:&nbsp;<a href="http://r4ds.had.co.nz/">R for Data Science</a><br>
+Hadley Wickham:&nbsp;<a href="http://adv-r.had.co.nz/">Advanced R</a>&nbsp;</p>
+<p><em>All course materials comply with copyright/fair use policies.</em></p>
+</section>
+<section id="technology-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="technology-requirements"><strong>Technology Requirements</strong></h2>
+<div class="cell">
+
+</div>
+<p>The lecture presentations, links to articles, assignments, and rubrics are located on this Canvas site for the course and on the Quarto site. To participate in learning activities and complete assignments, you will need:</p>
+<ul>
+<li>Access to a working computer that has a current operating system with updates installed;</li>
+<li>Reliable Internet access and a UCD email account;</li>
+<li>A current Internet browser that is compatible with Canvas;</li>
+<li>R and R Studio (see below)</li>
+<li>Reliable data storage for your work, such as Box, Office 365, or a USB drive.</li>
+</ul>
+<p>We will do all of our data cleaning work in this class using&nbsp;the&nbsp;<a href="https://cran.r-project.org/">R</a>&nbsp;programming language. We will use&nbsp;<a href="https://www.rstudio.com/">RStudio</a>&nbsp;to interface with R console for a more user-friendly experience.</p>
+<p><strong>Please install both R and RStudio before the first day of class. Here’s how:</strong></p>
+<ol type="1">
+<li><p>Get the most recent version of R (free).&nbsp;<a href="http://cloud.r-project.org/">Download</a>&nbsp;the version of R compatible with your operating system (Mac, Linux, or Windows). If you are running Windows or MacOS, you should choose one of the&nbsp;<em>precompiled binary</em>&nbsp;distributions (i.e., ready-to-run applications; .exe for windows or .pkg for Mac) linked at the top of the R Project’s webpage.</p></li>
+<li><p>Once R is installed,&nbsp;<a href="https://www.rstudio.com/products/rstudio/download/">download and install R Studio</a>&nbsp;(soon to be Pivot). R Studio is an “Integrated Development Environment”, or IDE. This means it is a front-end for R that makes it much easier to work with. R Studio is also free, and available for Windows, Mac, and Linux platforms.</p></li>
+<li><p><a href="http://tidyverse.org/">Install the tidyverse library</a> and several other add-on packages for R. These are sets of tolls or functions that will aid us in cleaning and wrangling data, and more. This is a non-exhaustive list that will get us started.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"plyr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"furrr"</span>, <span class="st">"broom"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"MASS"</span>, <span class="st">"quantreg"</span>, <span class="st">"rlang"</span>, <span class="st">"scales"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"survey"</span>, <span class="st">"srvyr"</span>, <span class="st">"devtools"</span>, <span class="st">"future"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(my_packages, <span class="at">repos =</span> <span class="st">"http://cran.rstudio.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="minimum-technical-skills-needed" class="level2">
+<h2 class="anchored" data-anchor-id="minimum-technical-skills-needed"><strong>Minimum Technical Skills Needed</strong></h2>
+<p>Minimum technical skills are needed in this course. All work in this course must be completed and submitted online through Canvas and all assignments will be completed in R / Rmarkdown / Quarto. Therefore, you must have consistent and reliable access to a computer and the Internet.</p>
+<p>The basic technical skills you have include the ability to:</p>
+<ul>
+<li>Organize and save electronic files;</li>
+<li>Use UCD email and attached files;</li>
+<li>Check email and Canvas a few times / week;</li>
+<li>Download and upload documents;</li>
+<li>Locate information with a browser; and</li>
+<li>Use Canvas.</li>
+</ul>
+<p>However, you will spend about 50% of this course using R. Therefore, to get the most out of this class, I highly recommend having a better-than-beginner understanding or and experience with the R programming language. R is a skill, just like understanding the components of quality data and workflows, and for the purposes of this course, both are equally necessary and important. If you have any concerns about whether your R skills are strong enough for the course, please talk to the instructor or consider taking the course in a future year.</p>
+</section>
+<section id="course-assignments-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="course-assignments-and-grading"><strong>Course Assignments and Grading</strong></h2>
+<section id="general-assignment-information" class="level3">
+<h3 class="anchored" data-anchor-id="general-assignment-information">General Assignment Information</h3>
+<ul>
+<li>All coursework (assignments) is secured in Canvas with a username and password.</li>
+<li>All assignments are due on the day indicated on the course schedule.</li>
+<li>Complete rubrics (final project presentations and paper only) will be provided in Canvas.</li>
+</ul>
+</section>
+<section id="weekly-assignments" class="level3">
+<h3 class="anchored" data-anchor-id="weekly-assignments">Weekly Assignments</h3>
+<p>The goal of this course is not simply to teach you <em>how</em> to clean hypothetical or convenient data. Rather, the goal is to teach you principles of good, accurate, reproducible, and efficient data cleaning and management, how to identify features of high quality data, and how to produce results of analyses efficiently.</p>
+<p>Weekly homework (40%) in this class will focus on programming concepts from that week. Each week, you will complete one problem set, applying the skills you learned that week <strong><em>to your own data</em></strong>. Submit each of these via Canvas by <u><strong>midnight the Sunday before class</strong></u>.</p>
+<p>These will be graded for completion (you turned it in), relevance (it should be clear that you actually tried to do what you asked), and effort (please show your work). You will not receive feedback on them unless there is an ongoing problem (e.g., lack of depth or effort).</p>
+<p>This is good opportunity to:</p>
+<ol type="1">
+<li>Better understand challenges with your own data (relative to others)</li>
+<li>Reflect on features of your current workflow you like or dislike</li>
+<li>Critique your own work and note ideas to improve (I will probably do this a lot in class!).</li>
+<li>Create a repository of ideas and code for future research.</li>
+</ol>
+</section>
+<section id="final-exam" class="level3">
+<h3 class="anchored" data-anchor-id="final-exam">Final Exam</h3>
+<p>The final exam for this course is instead a final project, due at the day and time of the scheduled final exam. The last day of the course will (likely) be used for presentations on the final project in order to receive feedback from the class and instructor.</p>
+<p>Additional information on the project will be provided as a separate document on Canvas, announced in week 4 or 5. The project will not be long and the goal will be for you create a document outlining your workflow.</p>
+<p>To ensure that your workflows are as effective as possible, this will proceed in three parts:</p>
+<ul>
+<li>Initial proposal of an idea submitted via Canvas.</li>
+<li>Updated proposal submitted via Canvas.</li>
+<li>5-10 minute presentation to the class on the last day of the course (10% of your grade).</li>
+</ul>
+<p>Final Project (20%).</p>
+</section>
+<section id="extra-credit" class="level3">
+<h3 class="anchored" data-anchor-id="extra-credit">Extra Credit</h3>
+<ul>
+<li>Participate in a <a href="https://www.tidytuesday.com/">https://www.tidytuesday.com</a>.</li>
+<li>2 pt extra credit for each one you participate in (max 6 pt total).</li>
+<li>Can post on Twitter or just create a document with the code and output</li>
+<li>Submit on Canvas
+<ul>
+<li>If posting, link the post in in your submission</li>
+<li>If not posting, attach the knitted file</li>
+</ul></li>
+</ul>
+</section>
+<section id="evaluation-and-grading-scale" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation-and-grading-scale">Evaluation and Grading Scale</h3>
+<p>All grades will be posted on Canvas. You are strongly encouraged to check your scores in Canvas regularly. A final letter grade will be assigned based on percentages.</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><strong>Assignment Weights</strong></td>
+<td><strong>Percent</strong></td>
+</tr>
+<tr class="even">
+<td>Class Participation</td>
+<td>20%</td>
+</tr>
+<tr class="odd">
+<td>Problem Sets</td>
+<td>40%</td>
+</tr>
+<tr class="even">
+<td>Final Project Proposal</td>
+<td>10%*</td>
+</tr>
+<tr class="odd">
+<td>Class Presentation</td>
+<td>10%*</td>
+</tr>
+<tr class="even">
+<td>Final Project</td>
+<td>20%*</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p>* If presentations are omitted, proposals will be worth 15% and Final Projects 25%.</p>
+<section id="grading-scale" class="level4">
+<h4 class="anchored" data-anchor-id="grading-scale"><strong>Grading Scale</strong></h4>
+<p>92.5% - 100% = A; 89.5% - 92.4% = A-<br>
+87.5% - 89.4% = B+; 82.5% - 87.4% = B; 79.5% - 82.4% = B-<br>
+77.5% - 79.4% = C+; 72.5% - 77.4% = C; 69.5% - 72.4% = C-<br>
+67.5% - 69.4% = D+; 62.5% - 67.4% = D; 59.5% - 62.4% = D-<br>
+0% - 59.4% = F</p>
+</section>
+</section>
+</section>
+<section id="course-policies-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="course-policies-and-procedures"><strong>Course Policies and Procedures</strong></h2>
+<p>Many of the below are also outlined in the <a href="https://ossja.ucdavis.edu/code-academic-conduct?utm_source=sja&amp;utm_medium=redirect-page">UC Davis Code of Academic Conduct</a>.</p>
+<section id="attendance-policy" class="level3">
+<h3 class="anchored" data-anchor-id="attendance-policy">Attendance Policy</h3>
+<p>When you miss class, you miss important information, not all of which will be available in the zoom recordings. This course is only 10 class meetings, so each meeting comprises 10% of your in-class time. If you need to miss more than one class, I suggest considering whether taking this course in a future term. I will teach this course either annually or biennially, so there will be future opportunities to take this course in many cases (e.g., for example, if you are a second year student who will miss two meetings, taking the course in your fourth year may be more effective).</p>
+</section>
+<section id="late-workmake-up-policy" class="level3">
+<h3 class="anchored" data-anchor-id="late-workmake-up-policy">Late Work/Make-up Policy</h3>
+<p>Late work will be allowed per instructor discretion. Please try to proactively communicate these needs. Assignments due at midnight will have a 9 hour “grace period” with no penalty. Each day late is subject to a 20% drop in course grade (e.g., a 10-point response is worth 8 points on day 1 late, 6 points on day 2 late, etc.).</p>
+</section>
+<section id="academic-integrity" class="level3">
+<h3 class="anchored" data-anchor-id="academic-integrity">Academic Integrity</h3>
+<p>You are expected to practice the highest possible standards of academic integrity. Any deviation from this expectation will result in a minimum academic penalty of your failing the assignment, and will result in additional disciplinary measures. This includes improper citation of sources, using another student’s work, and any other form of academic misrepresentation.</p>
+<section id="plagiarism" class="level4">
+<h4 class="anchored" data-anchor-id="plagiarism">Plagiarism</h4>
+<p>Using the words or ideas of another as if they were one’s own is a serious form of academic dishonesty. If another person’s complete sentence, syntax, key words, or the specific or unique ideas and information are used, one must give that person credit through proper citation.</p>
+</section>
+</section>
+<section id="incomplete-grades" class="level3">
+<h3 class="anchored" data-anchor-id="incomplete-grades">Incomplete Grades</h3>
+<p>You may assigned an ‘I’ (Incomplete) grade if you are unable to complete some portion of the assigned course work because of an unanticipated illness, accident, work-related responsibility, family hardship, or verified learning disability. An Incomplete grade is not intended to give you additional time to complete course assignments or extra credit unless there is indication that the specified circumstances prevented you from completing course assignments on time.</p>
+</section>
+<section id="instructional-methods" class="level3">
+<h3 class="anchored" data-anchor-id="instructional-methods">Instructional Methods</h3>
+<p>The course will be taught using multiple instructional methods. I will typically briefly (45-50 minutes) lecture at the beginning of the class on conceptual topics related to data cleaning and management. We will then have a 75 minute workshop, which will be a mix of going through code and examples together and working in small groups (if preferred) on short exercises. The remainder of the class will be available to receive support on Problem Sets for that week and other general questions (optional). The proportion of these will vary by week and portions of the course will be shortened or dropped as needed.</p>
+</section>
+<section id="diversity-and-inclusion" class="level3">
+<h3 class="anchored" data-anchor-id="diversity-and-inclusion">Diversity and Inclusion</h3>
+<p>The university is committed to a campus environment that is inclusive, safe, and respectful for all persons. To that end, all course activities will be conducted in an atmosphere of friendly participation and interaction among colleagues, recognizing and appreciating the unique experiences, background, and point of view each student brings. You are expected at all times to apply the highest academic standards to this course and to treat others with dignity and respect.</p>
+<section id="accessibility-disability-and-triggers-credit-to-dr.-david-moscowitz" class="level4">
+<h4 class="anchored" data-anchor-id="accessibility-disability-and-triggers-credit-to-dr.-david-moscowitz"><em>Accessibility, Disability,&nbsp;and Triggers [credit to <a href="https://sc.edu/study/colleges_schools/cic/faculty-staff/moscowitz_david.php">Dr.&nbsp;David Moscowitz</a>]</em></h4>
+<p>I am committed to ensuring course&nbsp;<strong>accessibility</strong> for all students. If you have a documented&nbsp;<strong>disability</strong> and expect reasonable accommodation to complete course requirements,&nbsp;<em>please notify&nbsp;me at least one week before accommodation is needed</em>. Please also provide&nbsp;<a href="about:blank">SDRC</a>&nbsp;(https://sc.edu/about/offices_and_divisions/student_disability_resource_center/) documentation to me before requesting accommodation. Likewise, if you are aware of cognitive or emotional&nbsp;<strong>triggers</strong> that could disrupt your intellectual or mental health, please let me know so that I can be aware in terms of course content.&nbsp;</p>
+<p><strong><em>Absences for Personal or Religious Holidays</em></strong></p>
+<p>I am committed to allowing students to exercise their rights to religious freedom. Accommodations on assignment due dates and absences will be allowed for students observing religious holidays that fall on course days. Please email me to let me know ahead of time to allow for accommodations to be made.</p>
+</section>
+<section id="title-ix-and-gendered-pronouns-credit-to-dr.-david-moscowitz" class="level4">
+<h4 class="anchored" data-anchor-id="title-ix-and-gendered-pronouns-credit-to-dr.-david-moscowitz"><em>Title IX&nbsp;and Gendered Pronouns [credit to <a href="https://sc.edu/study/colleges_schools/cic/faculty-staff/moscowitz_david.php">Dr.&nbsp;David Moscowitz</a>]</em></h4>
+<p>This course affirms equality and respect for all gendered identities and expressions. Please don’t hesitate to correct me regarding your preferred gender pronoun and/or name if different from what is indicated on the official class roster.&nbsp;Likewise, I am&nbsp;committed to nurturing an environment free from discrimination and harassment.&nbsp;Consistent with Title IX policy, please be aware that I as a responsible employee am obligated to report information that you provide to me about a situation involving sexual harassment or assault.&nbsp;</p>
+</section>
+<section id="values-credit-to-dr.-david-moscowitz" class="level4">
+<h4 class="anchored" data-anchor-id="values-credit-to-dr.-david-moscowitz"><em>Values [credit to <a href="https://sc.edu/study/colleges_schools/cic/faculty-staff/moscowitz_david.php">Dr.&nbsp;David Moscowitz</a>]</em></h4>
+<p>Two core values, inquiry and civility, govern our class.&nbsp;<strong>Inquiry</strong> demands that we all cultivate an open forum for exchange and substantiation of ideas. Strive to be creative, to take risks, and to challenge our conventional wisdom when you see the opportunity.&nbsp;<strong>Civility</strong> supports our inquiry by demanding ultimate respect for the voice, rights, and safety of others. Threatening or disruptive conduct may result in course and/or university dismissal. Civility also presumes basic&nbsp;<em>courtesy</em>: please be well rested, on time, and prepared for class (class time also includes a break to use the restroom, etc.), which includes silencing all personal devices.&nbsp;</p>
+<p>My perspective is that we never cease being students of this world, so I believe that attentive, reflective people always have something to learn from others. Good discussions can be energetic and passionate but are neither abusive nor offensive. Vibrant, vigorous inquiry derives from discussions that:</p>
+<ul>
+<li>challenge, defend, and apply different ideas, theories, perspectives, and skills,</li>
+<li>extend a body of knowledge into different arenas and applications, and</li>
+<li>result in a synergy that compels us to seek resolution to these discussions.</li>
+</ul>
+</section>
+</section>
+<section id="copyrightfair-use" class="level3">
+<h3 class="anchored" data-anchor-id="copyrightfair-use">Copyright/Fair Use</h3>
+<p>I will cite and/or reference any materials that I use in this course that I do not create.&nbsp; You, as students, are expected to not distribute any of these materials, resources, homework assignments, etc. (whether graded or ungraded) without permission from the instructor.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

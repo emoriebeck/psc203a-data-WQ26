@@ -1,0 +1,466 @@
+---
+title: "Week 10 Workbook"
+author: "Emorie D Beck"
+format: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = F}
+pkg <- c("knitr", "psych", "lavaan", "future", "plyr", "tidyverse", "furrr")
+pkg <- pkg[!pkg %in% rownames(installed.packages())]
+if(length(pkg) > 0) map(pkg, install.packages)
+
+library(knitr)
+library(psych)
+library(lavaan)
+library(future)
+library(plyr)
+library(tidyverse)
+library(furrr) # note loading this last ONLY because it depends on tidyverse and will not mask it
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,	
+                      warning = FALSE,
+                      results = 'show',
+                      fig.width = 4, 
+                      fig.height = 4, 
+                      fig.retina = 3)
+options(htmltools.dir.version = FALSE
+        , knitr.kable.NA = "")
+```
+
+# Week 10 - Review & Reflection  
+
+# Topics
+
+1.  Intro to Base R
+2.  `dplyr`: Manipulating Data
+3.  `tidyr`: Reshaping and Transforming Data
+4.  Codebooks
+5.  `purrr` & Functions
+6.  Review
+7.  Strings, dates, & regex
+8.  Functional Tables & Figures
+9.  GitHub & Parallelization
+10. Today
+
+# Lessons & Takeaways
+
+## Lesson 1
+
+### Always load tidyverse last
+
+-   Always load all packages **at the beginning of a script**
+
+```{r}
+library(psych)
+library(ggdist)
+library(knitr)
+library(kableExtra)
+library(brms)
+library(broom)
+library(broom.mixed)
+library(patchwork)
+library(plyr)
+library(tidyverse)
+library(furrr)
+```
+
+-   Note: `tidyverse` loads: `dplyr`, `forcats` (factors), `ggplot2`, `lubrdiate`, `purrr`, `readr`, `stringr`, `tibble`, and `tidyr`
+-   This is good! It reduces the number of packages you have to load and ensures there's no order issues
+
+------------------------------------------------------------------------
+
+### Deal with Conflicts
+
+-   Use the `conflicts()` function to figure out what conflicts you have
+-   Use `package::fnName()` to call a function directly without loading a package / to override conflicts
+    -   e.g., `kableExtra` should be loaded before `tidyverse`, but then `tidyverse` masks `kableExtra::group_rows()`
+
+```{r, eval = F}
+kable(tab) %>%
+  kable_classic(html_font = "Times") %>%
+  kableExtra::group_rows("Header", 1, 3)
+```
+
+## Lesson 2
+
+### There is no single way to do anything
+
+-   The best way to do something is a way that you understand or you can introduce the mistakes you're trying to prevent
+
+```{r}
+bfi %>%
+  mutate(
+    sid = 1:n(),
+    E = rowMeans(pick(matches("E\\d")), na.rm = T), 
+    A = rowMeans(pick(matches("A\\d")), na.rm = T), 
+    C = rowMeans(pick(matches("C\\d")), na.rm = T), 
+    N = rowMeans(pick(matches("N\\d")), na.rm = T), 
+    O = rowMeans(pick(matches("O\\d")), na.rm = T)
+  ) %>%
+  ungroup() %>%
+  select(sid, E:O)
+```
+
+```{r}
+bfi %>% 
+  mutate(sid = 1:n()) %>%
+  pivot_longer(
+    cols = c(-sid, -gender, -education, -age)
+    , names_to = c("trait", "item")
+    , names_sep = -1
+    , values_to = "value"
+  ) %>%
+  group_by(sid, trait) %>%
+  summarize(value = mean(value, na.rm = T)) %>%
+  pivot_wider(names_from = "trait", values_from = "value") %>%
+  ungroup()
+```
+
+## Lesson 3
+
+### Start at the end
+
+-   What do you want your data to look like?
+-   What do they look like now?
+-   Now fill in the middle
+
+HLM / MLM / MEM: RE ex: time, trial, stimuli, group, study, day, w/in person conditions FE ex: gender, baseline age, b/w subject conditions, country, etc. (can also be an RE)
+
+ID \| RE1 \| RE2 \| DV \| FE1\
+1 \| 1 \| 1 \| 4 \| 3\
+1 \| 1 \| 2 \| 3 \| 3\
+1 \| 2 \| 1 \| 2 \| 3\
+1 \| 2 \| 2 \| 1 \| 3\
+2 \| 1 \| 1 \| 5 \| 1\
+2 \| 1 \| 2 \| 3 \| 1\
+2 \| 2 \| 1 \| 1 \| 1\
+2 \| 2 \| 2 \| 2 \| 1
+
+------------------------------------------------------------------------
+
+### Start at the end
+
+ID \| RE_1_1 \| RE_1_2 \| RE+2_1 \| RE_2_2 \| FE2 1 \| 4 \| 3 \| 2 \| 1 \| 3\
+2 \| 5 \| 3 \| 1 \| 2 \| 1
+
+-   `pivot_longer()`: RE_1_1:RE_2_2
+    -   names_to = c("RE1", "RE2")
+    -   values_to = "DV"
+    -   names_sep = "\_"
+    -   names_prefix = "RE\_"
+-   Note this is only possible / easy because of the naming scheme! If we had them named "RE1_1", this would not have been possible / would have been CONSIDERABLY more difficult
+
+## Lesson 4
+
+### Don't be afraid to split your data into chunks
+
+-   In alignment with starting at the end, a key strategy is knowing how you can **chunk** your data
+-   No right or wrong way to chunk, but some examples are:
+    -   items / values from the same scale / task (e.g., DV across trials / conditions)
+    -   baseline items (from other survey or from baseline wave)
+    -   outcome variables
+    -   descriptive variables
+    -   item-level variables v. composites
+
+## Lesson 5
+
+### Joining data requires a key, so be thoughtful and you'll always be able to put the pieces together
+
+-   The most important thing when splitting data into chunks is to make sure you can put it back together
+-   This requires one (e.g., participant ID) or more (e.g., participant ID, wave) keys that allows R to match the right values together
+-   This should be the last thing you do
+    -   Please don't create mega datasets where you tack things on to the raw data as you go
+    -   This will eat RAM and make your life harder (and sometimes could end up in you accidentally sharing identifying information!!)
+
+## Lesson 6
+
+### One of the most important skills is getting comfortable making data move flexibly from wide to long
+
+-   Remember our example above? Without knowledge of how to do so, it would have been almost impossible
+-   It's okay if it takes more than one step! That's better than manually moving stuff in excel and not creating a reproducible path!
+
+```{r}
+bfi %>% 
+  mutate(sid = 1:n()) %>%
+  pivot_longer(
+    cols = c(-sid, -gender, -education, -age)
+    , names_to = c("trait", "item")
+    , names_sep = -1
+    , values_to = "value"
+  ) %>%
+  group_by(sid, trait) %>%
+  summarize(value = mean(value, na.rm = T)) %>%
+  pivot_wider(names_from = "trait", values_from = "value") %>%
+  ungroup()
+```
+
+## Lesson 7
+
+### Establish a consistent naming scheme
+
+-   label objects relative to a stage or research question
+    -   e.g., `nested_RQ1`, `RQ1_mods`, `raw_df`
+    -   this will help you clear your environment of clutter
+-   use temporary objects repeatedly
+    -   e.g., if you need to use an object as an intermediary step, call it `tmp` and overwrite it as many times as is useful
+    -   You can always remove it using `rm(tmp)`
+
+## Lesson 8
+
+### You won't remember details about raw variables or variables you create, document them
+
+-   Clearly document your raw data and planned transformations before (preregistration) or as (deviations or just reactive responses to aspects of the data) you clean your data
+-   Clearly document all new variables you create, including their scale, etc.
+
+## Lesson 9
+
+### Reference data frames are great keys for ordering and renaming
+
+-   Clearly documenting all new variables you create also creates the opportunity to create **reference data frames**, which can include variable names in the data, category information, longer names for the variables, descriptions of the scales, and the link function / column names e.g.,
+
+cat \| name \| scale \| long_name \| lab\
+Outcome \| dementia \| 0/1 \| Clinical Dementia \| OR \[CI\] Outcome \| braak \| 1-5 \| Braak Stage \| est. \[CI\] Predictor \| E \| 0-10 \| Extraversion \|\
+Predictor \| C \| 0-10 \| Conscientiousness \|\
+Moderator \| age \| num \| Baseline Age \| Moderator \| ses \| 1-7 \| Baseline SES \|
+
+------------------------------------------------------------------------
+
+### Reference data frames are great keys for ordering and renaming
+
+```{r, eval = F}
+out <- tribble(
+  ~cat,     ~name,        ~scale,      ~long_name,              ~lab,   
+"Outcome",  "dementia",   "0/1",       "Clinical Dementia",      "OR [CI]",
+"Outcome",  "braak",      "1-5",       "Braak Stage",            "est. [CI]" 
+)
+
+tab %>%
+  left_join(out %>% select(outcome = name, long_out = long_name, lab)) 
+```
+
+## Lesson 10
+
+### Reorder everything using factors
+
+-   Often, there are specific orders we want / need strings to be in; this is where factors come in
+-   There's a whole package for this called [`forcats`](https://forcats.tidyverse.org).
+-   Reference data frames are a great way to order your variables
+
+```{r, eval = F}
+out <- tribble(
+  ~cat,     ~name,        ~scale,      ~long_name,              ~lab,   
+"Outcome",  "dementia",   "0/1",       "Clinical Dementia",      "OR [CI]",
+"Outcome",  "braak",      "1-5",       "Braak Stage",            "est. [CI]" 
+)
+
+tab %>%
+  left_join(out %>% select(outcome = name, long_out = long_name, lab)) %>%
+  mutate(long_out = factor(long_out, levels = out$long_name))
+# mutate(long_out = factor(oucome, levels = out$name, labels = out$long_name))
+```
+
+------------------------------------------------------------------------
+
+### Reorder everything using factors
+
+-   Remember this?
+
+```{r, eval = F}
+terms <- tribble(
+  ~path,     ~new,                         ~level
+  "i~1",     "Intercept",                  "Fixed",
+  "s~1",     "Slope",                      "Fixed",
+  "i~~i",    "Intercept Variance",         "Random",
+  "s~~s",    "Slope Variance",             "Random",
+  "i~~s",    "Intercept-Slope Covariance", "Random"
+)
+
+extract_fun <- function(m, trait){
+  p <- parameterEstimates(m) %>%
+    data.frame()
+  # saveRDS(p, file = sprintf("results/summary/%s.RDS", trait))
+  p %>%
+    unite(path, lhs, op, rhs, sep = "") %>%
+    filter(path %in% terms$path) %>%
+    left_join(terms) %>%
+    select(term = new, est, ci.lower, ci.upper, pvalue) %>%
+    mutate(term = factor(term, levels = terms$new)) %>%
+    arrange(term)
+}
+```
+
+## Lesson 11
+
+### Long lists of anything are asking for trouble
+
+-   It took me way too long to even make the short examples above using `tribble()`
+-   Using a spreadsheet is an easier way to compile that information
+-   The `googlesheets4` package is also a package dedicated to helping you to read, write, and parse Google Sheets
+-   It's easy to load files stored on GitHub
+-   Spreadsheets are user friendly even for those who aren't code literate
+-   It's way easier to reorder a spreadsheet (cut-insert cut rows) than to have to move rows around in an R script
+-   f%#\*ing commas and quotes
+
+## Lesson 12
+
+### File structure and organization are your most important data cleaning & management tools
+
+-   Your data will never be clean if you don't know where your files are!
+-   No one wants to have to rerun things repeatedly
+    -   Store large files (models, bootstrapped resamples, bayesian samples, etc.) using a clear, machine readable, parseable file structure (e.g., `dementia-E-age-unadj.RDS`)
+    -   These can then be read in like:
+
+```{r, eval = F}
+nested_res <- tibble(
+  file = list.files("models"),
+  mod = map(file, \(x) readRDS(sprintf("models/%s", x)))
+  ) %>%
+  separate(file, c("outcome", "trait", "moderator", "adj"), sep = "-")
+```
+
+------------------------------------------------------------------------
+
+### File structure and organization are your most important data cleaning & management tools
+
+-   Same thing goes for smaller objects
+-   Save those small ones, like summaries (e.g., from `broom::tidy()`, `coef()`, etc.), predicted values, random effects, etc. using the same file structure, and you always have everything at your fingertips
+-   Plus you can merge them more easily!
+-   This organization also transfers to GitHub for easy loading via raw links!
+
+## Lesson 13
+
+### Some things / functions are portable across projects, some need modification
+
+-   Some functions are portable:
+
+```{r}
+z_scale <- function(x) (x - mean(x, na.rm = T))/sd(x, na.rm = T)
+pomp_score <- function(x){
+  rng <- range(x, na.rm = T)
+  (x - rng[1])/(rng[2] - rng[1])*100
+}
+```
+
+------------------------------------------------------------------------
+
+### Some things / functions are portable across projects, some need modification
+
+-   Some are not:
+-   This function works for `lavaan`. With slight modifications, it could also work for `broom::tidy()` output
+
+```{r, eval = F}
+format_fun <- function(d){
+  d %>%
+    mutate(sig = ifelse(pvalue < .05, "sig", "ns")) %>%
+    rowwise() %>%
+    mutate_at(vars(est, ci.lower, ci.upper), round_fun) %>%
+    mutate_at(vars(pvalue), pround_fun) %>%
+    ungroup() %>%
+    mutate(CI = sprintf("[%s,%s]", ci.lower, ci.upper)) %>%
+    mutate_at(vars(est, CI, pvalue), ~ifelse(sig == "sig" & !is.na(sig), sprintf("<strong>%s</strong>", .), .)) 
+}
+```
+
+------------------------------------------------------------------------
+
+### Some things / functions are portable across projects, some need modification
+
+-   One possibility is to create an `.R` script that you can "source" (`source("custom_functions.R")`)
+    -   You could have general functions (e.g., `z_scale()`, `pomp_score()`) and use case specific ones (e.g., `lavaan_format_fun()` or `broom_format_fun()`)
+    -   I often like to copy these into my R workflow because it means that everything is included in the scripts (even though the `.R` script can be included in the repo)
+
+## Lesson 14
+
+### Resources are finite, so be aware of how you're using them
+
+-   Using grid view in your Environment tab is a great way to track resources
+-   The environment below came after running 95 separate models, all of which were held in memory
+
+![](images/full-environment.png)
+
+------------------------------------------------------------------------
+
+### Resources are finite, so be aware of how you're using them
+
+::: nonincremental
+-   Using grid view in your Environment tab is a great way to track resources
+:::
+
+-   The environment below came from reloading smaller summary objects rather than keeping all the models in working memory
+
+![](images/tidy-environment.png)
+
+------------------------------------------------------------------------
+
+### Resources are finite, so be aware of how you're using them
+
+-   Activity Monitor (Mac) or Process Monitor (Windows) is another great way to track general system usage across many programs, not just `R`
+-   I use this in particular when I'm doing parallelization
+    -   Sometimes threads stall (drop to 0% CPU or Memory)
+    -   Sometimes threads use way too much memory (and you start using swap)
+    -   It's great to track this so you can interrupt
+
+## Lesson 15
+
+### Data frames are your friend
+
+-   They are the easiest objects to work with in R because of the number of dedicated tools and functions for working with them
+-   But they can get unwieldy (e.g., printing a data frame with hundreds of columns and thousands of rows)
+-   `tibbles` help with this but don't always play nice
+    -   You can't go from some classes to tibble directly
+    -   Instead go data.frame -\> tibble
+
+```{r, eval = F}
+r <- cor(df, use = "pairwise")
+r[upper.tri(r, diag = T)] <- NA 
+r %>%
+  data.frame() %>%
+  as_tibble()
+```
+
+## Lesson 16
+
+### RStudio / Pivot Cheat Sheets
+
+[![Posit Cheatsheets](images/cheatsheets.png)](https://posit.co/resources/cheatsheets/)
+
+------------------------------------------------------------------------
+
+### RStudio / Pivot Cheat Sheets
+
+-   [Quarto](https://rstudio.github.io/cheatsheets/quarto.pdf)
+-   [RStudio](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+-   [RMarkdown](https://rstudio.github.io/cheatsheets/rmarkdown.pdf)
+-   [lubridate](https://rstudio.github.io/cheatsheets/lubridate.pdf)
+-   [stringr](https://rstudio.github.io/cheatsheets/strings.pdf)
+-   [purrr](https://rstudio.github.io/cheatsheets/purrr.pdf)
+-   [readr](https://rstudio.github.io/cheatsheets/data-import.pdf)
+-   [tidyr](https://rstudio.github.io/cheatsheets/tidyr.pdf)
+-   [dplyr](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+-   [ggplot2](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+
+## Hacks
+
+-   [The option / alt key and other shortcuts](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE)
+-   The tab key: "attempt completion"
+-   [R templates](https://quarto.org/docs/extensions/starter-templates.html)
+-   [GitHub Pages](https://pages.github.com)
+-   [Functions without inputs](https://bookdown.org/rdpeng/rprogdatascience/functions.html)

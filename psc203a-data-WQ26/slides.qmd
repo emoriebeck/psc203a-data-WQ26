@@ -1,0 +1,12 @@
+---
+title: "Slides"
+---
+
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/01-week1-slides-code.html" width="780" height="500"></iframe>
+```
+
+</div>

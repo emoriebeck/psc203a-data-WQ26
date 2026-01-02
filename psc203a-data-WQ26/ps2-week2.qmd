@@ -1,0 +1,9 @@
+---
+title: "Problem Set Week 2"
+---
+
+**Due Date**: Monday, October 16, 12:01 AM PST.
+
+[Download](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/02-ps2/problemset2.zip) your problem set for week 2 below or on Canvas.
+
+Answers can be found [here](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/02-ps2/problemset2-solutions.zip).

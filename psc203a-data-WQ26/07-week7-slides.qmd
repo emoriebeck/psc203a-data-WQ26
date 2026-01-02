@@ -1,0 +1,14 @@
+---
+title: "Week 7 Slides"
+---
+
+Welcome to Week 7! This week, we'll talk about tricky classes like dates and strings along with regex (regular expressions).
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/07-week7-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>
+

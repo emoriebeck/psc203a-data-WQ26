@@ -1,0 +1,13 @@
+---
+title: "Week 3 Slides"
+---
+
+Welcome to Week 3! This week, we'll talk about data quality, descriptive statistics / exploratory data analysis, and `tidyr`.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/03-week3-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>

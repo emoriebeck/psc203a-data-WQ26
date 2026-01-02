@@ -1,0 +1,37 @@
+---
+title: "Final Project Submission"
+subtitle: "PSC290 - Data Cleaning and Management, Fall 2023"
+author: "Emorie D Beck"
+institution: "University of California, Davis"
+format: html
+---
+
+-   Due at 11:59 PM PST on December **15**, 2023 on Canvas
+
+## Format
+
+-   Background (2-3 pages):
+    -   Short background (What are you hacking?)
+    -   Approach (How you do plan to hack this? What "product" will you producing?)
+    -   Motivation (Why are you hacking this particular problem / issue / question / procedure?)
+    -   (Note overlap here with the proposal. Modify/expand/etc. as needed. Think of it sort of as the cover letter for what you're submitting)
+-   The product:
+    -   The actual thing you are hacking / producing (see scope below)
+    -   If code, ideally include as .qmd / .Rmd as well as the rendered .pdf / .html / .docx
+
+## Goal
+
+The goal of this course is to build a set of tools for cleaning and managing your data. As discussed in class, a big part of that is to create a workflow for your research that is efficient, clear, and minimizes errors. The final project in the course aims to provide an opportunity for you to flesh out what that means for you and research. There's no right or wrong way to build a sustainable workflow for yourself.
+
+## Scope
+
+The project is open-ended, but some examples are:
+
+-   A preregistration template for your kind of data / research
+-   A quarto / Rmarkdown / R script / R Project template for the typical structure of research projects
+-   A data cleaning pipeline / template for your kind of data / research
+-   A set of functions meant to help you improve your research workflow
+-   Writing clear documentation for a new or previous data collection
+-   A data cleaning or analysis script that draws on different course concepts (e.g., directory structures, codebooks, functions, iteration / `purrr`, etc.)
+-   A "checks" / procedure checklist that documents robustness tests and aims to improve the accuracy and efficiency of your workflow
+-   Anything else that draws on things you learned in class and focuses on data cleaning, R, data management, procedures, GitHub, etc.

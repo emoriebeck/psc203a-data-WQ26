@@ -1,0 +1,14 @@
+---
+title: "Week 9 Slides"
+---
+
+Welcome to Week 9! This week, we'll talk about building Git, GitHub, parallelization, `future`, and `furrr`.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/09-week9-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>
+
