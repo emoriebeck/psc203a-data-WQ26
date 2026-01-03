@@ -10,7 +10,7 @@ University of California, Davis
 
 ## **Course Description**
 
-::: {layout="[ 65,35 ]"}
+::::: {layout="[ 65,35 ]"}
 ::: {#first-column}
 In graduate education, training on research (and statistical) methods and conceptual frameworks far outpaces training on key technical skills that underpin all research, empirical or otherwise. On average, researchers spend about 80% of their (analytic) time on data cleaning, but we spend comparatively little teaching those skills. This course aims to fill that gap by helping researchers to (1) build their reproducible research workflow and (2) improve their data cleaning and general statistical programming skills. To that end, each session will be split to address each of these goals, with the beginning of class focused on conceptual ideas about best practices in building a workflow and the latter half focused on technical training on programming and cleaning data in R. This course will be set up as a "bring your own data" course to allow students to anticipate specific challenges that face different types of research. 
 
@@ -22,7 +22,7 @@ This course is not a "pure" data science (i.e. we won't be working with database
 
 ![](static/tidyverse.png)
 :::
-:::
+:::::
 
 ## **Navigating This Site:**
 
@@ -30,7 +30,7 @@ This course is not a "pure" data science (i.e. we won't be working with database
 
 2\. Reading list (and links) and links to workshop slides are under [**Schedule**](schedule.html) and on Canvas. I recommend bookmarking this site to allow you access to all materials in perpetuity.
 
-3\. Final Project Information will be under **Final Project**. More details about the final project will be posted by the first week of February. 
+3\. Final Project Information will be under **Final Project**. More details about the final project will be posted by the first week of February.
 
 4\. The most updated version of the syllabus will be on the [**Syllabus**](syllabus.html) page and can be downloaded there as well.
 

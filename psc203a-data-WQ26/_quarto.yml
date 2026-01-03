@@ -14,8 +14,8 @@ website:
       - sidebar:slides
       - text: "Schedule"
         file: schedule.qmd
-      # - sidebar:assignments
-      # - sidebar:finalproject
+      - sidebar:assignments
+      - sidebar:finalproject
       # - text: "Final Project"
       #   file: final-project.qmd
       - about.qmd
@@ -48,27 +48,27 @@ website:
         # - 10-week10-slides.qmd
         # - 10-week10-workbook.qmd
         
-    # - id: assignments
-    #   title: "Problem Sets"
-    #   style: "docked"
-    #   background: light
-    #   collapse-level: 2
-    #   contents:
-        # - ps1-week1.qmd
-        # - ps2-week2.qmd
-        # - ps3-week3.qmd
-        # - ps4-week4.qmd
-        # - ps5-week5.qmd
+    - id: assignments
+      title: "Problem Sets"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents:
+        - ps1-week1.qmd
+        - ps2-week2.qmd
+        - ps3-week3.qmd
+        - ps4-week4.qmd
+        - ps5-week5.qmd
         
-    # - id: finalproject 
-    #   title: "Final Project"
-    #   style: "docked"
-    #   background: light
-    #   collapse-level: 2
-    #   contents: 
-        # - final-project.qmd
-        # - final-project-submission.qmd
-        # - final-project-rubric.qmd
+    - id: finalproject
+      title: "Final Project"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents:
+        - final-project.qmd
+        - final-project-submission.qmd
+        - final-project-rubric.qmd
 
 format:
   html:
