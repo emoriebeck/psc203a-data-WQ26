@@ -1,9 +1,0 @@
----
-title: "Problem Set Week 3"
----
-
-**Due Date**: Monday, October 23, 12:01 AM PST.
-
-[Download](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/03-ps3/problemset3.zip) your problem set for week 3 below or on Canvas.
-
-Answers will be posted after the due date.

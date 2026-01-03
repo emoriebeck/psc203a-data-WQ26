@@ -1,9 +1,0 @@
----
-title: "Problem Set Week 1"
----
-
-**Due Date**: Monday, October 9, 12:01 AM PST.
-
-[Download](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/01-ps1/problemset1.zip) your problem set for week 1 below or on Canvas.
-
-Answers can be found [here](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/01-ps1/problemset1-solutions.zip).
