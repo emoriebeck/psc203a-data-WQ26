@@ -702,84 +702,84 @@
   {
     "objectID": "01-week1-workbook.html",
     "href": "01-week1-workbook.html",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "",
-    "text": "You can download the code for this workbook and the rendered workbook here.\n\nCodelibrary(knitr)\nlibrary(psych)\nlibrary(plyr)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
+    "text": "Codelibrary(knitr)\nlibrary(psych)\nlibrary(plyr)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
   },
   {
     "objectID": "01-week1-workbook.html#course-goals-learning-outcomes",
     "href": "01-week1-workbook.html#course-goals-learning-outcomes",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Course Goals & Learning Outcomes",
     "text": "Course Goals & Learning Outcomes\nAfter successful completion of this course, you will be able to:\n\nBuild your own research workflow that can be ported to future projects.\nLearn new programming skills that will help you efficiently, accurately, and deliberately clean and manage your data.\nCreate a bank of code and tools that can be used for a variety of types of research."
   },
   {
     "objectID": "01-week1-workbook.html#course-expectations",
     "href": "01-week1-workbook.html#course-expectations",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Course Expectations",
     "text": "Course Expectations\n\n~50% of the course will be in R\nYou will get the most from this course if you:\n\nhave your own data you can apply course content to\nknow how to clean clean, transform, and manage that data\ntoday’s workshop is a good litmus test for this"
   },
   {
     "objectID": "01-week1-workbook.html#course-materials",
     "href": "01-week1-workbook.html#course-materials",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Course Materials",
-    "text": "Course Materials\n\nAll materials (required and optional) are free and online\n\nWickham & Grolemond: R for Data Science https://r4ds.had.co.nz\n\nWickham: Advanced R http://adv-r.had.co.nz\n\n\nData Camp: All paid content unlocked"
+    "text": "Course Materials\n\nAll materials will be posted on Canvas, and assignments will be submitted there\nBut the course website will be your best resource because you will have free access to it, even after you complete the course."
   },
   {
     "objectID": "01-week1-workbook.html#assignments",
     "href": "01-week1-workbook.html#assignments",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Assignments",
-    "text": "Assignments\n\n\nAssignment Weights\nPercent\n\n\n\nClass Participation\n20%\n\n\nProblem Sets\n40%\n\n\nFinal Project Proposal\n10%*\n\n\nClass Presentation\n10%*\n\n\nFinal Project\n20%*\n\n\nTotal\n100%\n\n\n\nClass Participation\n\nThere are lots of ways to participate, both in and outside class meetings\nClasses will be technologically hybrid\nThe goal of this is for accessibility and to create recordings\nIf you need to miss 2+ classes (i.e. 20+% of total class time), maybe consider taking the course in a different year\nProblem Sets\n\nThe main homework in the course are weekly problem sets\nThe goal is to let you apply concepts from that week to your own data (or whatever data you’ll focus on for the class)\nProblem sets will be posted on Mondays before class\nDue 12:01 AM each Monday (starting next Monday and not including the last day of the course)\nFinal Projects\n\nFinal project replaces final exam (there are no exams)\nThis is a bring your own data class, so the goal of the course is to apply what you’re learning to your own research throughout the term\nDetails of the final project TBD, but will generally include\n\nStage 1: Proposals (due 11/13/23)\nStage 2: In-class presentations (12/04/23)\nStage 3: Final project submission (Due day and time of scheduled final; which I can’t access because ScheduleBuilder thinks I need a CRN for my own course and no one emails me back 🙃)\n\n\nExtra Credit\n\nParticipate in a https://www.tidytuesday.com.\n2 pt extra credit for each one you participate in (max 6 pt total).\nCan post on Twitter or just create a document with the code and output\n\nSubmit on Canvas\n\nIf posting, link the post in the Canvas submission\nIf not posting, attach the knitted file on Canvas"
+    "text": "Assignments\n\n\nAssignment Weights\nPercent\n\n\n\nClass Participation\n20%\n\n\nProblem Sets\n40%\n\n\nFinal Project Proposal\n10%*\n\n\nClass Presentation\n10%*\n\n\nFinal Project\n20%*\n\n\nTotal\n100%\n\n\n\nClass Participation\n\nThere are lots of ways to participate, both in and outside class meetings\nClasses will be technologically hybrid\nThe goal of this is for accessibility and to create recordings\nIf you need to miss 2+ classes (i.e. 20+% of total class time), maybe consider taking the course in a different year\nProblem Sets\n\nThe main homework in the course are weekly problem sets\nThe goal is to let you apply concepts from that week to your own data (or whatever data you’ll focus on for the class)\nProblem sets will be posted on Mondays before class\nDue 2:00 PM every other Monday (starting two weeks from now)\nFinal Projects\n\nFinal project replaces final exam (there are no exams)\nThis is a bring your own data class, so the goal of the course is to apply what you’re learning to your own research throughout the term\nDetails of the final project will be posted by the end of January, but will generally include\n\nStage 1: Proposals (due 02/16/26)\nStage 2: In-class presentations (03/09/26; *although see note on schedule)\nStage 3: Final project submission (03/18/26)\n\n\nExtra Credit\n\nParticipate in a https://www.tidytuesday.com.\n2 pt extra credit for each one you participate in (max 6 pt total).\nCan post on BlueSky/X or just create a document with the code and output\n\nSubmit on Canvas\n\nIf posting, link the post in the Canvas submission\nIf not posting, attach the knitted file on Canvas"
   },
   {
     "objectID": "01-week1-workbook.html#grading-scale",
     "href": "01-week1-workbook.html#grading-scale",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Grading Scale",
     "text": "Grading Scale\n92.5% - 100% = A; 89.5% - 92.4% = A-\n87.5% - 89.4% = B+; 82.5% - 87.4% = B; 79.5% - 82.4% = B-\n77.5% - 79.4% = C+; 72.5% - 77.4% = C; 69.5% - 72.4% = C-\n67.5% - 69.4% = D+; 62.5% - 67.4% = D; 59.5% - 62.4% = D-\n0% - 59.4% = F"
   },
   {
     "objectID": "01-week1-workbook.html#schedule",
     "href": "01-week1-workbook.html#schedule",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Schedule",
-    "text": "Schedule\n\nWeek 1: Intro & Basics\n\nWeek 2: Reproducibility & dplyr\n\nWeek 3: Data Quality & tidyr\n\nWeek 4: Codebooks & importing data\n\nWeek 5: Data structures & transformation\nWeek 6: Versioning & purrr\n\nWeek 7: Efficient R & parallelization\n\nWeek 8: TBD & tables and figures in R\n\nWeek 9: Odds and ends & help with projects\n\nWeek 10: Presentations"
+    "text": "Schedule\nOption 1:\n\nWeek 1: Intro & Basics\n\nWeek 2: Reproducibility & dplyr\n\nWeek 3: Data Quality & tidyr (RECORDING due to MLK Day)\n\nWeek 4: Codebooks & importing data\n\nWeek 5: Functions & purrr\n\nWeek 6: Review & Integration\n\nWeek 7: Data structures & transformation (RECORDING due to President’s Day)\n\nWeek 8: Reproducible Tables and Figures in R\n\nWeek 9: Efficient R & parallelization\n\nWeek 10: Presentations / Odds and ends & help with projects\nOption 2:\n\nWeek 1: Intro & Basics\n\nWeek 2: Reproducibility & dplyr\n\nWeek 3: Data Quality & tidyr (RECORDING due to MLK Day)\n\nWeek 4: Codebooks & importing data\n\nWeek 5: Functions & purrr\n\nWeek 6: Review & Integration\n\nWeek 7: WEEK OFF; Focus on Project Planning\nWeek 8: Data structures & transformation\n\nWeek 9: Reproducible Tables and Figures in R\n\nWeek 10: Efficient R & parallelization\nOption 3:\n\nWeek 1: Intro & Basics\n\nWeek 2: Reproducibility & dplyr\n\nWeek 3: WEEK OFF\nWeek 4: Data Quality & tidyr\n\nWeek 5: Codebooks & importing data\n\nWeek 6: Functions & purrr\n\nWeek 7: Review & Integration (Self-Guided workshop packet (HW 3))\nWeek 8: Data structures & transformation\n\nWeek 9: Reproducible Tables and Figures in R\n\nWeek 10: Efficient R & parallelization"
   },
   {
     "objectID": "01-week1-workbook.html#why-should-i-care",
     "href": "01-week1-workbook.html#why-should-i-care",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Why Should I Care?",
-    "text": "Why Should I Care?\n\nWhether you like it or not, you have a workflow\nYou have ways you go about doing a project that you maybe haven’t thought too much about\nIssues arise when\n\nA workflow has missing steps\n\nYour workflow is inconsistent across projects\nYour workflow is inefficient, which can lead to mistakes\n\n\nA workflow is a work in progress. If it no longer serves you, let it go"
+    "text": "Why Should I Care?\n\nWhether you like it or not, you have a workflow\nYou have ways you go about doing a project that you maybe haven’t thought too much about\nIssues arise when\n\nA workflow has missing steps\n\nYour workflow is inconsistent across projects\nYour workflow is inefficient, which can lead to mistakes\n\n\nA workflow is a work in progress. If it no longer serves you, let it go\n\nAn example:\nA workflow win:\n\nA few years ago, I got a revision in a top aging journal. In the second revision, a reviewer asked us to redo all of our one-stage analyses (hundreds of models across 8 predictors and 14 outcomes along with a number of sensitivity tests) using the more traditional two-stage approach\nTwo things saved me here:\n\nMy data and code were set up to optimally modularized;\nI had previously written a set of functions to do both the one- and two-stage approaches for a different project\n\n\nWhat could have taken me weeks or months took 1-2 hours of active work (plus inactive model running time) because I had an intentionally set up workflow\nAnother Example:\nA workflow / data management disaster:\n\n“Geneticists use a lot of labels to do their work. And it turns out that the Excel autocorrect feature didn’t appreciate those labels. In 2016, a team of researchers led by Mark Ziemann, now the head of of Bioinformatics at the Burnet Institute in Australia, authored a paper outline just how bad the problem was. Per Ziemann and team, “Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions.” Twenty percent of the papers — hardly a drop in the bucket — had an avoidable error. The problem was so bad that, as Zieman wrote in The Conversation, “the Human Gene Name Consortium, the official body responsible for naming human genes, renamed the most problematic genes. MARCH1 and SEPT1 were changed to MARCHF1 and SEPTIN1 respectively, and others had similar changes.” (That last link goes to the gene’s Wikipedia entry, which reflects the change.)”\n\nSource"
   },
   {
     "objectID": "01-week1-workbook.html#how-do-i-build-a-workflow",
     "href": "01-week1-workbook.html#how-do-i-build-a-workflow",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "How Do I Build a Workflow?",
-    "text": "How Do I Build a Workflow?\n\nBuilding a good workflow is both top-down (i.e. big steps to smaller ones) and bottom-up (i.e. necessary smaller steps make certain larger ones necessary)\nWhat?\n\n\n\nExample: New Data Collection\n1. Conceptualization\n2. Funding acquisition\n3. Preregistration\n4. Project Building\n5. Data Collection\n6. Data Cleaning\n7. Data Analysis\n8. Writing (and rewriting)\n9. Submission\n10. Revision (and possibly crying)\n11. ACCEPTANCE\n\nExample: Secondary Data\n1. Conceptualization\n2. Data search\n3. Project Building\n4. Data documentation\n5. Preregistration\n6. Data Cleaning\n7. Data Analysis\n8. Writing (and rewriting)\n9. Submission\n10. Revision (and possibly crying)\n11. ACCEPTANCE\n\n\n\nWorkflows Are Hierarchical: Example – Data Cleaning Steps\n\n\n\nExperimental Data\n1. Gather all data files\n2. Quality checks for each file\n3. Load all files\n4. Merge all files\n5. Check all descriptives\n6. Scoring, coding, and data transformation\n7. Recheck all descriptives\n8. Correlations and visualization\n9. Restructure data for analyses\n\nSecondary Data\n1. Gather all data files\n2. Load each file\n3. Extract variables used\n4. Rename variables, possibly deal with time variables\n4. Merge all files\n5. Check all descriptives\n6. Scoring, coding, and data transformation\n7. Recheck all descriptives\n8. Correlations and visualization\n9. Restructure data for analyses"
+    "text": "How Do I Build a Workflow?\n\nBuilding a good workflow is both top-down (i.e. big steps to smaller ones) and bottom-up (i.e. necessary smaller steps make certain larger ones necessary)\nWhat?\n\n\n\nExample: New Data Collection\n1. Conceptualization\n2. Funding acquisition\n3. Preregistration\n4. Project Building\n5. Data Collection\n6. Data Cleaning\n7. Data Analysis\n8. Writing (and rewriting)\n9. Submission\n10. Revision (and possibly crying)\n11. ACCEPTANCE\n\nExample: Secondary Data\n1. Conceptualization\n2. Data search\n3. Project Building\n4. Data documentation\n5. Preregistration\n6. Data Cleaning\n7. Data Analysis\n8. Writing (and rewriting)\n9. Submission\n10. Revision (and possibly crying)\n11. ACCEPTANCE\n\n\nWorkflows Are Hierarchical: Example – Data Cleaning Steps\n\n\nExperimental Data\n1. Gather all data files\n2. Quality checks for each file\n3. Load all files\n4. Merge all files\n5. Check all descriptives\n6. Scoring, coding, and data transformation\n7. Recheck all descriptives\n8. Correlations and visualization\n9. Restructure data for analyses\n\nSecondary Data\n1. Gather all data files\n2. Load each file\n3. Extract variables used\n4. Rename variables, possibly deal with time variables\n4. Merge all files\n5. Check all descriptives\n6. Scoring, coding, and data transformation\n7. Recheck all descriptives\n8. Correlations and visualization\n9. Restructure data for analyses"
   },
   {
     "objectID": "01-week1-workbook.html#workflows-overview-of-the-course",
     "href": "01-week1-workbook.html#workflows-overview-of-the-course",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Workflows: Overview of the Course",
     "text": "Workflows: Overview of the Course\nIn this class, we will focus on building tools for:\n\nDocumenting Data (both before and after collection)\nFile management (how do I build a machine and human navigable directory)\nLoading data files\nAll steps of cleaning data\nRestructuring Data\nDESCRIPTIVES DESCRIPTIVES DESCRIPTIVES\nEfficient Programming (plz stop copy-pasting)\nThis class does not focus on modeling but rather how you get your data set up to run models (Weeks 1-5/6) AND how to extract and present data after you run them (Weeks 6/7-9)\nWe will focus on classes of models in R you will most likely encounter (lm(), glm(), lmer(), nlme(), lavaan, brms)\nIf you run other kinds of models, most tools we will use are portable to many packages and other object classes\nBy the end of this class, my goal is that you:\n\n\nHave a documented workflow for the kind of research you work on\n\nHave a set of tools and skills that apply to each piece of that workflow\n\nHave a skillset that will allow you to adapt and build new workflows for different kinds of research"
   },
   {
     "objectID": "01-week1-workbook.html#what-is-r-why-r",
     "href": "01-week1-workbook.html#what-is-r-why-r",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "What is R? Why R?",
     "text": "What is R? Why R?\n\nAn “open source” programming language and software that provide collections of interrelated “functions”\n“open source” means that R is free and created by the user community. The user community can modify basic things about R and add new capabilities to what R can do the user community can modify R and\na “function” is usually something that takes in some “input,” processes this input in some way, and creates some “output”\n\ne.g., the max() function takes as input a collection of numbers (e.g., 3,5,6) and returns as output the number with the maximum value\ne.g., the lm() function takes in as inputs a dataset and a statistical model you specify within the function, and returns as output the results of the regression model"
   },
   {
     "objectID": "01-week1-workbook.html#base-r-vs.-r-packages",
     "href": "01-week1-workbook.html#base-r-vs.-r-packages",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Base R vs. R packages",
     "text": "Base R vs. R packages\n\n\nBase R\n\nWhen you install R, you automatically install the “Base R” set of functions\nExample of a few of the functions in in Base R:\n\n\nas.character() function\n\nprint() function\n\nsetwd() function\n\n\n\n\nR packages\n\nan R “package” (or “library”) is a collection of (related) functions developed by the R community\nExamples of R packages:\n\n\ntidyverse package for manipulating and visualizing data\n\nigraph package for network analyses\n\nleaflet package for mapping\n\nrvest package for webscraping\n\nrtweet package for streaming and downloading data from Twitter\n\n\n\nAll R packages are free!"
   },
@@ -793,72 +793,72 @@
   {
     "objectID": "01-week1-workbook.html#why-use-the-tidyverse",
     "href": "01-week1-workbook.html#why-use-the-tidyverse",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Why Use the tidyverse\n",
-    "text": "Why Use the tidyverse\n\n\n\n\nMaintained by RStudio (Pivot)\nNo one should have to use a for loop to change data from long to wide\nTons of integrated tools for data cleaning, manipulation, transformation, and visualization\nEven increasing support for modeling (e.g., tidymodels)\n\n\n\nCodeknitr::include_graphics(\"https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/tidyverse.png\")\n\n\n\n\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/tidyr.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/stringr.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/shiny.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/rmarkdown.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/quarto.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/knitr.png\")\n\n\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/ggplot2.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/forcats.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/dplyr.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/broom.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/tibble.png\")\n\n\n\n\n\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/main/thumbs/purrr.png\")"
+    "text": "Why Use the tidyverse\n\n\n\n\nMaintained by Posit\nNo one should have to use a for loop to change data from long to wide\nTons of integrated tools for data cleaning, manipulation, transformation, and visualization\nEven increasing support for modeling (e.g., tidymodels)"
   },
   {
     "objectID": "01-week1-workbook.html#why-use-quarto",
     "href": "01-week1-workbook.html#why-use-quarto",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Why use Quarto",
-    "text": "Why use Quarto\nQuarto\n\n\n\n\n\nThese slides\n\nThe course website\n\nYour homework\n\nAll written in Quarto"
+    "text": "Why use Quarto\nQuarto\n\n\n\n\n\nThese slides\n\nThe course website\n\nYour homework\n\nMy lab website\nAutomated personalized feedback reports I give to participants\n\nAll written in Quarto"
   },
   {
     "objectID": "01-week1-workbook.html#some-r-basics",
     "href": "01-week1-workbook.html#some-r-basics",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Some R Basics",
     "text": "Some R Basics\nExecuting R commands\nThree ways to execute commands in R\n\nType/copy commands directly into the “console”\n`code chunks’ in RMarkdown (.Rmd files)\n\n\nCmd/Ctrl + Enter: execute highlighted line(s) within chunk\n\nCmd/Ctrl + Shift + k: “knit” entire document\n\n\nR scripts (.R files)\n\n\nCmd/Ctrl + Enter: execute highlighted line(s)\n\nCmd/Ctrl + Shift + Enter (without highlighting any lines): run entire script\n\n\nAssignment\nAssignment refers to creating an “object” and assigning values to it\n\nThe object may be a variable, a dataset, a bit of text that reads “la la la”\n\n<- is the assignment operator\n\nin other languages = is the assignment operator\n\n\ngeneral syntax:\n\nobject_name <- object_values\ngood practice to put a space before and after assignment operator\n\n\nObjects\nR is an “object-oriented” programming language (like Python, JavaScript). So, what is an “object”?\n\nformal computer science definitions are confusing because they require knowledge of concepts we haven’t introduced yet\nMore intuitively, I think objects as anything I assign values to\n\nFor example, below, a and b are the names of objects I assigned values to\n\n\n\n\nCodea <- 5\na\n\n[1] 5\n\nCodeb <- \"yay!\"\nb\n\n[1] \"yay!\"\n\n\n\nBen Skinner says “Objects are like boxes in which we can put things: data, functions, and even other objects.”\nMany commercial statistical software packages (e.g., SPSS, Stata) operate on datasets, which consist of rows of observations and columns of variables\nUsually, these packages can open only one dataset at a time\nBy contrast, in R everything is an object and there is no limit to the number of objects R can hold (except memory)\nVectors\nThe fundamental data structure in R is the “vector”\n\nA vector is a collection of values\nThe individual values within a vector are called “elements”\nValues in a vector can be numeric, character (e.g., “Apple”), or some other type\nBelow we use the combine function c() to create a numeric vector that contains three elements\nHelp file says that c() “combines values into a vector or list”\n\n\nCode#?c # to see help file for the c() \"combine\" function\nx <- c(4, 7, 9) # create object called x, which is a vector with three elements \n# (each an integer)\nx # print object x\n\n[1] 4 7 9\n\n\nVector where the elements are characters\n\nCodeanimals <- c(\"lions\", \"tigers\", \"bears\", \"oh my\") # create object called animals\nanimals\n\n[1] \"lions\"  \"tigers\" \"bears\"  \"oh my\""
   },
   {
     "objectID": "01-week1-workbook.html#exercise",
     "href": "01-week1-workbook.html#exercise",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "EXERCISE",
     "text": "EXERCISE\nEither in the R console or within the R markdown file, do the following:\n\nCreate a vector called v1 with three elements, where all the elements are numbers. Then print the values.\nCreate a vector called v2 with four elements, where all the elements are characters (i.e., enclosed in single ’’ or double “” quotes). Then print the values.\nCreate a vector called v3 with five elements, where some elements are numeric and some elements are characters. Then print the values."
   },
   {
     "objectID": "01-week1-workbook.html#solution-to-exercise",
     "href": "01-week1-workbook.html#solution-to-exercise",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Solution to Exercise",
     "text": "Solution to Exercise\n\nCodev1 <- c(1, 2, 3) \n# create a vector called v1 with three elements\n# all the elements are numbers\nv1 # print value\n\n[1] 1 2 3\n\n\n\nCodev2 <- c(\"a\", \"b\", \"c\", \"d\") \n# create a vector called v2 with four elements\n# all the elements are characters\nv2 # print value\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\nCodev3 <- c(1, 2, 3, \"a\", \"b\") \n# create a vector called v3 with five element\n# some elements are numeric and some elements are characters\nv3 # print value\n\n[1] \"1\" \"2\" \"3\" \"a\" \"b\""
   },
   {
     "objectID": "01-week1-workbook.html#formal-classification-of-vectors-in-r",
     "href": "01-week1-workbook.html#formal-classification-of-vectors-in-r",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Formal classification of vectors in R",
     "text": "Formal classification of vectors in R\n\nHere, I introduce the classification of vectors by Grolemund and Wickham\nThere are two broad types of vectors\n\n\n\nAtomic vectors. An object that contains elements. Six “types” of atomic vectors:\n\n\nlogical, integer, double, character, complex, and raw.\n\n\nInteger and double vectors are collectively known as numeric vectors.\n\n\n\n\n\nLists. Like atomic vectors, lists are objects that contain elements\n\nelements within a list may be atomic vectors\nelements within a list may also be other lists; that is lists can contain other lists\n\n\n\nOne difference between atomic vectors and lists: homogeneous vs. heterogeneous elements\n\natomic vectors are homogeneous: all elements within atomic vector must be of the same type\nlists can be heterogeneous: e.g., one element can be an integer and another element can be character\n\nProblem with this classification:\n\nNot conceptually intutive\nTechnically, lists are a type of vector, but people often think of atomic vectors and lists as fundamentally different things\n\nClassification used by Ben Skinner:\n\ndata type: logical, numeric (integer and double), character, etc.\ndata structure: vector, list, matrix, etc."
   },
   {
     "objectID": "01-week1-workbook.html#using-r-functions",
     "href": "01-week1-workbook.html#using-r-functions",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Using R functions",
     "text": "Using R functions\nWhat are functions\n\nFunctions are pre-written bits of code that accomplish some task.\nFunctions generally follow three sequential steps:\n\n\ntake in an input object(s)\n\nprocess the input.\n\nreturn (A) a new object or (B) a visualizatoin (e.g., plot)\n\n\nFor example, sum() function calculates sum of elements in a vector\n\n\n\ninput. takes in a vector of elements (numeric or logical)\n\nprocessing. Calculates the sum of elements\n\nreturn. Returns numeric vector of length=1; value is sum of input vector\n\n\nCodesum(c(1,2,3))\n\n[1] 6\n\nCodetypeof(sum(c(1,2,3))) # type of object created by sum()\n\n[1] \"double\"\n\nCodelength(sum(c(1,2,3))) # length of object created by sum()\n\n[1] 1\n\n\nFunction syntax\nComponents of a function\n\nfunction name (e.g., sum(), length(), seq())\nfunction arguments\n\nInputs that the function takes, which determine what function does\n\ncan be vectors, data frames, logical statements, etc.\n\n\nIn “function call” you specify values to assign to these function arguments\n\ne.g., sum(c(1,2,3))\n\n\n\nSeparate arguments with a comma ,\n\ne.g., seq(10,15)\n\n\n\n\n\nExample: the sequence function, seq()\n\n\n\nCodeseq(10,15)\n\n[1] 10 11 12 13 14 15\n\n\nFunction syntax: More on function arguments\nUsually, function arguments have names\n\ne.g., the seq() function includes the arguments from, to, by\n\nwhen you call the function, you need to assign values to these arguments; but you usually don’t have to specify the name of the argument\n\n\n\nCodeseq(from=10, to=20, by=2)\n\n[1] 10 12 14 16 18 20\n\nCodeseq(10,20,2)\n\n[1] 10 12 14 16 18 20\n\n\n\nMany function arguments have “default values”, set by whoever wrote the function\n\nif you don’t specify a value for that argument, the default value is inserted\ne.g., partial list of default values for seq(): seq(from=1, to=1, by=1)\n\n\n\n\nCodeseq()\n\n[1] 1\n\nCodeseq(to=10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nCodeseq(10) # R assigned value of 10 to \"to\" rather than \"from\" or \"by\"\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\nHelp files for functions\n\n\nTo see help file on a function, type ?function_name without parentheses\n\nCode?sum\n?seq\n\n\n\nContents of help files\n\n\nDescription. What the function does\n\nUsage. Syntax, including default values for arguments\n\nArguments. Description of function arguments\n\nDetails. Details and idiosyncracies of about how the function works.\n\nValue. What (object) the function “returns”\n\ne.g., sum() returns vector of length 1 whose value is sum of input vector\n\n\n\nReferences. Additional reading\n\nSee Also. Related functions\n\nExamples. Examples of function in action\nBottom of help file identifies the package the function comes from"
   },
   {
     "objectID": "01-week1-workbook.html#what-is-quarto",
     "href": "01-week1-workbook.html#what-is-quarto",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "What is Quarto",
     "text": "What is Quarto\n\nQuarto documents embed R code, output associated with R code, and text into one document\nAn Quarto document is a “‘Living’ document that updates every time you compile [”Render”] it”\nQuarto documents have the extension .qmd\n\nCan think of them as text files with the extension .qmd rather than .txt\n\n\nAt top of .qmd file you specify the “output” style, which dictates what kind of formatted document will be created\n\ne.g., html_document or pdf_document (this document was created with revealjs)\n\n\nWhen you compile [“Render”] a .qmd file, the resulting formatted document can be an HTML document, a PDF document, an MS Word document, or many other types"
   },
   {
     "objectID": "01-week1-workbook.html#creating-quarto-documents",
     "href": "01-week1-workbook.html#creating-quarto-documents",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Creating Quarto documents",
     "text": "Creating Quarto documents\nDo this with a partner\nApproach for creating a Quarto document.\n\nPoint-and-click from within RStudio\n\nClick on File >> New File >> Quarto Document… >> choose HTML >> click OK\n\nOptional: add title (this is not the file name, just what appears at the top of document)\nOptional: add author name\n\n\nSave the .qmd file; File >> Save As\n\nAny file name\nRecommend you save it in same folder you saved this lecture\n\n\n“Render” the entire .qmd file\n\nPoint-and-click OR shortcut: Cmd/Ctrl + Shift + k"
   },
   {
     "objectID": "01-week1-workbook.html#creating-and-formatting-quarto-documents",
     "href": "01-week1-workbook.html#creating-and-formatting-quarto-documents",
-    "title": "Week 1 Workbook",
+    "title": "Week 1 (Intro) Workbook",
     "section": "Creating and Formatting Quarto Documents",
-    "text": "Creating and Formatting Quarto Documents\nTake a few minutes and have you peruse the Quarto site to build familiarity (I still access it all the time when I forget how to do specific things)\nI especially want you to take some time to peruse documents on YAML headers:\n\nHTML documents\nPDF documents\nWord documents\nWebstes\nRevealJS slides\nBeamer slides\nPowerpoint Slides"
+    "text": "Creating and Formatting Quarto Documents\nTake a few minutes and have you peruse the Quarto site to build familiarity (I still access it all the time when I forget how to do specific things)\nI especially want you to take some time to peruse documents on YAML headers:\n\nHTML documents\nPDF documents\nWord documents\nWebsites\nRevealJS slides\nBeamer slides\nPowerpoint Slides"
   },
   {
     "objectID": "08-week8-workbook.html",
@@ -1075,7 +1075,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Dr. Emorie D. Beck (she/her/hers)\nE-mail: edbeck@ucdavis.edu\nOffice: 268J\nOffice Hours:\n- Drop-in hour: Tuesdays 11a-12p\n- Or by appointment: edbeck@ucdavis.edu\n\n\n\n\n\n\nDr. Beck is an Assistant Professor in the Psychology Department specializing in personality psychology. She received her PhD in Social and Personality Psychology from Washington University in St. Louis in 2020 and her BA (with honors) from Brown University in 2016. \nDr. Beck’s research focuses around the question of what personality is. Definitions have big consequences for how we measure personality, what those measures predict both short- and long-term, how personality is thought to change, and more. One way of doing this is to focus on different levels of aggregation. Thus, she studies how to understand the personality of an individual relative to only themself, relative to some others, and relative to all others. To do so, she uses a mix of methods, including experience sampling methods, passive sensing, survey data, panel data, cognitive tests, and more measured across time intervals from moments to years along with an array of statistical approaches, including time series analysis, multilevel / hierarchical modeling, machine learning, network psychometrics, structural equation modeling, and more. For example, Dr. Beck has been working to build personalized machine learning prediction of behaviors, experiences, and more, finding that we can predict behaviors and experiences better when we don’t assume that people have the same antecedents of the behaviors and experiences.  Instead, people have unique antecedents, which could have consequences for how to change or intervene upon behaviors and experiences. In other work, Dr. Beck uses longitudinal panel data across multiple continents to answer questions about what personality traits predict over time. For example, she recently examined personality trait and well-being predictors of later dementia diagnoses and neuropathology measures after death, finding that personality traits are strong predictors of dementia diagnosis but have a much more complex relationship with neuropathology measures."
+    "text": "Dr. Emorie D. Beck (she/her/hers)\nE-mail: edbeck@ucdavis.edu\nOffice: YH 268J / BROB 157\nOffice Hours:\n- Drop-in hour: TBD (location also TBD; virtual available)\n- Or by appointment: edbeck@ucdavis.edu\n\n\n\n\n\n\nDr. Beck is an Associate Professor in the Psychology Department specializing in personality psychology. She received her PhD in Social and Personality Psychology from Washington University in St. Louis in 2020 and her BA (with honors) from Brown University in 2016. \nDr. Beck’s research focuses around the question of what personality is. Definitions have big consequences for how we measure personality, what those measures predict both short- and long-term, how personality is thought to change, and more. One way of doing this is to focus on different levels of aggregation. Thus, she studies how to understand the personality of an individual relative to only themself, relative to some others, and relative to all others. To do so, she uses a mix of methods, including experience sampling methods, passive sensing, survey data, panel data, cognitive tests, and more measured across time intervals from moments to years along with an array of statistical approaches, including time series analysis, multilevel / hierarchical modeling, machine learning, network psychometrics, structural equation modeling, and more. For example, Dr. Beck has been working to build personalized machine learning prediction of behaviors, experiences, and more, finding that we can predict behaviors and experiences better when we don’t assume that people have the same antecedents of the behaviors and experiences.  Instead, people have unique antecedents, which could have consequences for how to change or intervene upon behaviors and experiences. In other work, Dr. Beck uses longitudinal panel data across multiple continents to answer questions about what personality traits predict over time. For example, she recently examined personality trait and well-being predictors of later dementia diagnoses and neuropathology measures after death, finding that personality traits are strong predictors of dementia diagnosis but have a much more complex relationship with neuropathology measures."
   },
   {
     "objectID": "ps7-week7.html",
@@ -1836,7 +1836,7 @@
   {
     "objectID": "01-week1-slides.html",
     "href": "01-week1-slides.html",
-    "title": "Week 1 Slides",
+    "title": "Week 1 (Intro) Slides",
     "section": "",
     "text": "Welcome to Week 1! This week, we’re just getting started. You can download the slides code and slides here."
   },
@@ -2175,5 +2175,19 @@
     "title": "Final Project Submission",
     "section": "Scope",
     "text": "Scope\nThe project is open-ended, but some examples are:\n\nA preregistration template for your kind of data / research\nA quarto / Rmarkdown / R script / R Project template for the typical structure of research projects\nA data cleaning pipeline / template for your kind of data / research\nA set of functions meant to help you improve your research workflow\nWriting clear documentation for a new or previous data collection\nA data cleaning or analysis script that draws on different course concepts (e.g., directory structures, codebooks, functions, iteration / purrr, etc.)\nA “checks” / procedure checklist that documents robustness tests and aims to improve the accuracy and efficiency of your workflow\nAnything else that draws on things you learned in class and focuses on data cleaning, R, data management, procedures, GitHub, etc."
+  },
+  {
+    "objectID": "01-week1-workbook.html#course-materials-1",
+    "href": "01-week1-workbook.html#course-materials-1",
+    "title": "Week 1 (Intro) Workbook",
+    "section": "Course Materials",
+    "text": "Course Materials\n\nAll materials (required and optional) are free and online\n\nWickham & Grolemond: R for Data Science https://r4ds.had.co.nz\n\nWickham: Advanced R http://adv-r.had.co.nz\n\n\nData Camp: All paid content unlocked"
+  },
+  {
+    "objectID": "01-week1-workbook.html#why-use-rstudio-or-positron",
+    "href": "01-week1-workbook.html#why-use-rstudio-or-positron",
+    "title": "Week 1 (Intro) Workbook",
+    "section": "Why Use RStudio (or Positron)",
+    "text": "Why Use RStudio (or Positron)\n\n\n\nAlso free\nBasically a GUI for R\nOrganize files, import data, etc. with ease\nRMarkdown, Quarto, and more are powerful tools (they were used to create these slides!)\nLots of new features and support"
   }
 ]

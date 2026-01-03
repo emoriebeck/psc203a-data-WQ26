@@ -1,5 +1,5 @@
 ---
-title: "Week 1 Slides"
+title: "Week 1 (Intro) Slides"
 ---
 
 Welcome to Week 1! This week, we're just getting started. You can download the slides code and slides [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/04-workshops/01-week1-intro/week1-slides.zip).
