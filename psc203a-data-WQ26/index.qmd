@@ -1,9 +1,9 @@
 ---
-title: "Data Cleaning and Management (Fall 2023)"
+title: "PSC203A: Data Cleaning and Management (Winter 2025)"
 author: "Dr. Emorie D Beck, University of California, Davis"
 ---
 
-Mondays, 2:10-5 PM (October 2-December 4, 2023)\
+Mondays, 2:10-5 PM (January 5-March 18, 2026)\
 166 Young Hall\
 Psychology Department\
 University of California, Davis
@@ -26,14 +26,14 @@ This course is not a "pure" data science (i.e. we won't be working with database
 
 ## **Navigating This Site:**
 
-1\. Weekly assignments are under **Problem Sets**. These are due at 12:01 AM on the day of class.
+1\. Weekly assignments are under **Problem Sets**. These are due at 2:00 PM on the day of class.
 
 2\. Reading list (and links) and links to workshop slides are under [**Schedule**](schedule.html) and on Canvas. I recommend bookmarking this site to allow you access to all materials in perpetuity.
 
-3\. Final Project Information will be under **Final Project**. The proposal instructions (Due November 19 at 11:59 PM PST) is now [posted](final-project.html). More details about the final project will be posted by November 7, and a rubric for the final project will be posted by November 28. 
+3\. Final Project Information will be under **Final Project**. More details about the final project will be posted by the first week of February. 
 
 4\. The most updated version of the syllabus will be on the [**Syllabus**](syllabus.html) page and can be downloaded there as well.
 
 ## **Course Zoom Link**
 
-This course is in person, but you may access it on [Zoom](https://ucdavis.zoom.us/j/98563530283?pwd=cHN3Wk96aXB4TTVrdG9nUy9BNnJmZz09) due to illness, exposure, travel, etc.
+This course is in person, but you may access it on [Zoom](https://ucdavis.zoom.us/j/95295084766?pwd=POTEmfz8zNb7ugVxWwGZLIhIJlUo2J.1) due to illness, exposure, travel, etc.

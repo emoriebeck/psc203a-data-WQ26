@@ -1,5 +1,5 @@
 ---
-title: "Week 1 Workbook"
+title: "Week 1 - Getting Situated in R & Quarto"
 author: "Emorie D Beck"
 format: 
   html:
@@ -21,10 +21,6 @@ editor: visual
 editor_options: 
   chunk_output_type: console
 ---
-
-# Week 1 - Getting Situated in R & Quarto
-
-You can download the code for this workbook and the rendered workbook [here](https://github.com/emoriebeck/psc290-data-FQ23/raw/main/04-workshops/01-week1-intro/week1-workbook.zip).
 
 ```{r}
 library(knitr)
@@ -62,10 +58,15 @@ After successful completion of this course, you will be able to:
 
 ## Course Materials
 
+-   All materials will be posted on Canvas, and assignments will be submitted there
+-   But the course website will be your best resource because you will have free access to it, even after you complete the course.
+
+## Course Materials
+
 -   All materials (required and optional) are free and online
     -   Wickham & Grolemond: *R for Data Science* <https://r4ds.had.co.nz>
     -   Wickham: *Advanced R* <http://adv-r.had.co.nz>
-    -   [Data Camp](https://www.datacamp.com/groups/shared_links/bd4b5bf66c2195741f388ca82c1b19c89b6f37754c7cfa0eb5aded5f16678360): All paid content unlocked
+    -   [Data Camp](https://www.datacamp.com/groups/shared_links/47a82efe9c4fee59e3ba4592743caa2326d5c091badc782aec969e244e98ab5e): All paid content unlocked
 
 ## Assignments
 
@@ -90,16 +91,16 @@ After successful completion of this course, you will be able to:
 -   The main homework in the course are weekly problem sets
 -   The goal is to let you apply concepts from that week to your own data (or whatever data you'll focus on for the class)
 -   Problem sets will be posted on Mondays before class
--   Due 12:01 AM each Monday (starting next Monday and not including the last day of the course)
+-   Due 2:00 PM every other Monday (starting two weeks from now)
 
 ### Final Projects
 
 -   Final project replaces final exam (there are no exams)
 -   This is a bring your own data class, so the goal of the course is to apply what you're learning to your own research throughout the term
--   Details of the final project TBD, but will generally include
-    -   Stage 1: Proposals (due 11/13/23)
-    -   Stage 2: In-class presentations (12/04/23)
-    -   Stage 3: Final project submission (Due day and time of scheduled final; which I can't access because ScheduleBuilder thinks I need a CRN for my own course and no one emails me back 🙃)
+-   Details of the final project will be posted by the end of January, but will generally include
+    -   Stage 1: Proposals (due 02/16/26)
+    -   Stage 2: In-class presentations (03/09/26; \*although see note on schedule)
+    -   Stage 3: Final project submission (03/18/26)
 
 ### Extra Credit
 
@@ -107,7 +108,7 @@ After successful completion of this course, you will be able to:
 
 -   2 pt extra credit for each one you participate in (max 6 pt total).
 
--   Can post on Twitter or just create a document with the code and output
+-   Can post on BlueSky/X or just create a document with the code and output
 
 -   Submit on Canvas
 
@@ -124,16 +125,44 @@ After successful completion of this course, you will be able to:
 
 ## Schedule
 
+### Option 1:
+
 -   Week 1: Intro & Basics\
 -   Week 2: Reproducibility & `dplyr`\
--   Week 3: Data Quality & `tidyr`\
+-   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
 -   Week 4: Codebooks & importing data\
--   Week 5: Data structures & transformation
--   Week 6: Versioning & `purrr`\
--   Week 7: Efficient R & parallelization\
--   Week 8: TBD & tables and figures in `R`\
--   Week 9: Odds and ends & help with projects\
--   Week 10: Presentations
+-   Week 5: Functions & `purrr`
+-   Week 6: Review & Integration\
+-   Week 7: Data structures & transformation (RECORDING due to President's Day)\
+-   Week 8: Reproducible Tables and Figures in `R`\
+-   Week 9: Efficient R & parallelization\
+-   Week 10: Presentations / Odds and ends & help with projects
+
+### Option 2:
+
+-   Week 1: Intro & Basics\
+-   Week 2: Reproducibility & `dplyr`\
+-   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
+-   Week 4: Codebooks & importing data\
+-   Week 5: Functions & `purrr`
+-   Week 6: Review & Integration\
+-   **Week 7: WEEK OFF; Focus on Project Planning**
+-   Week 8: Data structures & transformation\
+-   Week 9: Reproducible Tables and Figures in `R`\
+-   **Week 10: Efficient R & parallelization**
+
+### Option 3:
+
+-   Week 1: Intro & Basics\
+-   Week 2: Reproducibility & `dplyr`\
+-   **Week 3: WEEK OFF**
+-   Week 4: Data Quality & `tidyr`\
+-   Week 5: Codebooks & importing data\
+-   Week 6: Functions & `purrr`
+-   **Week 7: Review & Integration (Self-Guided workshop packet (HW 3))**
+-   Week 8: Data structures & transformation\
+-   Week 9: Reproducible Tables and Figures in `R`\
+-   **Week 10: Efficient R & parallelization**
 
 # What is a workflow?
 
@@ -150,12 +179,30 @@ After successful completion of this course, you will be able to:
     3.  Your workflow is *inefficient*, which can lead to mistakes
 -   A workflow is a work in progress. If it no longer serves you, let it go
 
+### An example:
+
+**A workflow win:**
+
+-   A few years ago, I got a revision in a top aging journal. In the second revision, a reviewer asked us to redo all of our one-stage analyses (hundreds of models across 8 predictors and 14 outcomes along with a number of sensitivity tests) using the more traditional two-stage approach
+-   Two things saved me here:
+    -   My data and code were set up to optimally modularized;
+    -   I had previously written a set of functions to do both the one- and two-stage approaches for a different project
+-   What could have taken me weeks or months took 1-2 hours of active work (plus inactive model running time) because I had an intentionally set up workflow
+
+### Another Example:
+
+**A workflow / data management disaster:**
+
+> "Geneticists use a lot of labels to do their work. And it turns out that the Excel autocorrect feature didn’t appreciate those labels. In 2016, a team of researchers led by Mark Ziemann, now the head of of Bioinformatics at the Burnet Institute in Australia, authored a paper outline just how bad the problem was. Per Ziemann and team, “Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. **A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions.” Twenty percent of the papers — hardly a drop in the bucket — had an avoidable error.** The problem was so bad that, as Zieman wrote in The Conversation, “the Human Gene Name Consortium, the official body responsible for naming human genes, renamed the most problematic genes. MARCH1 and SEPT1 were changed to MARCHF1 and SEPTIN1 respectively, and others had similar changes.” (That last link goes to the gene’s Wikipedia entry, which reflects the change.)"
+
+[Source](https://nowiknow.com/excel-has-bad-genes/)
+
 ## How Do I Build a Workflow?
 
 -   Building a good workflow is both top-down (i.e. big steps to smaller ones) and bottom-up (i.e. necessary smaller steps make certain larger ones necessary)
 -   What?
 
-::: columns
+::::: columns
 ::: column
 **Example: New Data Collection**\
 1. Conceptualization\
@@ -185,11 +232,11 @@ After successful completion of this course, you will be able to:
 10. Revision (and possibly crying)\
 11. ACCEPTANCE
 :::
-:::
+:::::
 
--   Workflows Are Hierarchical: Example -- Data Cleaning Steps
+### Workflows Are Hierarchical: Example -- Data Cleaning Steps
 
-::: columns
+::::: columns
 ::: column
 **Experimental Data**
 
@@ -218,7 +265,7 @@ After successful completion of this course, you will be able to:
 8. Correlations and visualization\
 9. Restructure data for analyses
 :::
-:::
+:::::
 
 ## Workflows: Overview of the Course
 
@@ -262,7 +309,7 @@ In this class, we will focus on building tools for:
 
 ## Base R vs. R packages
 
-::: columns
+::::: columns
 ::: column
 Base R
 
@@ -285,11 +332,11 @@ R packages
     -   `rtweet` package for streaming and downloading data from Twitter
 -   **All** R packages are free!
 :::
-:::
+:::::
 
-## Why Use RStudio (Pivot)
+## Why Use RStudio (or Positron)
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 -   Also free
 -   Basically a GUI for R
@@ -299,75 +346,77 @@ R packages
 :::
 
 ::: {.column width="40%"}
-```{r}
+```{r, echo = F}
 knitr::include_graphics("https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/RStudio-Logo-Flat.png")
+
+knitr::include_graphics("https://positron.posit.co/assets/images/positron-logo_fullcolor-TM.png")
 ```
 :::
-:::
+:::::
 
 ## Why Use the `tidyverse`
 
-::: columns
+::::: columns
 ::: {.column width="70%"}
--   Maintained by RStudio (Pivot)
+-   Maintained by Posit
 -   No one should have to use a for loop to change data from long to wide
 -   Tons of integrated tools for data cleaning, manipulation, transformation, and visualization
 -   Even increasing support for modeling (e.g., `tidymodels`)
 :::
 
 ::: {.column width="30%"}
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/tidyverse.png")
 ```
 :::
-:::
+:::::
 
 ::: {layout="[[1,1, 1, 1, 1, 1], [1,1, 1, 1, 1,1]]"}
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/tidyr.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/stringr.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/shiny.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/rmarkdown.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/quarto.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/knitr.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/ggplot2.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/forcats.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/dplyr.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/broom.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/tibble.png")
 ```
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo = F}
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/purrr.png")
 ```
 :::
@@ -376,12 +425,15 @@ knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs
 
 [Quarto](https://quarto.org/)
 
-![](https://github.com/rstudio/hex-stickers/raw/main/thumbs/quarto.png){fig-align="center"}
+![](quarto.png){fig-align="center"}
 
 -   These slides\
 -   The course website\
 -   Your homework\
--   All written in Quarto
+-   My lab website
+-   Automated personalized feedback reports I give to participants
+
+All written in Quarto
 
 ## Some R Basics
 
@@ -589,7 +641,7 @@ seq(10) # R assigned value of 10 to "to" rather than "from" or "by"
 
 ### Help files for functions
 
-::: columns
+::::: columns
 ::: column
 To see help file on a function, type `?function_name` without parentheses
 
@@ -613,7 +665,7 @@ To see help file on a function, type `?function_name` without parentheses
 -   **Examples**. Examples of function in action
 -   Bottom of help file identifies the package the function comes from
 :::
-:::
+:::::
 
 # Brief Quarto Overview
 
@@ -652,14 +704,14 @@ I especially want you to take some time to peruse documents on YAML headers:
 -   [HTML documents](https://quarto.org/docs/reference/formats/html.html)
 -   [PDF documents](https://quarto.org/docs/reference/formats/pdf.html)
 -   [Word documents](https://quarto.org/docs/reference/formats/docx.html)
--   [Webstes](https://quarto.org/docs/reference/projects/websites.html)
+-   [Websites](https://quarto.org/docs/reference/projects/websites.html)
 -   [RevealJS slides](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
 -   [Beamer slides](https://quarto.org/docs/reference/formats/presentations/beamer.html)
 -   [Powerpoint Slides](https://quarto.org/docs/reference/formats/presentations/pptx.html)
 
 # Course Reminders
 
--   Problem set 1 due next Monday at 12:01 AM (grace period until 9 AM)
+-   Problem set 1 posted by Monday
 -   Make sure to check out the readings
 -   There are exercises at the end that can be helpful to do. You can even download the directory of the bookdown/quarto book from GitHub (link in book)
 -   Next time:
