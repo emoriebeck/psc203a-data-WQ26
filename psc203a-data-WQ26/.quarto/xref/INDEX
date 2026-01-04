@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "127d18df"
+  },
+  "assignments.qmd": {
+    "assignments.html": "5b693ebc"
+  },
+  "slides.qmd": {
+    "slides.html": "5442a597"
+  },
+  "01-week1-workbook.qmd": {
+    "01-week1-workbook.html": "405168ca"
+  },
+  "about.qmd": {
+    "about.html": "cf77db5a"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "142da73c"
+  },
+  "01-week1-slides.qmd": {
+    "01-week1-slides.html": "57891b3e"
+  },
+  "schedule.qmd": {
+    "schedule.html": "066f53e8"
+  }
+}
