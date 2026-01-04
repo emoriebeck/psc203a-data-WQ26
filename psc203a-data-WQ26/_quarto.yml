@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Data Cleaning and Management (WQ26)"
+  margin-footer: "Copyright © 2026, Emorie Beck, All Rights Reserved"
   navbar:
     background: primary
     search: true
