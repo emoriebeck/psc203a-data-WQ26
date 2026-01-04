@@ -1,5 +1,5 @@
 ---
-title: "PSC203A: Data Cleaning and Management (Winter 2025)"
+title: "PSC203A: Data Cleaning and Management (Winter 2026)"
 author: "Dr. Emorie D Beck, University of California, Davis"
 ---
 

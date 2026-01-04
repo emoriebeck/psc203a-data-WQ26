@@ -198,3 +198,11 @@ My perspective is that we never cease being students of this world, so I believe
 ### Copyright/Fair Use
 
 I will cite and/or reference any materials that I use in this course that I do not create.  You, as students, are expected to not distribute any of these materials, resources, homework assignments, etc. (whether graded or ungraded) without permission from the instructor.
+
+### PDF Copy 
+
+[Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/PSC203A-WQ-2026-syllabus-ver1.pdf) your problem set for weeks 7-8 below or on Canvas.
+
+<iframe class="slide-deck" src="/static/PSC203A-WQ-2026-syllabus-ver1.pdf" width="100%" height="800">
+
+</iframe>
