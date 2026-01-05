@@ -64,9 +64,9 @@ Early(ish) Career:
 
 -   I spent graduate school writing R tutorials and teaching R workshops
 
--   I spent postdoc writing functions and changing how CDAs were conducted 
+-   I spent postdoc writing functions and changing how the CDAs my lab was doing were conducted
 
--   I've spent my time as faculty teaching the skills I was never taught, updated with the lessons from teaching both this class and 203B as well as mentoring my own students and postdocs  
+-   I've spent my time as faculty finding ways to teach the skills I was never taught, updated with the lessons from teaching both this class and 203B as well as mentoring my own students and postdocs
 
 -   This class let's me bring all these together, along with what I've learned about project management
 
@@ -81,23 +81,24 @@ After successful completion of this course, you will be able to:\
 
 ## Why You? {.smaller}
 
-### A recent example: 
+### A recent example:
 
 > "Geneticists use a lot of labels to do their work. And it turns out that the Excel autocorrect feature didn’t appreciate those labels. In 2016, a team of researchers led by Mark Ziemann, now the head of of Bioinformatics at the Burnet Institute in Australia, authored a paper outline just how bad the problem was. Per Ziemann and team, “Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. **A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions.” Twenty percent of the papers — hardly a drop in the bucket — had an avoidable error.** The problem was so bad that, as Zieman wrote in The Conversation, “the Human Gene Name Consortium, the official body responsible for naming human genes, renamed the most problematic genes. MARCH1 and SEPT1 were changed to MARCHF1 and SEPTIN1 respectively, and others had similar changes.” (That last link goes to the gene’s Wikipedia entry, which reflects the change.)"
 
-[Source](https://nowiknow.com/excel-has-bad-genes/) 
+[Source](https://nowiknow.com/excel-has-bad-genes/)
 
 ## Why You? {.smaller}
-### Another Example: 
 
-- The Health and Retirement Study is a huge representative longitudinal study of aging in the United States that has been ongoing for over 30 years. 
-- It is largely documented via a series of PDFs or antiquated simple html files (and it's one of the better documented studies) 
-- For whatever reason, sometimes the rating scales for the **same item** change over time: 
-  * Item: "In most ways my life is close to ideal." (From the Satisfaction with Life Scale) 
-  * 2006: 6 point scale from "Strongly Disagree" to "Strongly Agree" with no neutral anchor 
-  * 2008-onwards: 7 point scale from "Strongly Disagree" to "Strongly Agree" with a neutral anchor
-- Either trying to remember this or having to look up the response options every time I use the scale is both inefficient and hugely error-prone. 
-- A reproducible, reusuable workflow helps the problem. 
+### Another Example:
+
+-   The Health and Retirement Study is a huge representative longitudinal study of aging in the United States that has been ongoing for over 30 years.
+-   It is largely documented via a series of PDFs or antiquated simple html files (and it's one of the better documented studies)
+-   For whatever reason, sometimes the rating scales for the **same item** change over time:
+    -   Item: "In most ways my life is close to ideal." (From the Satisfaction with Life Scale)
+    -   2006: 6 point scale from "Strongly Disagree" to "Strongly Agree" with no neutral anchor
+    -   2008-onwards: 7 point scale from "Strongly Disagree" to "Strongly Agree" with a neutral anchor
+-   Either trying to remember this or having to look up the response options every time I use the scale is both inefficient and hugely error-prone.
+-   A reproducible, reusuable workflow helps the problem.
 
 ## Course Expectations
 
@@ -106,13 +107,13 @@ After successful completion of this course, you will be able to:\
     -   have your own data you can apply course content to
     -   know how to clean clean, transform, and manage that data
     -   today's workshop is a good litmus test for this
-    
-## Course Materials 
 
-- All materials will be posted on Canvas, and assignments will be submitted there 
-- But the course website will be your best resource because you will have free access to it, even after you complete the course. 
+## Course Materials
 
-## Course Materials 
+-   All materials will be posted on Canvas, and assignments will be submitted there
+-   But the course website will be your best resource because you will have free access to it, even after you complete the course.
+
+## Course Materials
 
 -   All materials (required and optional) are free and online
     -   Wickham & Grolemond: *R for Data Science* <https://r4ds.had.co.nz>
@@ -174,6 +175,20 @@ After successful completion of this course, you will be able to:\
     -   If posting, link the post in the Canvas submission
     -   If not posting, attach the knitted file on Canvas
 
+## Assignments  {.smaller}
+
+### AI Use in Assignments 
+
+-   Particularly in coding, debugging, and building workflows, it would be counterproductive to outright ban the use of AI
+
+-   Yet the goal of this course is both to teach you technical skills and also to teach you critical engagement and insight into your own workflows and patterns
+
+-   Compromise: You are free to use AI in assignments. However, its use will be based on an honor code:
+
+    -   If you choose to use AI in any assignment, please flag that and explain how the AI based solution worked and how that contributed to your learning (broadly construed)
+
+    -   For example: You encounter an error and place your code and the error in ChatGPT and ask it to debug. It provides a working solution, which you then use in your assignment. You would note that you wrote an initial solution and encountered a bug. Briefly explain that bug and the solution ChatGPT provided to signal your understanding of how it works and possibly how that may prevent errors in the future
+
 ## Grading Scale
 
 92.5% - 100% = A; 89.5% - 92.4% = A-\
@@ -186,19 +201,19 @@ After successful completion of this course, you will be able to:\
 
 ::::: columns
 ::: column
--   Week 1: Intro & Basics\
--   Week 2: Reproducibility & `dplyr`\
--   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
--   Week 4: Codebooks & importing data\
--   Week 5: Functions & `purrr`
+-   **Week 1**: Intro & Basics\
+-   **Week 2**: Reproducibility & `dplyr`\
+-   **Week 3**: Data Quality & `tidyr` (RECORDING due to MLK Day)\
+-   **Week 4**: Codebooks & importing data\
+-   **Week 5**: Functions & `purrr`
 :::
 
 ::: column
--   Week 6: Review & Integration\
--   Week 7: Data structures & transformation (RECORDING due to President's Day)\
--   Week 8: Reproducible Tables and Figures in `R`\
--   Week 9: Efficient R & parallelization\
--   Week 10: Presentations / Odds and ends & help with projects
+-   **Week 6**: Review & Integration\
+-   **Week 7**: Data structures & transformation (RECORDING due to President's Day)\
+-   **Week 8**: Reproducible Tables and Figures in `R`\
+-   **Week 9**: Efficient R & parallelization\
+-   **Week 10**: Presentations / Odds and ends & help with projects
 :::
 :::::
 
@@ -206,19 +221,19 @@ After successful completion of this course, you will be able to:\
 
 ::::: columns
 ::: column
--   Week 1: Intro & Basics\
--   Week 2: Reproducibility & `dplyr`\
--   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
--   Week 4: Codebooks & importing data\
--   Week 5: Functions & `purrr`
+-   **Week 1**: Intro & Basics\
+-   **Week 2**: Reproducibility & `dplyr`\
+-   **Week 3**: Data Quality & `tidyr` (RECORDING due to MLK Day)\
+-   **Week 4**: Codebooks & importing data\
+-   **Week 5**: Functions & `purrr`
 :::
 
 ::: column
--   Week 6: Review & Integration\
--   **Week 7: WEEK OFF; Focus on Project Planning**
--   Week 8: Data structures & transformation\
--   Week 9: Reproducible Tables and Figures in `R`\
--   **Week 10: Efficient R & parallelization** 
+-   **Week 6**: Review & Integration\
+-   ***Week 7: WEEK OFF; Focus on Project Planning***
+-   **Week 8**: Data structures & transformation\
+-   **Week 9**: Reproducible Tables and Figures in `R`\
+-   ***Week 10: Efficient R & parallelization***
 :::
 :::::
 
@@ -226,19 +241,19 @@ After successful completion of this course, you will be able to:\
 
 ::::: columns
 ::: column
--   Week 1: Intro & Basics\
--   Week 2: Reproducibility & `dplyr`\
--   **Week 3: WEEK OFF**
--   Week 4: Data Quality & `tidyr` \
--   Week 5: Codebooks & importing data\
+-   **Week 1**: Intro & Basics\
+-   **Week 2**: Reproducibility & `dplyr`\
+-   ***Week 3: WEEK OFF***
+-   **Week 4**: Data Quality & `tidyr`\
+-   **Week 5**: Codebooks & importing data\
 :::
 
 ::: column
--   Week 6: Functions & `purrr`
--   **Week 7: Review & Integration\ (Self-Guided workshop packet (HW 3))**
--   Week 8: Data structures & transformation\
--   Week 9: Reproducible Tables and Figures in `R`\
--   **Week 10: Efficient R & parallelization**
+-   **Week 6**: Functions & `purrr`
+-   ***Week 7: Review & Integration (Self-Guided workshop packet (HW 3))***
+-   **Week 8**: Data structures & transformation\
+-   **Week 9**: Reproducible Tables and Figures in `R`\
+-   ***Week 10: Efficient R & parallelization***
 :::
 :::::
 
@@ -253,8 +268,18 @@ After successful completion of this course, you will be able to:\
 
 ## Workflow
 
--   Dictionary definition: "the sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion"
--   Research Workflow: "The process of conducting research from conceptualization to dissemination"
+-   Dictionary definition:
+    -   <div>
+
+        > the sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion
+
+        </div>
+-   Research Workflow:
+    -   <div>
+
+        > The process of conducting research from conceptualization to dissemination
+
+        </div>
 
 ## Why Should I Care?
 
@@ -266,13 +291,13 @@ After successful completion of this course, you will be able to:\
     3.  Your workflow is *inefficient*, which can lead to mistakes
 -   A workflow is a work in progress. If it no longer serves you, let it go
 
-## Why Should I Care? An Example 
+## Why Should I Care? An Example
 
-- A few years ago, I got a revision in a top aging journal. In the second revision, a reviewer asked us to redo all of our one-stage analyses (hundreds of models across 8 predictors and 14 outcomes along with a number of sensitivity tests) using the more traditional two-stage approach 
-- Two things saved me here: 
-  * My data and code were set up to optimally modularized; 
-  * I had previously written a set of functions to do both the one- and two-stage approaches for a different project 
-- What could have taken me weeks or months took  1-2 hours of active work (plus inactive model running time) because I had an intentionally set up workflow 
+-   A few years ago, I got a revision in a top aging journal. In the second revision, a reviewer asked us to redo all of our one-stage analyses (hundreds of models across 8 predictors and 14 outcomes along with a number of sensitivity tests) using the more traditional two-stage approach
+-   Two things saved me here:
+    -   My data and code were set up to optimally modularized;
+    -   I had previously written a set of functions to do both the one- and two-stage approaches for a different project
+-   What could have taken me weeks or months took 1-2 hours of active work (plus inactive model running time) because I had an intentionally set up workflow
 
 ## How Do I Build a Workflow? {.smaller}
 
@@ -292,7 +317,7 @@ After successful completion of this course, you will be able to:\
 7. Data Analysis\
 8. Writing (and rewriting)\
 9. Submission\
-10. Revision (and possibly crying)\
+10. Revision (repeat steps 6-8)\
 11. Publication
 :::
 ::::
@@ -309,7 +334,7 @@ After successful completion of this course, you will be able to:\
 7. Data Analysis\
 8. Writing (and rewriting)\
 9. Submission\
-10. Revision (and possibly crying)\
+10. Revision (repeat steps 6-8)\
 11. Publication
 :::
 ::::
@@ -525,7 +550,7 @@ knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs
 -   The course website\
 -   Your homework\
 -   My lab website
--   Automated personalized feedback reports I give to participants 
+-   Automated personalized feedback reports I give to participants
 -   All written in and rendered via Quarto
 
 # Some R Basics
@@ -620,9 +645,9 @@ animals
 
 Either in the R console or within the R markdown file, do the following:
 
-1.  Create a vector called `v1` with three elements, where all the elements are numbers. Then print the values.
-2.  Create a vector called `v2` with four elements, where all the elements are characters (i.e., enclosed in single '' or double "" quotes). Then print the values.
-3.  Create a vector called `v3` with five elements, where some elements are numeric and some elements are characters. Then print the values.
+1.  Create a vector called `v1` with three elements, where all the elements are ***numbers***. Then print the values.
+2.  Create a vector called `v2` with four elements, where all the elements are ***characters*** (i.e., enclosed in single '' or double "" quotes). Then print the values.
+3.  Create a vector called `v3` with five elements, where some elements are ***numeric*** and some elements are ***characters***. Then print the values.
 
 ## Solution to Exercise
 
@@ -847,7 +872,7 @@ I especially want you to take some time to peruse documents on YAML headers:
 ::: column
 Reminders:
 
--   Problem set 1 posted by Monday 
+-   Problem set 1 posted by Monday
 
 -   Make sure to check out the readings
 
