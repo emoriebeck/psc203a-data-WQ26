@@ -13,7 +13,7 @@ After successful completion of this course, you will be able to:\
 
 There is no official textbook for this course (but if there was, it'd be Wickham, Cetinkaya-Rundel, & Grolemund's R for Data Science \[2nd edition\]). However, many of you are coming in with different levels of knowledge and different types of questions, so I am providing some suggested readings below. 
 
-I have arranged for students in this course to receive free access to Data Camp, a library of R (other programming languages) tutorials. Sign up using your UC Davis email [here](https://www.datacamp.com/groups/shared_links/7d2260b0c46c4914c6543c5177372584c5b5971fbc44e6dca8a784093f3b7429). 
+I have arranged for students in this course to receive free access to Data Camp, a library of R (other programming languages) tutorials. Sign up using your UC Davis email [here](https://www.datacamp.com/groups/shared_links/47a82efe9c4fee59e3ba4592743caa2326d5c091badc782aec969e244e98ab5e). 
 
 We will pull from the following two (freely available) books:
 
