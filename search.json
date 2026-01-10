@@ -1068,7 +1068,7 @@
     "href": "ps1-week1.html",
     "title": "Problem Set Week 1",
     "section": "",
-    "text": "Due Date: Monday, October 9, 12:01 AM PST.\nDownload your problem set for week 1 below or on Canvas.\nAnswers can be found here."
+    "text": "Due Date: Monday, January 19, 2:00 PM PST.\nDownload your problem set for week 1 below or on Canvas."
   },
   {
     "objectID": "about.html",
@@ -1108,196 +1108,196 @@
   {
     "objectID": "02-week2-workbook.html#why-reproducibility-and-values",
     "href": "02-week2-workbook.html#why-reproducibility-and-values",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Why reproducibility AND values?",
     "text": "Why reproducibility AND values?\n\n\nThe definition of reproducibility is somewhat debated\n\n“‘Reproducibility’ refers to instances in which the original researcher’s data and computer codes are used to regenerate the results”\n\n“‘Reproducibility’ refers to independent researchers arriving at the same results using their own data and methods”\n\n\n\nBut regardless of what definition you choose, reproducibility starts with a commitment in research to be\nclear\ntransparent\nhonest\nthorough"
   },
   {
     "objectID": "02-week2-workbook.html#why-reproducibility-and-values-1",
     "href": "02-week2-workbook.html#why-reproducibility-and-values-1",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Why reproducibility AND values?",
     "text": "Why reproducibility AND values?\n\nReproducibility is ethical.\nWhen I post a project, I pour over my code for hours, adding comments, rendering to multiple formats, trying to flag locations in online materials in the mansucript, etc.\nI am trying to prevent errors, but I am also trying to make sure that other people know what I did, especially if I did make errors\nReproducible research is also equitable.\nA reproducible research workflow can be downloaded by another person as a starting point, providing tools to other researchers who may not have the same access to education and resources as you"
   },
   {
     "objectID": "02-week2-workbook.html#where-should-we-reproducible",
     "href": "02-week2-workbook.html#where-should-we-reproducible",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Where should we reproducible?",
     "text": "Where should we reproducible?\n\nPlanning\n\nStudy planning and design\n\nLab Protocols\n\nCodebooks\n\netc.\n\n\n\nAnalyses\n\nScripting\n\nCommunication\n\netc."
   },
   {
     "objectID": "02-week2-workbook.html#aspects-of-reproducibility",
     "href": "02-week2-workbook.html#aspects-of-reproducibility",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Aspects of Reproducibility",
     "text": "Aspects of Reproducibility\n\nData within files should be ‘tidy’ (next week – tidyr)\nProject based approach (today)\nConsistency: naming, space, style (today)\nDocumentation: commenting and README (today)\nLiterate programming e.g. Rmarkdown (every day!)"
   },
   {
     "objectID": "02-week2-workbook.html#reproducible-workflow",
     "href": "02-week2-workbook.html#reproducible-workflow",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Reproducible Workflow",
     "text": "Reproducible Workflow\nA reproducible workflow is organized. What does it mean to be be organized? At least:\n\nUse a project based approach, e.g., RStudio project or similar\n\nHave a hierarchical folder structure\n\nHave a consistent and informative naming system that ‘plays nice’\n\nDocument code with comments and analyses with README\n\n\nMore advanced (later in the class)\n\n\nGeneralize with functions and packages\nversion control"
   },
   {
     "objectID": "02-week2-workbook.html#what-is-a-project",
     "href": "02-week2-workbook.html#what-is-a-project",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "What is a project?",
     "text": "What is a project?\n\nA project is a discrete piece of work which has a number of files associated with it such as the data and scripts for an analysis and the production reports.\nUsing a project-oriented workflow means to have a hierarchical folder structure with everything needed to reproduce an analysis.\n\nOne research project might have several organizational projects associated with it, for example:\n\ndata files and metadata (which may be made into a package)\npreregistration\nanalysis and reporting\na package developed for the analysis\nan app for allowing data to be explored by others"
   },
   {
     "objectID": "02-week2-workbook.html#example",
     "href": "02-week2-workbook.html#example",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Example",
     "text": "Example\nGood Workflows are:\n\nstructured\n\nsystematic\n\nrepeatable\n\nNaming\n\nhuman and machine readable\n\nno spaces\n\nuse snake/kebab case\n\nordering: numbers (zero left padded), dates\n\nfile extensions\n\n\n\n-- ipcs_data_2019\n   |__ipcs_data_2019.Rproj\n   |__data\n      |__raw_data\n         |__2019-03-21_ema_raw.csv\n         |__2019-03-21_baseline_raw.csv\n      |__clean_data\n         |__2019-06-21_ema_long.csv\n         |__2019-06-21_ema_long.RData\n         |__2019-06-21_baseline_wide.csv\n         |__2019-06-21_baseline_wide.RData\n   |__results\n      |__01_models\n         |__E_mortality.RData\n         |__A_mortality.RData\n      |__02_summaries\n         |__E_mortality.RData\n         |__A_mortality.RData\n      |__03_figures\n         |__mortality.png\n         |__mortality.pdf\n      |__04_tables\n         |__zero_order_cors.RData\n         |__descriptives.RData\n         |__key_terms.RData\n         |__all_model_terms.RData\n   |__README.md\n   |__refs\n      |__r_refs.bib\n      |__proj_refs.bib\n   |__analyses\n      |__01_background.Rmd\n      |__02_data_cleaning.Rmd\n      |__03_models.Rmd\n      |__04_summary.Rmd"
   },
   {
     "objectID": "02-week2-workbook.html#what-is-a-path",
     "href": "02-week2-workbook.html#what-is-a-path",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "What is a path?",
-    "text": "What is a path?\nA path gives the address - or location - of a filesystem object, such as a file or directory.\n\nPaths appear in the address bar of your browser or file explorer.\nWe need to know a file path whenever we want to read, write or refer to a file using code rather than interactively pointing and clicking to navigate.\nA path can be absolute or relative\n\nabsolute = whole path from root\nrelative = path from current directory\n\n\n\nAbsolute paths\n\nAn Absolute path is given from the “root directory” of the object.\nThe root directory of a file system is the first or top directory in the hierarchy.\nFor example, C:\\ or M:\\ on windows or / on a Mac which is displayed as Macintosh HD in Finder.\n\nThe absolute path for a file, pigeon.txt could be:\n\nwindows: C:/Users/edbeck/Desktop/pigeons/data-raw/pigeon.txt\n\nMac/unix systems: /Users/edbeck/Desktop/pigeons/data-raw/pigeon.txt\n\nweb: http://github.com/emoriebeck/pigeons/data/pigeon.txt\n\nWhat is a directory?\n\nDirectory is the old word for what many now call a folder 📂.\nCommands that act on directories in most programming languages and environments reflect this.\nFor example, in R this means “tell me my working directory”:\ngetwd() get working directory in R\nWhat is a working directory?\n\nThe working directory is the default location a program is using. It is where the program will read and write files by default. You have only one working directory at a time.\nThe terms ‘working directory’, ‘current working directory’ and ‘current directory’ all mean the same thing.\n\nFind your current working directory with:\n\nCodegetwd()\n\n[1] \"/Users/emoriebeck/Documents/teaching/PSC290-cleaning-fall-2023/psc290-data-FQ23/psc290-data-FQ23\"\n\n\nRelative paths\nA relative path gives the location of a filesystem object relative to the working directory, (i.e., that returned by getwd()).\n\nWhen pigeon.txt is in the working directory the relative path is just the file * name: pigeon.txt\nIf there is a folder in the working directory called data-raw and pigeon.txt is in there then the relative path is data-raw/pigeon.txt\nPaths: moving up the hierarchy\n\n../ allows you to look in the directory above the working directory\nWhen pigeon.txt is in folder above the working the relative path is ../pigeon.txt\nAnd if it is in a folder called data-raw which is in the directory above the working directory then the relative path is ../data-raw/pigeon.txt\nWhat’s in my directory?\nYou can list the contents of a directory using the dir() command\n\n\ndir() list the contents of the working directory\n\ndir(\"..\") list the contents of the directory above the working directory\n\ndir(\"../..\") list the contents of the directory two directories above the working directory\n\ndir(\"data-raw\") list the contents of a folder call data-raw which is in the working directory.\nRelative or absolute\n\nMost of the time you should use relative paths because that makes your work portable (i.e. to a different machine / user / etc.).\n🎉 The tab key is your friend!\nYou only need to use absolute paths when you are referring to filesystem outside the one you are using.\n\nI often store the beginning of that path as object.\n\nweb_wd <- “https://github.com/emoriebeck/pigeons/”\nThen I can use sprintf() or paste() to add different endings\n\n\n\n\nCodeweb_wd <- \"https://github.com/emoriebeck/pigeons/\"\nsprintf(\"%s/data-raw/pigeon.txt\", web_wd)\n\n[1] \"https://github.com/emoriebeck/pigeons//data-raw/pigeon.txt\""
+    "text": "What is a path?\nA path gives the address - or location - of a filesystem object, such as a file or directory.\n\nPaths appear in the address bar of your browser or file explorer.\nWe need to know a file path whenever we want to read, write or refer to a file using code rather than interactively pointing and clicking to navigate.\nA path can be absolute or relative\n\nabsolute = whole path from root\nrelative = path from current directory\n\n\n\nAbsolute paths\n\nAn Absolute path is given from the “root directory” of the object.\nThe root directory of a file system is the first or top directory in the hierarchy.\nFor example, C:\\ or M:\\ on windows or / on a Mac which is displayed as Macintosh HD in Finder.\n\nThe absolute path for a file, pigeon.txt could be:\n\nwindows: C:/Users/edbeck/Desktop/pigeons/data-raw/pigeon.txt\n\nMac/unix systems: /Users/edbeck/Desktop/pigeons/data-raw/pigeon.txt\n\nweb: http://github.com/emoriebeck/pigeons/data/pigeon.txt\n\nWhat is a directory?\n\nDirectory is the old word for what many now call a folder 📁.\nCommands that act on directories in most programming languages and environments reflect this.\nFor example, in R this means “tell me my working directory”:\ngetwd() get working directory in R\nWhat is a working directory?\n\nThe working directory is the default location a program is using. It is where the program will read and write files by default. You have only one working directory at a time.\nThe terms ‘working directory’, ‘current working directory’ and ‘current directory’ all mean the same thing.\n\nFind your current working directory with:\n\nCodegetwd()\n\n[1] \"/Users/emoriebeck/Documents/teaching/PSC203a-data-cleaning-WQ-2026/psc203a-data-WQ26/psc203a-data-WQ26\"\n\n\nRelative paths\nA relative path gives the location of a filesystem object relative to the working directory, (i.e., that returned by getwd()).\n\nWhen pigeon.txt is in the working directory the relative path is just the file * name: pigeon.txt\nIf there is a folder in the working directory called data-raw and pigeon.txt is in there then the relative path is data-raw/pigeon.txt\nPaths: moving up the hierarchy\n\n../ allows you to look in the directory above the working directory\nWhen pigeon.txt is in folder above the working the relative path is ../pigeon.txt\nAnd if it is in a folder called data-raw which is in the directory above the working directory then the relative path is ../data-raw/pigeon.txt\nWhat’s in my directory?\nYou can list the contents of a directory using the dir() command\n\n\ndir() list the contents of the working directory\n\ndir(\"..\") list the contents of the directory above the working directory\n\ndir(\"../..\") list the contents of the directory two directories above the working directory\n\ndir(\"data-raw\") list the contents of a folder call data-raw which is in the working directory.\nRelative or absolute\n\nMost of the time you should use relative paths because that makes your work portable (i.e. to a different machine / user / etc.).\n🎉 The tab key is your friend!\nYou only need to use absolute paths when you are referring to filesystem outside the one you are using.\n\nI often store the beginning of that path as object.\n\nweb_wd <- “https://github.com/emoriebeck/pigeons/”\nThen I can use sprintf() or paste() to add different endings\n\n\n\n\nCodeweb_wd <- \"https://github.com/emoriebeck/pigeons/\"\nsprintf(\"%s/data-raw/pigeon.txt\", web_wd)\n\n[1] \"https://github.com/emoriebeck/pigeons//data-raw/pigeon.txt\""
   },
   {
     "objectID": "02-week2-workbook.html#example-1",
     "href": "02-week2-workbook.html#example-1",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Example",
     "text": "Example\nDownload and unzip pigeons.zip which has the following structure:\n-- pigeons\n   |__data-processed\n      |__pigeon_long.txt\n   |__data-raw\n      |__pigeon.txt\n   |__figures\n      |__fig1.tiff\n   |__scripts\n      |__analysis.R\n      |__import_reshape.R\n   |__pigeons.Rproj"
   },
   {
     "objectID": "02-week2-workbook.html#rstudio-projects-1",
     "href": "02-week2-workbook.html#rstudio-projects-1",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "RStudio Projects",
     "text": "RStudio Projects\n\nProject is obviously a commonly used word. When I am referring to an RStudio Project I will use the capitalised words ‘RStudio Project’ or ‘Project’.\nIn other cases, I will use ‘project’.\nAn RStudio Project is a directory with an .Rproj file in it.\nThe name of the RStudio Project is the same as the name of the top level directory which is referred to as the Project directory.\n\nFor example, if you create an RStudio Project ipcs_data_2019 your folder structure would look something like this:\n-- ipcs_data_2019\n   |__ipcs_data_2019.Rproj\n   |__data\n      |__raw_data\n         |__2019-03-21_ema_raw.csv\n         |__2019-03-21_baseline_raw.csv\n      |__clean_data\n         |__2019-06-21_ema_long.csv\n         |__2019-06-21_ema_long.RData\n         |__2019-06-21_baseline_wide.csv\n         |__2019-06-21_baseline_wide.RData\n   |__results\n      |__01_models\n      |__02_summaries\n      |__03_figures\n      |__04_tables\n   |__README.md\n   |__refs\n      |__r_refs.bib\n      |__proj_refs.bib\n   |__analyses\n      |__01_background.Rmd\n      |__02_data_cleaning.Rmd\n      |__03_models.Rmd\n      |__04_summary.Rmd\n\nthe .RProj file which is the defining feature of an RStudio Project\nWhen you open an RStudio Project, the working directory is set to the Project directory (i.e., the location of the .Rproj file).\nThis makes your work portable. You can zip up the project folder and send it to any person, including future you, or any computer.\nThey will be able to unzip, open the project and have all the code just work.\n(This is great for sending code and/or results to your advisors)"
   },
   {
     "objectID": "02-week2-workbook.html#directory-structure",
     "href": "02-week2-workbook.html#directory-structure",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Directory structure",
     "text": "Directory structure\nYou are aiming for structured, systematic and repeatable. For example, the Project directory might contain:\n\n.RProj file\n\nREADME - tell people what the project is and how to use it\n\nLicense - tell people what they are allowed to do with your project\nDirectories\ndata/\n\nprereg/\n\nscripts/\nresults/\n\nmanuscript/"
   },
   {
     "objectID": "02-week2-workbook.html#readme",
     "href": "02-week2-workbook.html#readme",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "README",
     "text": "README\n\nREADMEs are a form of documentation which have been widely used for a long time. They contain all the information about the other files in a directory. They can be extensive.\nWikipedia README page\nGitHub Doc’s About READMEs\nOSF\n\nA minimal README might give:\n\nTitle\nDescription, 50 words or so on what the project is\nTechnical Description of the project\n\nWhat software and packages are needed including versions\nAny instructions needed to run the analysis/use the software\nAny issues that a user might face in running the analysis/using the software\n\n\nInstructions on how to use the work\nLinks to where other files, materials, etc. are stored\n\nE.g., an OSF readme may point to GitHub, PsyArxiv, etc."
   },
   {
     "objectID": "02-week2-workbook.html#license",
     "href": "02-week2-workbook.html#license",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "License",
     "text": "License\nA license tells others what they can and can’t do with your work.\nchoosealicense.com is a useful explainer.\nI typically use:\n\n\nMIT License for software\n\nCC-BY-SA-4.0 for other work"
   },
   {
     "objectID": "02-week2-workbook.html#rstudio-project-infrastructure",
     "href": "02-week2-workbook.html#rstudio-project-infrastructure",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "RStudio Project infrastructure",
     "text": "RStudio Project infrastructure\n🎬 create a new Project called iris by:\n\nclicking File->New Project…\nclicking on the little icon (second from the left) at the top\nChoose New Project, then New Directory, then New Project. Name the RStudio Project iris.\nCreate folders in iris called data-raw, data-processed and figures.\nStart new scripts called 01-import.R, 02-tidy.R, and 03-figures.R"
   },
   {
     "objectID": "02-week2-workbook.html#save-and-import",
     "href": "02-week2-workbook.html#save-and-import",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Save and Import",
     "text": "Save and Import\n\nSave a copy of iris.csv to your data-raw folder. These data give the information about different species of irises.\nIn your 01-import.R script, load the tidyverse set of packages.\n\n\nCodelibrary(tidyverse)\nwrite_csv(iris, file = \"data-raw/iris.csv\")\n\n\n\nAdd the command to import the data:\n\n\nCodeiris <- read_csv(\"data-raw/iris.csv\")\n\n\n\n\n\n\nThe relative path is data-raw/iris.csv because your working directory is the Project directory, iris."
   },
   {
     "objectID": "02-week2-workbook.html#reformat-the-data",
     "href": "02-week2-workbook.html#reformat-the-data",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Reformat the data",
     "text": "Reformat the data\nThis dataset has three observations in a row - it is not ‘tidy’.\n\nOpen your 02-tidy.R script, and reshape the data using:\n\n\nCodeiris <- pivot_longer(data = iris, \n                     cols = -Species, \n                     names_to = \"attribute\", \n                     values_to = \"value\")\n\n\n\nThis reformats the dataframe in R but does not overwrite the text file of the data.\nDon’t worry too much about this right now. We’ll spend a lot of time talking about reshaping data next week!"
   },
   {
     "objectID": "02-week2-workbook.html#writing-files",
     "href": "02-week2-workbook.html#writing-files",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Writing files",
     "text": "Writing files\nOften we want to write to files.\n\nMy main reasons for doing so are to save copies of data that have been processed and to save manuscripts and graphics.\nAlso, as someone who collects a lot of data, the de-identified, fully anonymized data files I can share and the identifiable data I collect require multiple versions (and encryption, keys, etc.)\nWrite your dataframe iris to a csv file named iris-long.csv in your data-processed folder:\n\n\nCodefile <- \"data-processed/iris-long.csv\"\nwrite_csv(iris, file)\n\n\n\n\n\n\nPutting file paths into variables often makes your code easier to read especially when file paths are long or used multiple times."
   },
   {
     "objectID": "02-week2-workbook.html#create-a-plot",
     "href": "02-week2-workbook.html#create-a-plot",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Create a plot",
     "text": "Create a plot\nOpen your 03-figures.R script and create a simple plot of this data with:\n\nCodefig1 <- ggplot(\n  data = iris\n  , aes(y = Species, x = value, fill = Species)\n  ) + \n  geom_boxplot() +                       \n  facet_grid(attribute~.) + \n  scale_x_continuous(name = \"Attribute\") +\n  scale_y_discrete(name = \"Species\") +\n  theme_classic() + \n  theme(legend.position = \"none\")"
   },
   {
     "objectID": "02-week2-workbook.html#view-plot",
     "href": "02-week2-workbook.html#view-plot",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "View plot",
     "text": "View plot\nView plot with:\n\nCodefig1"
   },
   {
     "objectID": "02-week2-workbook.html#write-ggplot-figure-to-file",
     "href": "02-week2-workbook.html#write-ggplot-figure-to-file",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Write ggplot figure to file",
     "text": "Write ggplot figure to file\n\nA useful function for saving ggplot figures is ggsave().\nIt has arguments for the size, resolution and device for the image. See the ggsave() reference page.\nSince I often make more than one figure, I might set these arguments first.\n\n\n\n\nAssign ggsave argument values to variables:\n\n\nCode# figure saving settings\nunits <- \"in\"  \nfig_w <- 3.2\nfig_h <- fig_w\ndpi <- 600\ndevice <- \"tiff\" \n\n\n\n\nSave the figure to your figures directory:\n\n\nCodeggsave(\"figures/fig1.tiff\",\n       plot = fig1,\n       device = device,\n       width = fig_w,\n       height = fig_h,\n       units = units,\n       dpi = dpi)\n\n\n\n\n\n\nCheck it is there!\n\n\n\n\n\n\n\nData Manipulation in dplyr"
   },
   {
     "objectID": "02-week2-workbook.html#core-functions",
     "href": "02-week2-workbook.html#core-functions",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "Core Functions",
     "text": "Core Functions\n\n\n\n\n%>%\nfilter()\nselect()\narrange()\ngroup_by()\nmutate()\nsummarize()\n\n\n\nAlthough each of these functions are powerful alone, they are incredibly powerful in conjunction with one another. So below, I’ll briefly introduce each function, then link them all together using an example of basic data cleaning and summary."
   },
   {
     "objectID": "02-week2-workbook.html#section",
     "href": "02-week2-workbook.html#section",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "1. %>%\n",
     "text": "1. %>%\n\n\nThe pipe %>% is wonderful. It makes coding intuitive. Often in coding, you need to use so-called nested functions. For example, you might want to round a number after taking the square of 43.\n\n\nCodesqrt(43)\n\n[1] 6.557439\n\nCoderound(sqrt(43), 2)\n\n[1] 6.56\n\n\nThe issue with this comes whenever we need to do a series of operations on a data set or other type of object. In such cases, if we run it in a single call, then we have to start in the middle and read our way out.\n\nCoderound(sqrt(43/2), 2)\n\n[1] 4.64\n\n\nThe pipe solves this by allowing you to read from left to right (or top to bottom). The easiest way to think of it is that each call of %>% reads and operates as “and then.” So with the rounded square root of 43, for example:\n\nCodesqrt(43) %>%\n  round(2)\n\n[1] 6.56"
   },
   {
     "objectID": "02-week2-workbook.html#filter",
     "href": "02-week2-workbook.html#filter",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "2. filter()\n",
     "text": "2. filter()\n\nOften times, when conducting research (experiments or otherwise), there are observations (people, specific trials, etc.) that you don’t want to include.\n\n\nCodedata(bfi) # grab the bfi data from the psych package\nbfi <- bfi %>% as_tibble()\nhead(bfi)\n\n\n\n  \n\n\n\nOften times, when conducting research (experiments or otherwise), there are observations (people, specific trials, etc.) that you don’t want to include.\n\nCodesummary(bfi$age) # get age descriptives\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   3.00   20.00   26.00   28.78   35.00   86.00 \n\n\nOften times, when conducting research (experiments or otherwise), there are observations (people, specific trials, etc.) that you don’t want to include.\n\nCodebfi2 <- bfi %>% # see a pipe!\n  filter(age <= 18) # filter to age up to 18\n\nsummary(bfi2$age) # summary of the new data \n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n    3.0    16.0    17.0    16.3    18.0    18.0 \n\n\nBut this isn’t quite right. We still have folks below 12. But, the beauty of filter() is that you can do sequence of OR and AND statements when there is more than one condition, such as up to 18 AND at least 12.\n\nCodebfi2 <- bfi %>%\n  filter(age <= 18 & age >= 12) # filter to age up to 18 and at least 12\n\nsummary(bfi2$age) # summary of the new data \n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   12.0    16.0    17.0    16.4    18.0    18.0 \n\n\nGot it!\n\nBut filter works for more use cases than just conditional\n\n\n<, >, <=, and >=\n\n\n\nIt can also be used for cases where we want a single values to match cases with text.\nTo do that, let’s convert one of the variables in the bfi data frame to a string.\nSo let’s change gender (1 = male, 2 = female) to text (we’ll get into factors later).\n\n\nCodebfi$education <- plyr::mapvalues(bfi$education, 1:5, c(\"Below HS\", \"HS\", \"Some College\", \"College\", \"Higher Degree\"))\n\n\nNow let’s try a few things:\n1. Create a data set with only individuals with some college (==).\n\nCodebfi2 <- bfi %>% \n  filter(education == \"Some College\")\nunique(bfi2$education)\n\n[1] \"Some College\"\n\n\n2. Create a data set with only people age 18 (==).\n\nCodebfi2 <- bfi %>%\n  filter(age == 18)\nsummary(bfi2$age)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n     18      18      18      18      18      18 \n\n\n3. Create a data set with individuals with some college or above (%in%).\n\nCodebfi2 <- bfi %>%\n  filter(education %in% c(\"Some College\", \"College\", \"Higher Degree\"))\nunique(bfi2$education)\n\n[1] \"Some College\"  \"Higher Degree\" \"College\"      \n\n\n%in% is great. It compares a column to a vector rather than just a single value, you can compare it to several\n\nCodebfi2 <- bfi %>%\n  filter(age %in% 12:18)\nsummary(bfi2$age)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   12.0    16.0    17.0    16.4    18.0    18.0"
   },
   {
     "objectID": "02-week2-workbook.html#select",
     "href": "02-week2-workbook.html#select",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "3. select()\n",
-    "text": "3. select()\n\n\nIf filter() is for pulling certain observations (rows), then select() is for pulling certain variables (columns).\nit’s good practice to remove these columns to stop your environment from becoming cluttered and eating up your RAM.\nIn our bfi data, most of these have been pre-removed, so instead, we’ll imagine we don’t want to use any indicators of Agreeableness (A1-A5) and that we aren’t interested in gender.\nWith select(), there are few ways choose variables. We can bare quote name the ones we want to keep, bare quote names we want to remove, or use any of a number of select() helper functions.\n\nA. Bare quote columns we want to keep:\n\n\n\nCodebfi %>%\n  select(C1, C2, C3, C4, C5) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 5\n     C1    C2    C3    C4    C5\n  <int> <int> <int> <int> <int>\n1     2     3     3     4     4\n2     5     4     4     3     4\n3     4     5     4     2     5\n4     4     4     3     5     5\n5     4     4     5     3     2\n6     6     6     6     1     3\n# ℹ 2,794 more rows\n\n\n\n\nCodebfi %>%\n  select(C1:C5) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 5\n     C1    C2    C3    C4    C5\n  <int> <int> <int> <int> <int>\n1     2     3     3     4     4\n2     5     4     4     3     4\n3     4     5     4     2     5\n4     4     4     3     5     5\n5     4     4     5     3     2\n6     6     6     6     1     3\n# ℹ 2,794 more rows\n\n\n\n\n\nB. Bare quote columns we don’t want to keep:\n\nCodebfi %>% \n  select(-(A1:A5), -gender) %>% # Note the `()` around the columns\n  print(n = 6)\n\n# A tibble: 2,800 × 22\n     C1    C2    C3    C4    C5    E1    E2    E3    E4    E5    N1    N2    N3\n  <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1     2     3     3     4     4     3     3     3     4     4     3     4     2\n2     5     4     4     3     4     1     1     6     4     3     3     3     3\n3     4     5     4     2     5     2     4     4     4     5     4     5     4\n4     4     4     3     5     5     5     3     4     4     4     2     5     2\n5     4     4     5     3     2     2     2     5     4     5     2     3     4\n6     6     6     6     1     3     2     1     6     5     6     3     5     2\n# ℹ 2,794 more rows\n# ℹ 9 more variables: N4 <int>, N5 <int>, O1 <int>, O2 <int>, O3 <int>,\n#   O4 <int>, O5 <int>, education <chr>, age <int>\n\n\nC. Add or remove using select() helper functions.\n\n\n\n\nstarts_with()\n\nends_with()\ncontains()\nmatches()\nnum_range()\none_of()\nall_of()\n\n\n\n\nCodebfi %>%\n  select(starts_with(\"C\"))"
+    "text": "3. select()\n\n\nIf filter() is for pulling certain observations (rows), then select() is for pulling certain variables (columns).\nit’s good practice to remove these columns to stop your environment from becoming cluttered and eating up your RAM.\nIn our bfi data, most of these have been pre-removed, so instead, we’ll imagine we don’t want to use any indicators of Agreeableness (A1-A5) and that we aren’t interested in gender.\nWith select(), there are few ways choose variables. We can bare quote name the ones we want to keep, bare quote names we want to remove, or use any of a number of select() helper functions.\n\nA. Bare quote columns we want to keep:\n\n\n\nCodebfi %>%\n  select(C1, C2, C3, C4, C5)\n\n\n\n  \n\n\n\n\n\nCodebfi %>%\n  select(C1:C5) \n\n\n\n  \n\n\n\n\n\n\nB. Bare quote columns we don’t want to keep:\n\nCodebfi %>% \n  select(-(A1:A5), -gender)  # Note the `()` around the columns\n\n\n\n  \n\n\n\nC. Add or remove using select() helper functions.\n\n\n\n\nstarts_with()\n\nends_with()\ncontains()\nmatches()\nnum_range()\none_of()\nall_of()\n\n\n\n\nCodebfi %>%\n  select(starts_with(\"C\"))"
   },
   {
     "objectID": "02-week2-workbook.html#arrange",
     "href": "02-week2-workbook.html#arrange",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "4. arrange()\n",
-    "text": "4. arrange()\n\n\nSometimes, either in order to get a better sense of our data or in order to well, order our data, we want to sort it\nAlthough there is a base R sort() function, the arrange() function is tidyverse version that plays nicely with other tidyverse functions.\n\n\nSo in our previous examples, we could also arrange() our data by age or education, rather than simply filtering. (Or as we’ll see later, we can do both!)\n\n\nCode# sort by age\nbfi %>% \n  select(gender:age) %>%\n  arrange(age) %>% \n  print(n = 6)\n\n# A tibble: 2,800 × 3\n  gender education       age\n   <int> <chr>         <int>\n1      1 Higher Degree     3\n2      2 <NA>              9\n3      2 Some College     11\n4      2 <NA>             11\n5      2 <NA>             11\n6      2 <NA>             12\n# ℹ 2,794 more rows\n\n\n\n\nCode# sort by education\nbfi %>%\n  select(gender:age) %>%\n  arrange(education) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 3\n  gender education   age\n   <int> <chr>     <int>\n1      1 Below HS     19\n2      1 Below HS     21\n3      1 Below HS     17\n4      1 Below HS     18\n5      1 Below HS     18\n6      2 Below HS     18\n# ℹ 2,794 more rows\n\n\n\n\nWe can also arrange by multiple columns, like if we wanted to sort by gender then education:\n\nCodebfi %>%\n  select(gender:age) %>%\n  arrange(gender, education) %>% \n  print(n = 6)\n\n# A tibble: 2,800 × 3\n  gender education   age\n   <int> <chr>     <int>\n1      1 Below HS     19\n2      1 Below HS     21\n3      1 Below HS     17\n4      1 Below HS     18\n5      1 Below HS     18\n6      1 Below HS     32\n# ℹ 2,794 more rows"
+    "text": "4. arrange()\n\n\nSometimes, either in order to get a better sense of our data or in order to well, order our data, we want to sort it\nAlthough there is a base R sort() function, the arrange() function is tidyverse version that plays nicely with other tidyverse functions.\n\n\nSo in our previous examples, we could also arrange() our data by age or education, rather than simply filtering. (Or as we’ll see later, we can do both!)\n\n\nCode# sort by age\nbfi %>% \n  select(gender:age) %>%\n  arrange(age)\n\n\n\n  \n\n\n\n\n\nCode# sort by education\nbfi %>%\n  select(gender:age) %>%\n  arrange(education)\n\n\n\n  \n\n\n\n\n\nWe can also arrange by multiple columns, like if we wanted to sort by gender then education:\n\nCodebfi %>%\n  select(gender:age) %>%\n  arrange(gender, education)"
   },
   {
     "objectID": "02-week2-workbook.html#group_by",
     "href": "02-week2-workbook.html#group_by",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "5. group_by()\n",
-    "text": "5. group_by()\n\n\nThe group_by() function is the “split” of the method\nIt basically implicitly breaks the data set into chunks by whatever bare quoted column(s)/variable(s) are supplied as arguments.\n\nSo imagine that we wanted to group_by() education levels to get average ages at each level\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 8\n# Groups:   education [6]\n     C1    C2    C3    C4    C5   age gender education   \n  <int> <int> <int> <int> <int> <int>  <int> <chr>       \n1     2     3     3     4     4    16      1 <NA>        \n2     5     4     4     3     4    18      2 <NA>        \n3     4     5     4     2     5    17      2 <NA>        \n4     4     4     3     5     5    17      2 <NA>        \n5     4     4     5     3     2    17      1 <NA>        \n6     6     6     6     1     3    21      2 Some College\n# ℹ 2,794 more rows\n\n\n\nHadley’s first law of data cleaning: “What is split, must be combined”\nThis is super easy with the ungroup() function:\n\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) %>%\n  ungroup() %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 8\n     C1    C2    C3    C4    C5   age gender education   \n  <int> <int> <int> <int> <int> <int>  <int> <chr>       \n1     2     3     3     4     4    16      1 <NA>        \n2     5     4     4     3     4    18      2 <NA>        \n3     4     5     4     2     5    17      2 <NA>        \n4     4     4     3     5     5    17      2 <NA>        \n5     4     4     5     3     2    17      1 <NA>        \n6     6     6     6     1     3    21      2 Some College\n# ℹ 2,794 more rows\n\n\nMultiple group_by() calls overwrites previous calls:\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) %>%\n  group_by(gender, age) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 8\n# Groups:   gender, age [115]\n     C1    C2    C3    C4    C5   age gender education   \n  <int> <int> <int> <int> <int> <int>  <int> <chr>       \n1     2     3     3     4     4    16      1 <NA>        \n2     5     4     4     3     4    18      2 <NA>        \n3     4     5     4     2     5    17      2 <NA>        \n4     4     4     3     5     5    17      2 <NA>        \n5     4     4     5     3     2    17      1 <NA>        \n6     6     6     6     1     3    21      2 Some College\n# ℹ 2,794 more rows"
+    "text": "5. group_by()\n\n\nThe group_by() function is the “split” of the method\nIt basically implicitly breaks the data set into chunks by whatever bare quoted column(s)/variable(s) are supplied as arguments.\n\nSo imagine that we wanted to group_by() education levels to get average ages at each level\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) \n\n\n\n  \n\n\n\n\nHadley’s first law of data cleaning: “What is split, must be combined”\nThis is super easy with the ungroup() function:\n\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) %>%\n  ungroup() \n\n\n\n  \n\n\n\nMultiple group_by() calls overwrites previous calls:\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  group_by(education) %>%\n  group_by(gender, age)"
   },
   {
     "objectID": "02-week2-workbook.html#mutate",
     "href": "02-week2-workbook.html#mutate",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "6. mutate()\n",
-    "text": "6. mutate()\n\n\n\nmutate() is one of your “apply” functions\nWhen you use mutate(), the resulting data frame will have the same number of rows you started with\nYou are directly mutating the existing data frame, either modifying existing columns or creating new ones\n\nTo demonstrate, let’s add a column that indicated average age levels within each age group\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  arrange(education) %>%\n  group_by(education) %>% \n  mutate(age_by_edu = mean(age, na.rm = T)) %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 9\n# Groups:   education [6]\n     C1    C2    C3    C4    C5   age gender education age_by_edu\n  <int> <int> <int> <int> <int> <int>  <int> <chr>          <dbl>\n1     6     6     3     4     5    19      1 Below HS        25.1\n2     4     3     5     3     2    21      1 Below HS        25.1\n3     5     5     5     2     2    17      1 Below HS        25.1\n4     5     5     4     1     1    18      1 Below HS        25.1\n5     4     5     4     3     3    18      1 Below HS        25.1\n6     3     2     3     4     6    18      2 Below HS        25.1\n# ℹ 2,794 more rows\n\n\nmutate() is also super useful even when you aren’t grouping\nWe can create a new category\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  mutate(gender_cat = plyr::mapvalues(gender, c(1,2), c(\"Male\", \"Female\")))\n\n\n\n  \n\n\n\nWe could also just overwrite it:\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  mutate(gender = plyr::mapvalues(gender, c(1,2), c(\"Male\", \"Female\")))"
+    "text": "6. mutate()\n\n\n\nmutate() is one of your “apply” functions\nWhen you use mutate(), the resulting data frame will have the same number of rows you started with\nYou are directly mutating the existing data frame, either modifying existing columns or creating new ones\n\nTo demonstrate, let’s add a column that indicated average age levels within each age group\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  arrange(education) %>%\n  group_by(education) %>% \n  mutate(age_by_edu = mean(age, na.rm = T)) \n\n\n\n  \n\n\n\nmutate() is also super useful even when you aren’t grouping\nWe can create a new category\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  mutate(gender_cat = plyr::mapvalues(gender, c(1,2), c(\"Male\", \"Female\")))\n\n\n\n  \n\n\n\nWe could also just overwrite it:\n\nCodebfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  mutate(gender = plyr::mapvalues(gender, c(1,2), c(\"Male\", \"Female\")))"
   },
   {
     "objectID": "02-week2-workbook.html#summarize-summarise",
     "href": "02-week2-workbook.html#summarize-summarise",
-    "title": "Week 2 Workbook",
+    "title": "Week 2: Reproducibility and Data Transformations",
     "section": "7. summarize() / summarise()\n",
     "text": "7. summarize() / summarise()\n\n\n\nsummarize() is one of your “apply” functions\nThe resulting data frame will have the same number of rows as your grouping variable\nYou number of groups is 1 for ungrouped data frames\n\n\nCode# group_by() education\nbfi %>%\n  select(starts_with(\"C\"), age, gender, education) %>%\n  arrange(education) %>%\n  group_by(education) %>% \n  summarize(age_by_edu = mean(age, na.rm = T))  \n\n\n\n  \n\n\n\n\nCode# no groups  \nbfi %>% \n  select(starts_with(\"C\"), age, gender, education) %>%\n  arrange(education) %>%\n  summarize(age_by_edu = mean(age, na.rm = T))"
   },
@@ -1850,9 +1850,9 @@
   {
     "objectID": "02-week2-slides.html",
     "href": "02-week2-slides.html",
-    "title": "Week 2 Slides",
+    "title": "Week 2 (Reproducibility & dplyr) Slides",
     "section": "",
-    "text": "Welcome to Week 2! This week, we’ll talk about R Projects, Reproducibility, and dplyr."
+    "text": "Welcome to Week 2! This week, we’ll talk about R Projects, Reproducibility, and dplyr. You can download the slides code and slides here."
   },
   {
     "objectID": "ps8-week8.html",
@@ -2189,5 +2189,12 @@
     "title": "Week 1 (Intro) Workbook",
     "section": "Why Use RStudio (or Positron)",
     "text": "Why Use RStudio (or Positron)\n\n\n\nAlso free\nBasically a GUI for R\nOrganize files, import data, etc. with ease\nRMarkdown, Quarto, and more are powerful tools (they were used to create these slides!)\nLots of new features and support"
+  },
+  {
+    "objectID": "02-week2-workbook.html#apply-variants",
+    "href": "02-week2-workbook.html#apply-variants",
+    "title": "Week 2: Reproducibility and Data Transformations",
+    "section": "Apply Variants",
+    "text": "Apply Variants\n\nmutate_at() and summarize_at()\n\n\n\n*_at() functions allow you to specify multiple columns you want to apply the same functions to, which allows you to avoid redundancy.\nFor example:\n\nThis…\n\nCodebfi %>%\n  mutate(\n    A1 = 7 - A1\n    , C4 = 7 - C4\n    , C5 = 7 - C5\n    , E1 = 7 - E1\n    , E2 = 7 - E2\n    , O2 = 7 - O2\n    , O5 = 7 - O5\n  ) \n\n\n\n  \n\n\n\nBecomes this…\n\nCodebfi %>%\n  mutate_at(\n    vars(A1, C4, C5, E1, E2, O2, O5)\n    , ~7 - . # ~ means local function; . means function input\n    ) \n\n\n\n  \n\n\n\n\nmutate_all() and summarize_all()\n\n\n\n*_all() modifies/creates all columns in the data. This is useful for changing all columns to a certain type, recoding, etc. For example:\n\n\nCodez_score <- function(x) (x - mean(x, na.rm = T)) / sd(x, na.rm = T)\nbfi %>%\n  select(matches(\"\\\\d\")) %>%\n  mutate_all(z_score) \n\n\n\n  \n\n\n\n\nCodebfi %>%\n  mutate_all(as.character) \n\n\n\n  \n\n\n\n\nmutate_if() and summarize_if()\n\n\nSometimes, you may want to apply functions to columns that match specific conditions\nThe easiest is to match certain types (e.g., is.numeric() or is.na())\nBut you can also write custom functions to have it match\n\nHowever, if what you want it to match is a function of column names, then you should use *_at() (e.g., mutate_at(vars(starts_with(\"C\"))))\n\n\n\n\nCodebfi %>%\n  mutate_if(is.numeric, z_score) \n\n\n\n  \n\n\n\n\nCodebfi %>%\n  group_by(education) %>%\n  summarize_if(is.numeric, mean, na.rm = T) \n\n\n\n  \n\n\n\n\nCodebfi %>%\n  mutate_if(is.character, as.factor) %>%\n  select(gender:age)"
   }
 ]
