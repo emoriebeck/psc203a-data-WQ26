@@ -1,0 +1,13 @@
+---
+title: "Problem Set Week 1"
+---
+
+**Due Date**: Monday, January 19, 2:00 PM PST.
+
+[Download](https://github.com/emoriebeck/psc203a-data-wq26/raw/main/05-assignments/01-ps1/problemset1.zip) your problem set for week 1 below or on Canvas.
+
+<iframe class="slide-deck" src="/static/ps/problemset1.pdf" width="100%" height="800">
+
+</iframe>
+
+<!--# Answers can be found here. -->
