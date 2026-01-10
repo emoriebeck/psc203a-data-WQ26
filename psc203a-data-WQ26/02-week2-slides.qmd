@@ -2,7 +2,7 @@
 title: "Week 2 (Reproducibility & dplyr) Slides"
 ---
 
-Welcome to Week 2! This week, we'll talk about R Projects, Reproducibility, and `dplyr`. You can download the slides code and slides [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/04-workshops/02-week2-dplyr/week2-slides.zip).
+Welcome to Week 2! This week, we'll talk about R Projects, Reproducibility, and `dplyr`. You can download the slides code and slides [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/04-workshops/02-week2-dplyr/week-2.zip).
 
 <div>
 
