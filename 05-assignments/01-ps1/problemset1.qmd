@@ -323,7 +323,7 @@ nrow(subset(df_event, event_state == 'CA'))
 
 1.  In the code chunk below, complete the following:
 
-    -   Use the `load()` and `url()` functions to download the `df_school_all` dataframe from the url: `https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/02-ps2/ps2-data.RData`
+    -   Use the `load()` and `url()` functions to download the `df_school_all` dataframe from the url: `https://github.com/emoriebeck/psc290-data-FQ23/raw/main/05-assignments/02-ps2/ps2-data-all.RData`
         -   Each row in `df_school_all` represents a high school (includes both public and private)
         -   There are columns (e.g., `visit_by_100751`) indicating the number of times a university visited that high school
         -   The variable `total_visits` identifies the number of visits the high school received from all (16) public research universities in this data collection sample
