@@ -9,7 +9,7 @@ title: "About"
 E-mail: [`edbeck@ucdavis.edu`](mailto:edbeck@ucdavis.edu)\
 Office: YH 268J / BROB 157\
 Office Hours:\
-- Drop-in hour: TBD (location also TBD; virtual available)\
+- Thursdays 12-1 PM: [calendly signup](https://calendly.com/beck-lab/psc162-office-hours)\
 - Or by appointment: [`edbeck@ucdavis.edu`](mailto:edbeck@ucdavis.edu)
 :::
 
