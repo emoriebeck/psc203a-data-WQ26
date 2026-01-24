@@ -2,7 +2,7 @@
 title: "Week 3 (Data Quality & `tidyr`) Slides"
 ---
 
-Welcome to Week 3! This week, we'll talk about data quality, descriptive statistics / exploratory data analysis, and `tidyr`.
+Welcome to Week 3! This week, we'll talk about data quality, descriptive statistics / exploratory data analysis, and `tidyr`. You can download materials [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/03-week3-tidyr/week-3.zip).
 
 <div>
 
