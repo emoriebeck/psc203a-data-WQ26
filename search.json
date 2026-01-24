@@ -485,210 +485,210 @@
   {
     "objectID": "03-week3-workbook.html",
     "href": "03-week3-workbook.html",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "",
-    "text": "Codelibrary(knitr)\nlibrary(psych)\nlibrary(plyr)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
+    "text": "Warning: package 'purrr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.6.0\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
   },
   {
     "objectID": "03-week3-workbook.html#outline",
     "href": "03-week3-workbook.html#outline",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Outline",
     "text": "Outline\n\nWelcome & Q’s on homework\nPart 1: Data Quality and Descriptives\nPart 2: tidyr\n\nProblem set & Q time"
   },
   {
     "objectID": "03-week3-workbook.html#what-is-data-quality",
     "href": "03-week3-workbook.html#what-is-data-quality",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "What is data quality",
     "text": "What is data quality\nIBM’s definition of data quality:\n\n“Data quality measures how well a dataset meets criteria for accuracy, completeness, validity, consistency, uniqueness, timeliness, and fitness for purpose”"
   },
   {
     "objectID": "03-week3-workbook.html#aspects-of-data-quality",
     "href": "03-week3-workbook.html#aspects-of-data-quality",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Aspects of data quality",
     "text": "Aspects of data quality\n\n\nAccuracy: Do the data reflect reality / truth?\n\nCompleteness: Are the data usable or complete (no missing people, values, etc. beyond random)\n\n\nUniqueness: There is no duplicated data\n\nValidity: Do the data have the correct properties (values, ranges, etc.)\n\nConsistency: When integrating across multiple data sources, information should converge across sources and match reality\n\nTimeliness: Can the data be maintained and distributed within a specified time frame\n\nFitness for purpose: Do the data meet your research need?"
   },
   {
     "objectID": "03-week3-workbook.html#why-should-we-care-about-data-quality",
     "href": "03-week3-workbook.html#why-should-we-care-about-data-quality",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Why should we care about data quality",
     "text": "Why should we care about data quality\n\nYou aren’t responsible for poor quality data you receive, but you are responsible for the data products you work with – that is, you are responsible for improving data quality\nPoor quality data threatens scientific integrity\n\nPoor quality data are a pain for you to work with and for others to work with"
   },
   {
     "objectID": "03-week3-workbook.html#what-can-data-quality-do-for-my-career",
     "href": "03-week3-workbook.html#what-can-data-quality-do-for-my-career",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "What can data quality do for my career?",
     "text": "What can data quality do for my career?\n\nThe virtuous cycle of data cleaning\n\nSome people get a reputation for getting their data, analyses, etc. right\nThis is important for publications, grant funding, etc.\nIt tends to be inter-generational – you inherit some of your reputation on this from your advisor\nStart paying it forward now to build your own career, whether it’s in academia or industry"
   },
   {
     "objectID": "03-week3-workbook.html#how-do-i-ensure-data-quality",
     "href": "03-week3-workbook.html#how-do-i-ensure-data-quality",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "How do I ensure data quality?",
     "text": "How do I ensure data quality?\nThe Towards Data Science website has a nice definition of EDA:\n\n“Exploratory Data Analysis refers to the critical process of performing initial investigations on data so as to discover patterns,to spot anomalies,to test hypothesis and to check assumptions with the help of summary statistics”\n\n\nSo EDA is basically a fancy word for the descriptive statistics you’ve been learning about for years\n\nI think about “exploratory data analysis for data quality”\n\nInvestigating values and patterns of variables from “input data”\nIdentifying and cleaning errors or values that need to be changed\nCreating analysis variables\nChecking values of analysis variables against values of input variables"
   },
   {
     "objectID": "03-week3-workbook.html#how-i-will-teach-exploratory-data-analysis",
     "href": "03-week3-workbook.html#how-i-will-teach-exploratory-data-analysis",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "How I will teach exploratory data analysis",
     "text": "How I will teach exploratory data analysis\nWill teach exploratory data analysis (EDA) in two sub-sections:\n\nProvide “Guidelines for EDA”\n\nLess about coding, more about practices you should follow and mentality necessary to ensure high data quality\n\n\nIntroduce “Tools of EDA”:\n\nDemonstrate code to investigate variables and relationship between variables\nMost of these tools are just the application of programming skills you have already learned (or will learn soon!)"
   },
   {
     "objectID": "03-week3-workbook.html#guidelines-for-eda-for-data-quality",
     "href": "03-week3-workbook.html#guidelines-for-eda-for-data-quality",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Guidelines for “EDA for data quality”",
     "text": "Guidelines for “EDA for data quality”\nAssume that your goal in “EDA for data quality” is to investigate “input” data sources and create “analysis variables”\n\nUsually, your analysis dataset will incorporate multiple sources of input data, including data you collect (primary data) and/or data collected by others (secondary data)\n\nEDA is not a linear process, and the process will vary across people and projects Some broad steps:\n\nUnderstand how input data sources were created\n\ne.g., when working with survey data, have survey questionnaire and codebooks on hand (watch out for skip patterns!!!)\n\n\nFor each input data source, identify the “unit of analysis” and which combination of variables uniquely identify observations\nInvestigate patterns in input variables\nCreate analysis variable from input variable(s)\nVerify that analysis variable is created correctly through descriptive statistics that compare values of input variable(s) against values of the analysis variable\n\n\nIt is critically important to step through EDA processes at multiple points during data cleaning, from the input / raw data to the output / analysis / clean data.\nAlways be aware of missing values\nThey will not always be coded as NA in input variables (e.g., some projects code them as 99, 99999, negative values, etc.)"
   },
   {
     "objectID": "03-week3-workbook.html#unit-of-analysis-and-which-variables-uniquely-identify-observations",
     "href": "03-week3-workbook.html#unit-of-analysis-and-which-variables-uniquely-identify-observations",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "“Unit of analysis” and which variables uniquely identify observations",
     "text": "“Unit of analysis” and which variables uniquely identify observations\n“Unit of analysis” refers to “what does each observation represent” in an input data source\n\nIf each obs represents a trial in an experiment, you have “trial level data”\nIf each obs represents a participant, you have “participant level data”\nIf each obs represents a sample, you have “sample-level data”\nIf each obs represents a year, you have “year level data” (i.e. longitudinal)\n\nHow to identify unit of analysis\n\ndata documentation\ninvestigating the data set\nThis is very important because we often conduct analyses that span multiple units of analysis (e.g., between- v within-person, person- v stimuli-level, etc.)\nWe have to be careful and thoughtful about identifiers that let us do that (important for joining data together, which will be the focus on our R workshop today)"
   },
   {
     "objectID": "03-week3-workbook.html#rules-for-creating-new-variables",
     "href": "03-week3-workbook.html#rules-for-creating-new-variables",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rules for creating new variables",
     "text": "Rules for creating new variables\nRules I follow for variable creation\n\nNever modify “input variable”; instead create new variable based on input variable(s)\n\nAlways keep input variables used to create new variables\n\n\nInvestigate input variable(s) and relationship between input variables\nDeveloping a plan for creation of analysis variable\n\ne.g., for each possible value of input variables, what should value of analysis variable be?\n\n\nWrite code to create analysis variable\nRun descriptive checks to verify new variables are constructed correctly\n\nCan “comment out” these checks, but don’t delete them\n\n\nDocument new variables with notes and labels"
   },
   {
     "objectID": "03-week3-workbook.html#data-we-will-use",
     "href": "03-week3-workbook.html#data-we-will-use",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Data we will use",
     "text": "Data we will use\nUse read_csv() function from readr (loaded with tidyverse) to import .csv dataset into R.\n\nCodelibrary(plyr)\nlibrary(tidyverse)\nsoep_long <- read_csv(file=\"https://github.com/emoriebeck/psc290-data-FQ23/raw/main/04-workshops/03-week3-tidyr/gsoep.csv\")\nsoep_long\n\n\nLet’s examine the data [you must run this code chunk]\n\nCodesoep_long %>% names()\nsoep_long %>% names() %>% str()\n\nstr(soep_long) # ugh\n\nstr(soep_long$LifeEvent__Married)\nattributes(soep_long$LifeEvent__Married)\ntypeof(soep_long$LifeEvent__Married)\nclass(soep_long$LifeEvent__Married)"
   },
   {
     "objectID": "03-week3-workbook.html#rule-1",
     "href": "03-week3-workbook.html#rule-1",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 1",
     "text": "Rule 1\n\nNever modify “input variable”; instead create new variable based on input variable(s)\n\nAlways keep input variables used to create new variables\n\n\n\n\nI already did this before the data were loaded in. I renamed all the input variables with interpretable names and reshaped them so the time variable (year) is long and the other variables are wide"
   },
   {
     "objectID": "03-week3-workbook.html#rule-2",
     "href": "03-week3-workbook.html#rule-2",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 2",
     "text": "Rule 2\n\nInvestigate input variable(s) and relationship between input variables\n\n\nWe’ll talk more about this in a bit when we discuss different kinds of descriptives, but briefly let’s look at basic descriptives + zero-order correlations\n\n\nCodedescribe(soep_long)\n\n\n\n  \n\n\n\nThis doesn’t look great because we’ve negative values where we shouldn’t, which represent flags for different kinds of missing variables. We’ll have to fix that\n\nI’ll show you a better way later, but we haven’t learned everything to do it nicely yet. So instead, we’ll use cor.plot() from the psych package to make a simple heat map of the correlations.\nWe shouldn’t see that many negative correlations, which flags that we need to reverse score some items\n\n\nCodesoep_2005 <- soep_long %>% filter(year == 2005) %>% select(-year)\ncor.plot(soep_2005, diag = F)"
   },
   {
     "objectID": "03-week3-workbook.html#rule-3",
     "href": "03-week3-workbook.html#rule-3",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 3",
     "text": "Rule 3\n\nDeveloping a plan for creation of analysis variable\n\ne.g., for each possible value of input variables, what should value of analysis variable be?\n\n\n\n\nI do this in my codebooks, and this topic warrants a discussion in itself. This is our focal topic for next week!\nIn this case, we want Big Five (EACNO) composites for each wave and to create composites of life events experienced across all years"
   },
   {
     "objectID": "03-week3-workbook.html#rule-4",
     "href": "03-week3-workbook.html#rule-4",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 4",
     "text": "Rule 4\n\nWrite code to create analysis variable\n\n\nFrom Rule 2, we know we need to recode missing values to NA and reverse code some items. From Rule 3, we know we need to create some composites.\nLet’s do that now!\n\nRecoding:\n\nCodesoep_long <- soep_long %>%\n  mutate_at(\n    vars(contains(\"Big5\"))\n    , ~ifelse(. < 0 | is.na(.), NA, .)\n    ) %>%\n  mutate_at(\n    vars(contains(\"LifeEvent\"))\n    , ~mapvalues(., seq(-7,1), c(rep(NA, 5), 0, NA, NA, 1), warn_missing = F)\n    )\n\n\nReverse Coding:\n\nCoderev_code <- c(\"Big5__A_coarse\", \"Big5__C_lazy\", \"Big5__E_reserved\", \"Big5__N_dealStress\")\nsoep_long <- soep_long %>%\n  mutate_at(\n    vars(all_of(rev_code))\n    , ~as.numeric(reverse.code(., keys = -1, mini = 1, maxi = 7))\n    )\n\n\nLet’s check to make sure some correlations just reversed:\n\nCodesoep_2005 <- soep_long %>% filter(year == 2005) %>% select(-year)\ncor.plot(soep_2005, diag = F)\n\n\n\n\nCreate Composites:\n(Note: I honestly wouldn’t normally do it like this, but we haven’t learned how to reshape data yet! Check the online materials for code on how to do this)\n\nCodesoep_long <- soep_long %>% \n  group_by(year, Procedural__SID) %>%\n  rowwise() %>%\n  mutate(\n    Big5__E = mean(cbind(Big5__E_reserved, Big5__E_communic, Big5__E_sociable), na.rm = T),\n    Big5__A = mean(cbind(Big5__A_coarse, Big5__A_friendly, Big5__A_forgive), na.rm = T),\n    Big5__C = mean(cbind(Big5__C_thorough, Big5__C_efficient, Big5__C_lazy), na.rm = T),\n    Big5__N = mean(cbind(Big5__N_worry, Big5__N_nervous, Big5__N_dealStress), na.rm = T),\n    Big5__O = mean(cbind(Big5__O_original, Big5__O_artistic, Big5__O_imagin), na.rm = T)) %>%\n  group_by(Procedural__SID) %>%\n  mutate_at(\n    vars(contains(\"LifeEvent\"))\n    , lst(ever = ~max(., na.rm = T))\n    ) %>%\n  ungroup() %>%\n  filter(year %in% c(2005, 2009, 2013))"
   },
   {
     "objectID": "03-week3-workbook.html#rule-5",
     "href": "03-week3-workbook.html#rule-5",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 5",
     "text": "Rule 5\n\nRun descriptive checks to verify new variables are constructed correctly\n\nCan “comment out” these checks, but don’t delete them\n\n\n\n\nCodesoep_long %>% \n  select(Big5__E:LifeEvent__SepPart_ever) %>%\n  describe()\n\n\n\n  \n\n\n\n\nUh oh, Inf values popping up what went wrong?\n\n-Inf pops up when there were no non-missing values and you use na.rm = T\n\nLet’s recode those as NA\n\n\n\nCodesoep_long <- soep_long %>%\n  mutate_all(~ifelse(is.infinite(.) | is.nan(.), NA, .))\n\n\nAnd check out the descriptives again\n\nCodesoep_long %>% \n  select(Big5__E:LifeEvent__SepPart_ever) %>%\n  describe()\n\n\n\n  \n\n\n\n\nCodesoep_long %>%\n  filter(year == 2005) %>%\n  select(Big5__E:LifeEvent__SepPart_ever) %>%\n  cor.plot(., diag = F)"
   },
   {
     "objectID": "03-week3-workbook.html#rule-6",
     "href": "03-week3-workbook.html#rule-6",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Rule 6",
     "text": "Rule 6\n\nDocument new variables with notes and labels\n\n\nAgain, I do this in my codebooks, so more on this next week!!"
   },
   {
     "objectID": "03-week3-workbook.html#eda",
     "href": "03-week3-workbook.html#eda",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "EDA",
     "text": "EDA\n\n\nOne-way descriptive analyses (i.e,. focus on one variable)\n\nDescriptive analyses for continuous variables\nDescriptive analyses for discreet/categorical variables\n\n\n\nTwo-way descriptive analyses (relationship between two variables)\n\nCategorical by categorical\nCategorical by continuous\nContinuous by continuous\n\n\nRealistically, we’ve actually already covered all this above, so we’ll loop back to this after learning tidyr\n\n\n\n\n\n\n\nData Wrangling in tidyr\n\n\n\nCodeknitr::include_graphics(\"https://github.com/rstudio/hex-stickers/raw/master/thumbs/tidyr.png\")"
   },
   {
     "objectID": "03-week3-workbook.html#pivot_longer",
     "href": "03-week3-workbook.html#pivot_longer",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "1. pivot_longer()\n",
     "text": "1. pivot_longer()\n\n\n(Formerly gather()) Makes wide data long, based on a key \n\nCore arguments:\n\n\ndata: the data, blank if piped\n\ncols: columns to be made long, selected via select() calls\n\nnames_to: name(s) of key column(s) in new long data frame (string or string vector)\n\nvalues_to: name of values in new long data frame (string)\n\nnames_sep: separator in column headers, if multiple keys\n\nvalues_drop_na: drop missing cells (similar to na.rm = T) \n\n\n\nBasic Application\nLet’s start with an easy one – one key, one value:\n\nCodebfi %>%\n  rownames_to_column(\"SID\") %>%\n  pivot_longer(\n    cols = A1:O5\n    , names_to = \"item\"\n    , values_to = \"values\"\n    , values_drop_na = T\n  ) %>%\n  print(n = 8)\n\n# A tibble: 69,492 × 6\n  SID   gender education   age item  values\n  <chr>  <int>     <int> <int> <chr>  <int>\n1 61617      1        NA    16 A1         2\n2 61617      1        NA    16 A2         4\n3 61617      1        NA    16 A3         3\n4 61617      1        NA    16 A4         4\n5 61617      1        NA    16 A5         4\n6 61617      1        NA    16 C1         2\n7 61617      1        NA    16 C2         3\n8 61617      1        NA    16 C3         3\n# ℹ 69,484 more rows\n\n\nMore Advanced Application\nNow a harder one – two keys, one value:\n\nCodebfi %>%\n  rownames_to_column(\"SID\") %>%\n  pivot_longer(\n    cols = A1:O5\n    , names_to = c(\"trait\", \"item_num\")\n    , names_sep = -1\n    , values_to = \"values\"\n    , values_drop_na = T\n  ) %>%\n  print(n = 8)\n\n# A tibble: 69,492 × 7\n  SID   gender education   age trait item_num values\n  <chr>  <int>     <int> <int> <chr> <chr>     <int>\n1 61617      1        NA    16 A     1             2\n2 61617      1        NA    16 A     2             4\n3 61617      1        NA    16 A     3             3\n4 61617      1        NA    16 A     4             4\n5 61617      1        NA    16 A     5             4\n6 61617      1        NA    16 C     1             2\n7 61617      1        NA    16 C     2             3\n8 61617      1        NA    16 C     3             3\n# ℹ 69,484 more rows"
   },
   {
     "objectID": "03-week3-workbook.html#pivot_wider",
     "href": "03-week3-workbook.html#pivot_wider",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "2. pivot_wider()\n",
     "text": "2. pivot_wider()\n\n\n(Formerly spread()) Makes wide data long, based on a key \n\nCore arguments:\n\n\ndata: the data, blank if piped\n\nnames_from: name(s) of key column(s) in new long data frame (string or string vector)\n\nnames_sep: separator in column headers, if multiple keys\n\nnames_glue: specify multiple or custom separators of multiple keys\n\nvalues_from: name of values in new long data frame (string)\n\nvalues_fn: function applied to data with duplicate labels \n\n\n\nBasic Application\n\nCodebfi_long <- bfi %>%\n  rownames_to_column(\"SID\") %>%\n  pivot_longer(\n    cols = A1:O5\n    , names_to = \"item\"\n    , values_to = \"values\"\n    , values_drop_na = T\n  )\n\n\nMore Advanced\n\nCodebfi_long <- bfi %>%\n  rownames_to_column(\"SID\") %>%\n  pivot_longer(\n    cols = A1:O5\n    , names_to = c(\"trait\", \"item_num\")\n    , names_sep = -1\n    , values_to = \"values\"\n    , values_drop_na = T\n  )\n\n\n\nCodebfi_long %>%\n  pivot_wider(\n    names_from = c(\"trait\", \"item_num\")\n    , values_from = \"values\"\n    , names_sep = \"_\"\n  )\n\n\n\n  \n\n\n\nA Little More Advanced\n\nCodebfi_long %>%\n  select(-item_num) %>%\n  pivot_wider(\n    names_from = \"trait\"\n    , values_from = \"values\"\n    , names_sep = \"_\"\n    , values_fn = mean\n  )"
   },
   {
     "objectID": "03-week3-workbook.html#the-_join-functions",
     "href": "03-week3-workbook.html#the-_join-functions",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "The _join() Functions",
     "text": "The _join() Functions\n\nOften we may need to pull different data from different sources\nThere are lots of reasons to need to do this\nWe don’t have time to get into all the use cases here, so we’ll talk about them in high level terms\n\nWe’ll focus on:\n\nfull_join()\ninner_join()\nleft_join()\nright_join()\n\n\nLet’s separate demographic and BFI data\n\n\nCodebfi_only <- bfi %>% \n  rownames_to_column(\"SID\") %>%\n  select(SID, matches(\"[0-9]\"))\nbfi_only %>% as_tibble() %>% print(n = 6)\n\n# A tibble: 2,800 × 26\n  SID      A1    A2    A3    A4    A5    C1    C2    C3    C4    C5    E1    E2\n  <chr> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 61617     2     4     3     4     4     2     3     3     4     4     3     3\n2 61618     2     4     5     2     5     5     4     4     3     4     1     1\n3 61620     5     4     5     4     4     4     5     4     2     5     2     4\n4 61621     4     4     6     5     5     4     4     3     5     5     5     3\n5 61622     2     3     3     4     5     4     4     5     3     2     2     2\n6 61623     6     6     5     6     5     6     6     6     1     3     2     1\n# ℹ 2,794 more rows\n# ℹ 13 more variables: E3 <int>, E4 <int>, E5 <int>, N1 <int>, N2 <int>,\n#   N3 <int>, N4 <int>, N5 <int>, O1 <int>, O2 <int>, O3 <int>, O4 <int>,\n#   O5 <int>\n\n\n\nCodebfi_dem <- bfi %>%\n  rownames_to_column(\"SID\") %>%\n  select(SID, education, gender, age)\nbfi_dem %>% as_tibble() %>% print(n = 6)\n\n# A tibble: 2,800 × 4\n  SID   education gender   age\n  <chr>     <int>  <int> <int>\n1 61617        NA      1    16\n2 61618        NA      2    18\n3 61620        NA      2    17\n4 61621        NA      2    17\n5 61622        NA      1    17\n6 61623         3      2    21\n# ℹ 2,794 more rows\n\n\nBefore we get into it, as a reminder, this is what the data set looks like before we do any joining:\n\nCodebfi %>%\n  rownames_to_column(\"SID\") %>%\n  as_tibble() %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 29\n  SID      A1    A2    A3    A4    A5    C1    C2    C3    C4    C5    E1    E2\n  <chr> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 61617     2     4     3     4     4     2     3     3     4     4     3     3\n2 61618     2     4     5     2     5     5     4     4     3     4     1     1\n3 61620     5     4     5     4     4     4     5     4     2     5     2     4\n4 61621     4     4     6     5     5     4     4     3     5     5     5     3\n5 61622     2     3     3     4     5     4     4     5     3     2     2     2\n6 61623     6     6     5     6     5     6     6     6     1     3     2     1\n# ℹ 2,794 more rows\n# ℹ 16 more variables: E3 <int>, E4 <int>, E5 <int>, N1 <int>, N2 <int>,\n#   N3 <int>, N4 <int>, N5 <int>, O1 <int>, O2 <int>, O3 <int>, O4 <int>,\n#   O5 <int>, gender <int>, education <int>, age <int>"
   },
   {
     "objectID": "03-week3-workbook.html#full_join",
     "href": "03-week3-workbook.html#full_join",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "3. full_join()\n",
     "text": "3. full_join()\n\nMost simply, we can put those back together keeping all observations.\n\nCodebfi_only %>%\n  full_join(bfi_dem) %>%\n  as_tibble() %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 29\n  SID      A1    A2    A3    A4    A5    C1    C2    C3    C4    C5    E1    E2\n  <chr> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 61617     2     4     3     4     4     2     3     3     4     4     3     3\n2 61618     2     4     5     2     5     5     4     4     3     4     1     1\n3 61620     5     4     5     4     4     4     5     4     2     5     2     4\n4 61621     4     4     6     5     5     4     4     3     5     5     5     3\n5 61622     2     3     3     4     5     4     4     5     3     2     2     2\n6 61623     6     6     5     6     5     6     6     6     1     3     2     1\n# ℹ 2,794 more rows\n# ℹ 16 more variables: E3 <int>, E4 <int>, E5 <int>, N1 <int>, N2 <int>,\n#   N3 <int>, N4 <int>, N5 <int>, O1 <int>, O2 <int>, O3 <int>, O4 <int>,\n#   O5 <int>, education <int>, gender <int>, age <int>"
   },
   {
     "objectID": "03-week3-workbook.html#inner_join",
     "href": "03-week3-workbook.html#inner_join",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "4. inner_join()\n",
     "text": "4. inner_join()\n\nWe can also keep all rows present in both data frames\n\nCodebfi_dem %>%\n  filter(row_number() %in% 1:1700) %>%\n  inner_join(\n    bfi_only %>%\n      filter(row_number() %in% 1200:2800)\n  ) %>%\n  as_tibble() %>%\n  print(n = 6)\n\n# A tibble: 501 × 29\n  SID   education gender   age    A1    A2    A3    A4    A5    C1    C2    C3\n  <chr>     <int>  <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 64151         3      2    18     1     5     6     5     5     5     6     5\n2 64152         4      2    29     1     5     6     5     5     2     1     4\n3 64154         5      1    46     2     5     6     5     6     6     6     6\n4 64155         5      1    58     5     4     4     4     5     4     4     5\n5 64156         5      2    38     1     4     6     6     6     4     4     5\n6 64158         5      2    27     2     3     1     1     1     4     2     2\n# ℹ 495 more rows\n# ℹ 17 more variables: C4 <int>, C5 <int>, E1 <int>, E2 <int>, E3 <int>,\n#   E4 <int>, E5 <int>, N1 <int>, N2 <int>, N3 <int>, N4 <int>, N5 <int>,\n#   O1 <int>, O2 <int>, O3 <int>, O4 <int>, O5 <int>"
   },
   {
     "objectID": "03-week3-workbook.html#left_join",
     "href": "03-week3-workbook.html#left_join",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "5. left_join()\n",
     "text": "5. left_join()\n\nOr all rows present in the left (first) data frame, perhaps if it’s a subset of people with complete data\n\nCodebfi_dem %>%\n  drop_na() %>%\n  left_join(bfi_only) %>%\n  as_tibble() %>%\n  print(n = 6)\n\n# A tibble: 2,577 × 29\n  SID   education gender   age    A1    A2    A3    A4    A5    C1    C2    C3\n  <chr>     <int>  <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 61623         3      2    21     6     6     5     6     5     6     6     6\n2 61629         2      1    19     4     3     1     5     1     3     2     4\n3 61630         1      1    19     4     3     6     3     3     6     6     3\n4 61634         1      1    21     4     4     5     6     5     4     3     5\n5 61640         1      1    17     4     5     2     2     1     5     5     5\n6 61661         5      1    68     1     5     6     5     6     4     3     2\n# ℹ 2,571 more rows\n# ℹ 17 more variables: C4 <int>, C5 <int>, E1 <int>, E2 <int>, E3 <int>,\n#   E4 <int>, E5 <int>, N1 <int>, N2 <int>, N3 <int>, N4 <int>, N5 <int>,\n#   O1 <int>, O2 <int>, O3 <int>, O4 <int>, O5 <int>"
   },
   {
     "objectID": "03-week3-workbook.html#right_join",
     "href": "03-week3-workbook.html#right_join",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "6. right_join()\n",
     "text": "6. right_join()\n\nOr all rows present in the right (second) data frame, such as I do when I join a codebook with raw data\n\nCodebfi_dem %>%\n  drop_na() %>%\n  right_join(bfi_only) %>%\n  as_tibble() %>%\n  print(n = 6)\n\n# A tibble: 2,800 × 29\n  SID   education gender   age    A1    A2    A3    A4    A5    C1    C2    C3\n  <chr>     <int>  <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>\n1 61623         3      2    21     6     6     5     6     5     6     6     6\n2 61629         2      1    19     4     3     1     5     1     3     2     4\n3 61630         1      1    19     4     3     6     3     3     6     6     3\n4 61634         1      1    21     4     4     5     6     5     4     3     5\n5 61640         1      1    17     4     5     2     2     1     5     5     5\n6 61661         5      1    68     1     5     6     5     6     4     3     2\n# ℹ 2,794 more rows\n# ℹ 17 more variables: C4 <int>, C5 <int>, E1 <int>, E2 <int>, E3 <int>,\n#   E4 <int>, E5 <int>, N1 <int>, N2 <int>, N3 <int>, N4 <int>, N5 <int>,\n#   O1 <int>, O2 <int>, O3 <int>, O4 <int>, O5 <int>"
   },
   {
     "objectID": "03-week3-workbook.html#eda-1",
     "href": "03-week3-workbook.html#eda-1",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "EDA",
     "text": "EDA\n\n\nOne-way descriptive analyses (i.e,. focus on one variable)\n\nDescriptive analyses for continuous variables\nDescriptive analyses for discreet/categorical variables\n\n\n\nTwo-way descriptive analyses (relationship between two variables)\n\nCategorical by categorical\nCategorical by continuous\nContinuous by continuous"
   },
   {
     "objectID": "03-week3-workbook.html#one-way-descriptive-analyses",
     "href": "03-week3-workbook.html#one-way-descriptive-analyses",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "One-way descriptive analyses",
     "text": "One-way descriptive analyses\n\nThese are basically what they sound like – the focus is on single variables\nDescriptive analyses for continuous variables\n\nmeans, standard deviations, minima, maxima, counts\n\n\nDescriptive analyses for discreet/categorical variables\n\ncounts, percentages\n\n\n\nContinuous\n\nCodesoep_long %>% \n  select(Procedural__SID,year,Big5__E:Big5__O) %>%\n  pivot_longer(\n    cols = contains(\"Big5\")\n    , names_to = \"trait\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) %>%\n  group_by(year, trait) %>%\n  summarize_at(\n    vars(value)\n    , lst(mean, sd, min, max)\n    , na.rm = T\n  ) %>%\n  ungroup()\n\n\n\n  \n\n\n\nCategorical / Count\n\nCodesoep_long %>%\n  select(Procedural__SID, contains(\"_ever\")) %>%\n  distinct() %>%\n  pivot_longer(\n    cols = contains(\"LifeEvent\")\n    , names_to = \"event\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) %>%\n  group_by(event, value) %>%\n  tally() %>%\n  group_by(event) %>%\n  mutate(total = sum(n)\n         , perc = n/total*100)"
   },
   {
     "objectID": "03-week3-workbook.html#two-way-descriptive-analyses",
     "href": "03-week3-workbook.html#two-way-descriptive-analyses",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Two-way descriptive analyses",
     "text": "Two-way descriptive analyses\n\nAims to capture relationships between variables\n\nCategorical by categorical\n\ncross-tabs, percentages\n\n\n\nCategorical by continuous\n\nmeans, standard deviations, etc. within categories\n\n\n\nContinuous by continuous\n\ncorrelations, covariances, etc.\n\n\n\nCategorical x Categorical\n\nCodesoep_long %>%\n  select(Procedural__SID, Demographic__Sex, contains(\"_ever\")) %>%\n  distinct() %>%\n  pivot_longer(\n    cols = contains(\"LifeEvent\")\n    , names_to = \"event\"\n    , values_to = \"occurred\"\n    , values_drop_na = T\n  ) %>%\n  mutate(Demographic__Sex = mapvalues(Demographic__Sex, c(1,2), c(\"Male\", \"Female\"))\n         , occurred = mapvalues(occurred, c(0,1), c(\"No Event\", \"Event\"))) %>%\n  group_by(event, occurred, Demographic__Sex) %>%\n  tally() %>%\n  group_by(event) %>%\n  mutate(perc = n/sum(n)*100) %>%\n  pivot_wider(\n    names_from = c(occurred)\n    , values_from = c(n, perc)\n  )\n\n\n\n  \n\n\n\nCategorical x Continuous\nSet up the data\n\nCodesoep_twoway <- soep_long %>% \n  filter(year == 2005) %>%\n  select(Procedural__SID, Big5__E:Big5__O) %>%\n  pivot_longer(\n    cols = contains(\"Big5\")\n    , names_to = \"trait\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) %>%\n  left_join(\n    soep_long %>%\n      select(Procedural__SID, contains(\"_ever\")) %>%\n      distinct() %>%\n      pivot_longer(\n        cols = contains(\"LifeEvent\")\n        , names_to = \"event\"\n        , values_to = \"occurred\"\n        , values_drop_na = T\n      ) %>%\n      mutate(occurred = mapvalues(occurred, c(0,1), c(\"No Event\", \"Event\")))\n  )\n\n\nRun the descriptives\n\nCodesoep_twoway %>%\n  group_by(trait, event, occurred) %>%\n  summarize_at(\n    vars(value)\n    , lst(mean, sd, min, max)\n    , na.rm = T\n  ) %>%\n  ungroup() %>%\n  pivot_wider(\n    names_from = trait\n    , values_from = c(mean, sd, min, max)\n  )\n\n\n\n  \n\n\n\nContinuous x continuous\nHere’s how I create more customizable heat maps in ggplot2 for those who would like a reference for themselves.\n\nCoder <- soep_long %>% \n  filter(year == 2005) %>%\n  select(Big5__E:Big5__O) %>%\n  cor(., use = \"pairwise\") \n\nr[lower.tri(r, diag = T)] <- NA\nvars <- rownames(r)\nr %>%\n  data.frame() %>%\n  rownames_to_column(\"V1\") %>%\n  pivot_longer(\n    cols = -V1\n    , names_to = \"V2\"\n    , values_to = \"r\"\n  ) %>%\n  mutate(V1 = factor(V1, levels = vars)\n         , V2 = factor(V2, levels = rev(vars))) %>%\n  ggplot(aes(x = V1, y = V2, fill = r)) + \n    geom_raster() + \n  geom_text(aes(label = round(r, 2))) + \n  scale_fill_gradient2(\n    limits = c(-1,1)\n    , breaks = c(-1, -.5, 0, .5, 1)\n    , low = \"blue\", high = \"red\"\n    , mid = \"white\", na.value = \"white\") + \n  labs(\n    x = NULL\n    , y = NULL\n    , fill = \"Zero-Order Correlation\"\n    , title = \"Zero-Order Correlations Among Variables\"\n    ) + \n  theme_classic() + \n  theme(\n    legend.position = \"bottom\"\n    , axis.text = element_text(face = \"bold\")\n    , axis.text.x = element_text(angle = 45, hjust = 1)\n    , plot.title = element_text(face = \"bold\", hjust = .5)\n    , plot.subtitle = element_text(face = \"italic\", hjust = .5)\n    , panel.background = element_rect(color = \"black\", size = 1)\n  )"
   },
   {
     "objectID": "03-week3-workbook.html#attributions",
     "href": "03-week3-workbook.html#attributions",
-    "title": "Week 3 Workbook",
+    "title": "Week 3 (Data Quality and tidyr) Workbook",
     "section": "Attributions",
     "text": "Attributions\nParts of Part 1 of these slides was adapted from Ozan Jaquette’s EDUC 260A at UCLA."
   },
@@ -1068,7 +1068,7 @@
     "href": "ps1-week1.html",
     "title": "Problem Set Week 1",
     "section": "",
-    "text": "Due Date: Monday, January 19, 2:00 PM PST.\nDownload your problem set for week 1 below or on Canvas."
+    "text": "Due Date: Monday, January 19, 2:00 PM PST.\nDownload your problem set for week 1 below or on Canvas.\nAnswers can be found here."
   },
   {
     "objectID": "about.html",
@@ -1089,7 +1089,7 @@
     "href": "final-project.html",
     "title": "Final Project Proposal",
     "section": "",
-    "text": "Due at 11:59 PM PST on November 19, 2022 on Canvas\n1-2 page (single spaced) proposal\n\nShort background (What are you hacking?)\nApproach (How you do plan to hack this? What “product” will you producing?)\nMotivation (Why are you hacking this particular problem / issue / question / procedure?)\nChallenges and barriers (what do you struggle with with bringing your project to life; are there specific barriers?)\nYou can also download this document here"
+    "text": "Due at 11:59 PM PST on February 23, 2026 on Canvas\n1-2 page (single spaced) proposal\n\nShort background (What are you hacking?)\nApproach (How you do plan to hack this? What “product” will you producing?)\nMotivation (Why are you hacking this particular problem / issue / question / procedure?)\nChallenges and barriers (what do you struggle with with bringing your project to life; are there specific barriers?)\nYou can also download this document here"
   },
   {
     "objectID": "04-week4-slides.html",
@@ -1768,7 +1768,7 @@
     "href": "syllabus.html#course-policies-and-procedures",
     "title": "Syllabus",
     "section": "Course Policies and Procedures",
-    "text": "Course Policies and Procedures\nMany of the below are also outlined in the UC Davis Code of Academic Conduct.\n\nAttendance Policy\nWhen you miss class, you miss important information, not all of which will be available in the zoom recordings. This course is only 10 class meetings, so each meeting comprises 10% of your in-class time. If you need to miss more than one class, I suggest considering whether taking this course in a future term. I will teach this course either annually or biennially, so there will be future opportunities to take this course in many cases (e.g., for example, if you are a second year student who will miss two meetings, taking the course in your fourth year may be more effective).\n\n\nLate Work/Make-up Policy\nLate work will be allowed per instructor discretion. Please try to proactively communicate these needs. Assignments due at midnight will have a 9 hour “grace period” with no penalty. Each day late is subject to a 20% drop in course grade (e.g., a 10-point response is worth 8 points on day 1 late, 6 points on day 2 late, etc.).\n\n\nAcademic Integrity\nYou are expected to practice the highest possible standards of academic integrity. Any deviation from this expectation will result in a minimum academic penalty of your failing the assignment, and will result in additional disciplinary measures. This includes improper citation of sources, using another student’s work, and any other form of academic misrepresentation.\n\nPlagiarism\nUsing the words or ideas of another as if they were one’s own is a serious form of academic dishonesty. If another person’s complete sentence, syntax, key words, or the specific or unique ideas and information are used, one must give that person credit through proper citation.\n\n\n\nIncomplete Grades\nYou may assigned an ‘I’ (Incomplete) grade if you are unable to complete some portion of the assigned course work because of an unanticipated illness, accident, work-related responsibility, family hardship, or verified learning disability. An Incomplete grade is not intended to give you additional time to complete course assignments or extra credit unless there is indication that the specified circumstances prevented you from completing course assignments on time.\n\n\nInstructional Methods\nThe course will be taught using multiple instructional methods. I will typically briefly (45-50 minutes) lecture at the beginning of the class on conceptual topics related to data cleaning and management. We will then have a 75 minute workshop, which will be a mix of going through code and examples together and working in small groups (if preferred) on short exercises. The remainder of the class will be available to receive support on Problem Sets for that week and other general questions (optional). The proportion of these will vary by week and portions of the course will be shortened or dropped as needed.\n\n\nDiversity and Inclusion\nThe university is committed to a campus environment that is inclusive, safe, and respectful for all persons. To that end, all course activities will be conducted in an atmosphere of friendly participation and interaction among colleagues, recognizing and appreciating the unique experiences, background, and point of view each student brings. You are expected at all times to apply the highest academic standards to this course and to treat others with dignity and respect.\n\nAccessibility, Disability, and Triggers [credit to Dr. David Moscowitz]\nI am committed to ensuring course accessibility for all students. If you have a documented disability and expect reasonable accommodation to complete course requirements, please notify me at least one week before accommodation is needed. Please also provide SDRC (https://sc.edu/about/offices_and_divisions/student_disability_resource_center/) documentation to me before requesting accommodation. Likewise, if you are aware of cognitive or emotional triggers that could disrupt your intellectual or mental health, please let me know so that I can be aware in terms of course content. \nAbsences for Personal or Religious Holidays\nI am committed to allowing students to exercise their rights to religious freedom. Accommodations on assignment due dates and absences will be allowed for students observing religious holidays that fall on course days. Please email me to let me know ahead of time to allow for accommodations to be made.\n\n\nTitle IX and Gendered Pronouns [credit to Dr. David Moscowitz]\nThis course affirms equality and respect for all gendered identities and expressions. Please don’t hesitate to correct me regarding your preferred gender pronoun and/or name if different from what is indicated on the official class roster. Likewise, I am committed to nurturing an environment free from discrimination and harassment. Consistent with Title IX policy, please be aware that I as a responsible employee am obligated to report information that you provide to me about a situation involving sexual harassment or assault. \n\n\nValues [credit to Dr. David Moscowitz]\nTwo core values, inquiry and civility, govern our class. Inquiry demands that we all cultivate an open forum for exchange and substantiation of ideas. Strive to be creative, to take risks, and to challenge our conventional wisdom when you see the opportunity. Civility supports our inquiry by demanding ultimate respect for the voice, rights, and safety of others. Threatening or disruptive conduct may result in course and/or university dismissal. Civility also presumes basic courtesy: please be well rested, on time, and prepared for class (class time also includes a break to use the restroom, etc.), which includes silencing all personal devices. \nMy perspective is that we never cease being students of this world, so I believe that attentive, reflective people always have something to learn from others. Good discussions can be energetic and passionate but are neither abusive nor offensive. Vibrant, vigorous inquiry derives from discussions that:\n\nchallenge, defend, and apply different ideas, theories, perspectives, and skills,\nextend a body of knowledge into different arenas and applications, and\nresult in a synergy that compels us to seek resolution to these discussions.\n\n\n\n\nCopyright/Fair Use\nI will cite and/or reference any materials that I use in this course that I do not create.  You, as students, are expected to not distribute any of these materials, resources, homework assignments, etc. (whether graded or ungraded) without permission from the instructor.\n\n\nPDF Copy\nDownload your problem set for weeks 7-8 below or on Canvas."
+    "text": "Course Policies and Procedures\nMany of the below are also outlined in the UC Davis Code of Academic Conduct.\n\nAttendance Policy\nWhen you miss class, you miss important information, not all of which will be available in the zoom recordings. This course is only 10 class meetings, so each meeting comprises 10% of your in-class time. If you need to miss more than one class, I suggest considering whether taking this course in a future term. I will teach this course either annually or biennially, so there will be future opportunities to take this course in many cases (e.g., for example, if you are a second year student who will miss two meetings, taking the course in your fourth year may be more effective).\n\n\nLate Work/Make-up Policy\nLate work will be allowed per instructor discretion. Please try to proactively communicate these needs. Assignments due at midnight will have a 9 hour “grace period” with no penalty. Each day late is subject to a 20% drop in course grade (e.g., a 10-point response is worth 8 points on day 1 late, 6 points on day 2 late, etc.).\n\n\nAcademic Integrity\nYou are expected to practice the highest possible standards of academic integrity. Any deviation from this expectation will result in a minimum academic penalty of your failing the assignment, and will result in additional disciplinary measures. This includes improper citation of sources, using another student’s work, and any other form of academic misrepresentation.\n\nPlagiarism\nUsing the words or ideas of another as if they were one’s own is a serious form of academic dishonesty. If another person’s complete sentence, syntax, key words, or the specific or unique ideas and information are used, one must give that person credit through proper citation.\n\n\n\nIncomplete Grades\nYou may assigned an ‘I’ (Incomplete) grade if you are unable to complete some portion of the assigned course work because of an unanticipated illness, accident, work-related responsibility, family hardship, or verified learning disability. An Incomplete grade is not intended to give you additional time to complete course assignments or extra credit unless there is indication that the specified circumstances prevented you from completing course assignments on time.\n\n\nInstructional Methods\nThe course will be taught using multiple instructional methods. I will typically briefly (45-50 minutes) lecture at the beginning of the class on conceptual topics related to data cleaning and management. We will then have a 75 minute workshop, which will be a mix of going through code and examples together and working in small groups (if preferred) on short exercises. The remainder of the class will be available to receive support on Problem Sets for that week and other general questions (optional). The proportion of these will vary by week and portions of the course will be shortened or dropped as needed.\n\n\nDiversity and Inclusion\nThe university is committed to a campus environment that is inclusive, safe, and respectful for all persons. To that end, all course activities will be conducted in an atmosphere of friendly participation and interaction among colleagues, recognizing and appreciating the unique experiences, background, and point of view each student brings. You are expected at all times to apply the highest academic standards to this course and to treat others with dignity and respect.\n\nAccessibility, Disability, and Triggers [credit to Dr. David Moscowitz]\nI am committed to ensuring course accessibility for all students. If you have a documented disability and expect reasonable accommodation to complete course requirements, please notify me at least one week before accommodation is needed. Please also provide SDRC (https://sc.edu/about/offices_and_divisions/student_disability_resource_center/) documentation to me before requesting accommodation. Likewise, if you are aware of cognitive or emotional triggers that could disrupt your intellectual or mental health, please let me know so that I can be aware in terms of course content. \nAbsences for Personal or Religious Holidays\nI am committed to allowing students to exercise their rights to religious freedom. Accommodations on assignment due dates and absences will be allowed for students observing religious holidays that fall on course days. Please email me to let me know ahead of time to allow for accommodations to be made.\n\n\nTitle IX and Gendered Pronouns [credit to Dr. David Moscowitz]\nThis course affirms equality and respect for all gendered identities and expressions. Please don’t hesitate to correct me regarding your preferred gender pronoun and/or name if different from what is indicated on the official class roster. Likewise, I am committed to nurturing an environment free from discrimination and harassment. Consistent with Title IX policy, please be aware that I as a responsible employee am obligated to report information that you provide to me about a situation involving sexual harassment or assault. \n\n\nValues [credit to Dr. David Moscowitz]\nTwo core values, inquiry and civility, govern our class. Inquiry demands that we all cultivate an open forum for exchange and substantiation of ideas. Strive to be creative, to take risks, and to challenge our conventional wisdom when you see the opportunity. Civility supports our inquiry by demanding ultimate respect for the voice, rights, and safety of others. Threatening or disruptive conduct may result in course and/or university dismissal. Civility also presumes basic courtesy: please be well rested, on time, and prepared for class (class time also includes a break to use the restroom, etc.), which includes silencing all personal devices. \nMy perspective is that we never cease being students of this world, so I believe that attentive, reflective people always have something to learn from others. Good discussions can be energetic and passionate but are neither abusive nor offensive. Vibrant, vigorous inquiry derives from discussions that:\n\nchallenge, defend, and apply different ideas, theories, perspectives, and skills,\nextend a body of knowledge into different arenas and applications, and\nresult in a synergy that compels us to seek resolution to these discussions.\n\n\n\n\nCopyright/Fair Use\nI will cite and/or reference any materials that I use in this course that I do not create.  You, as students, are expected to not distribute any of these materials, resources, homework assignments, etc. (whether graded or ungraded) without permission from the instructor.\n\n\nPDF Copy\nDownload."
   },
   {
     "objectID": "10-week10-slides.html",
