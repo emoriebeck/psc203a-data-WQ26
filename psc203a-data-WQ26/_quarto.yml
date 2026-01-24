@@ -32,8 +32,8 @@ website:
         - 01-week1-workbook.qmd
         - 02-week2-slides.qmd
         - 02-week2-workbook.qmd
-        # - 03-week3-slides.qmd
-        # - 03-week3-workbook.qmd
+        - 03-week3-slides.qmd
+        - 03-week3-workbook.qmd
         # - 04-week4-slides.qmd
         # - 04-week4-workbook.qmd
         # - 05-week5-slides.qmd
