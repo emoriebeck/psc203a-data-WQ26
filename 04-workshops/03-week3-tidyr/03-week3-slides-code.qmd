@@ -688,6 +688,37 @@ bfi %>%
 :::
 :::::
 
+## [1. `pivot_longer()`: Practice]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/red-top.png" background-size="100%"}
+
+\vspace{4em}
+Let's practice: 
+
+Pivot only the demographic data to long form (i.e. remove the Big Five responses).
+
+  - Call the names column `dem_item` 
+  - Call the values column `dem_value` 
+  - Do not drop missing values 
+  
+## [1. `pivot_longer()`: Practice]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/red-top.png" background-size="100%" .smaller}
+
+\vspace{4em}
+Pivot only the demographic data to long form (i.e. remove the Big Five responses).
+
+  - Call the names column `dem_item` 
+  - Call the values column `dem_value` 
+  - Do not drop missing values 
+  
+```{r}
+bfi %>%
+  select(gender:age) %>%
+  pivot_longer(
+    cols = everything()
+    , names_to = "dem_item"
+    , values_to = "dem_value"
+    , values_drop_na = F
+  )
+```
+
 ## [2. `pivot_wider()`]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/green-top.png" background-size="100%"}
 
 \vspace{4em}
@@ -802,6 +833,35 @@ bfi_long %>%
 
 :::
 ::::
+
+## [2. `pivot_wider()`: Practice]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/green-top.png" background-size="100%"}
+
+\vspace{4em}
+Let's practice. Using the `soep_long` dataset: 
+
+- Select Only the ID, demographic, year, and the New Partner variable 
+- Pivot that wider 
+- Drop the prefix (`LifeEvent__` on the variable)
+
+## [2. `pivot_wider()`: Practice]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/green-top.png" background-size="100%" .smaller}
+
+\vspace{4em}
+Let's practice. Using the `soep_long` dataset: 
+
+- Select Only the ID, demographic, year, and the New Partner variable 
+- Pivot that wider 
+- Make the name prefix `NewPart`
+
+```{r}
+soep_long %>%
+  select(Procedural__SID:year, contains("NewPart")) %>%
+  pivot_wider(
+    names_from = year
+    , names_prefix = "NewPart_"
+    , values_from = LifeEvent__NewPart
+  )
+```
+
 
 # More `dplyr` Functions {background-color="purple"}
 
@@ -1324,6 +1384,115 @@ r %>%
 :::
 :::::
 ::::::
+
+## [Practice: Putting It Together]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/purple-top.png" background-size="100%" .smaller}
+
+P1: Big Five Composites: 
+
+1. Reload the soep_long data frame. 
+2. Filter for 2005
+3. Select only the Big Five indicators (hint: use a `select()` helper function and "Big5") 
+4. Change missing values to NA (see code earlier or try it on your own) 
+5. Reverse code "Big5__A_coarse", "Big5__C_lazy", "Big5__E_reserved", "Big5__N_dealStress" (see earlier code or try it on your own) 
+6. Pivot the data longer 
+  - Use the following names_pattern: "(.*)__(.)_(.*)"
+  - name the resulting columns "category", "trait", "p_item"
+  - name the numeric values `p_value`
+7. Use `group_by()` and `summarize()` to create averages for each Big Five trait
+8. Pivot the data back wider by trait (hint: remember to use both category and trait) 
+9. Name the data that results `soep_pers`.
+
+```{r}
+soep_long <- read_csv(file="https://github.com/emoriebeck/psc290-data-FQ23/raw/main/04-workshops/03-week3-tidyr/gsoep.csv")
+soep_long
+```
+
+
+## [Practice: Putting It Together]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/purple-top.png" background-size="100%".smaller}
+
+```{r}
+rev_code <- c("Big5__A_coarse", "Big5__C_lazy", "Big5__E_reserved", "Big5__N_dealStress")
+soep_pers <- soep_long %>%
+  filter(year == 2005) %>%
+  select(Procedural__SID, starts_with("Big5")) %>%
+  mutate_at(
+    vars(contains("Big5"))
+    , ~ifelse(. < 0 | is.na(.), NA, .)
+    ) %>%
+  # mutate_at(
+  #   vars(contains("LifeEvent"))
+  #   , ~mapvalues(., seq(-7,1), c(rep(NA, 5), 0, NA, NA, 1), warn_missing = F)
+  #   ) %>%
+  mutate_at(
+    vars(all_of(rev_code))
+    , ~as.numeric(reverse.code(., keys = -1, mini = 1, maxi = 7))
+    ) %>%
+  pivot_longer(
+    cols = -Procedural__SID
+    , names_to = c("category", "trait", "p_item")
+    , names_pattern = "(.*)__(.)_(.*)"
+    , values_to = "p_value"
+  ) %>%
+  group_by(Procedural__SID, category, trait) %>%
+  summarize(p_value = mean(p_value, na.rm = T)) %>%
+  ungroup() %>%
+  pivot_wider(
+    names_from = c("category", "trait")
+    , names_sep = "_"
+    , values_from = "p_value"
+  )
+  
+```
+
+## [Practice: Putting It Together]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/purple-top.png" background-size="100%" .smaller}
+
+1. Filter 2006 onward
+2. Select only the SID, and life event variables (note: do NOT select year)
+3. Remove missing values (see above or try on your own)
+4. Pivot longer
+  - Make the indicator name "category", "le_item" 
+  - Make the value "le_value"
+  - Drop missing values 
+5. Create a summary (max) of life event values across all years
+6. Pivot the data back wider by le_item (hint: remember to use both category and le_item) 
+7. Assign the result to an object (soep_le)
+
+## [Practice: Putting It Together]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/purple-top.png" background-size="100%".smaller}
+
+```{r}
+soep_le <- soep_long %>%
+  filter(year > 2005) %>%
+  select(Procedural__SID, starts_with("LifeEvent")) %>%
+  mutate_at(
+    vars(contains("LifeEvent"))
+    , ~mapvalues(., seq(-7,1), c(rep(NA, 5), 0, NA, 0, 1), warn_missing = F)
+    ) %>%
+  pivot_longer(
+    cols = -Procedural__SID
+    , names_to = c("category", "le_item")
+    , names_sep = "__"
+    , values_to = "le_value"
+    , values_drop_na = T
+  ) %>%
+  group_by(category, Procedural__SID, le_item) %>%
+  summarize(le_value = max(le_value)) %>%
+  ungroup() %>%
+  pivot_wider(
+    names_from = c("category", "le_item")
+    , names_sep = "_"
+    , values_from = "le_value"
+  )
+```
+
+## [Practice: Putting It Together]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc290-dataviz-WQ25/raw/main/psc290-dataviz-WQ25/03-images/purple-top.png" background-size="100%" .smaller}
+
+Now merge the two objects. Try different mergers and see how that changes the output!
+
+```{r}
+soep_pers %>%
+  full_join(soep_le)
+```
+
 
 ## Attributions
 
