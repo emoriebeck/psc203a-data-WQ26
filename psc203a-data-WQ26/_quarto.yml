@@ -56,7 +56,7 @@ website:
       collapse-level: 2
       contents:
         - ps1-week1.qmd
-        # - ps2-week2.qmd
+        - ps2-week3-4.qmd
         # - ps3-week3.qmd
         # - ps4-week4.qmd
         # - ps5-week5.qmd

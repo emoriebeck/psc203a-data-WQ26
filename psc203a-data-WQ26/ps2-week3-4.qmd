@@ -1,0 +1,14 @@
+---
+title: "Problem Set 2"
+---
+
+**Due Date**: Monday, February 9, 2:00 PM PST.
+
+[Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/01-ps1/ps2.zip) your problem set for week 1 below or on Canvas.
+
+<!-- Answers can be found [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/01-ps1/problemset1-solutions.zip). -->
+
+<iframe class="slide-deck" src="/static/ps/problemset2.html" width="100%" height="800">
+
+</iframe>
+
