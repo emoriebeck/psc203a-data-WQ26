@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.2.269">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emorie D Beck">
-<title>Data Cleaning and Management (WQ26) - Week 2: Reproducibility and Data Transformations</title>
+<title>Data Cleaning and Management (WQ26) - Week 2 (Reproducibility &amp; dplyr) Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -5289,11 +5289,27 @@ $navbar-bg: #022851;</style>
   </li>  
         <li>
     <a class="dropdown-item" href="./02-week2-slides.html">
- <span class="dropdown-text">Week 2 Slides</span></a>
+ <span class="dropdown-text">Week 2 (Reproducibility &amp; dplyr) Slides</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./02-week2-workbook.html">
- <span class="dropdown-text">Week 2: Reproducibility and Data Transformations</span></a>
+ <span class="dropdown-text">Week 2 (Reproducibility &amp; dplyr) Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-week3-slides.html">
+ <span class="dropdown-text">Week 3 (Data Quality &amp; <code>tidyr</code>) Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-week3-workbook.html">
+ <span class="dropdown-text">Week 3 (Data Quality and <code>tidyr</code>) Workbook</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-week4-slides.html">
+ <span class="dropdown-text">Week 4 (Codebooks &amp; Documentation) Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-week4-workbook.html">
+ <span class="dropdown-text">Week 4 (Codebooks &amp; Documentation) Workbook</span></a>
   </li>  
     </ul>
 </li>
@@ -5316,7 +5332,12 @@ $navbar-bg: #022851;</style>
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Final Project</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project"></ul>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-final-project">
+<li>
+    <a class="dropdown-item" href="./final-project.html">
+ <span class="dropdown-text">Final Project Proposal</span></a>
+  </li>  
+    </ul>
 </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html">
@@ -5327,7 +5348,7 @@ $navbar-bg: #022851;</style>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Week 2: Reproducibility and Data Transformations</h1>
+      <h1 class="quarto-secondary-nav-title">Week 2 (Reproducibility &amp; dplyr) Workbook</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -5348,12 +5369,32 @@ $navbar-bg: #022851;</style>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-week2-slides.html" class="sidebar-item-text sidebar-link">Week 2 Slides</a>
+  <a href="./02-week2-slides.html" class="sidebar-item-text sidebar-link">Week 2 (Reproducibility &amp; dplyr) Slides</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-week2-workbook.html" class="sidebar-item-text sidebar-link active">Week 2: Reproducibility and Data Transformations</a>
+  <a href="./02-week2-workbook.html" class="sidebar-item-text sidebar-link active">Week 2 (Reproducibility &amp; dplyr) Workbook</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-week3-slides.html" class="sidebar-item-text sidebar-link">Week 3 (Data Quality &amp; <code>tidyr</code>) Slides</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-week3-workbook.html" class="sidebar-item-text sidebar-link">Week 3 (Data Quality and <code>tidyr</code>) Workbook</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-week4-slides.html" class="sidebar-item-text sidebar-link">Week 4 (Codebooks &amp; Documentation) Slides</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-week4-workbook.html" class="sidebar-item-text sidebar-link">Week 4 (Codebooks &amp; Documentation) Workbook</a>
   </div>
 </li>
     </ul>
@@ -5453,7 +5494,7 @@ $navbar-bg: #022851;</style>
 </div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Week 2: Reproducibility and Data Transformations</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Week 2 (Reproducibility &amp; dplyr) Workbook</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -6747,7 +6788,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
 <div class="sourceCode" id="cb62" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb62-1"><a href="#cb62-1"></a><span class="co">---</span></span>
-<span id="cb62-2"><a href="#cb62-2"></a><span class="an">title:</span><span class="co"> &quot;Week 2: Reproducibility and Data Transformations&quot;</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a><span class="an">title:</span><span class="co"> &quot;Week 2 (Reproducibility &amp; dplyr) Workbook&quot;</span></span>
 <span id="cb62-3"><a href="#cb62-3"></a><span class="an">author:</span><span class="co"> &quot;Emorie D Beck&quot;</span></span>
 <span id="cb62-4"><a href="#cb62-4"></a><span class="an">format:</span><span class="co"> </span></span>
 <span id="cb62-5"><a href="#cb62-5"></a><span class="co">  html:</span></span>
