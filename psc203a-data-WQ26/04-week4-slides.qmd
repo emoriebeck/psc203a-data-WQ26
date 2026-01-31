@@ -1,0 +1,13 @@
+---
+title: "Week 4 (Codebooks & Documentation) Slides"
+---
+
+Welcome to Week 4! This week, we'll talk about data documentation, readable codebooks, and data cleaning workflows. [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/04-week4-readr/week-4.zip) a zip of these files.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/04-week4-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>
