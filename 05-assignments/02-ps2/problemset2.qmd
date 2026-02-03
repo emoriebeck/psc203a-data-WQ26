@@ -36,7 +36,7 @@ This time, You'll also be practicing variable creation in this problem set, usin
 1. In the code chunk below, complete the following:
 
     - Load the `tidyverse` library
-    - Use the `load()` and `url()` functions to download the `df_school_all` dataframe from the url: `https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/05-assignments/03-ps3/recruit_school_allvars.RData`
+    - Use the `load()` and `url()` functions to download the `df_school_all` dataframe from the url: `https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/05-assignments/02-ps2/recruit_school_allvars.RData`
       - Each row in `df_school_all` represents a high school (includes both public and private)
       - There are columns (e.g., `visit_by_100751`) indicating the number of times a university visited that high school
       - The variable `total_visits` identifies the number of visits the high school received from all (16) public research universities in this data collection sample
@@ -234,11 +234,11 @@ Here are additional columns that will make our lives easier or are applicable to
 15. **notes**: Add any notes you may have about the variables that you think will be helpful for future you or others. 
 
 
-# Render to pdf and submit problem set  
+# Render to html and submit problem set  
 
 **Render to html** by clicking the "Render" button near the top of your RStudio window (icon with blue arrow) 
 
--   Go to the Canvas --\> Assignments --\> Problem Set 3
+-   Go to the Canvas --\> Assignments --\> Problem Set 2
 -   Submit both .qmd and .html files\
--   Use this naming convention "lastname_firstname_ps#" for your .qmd and html files (e.g. beck_emorie_ps3.qmd & beck_emorie_ps3.html)
+-   Use this naming convention "lastname_firstname_ps#" for your .qmd and html files (e.g. beck_emorie_ps2.qmd & beck_emorie_ps2.html)
 
