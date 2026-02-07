@@ -5978,7 +5978,7 @@ $navbar-bg: #022851;</style>
 <span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="fu">matches</span>(<span class="st">&quot;1$&quot;</span>)), pomp)</span>
 <span id="cb15-9"><a href="#cb15-9"></a>(diff1 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>() <span class="sc">-</span> start)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.003395081 secs</code></pre>
+<pre><code>Time difference of 0.003988028 secs</code></pre>
 </div>
 </div>
 </div>
@@ -5995,14 +5995,14 @@ $navbar-bg: #022851;</style>
 <span id="cb17-9"><a href="#cb17-9"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="fu">matches</span>(<span class="st">&quot;1$&quot;</span>)), pomp)</span>
 <span id="cb17-10"><a href="#cb17-10"></a>(diff2 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>() <span class="sc">-</span> start)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.003372908 secs</code></pre>
+<pre><code>Time difference of 0.003743887 secs</code></pre>
 </div>
 </div>
 </div>
 <p>::::</p>
 <ul>
-<li>But those differences are really minimal right? Just 0 seconds.</li>
-<li>But across 150 variables that’s 0.0033 seconds.</li>
+<li>But those differences are really minimal right? Just 2^{-4} seconds.</li>
+<li>But across 150 variables that’s 0.0366 seconds.</li>
 </ul></section><section id="cautionary-note-on-outputs" class="level2"><h2 class="anchored" data-anchor-id="cautionary-note-on-outputs">Cautionary note on outputs</h2>
 <ul>
 <li>The function we wrote above could be a “mutate()” function because the output is the same length / size as the input.</li>

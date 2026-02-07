@@ -123,12 +123,12 @@ billboard |>
 
 ```{r}
 # load the codebook
-(codebook <- read_csv("week6-codebook.csv") |>
+(codebook <- read_csv("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/06-week6-review/week6-codebook.csv") |>
     mutate(old_name = str_to_lower(old_name)))
 
 old.names <- codebook$old_name # get old column names
-new.names <- codebook$new_name # get new column names
-soep <- read_csv("week6-data.csv") |>
+names(old.names) <- codebook$new_name # get new column names
+soep <- read_csv("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/06-week6-review/week6-data.csv") |>
     select(all_of(old.names))
 ```
 
@@ -153,7 +153,6 @@ Solution:
 
 ```{r}
 soep_long <- soep |>
-  setNames(new.names) |>
   pivot_longer(
     cols = c(-starts_with("Proc"), -starts_with("Dem"))
     , names_to = c("category",	"label",	"item_name",	"year")

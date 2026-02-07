@@ -1871,252 +1871,252 @@
   {
     "objectID": "06-week6-workbook.html",
     "href": "06-week6-workbook.html",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "",
-    "text": "Loading required package: Matrix\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()      masks psych::%+%()\n✖ ggplot2::alpha()    masks psych::alpha()\n✖ dplyr::arrange()    masks plyr::arrange()\n✖ purrr::compact()    masks plyr::compact()\n✖ dplyr::count()      masks plyr::count()\n✖ dplyr::desc()       masks plyr::desc()\n✖ tidyr::expand()     masks Matrix::expand()\n✖ dplyr::failwith()   masks plyr::failwith()\n✖ dplyr::filter()     masks stats::filter()\n✖ dplyr::group_rows() masks kableExtra::group_rows()\n✖ dplyr::id()         masks plyr::id()\n✖ dplyr::lag()        masks stats::lag()\n✖ dplyr::mutate()     masks plyr::mutate()\n✖ tidyr::pack()       masks Matrix::pack()\n✖ dplyr::rename()     masks plyr::rename()\n✖ dplyr::summarise()  masks plyr::summarise()\n✖ dplyr::summarize()  masks plyr::summarize()\n✖ tidyr::unpack()     masks Matrix::unpack()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
+    "text": "Loading required package: Matrix\n\n\nWarning: package 'purrr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.6.0\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.1     \n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()      masks psych::%+%()\n✖ ggplot2::alpha()    masks psych::alpha()\n✖ dplyr::arrange()    masks plyr::arrange()\n✖ purrr::compact()    masks plyr::compact()\n✖ dplyr::count()      masks plyr::count()\n✖ dplyr::desc()       masks plyr::desc()\n✖ tidyr::expand()     masks Matrix::expand()\n✖ dplyr::failwith()   masks plyr::failwith()\n✖ dplyr::filter()     masks stats::filter()\n✖ dplyr::group_rows() masks kableExtra::group_rows()\n✖ dplyr::id()         masks plyr::id()\n✖ dplyr::lag()        masks stats::lag()\n✖ dplyr::mutate()     masks plyr::mutate()\n✖ tidyr::pack()       masks Matrix::pack()\n✖ dplyr::rename()     masks plyr::rename()\n✖ dplyr::summarise()  masks plyr::summarise()\n✖ dplyr::summarize()  masks plyr::summarize()\n✖ tidyr::unpack()     masks Matrix::unpack()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors"
   },
   {
     "objectID": "06-week6-workbook.html#select",
     "href": "06-week6-workbook.html#select",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "1. select()\n",
     "text": "1. select()\n\nAdd or remove using select() helper functions.\n\n\nstarts_with()\n\nends_with()\ncontains()\nmatches()\nnum_range()\none_of()\nall_of()\n\n\nCodebfi |>\n  select(starts_with(\"C\"))"
   },
   {
     "objectID": "06-week6-workbook.html#filter",
     "href": "06-week6-workbook.html#filter",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "2. filter()\n",
     "text": "2. filter()\n\n\nOften times, when conducting research (experiments or otherwise), there are observations (people, specific trials, etc.) that you don’t want to include.\nWe can use filter() with logical statements to include only rows that match certain conditions\n\nWe can refer to both bare quoted columns and objects in the global environment\n\n\n== or !=\n\n\n< or <=\n\n\n> or >=\n\n%in%\nall_of()\none_of()\n!\n\n| and &"
   },
   {
     "objectID": "06-week6-workbook.html#pivot_longer",
     "href": "06-week6-workbook.html#pivot_longer",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "1. pivot_longer()\n",
-    "text": "1. pivot_longer()\n\n\n(Formerly gather()) Makes wide data long, based on a key \n\nCore arguments:\n\n\ndata: the data, blank if piped\n\ncols: columns to be made long, selected via select() calls\n\nnames_to: name(s) of key column(s) in new long data frame (string or string vector)\n\nvalues_to: name of values in new long data frame (string)\n\nnames_sep: separator in column headers, if multiple keys\n\nvalues_drop_na: drop missing cells (similar to na.rm = T) \n\n\n\nWhy would I make my data longer?\n\nMain reason: Columns names sometimes contain data.\nExample: Billboard data has time information in column names\n\n\nCodedata(billboard)\nstr(billboard)\n\ntibble [317 × 79] (S3: tbl_df/tbl/data.frame)\n $ artist      : chr [1:317] \"2 Pac\" \"2Ge+her\" \"3 Doors Down\" \"3 Doors Down\" ...\n $ track       : chr [1:317] \"Baby Don't Cry (Keep...\" \"The Hardest Part Of ...\" \"Kryptonite\" \"Loser\" ...\n $ date.entered: Date[1:317], format: \"2000-02-26\" \"2000-09-02\" ...\n $ wk1         : num [1:317] 87 91 81 76 57 51 97 84 59 76 ...\n $ wk2         : num [1:317] 82 87 70 76 34 39 97 62 53 76 ...\n $ wk3         : num [1:317] 72 92 68 72 25 34 96 51 38 74 ...\n $ wk4         : num [1:317] 77 NA 67 69 17 26 95 41 28 69 ...\n $ wk5         : num [1:317] 87 NA 66 67 17 26 100 38 21 68 ...\n $ wk6         : num [1:317] 94 NA 57 65 31 19 NA 35 18 67 ...\n $ wk7         : num [1:317] 99 NA 54 55 36 2 NA 35 16 61 ...\n $ wk8         : num [1:317] NA NA 53 59 49 2 NA 38 14 58 ...\n $ wk9         : num [1:317] NA NA 51 62 53 3 NA 38 12 57 ...\n $ wk10        : num [1:317] NA NA 51 61 57 6 NA 36 10 59 ...\n $ wk11        : num [1:317] NA NA 51 61 64 7 NA 37 9 66 ...\n $ wk12        : num [1:317] NA NA 51 59 70 22 NA 37 8 68 ...\n $ wk13        : num [1:317] NA NA 47 61 75 29 NA 38 6 61 ...\n $ wk14        : num [1:317] NA NA 44 66 76 36 NA 49 1 67 ...\n $ wk15        : num [1:317] NA NA 38 72 78 47 NA 61 2 59 ...\n $ wk16        : num [1:317] NA NA 28 76 85 67 NA 63 2 63 ...\n $ wk17        : num [1:317] NA NA 22 75 92 66 NA 62 2 67 ...\n $ wk18        : num [1:317] NA NA 18 67 96 84 NA 67 2 71 ...\n $ wk19        : num [1:317] NA NA 18 73 NA 93 NA 83 3 79 ...\n $ wk20        : num [1:317] NA NA 14 70 NA 94 NA 86 4 89 ...\n $ wk21        : num [1:317] NA NA 12 NA NA NA NA NA 5 NA ...\n $ wk22        : num [1:317] NA NA 7 NA NA NA NA NA 5 NA ...\n $ wk23        : num [1:317] NA NA 6 NA NA NA NA NA 6 NA ...\n $ wk24        : num [1:317] NA NA 6 NA NA NA NA NA 9 NA ...\n $ wk25        : num [1:317] NA NA 6 NA NA NA NA NA 13 NA ...\n $ wk26        : num [1:317] NA NA 5 NA NA NA NA NA 14 NA ...\n $ wk27        : num [1:317] NA NA 5 NA NA NA NA NA 16 NA ...\n $ wk28        : num [1:317] NA NA 4 NA NA NA NA NA 23 NA ...\n $ wk29        : num [1:317] NA NA 4 NA NA NA NA NA 22 NA ...\n $ wk30        : num [1:317] NA NA 4 NA NA NA NA NA 33 NA ...\n $ wk31        : num [1:317] NA NA 4 NA NA NA NA NA 36 NA ...\n $ wk32        : num [1:317] NA NA 3 NA NA NA NA NA 43 NA ...\n $ wk33        : num [1:317] NA NA 3 NA NA NA NA NA NA NA ...\n $ wk34        : num [1:317] NA NA 3 NA NA NA NA NA NA NA ...\n $ wk35        : num [1:317] NA NA 4 NA NA NA NA NA NA NA ...\n $ wk36        : num [1:317] NA NA 5 NA NA NA NA NA NA NA ...\n $ wk37        : num [1:317] NA NA 5 NA NA NA NA NA NA NA ...\n $ wk38        : num [1:317] NA NA 9 NA NA NA NA NA NA NA ...\n $ wk39        : num [1:317] NA NA 9 NA NA NA NA NA NA NA ...\n $ wk40        : num [1:317] NA NA 15 NA NA NA NA NA NA NA ...\n $ wk41        : num [1:317] NA NA 14 NA NA NA NA NA NA NA ...\n $ wk42        : num [1:317] NA NA 13 NA NA NA NA NA NA NA ...\n $ wk43        : num [1:317] NA NA 14 NA NA NA NA NA NA NA ...\n $ wk44        : num [1:317] NA NA 16 NA NA NA NA NA NA NA ...\n $ wk45        : num [1:317] NA NA 17 NA NA NA NA NA NA NA ...\n $ wk46        : num [1:317] NA NA 21 NA NA NA NA NA NA NA ...\n $ wk47        : num [1:317] NA NA 22 NA NA NA NA NA NA NA ...\n $ wk48        : num [1:317] NA NA 24 NA NA NA NA NA NA NA ...\n $ wk49        : num [1:317] NA NA 28 NA NA NA NA NA NA NA ...\n $ wk50        : num [1:317] NA NA 33 NA NA NA NA NA NA NA ...\n $ wk51        : num [1:317] NA NA 42 NA NA NA NA NA NA NA ...\n $ wk52        : num [1:317] NA NA 42 NA NA NA NA NA NA NA ...\n $ wk53        : num [1:317] NA NA 49 NA NA NA NA NA NA NA ...\n $ wk54        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk55        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk56        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk57        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk58        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk59        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk60        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk61        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk62        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk63        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk64        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk65        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk66        : logi [1:317] NA NA NA NA NA NA ...\n $ wk67        : logi [1:317] NA NA NA NA NA NA ...\n $ wk68        : logi [1:317] NA NA NA NA NA NA ...\n $ wk69        : logi [1:317] NA NA NA NA NA NA ...\n $ wk70        : logi [1:317] NA NA NA NA NA NA ...\n $ wk71        : logi [1:317] NA NA NA NA NA NA ...\n $ wk72        : logi [1:317] NA NA NA NA NA NA ...\n $ wk73        : logi [1:317] NA NA NA NA NA NA ...\n $ wk74        : logi [1:317] NA NA NA NA NA NA ...\n $ wk75        : logi [1:317] NA NA NA NA NA NA ...\n $ wk76        : logi [1:317] NA NA NA NA NA NA ...\n\n\n\nCodebillboard |>\n  pivot_longer(\n    cols = starts_with(\"wk\"), \n    names_to = \"week\", \n    names_prefix = \"wk\",\n    names_transform = as.numeric,\n    values_to = \"rank\"\n  )\n\n\n\n  \n\n\n\n\nThis doesn’t just apply to longitudinal data. This is also important when thinking about iteration.\nFor example, if you variables can be grouped into different categories (covariates, IVs/predictors, DVs/outcomes, moderators, etc.), then your column names contain implicit data\nThe data below contain both time, variable, and category information\n\n\nCode# load the codebook\n(codebook <- read_csv(\"week6-codebook.csv\") |>\n    mutate(old_name = str_to_lower(old_name)))\n\n\n\n  \n\n\nCodeold.names <- codebook$old_name # get old column names\nnew.names <- codebook$new_name # get new column names\nsoep <- read_csv(\"week6-data.csv\") |>\n    select(all_of(old.names))\n\n\nExercise\n\nBy pivoting our data longer, we can more easily extract information from the column names\nPivot the data below longer. Some hints:\n\ndon’t make the procedural or demographic variables long\nsplit the column names you make long into four chunks:\n\n“category”, “label”, “item_name”, “year”\n\n\ndrop NA values\n\n\n\nSolution:\n\nCodesoep_long <- soep |>\n  setNames(new.names) |>\n  pivot_longer(\n    cols = c(-starts_with(\"Proc\"), -starts_with(\"Dem\"))\n    , names_to = c(\"category\",  \"label\",    \"item_name\",    \"year\")\n    , names_pattern = \"(.*)_(.*)_(.*)_(.*)\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) |> mutate(year = as.numeric(year))\nsoep_long\n\n\n\n  \n\n\n\n\nLong format data are easier to clean (we’ll come back to this but we’ll create the cleaned data frame to use for merging practice)\n\n\nCodesoep_big5 <- soep_long |>\n  filter(category == \"big5\") |>\n  mutate(value = mapvalues(value, seq(-8,0), rep(NA, 9))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label, year) |>\n  summarize(value = mean(value)) |>\n  ungroup()\n\nsoep_le <- soep_long |>\n  filter(category == \"le\") |>\n  mutate(value = mapvalues(value, seq(-8,1), c(rep(NA, 6), 0, NA, NA, 1))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label) |>\n  summarize(value = sum(value)) |>\n  ungroup()\n\nsoep_clean <- soep_big5 |>\n  rename(trait = label, p_value = value) |>\n  inner_join(\n    soep_le |>\n      rename(le = label, le_value = value)\n  )"
+    "text": "1. pivot_longer()\n\n\n(Formerly gather()) Makes wide data long, based on a key \n\nCore arguments:\n\n\ndata: the data, blank if piped\n\ncols: columns to be made long, selected via select() calls\n\nnames_to: name(s) of key column(s) in new long data frame (string or string vector)\n\nvalues_to: name of values in new long data frame (string)\n\nnames_sep: separator in column headers, if multiple keys\n\nvalues_drop_na: drop missing cells (similar to na.rm = T) \n\n\n\nWhy would I make my data longer?\n\nMain reason: Columns names sometimes contain data.\nExample: Billboard data has time information in column names\n\n\nCodedata(billboard)\nstr(billboard)\n\ntibble [317 × 79] (S3: tbl_df/tbl/data.frame)\n $ artist      : chr [1:317] \"2 Pac\" \"2Ge+her\" \"3 Doors Down\" \"3 Doors Down\" ...\n $ track       : chr [1:317] \"Baby Don't Cry (Keep...\" \"The Hardest Part Of ...\" \"Kryptonite\" \"Loser\" ...\n $ date.entered: Date[1:317], format: \"2000-02-26\" \"2000-09-02\" ...\n $ wk1         : num [1:317] 87 91 81 76 57 51 97 84 59 76 ...\n $ wk2         : num [1:317] 82 87 70 76 34 39 97 62 53 76 ...\n $ wk3         : num [1:317] 72 92 68 72 25 34 96 51 38 74 ...\n $ wk4         : num [1:317] 77 NA 67 69 17 26 95 41 28 69 ...\n $ wk5         : num [1:317] 87 NA 66 67 17 26 100 38 21 68 ...\n $ wk6         : num [1:317] 94 NA 57 65 31 19 NA 35 18 67 ...\n $ wk7         : num [1:317] 99 NA 54 55 36 2 NA 35 16 61 ...\n $ wk8         : num [1:317] NA NA 53 59 49 2 NA 38 14 58 ...\n $ wk9         : num [1:317] NA NA 51 62 53 3 NA 38 12 57 ...\n $ wk10        : num [1:317] NA NA 51 61 57 6 NA 36 10 59 ...\n $ wk11        : num [1:317] NA NA 51 61 64 7 NA 37 9 66 ...\n $ wk12        : num [1:317] NA NA 51 59 70 22 NA 37 8 68 ...\n $ wk13        : num [1:317] NA NA 47 61 75 29 NA 38 6 61 ...\n $ wk14        : num [1:317] NA NA 44 66 76 36 NA 49 1 67 ...\n $ wk15        : num [1:317] NA NA 38 72 78 47 NA 61 2 59 ...\n $ wk16        : num [1:317] NA NA 28 76 85 67 NA 63 2 63 ...\n $ wk17        : num [1:317] NA NA 22 75 92 66 NA 62 2 67 ...\n $ wk18        : num [1:317] NA NA 18 67 96 84 NA 67 2 71 ...\n $ wk19        : num [1:317] NA NA 18 73 NA 93 NA 83 3 79 ...\n $ wk20        : num [1:317] NA NA 14 70 NA 94 NA 86 4 89 ...\n $ wk21        : num [1:317] NA NA 12 NA NA NA NA NA 5 NA ...\n $ wk22        : num [1:317] NA NA 7 NA NA NA NA NA 5 NA ...\n $ wk23        : num [1:317] NA NA 6 NA NA NA NA NA 6 NA ...\n $ wk24        : num [1:317] NA NA 6 NA NA NA NA NA 9 NA ...\n $ wk25        : num [1:317] NA NA 6 NA NA NA NA NA 13 NA ...\n $ wk26        : num [1:317] NA NA 5 NA NA NA NA NA 14 NA ...\n $ wk27        : num [1:317] NA NA 5 NA NA NA NA NA 16 NA ...\n $ wk28        : num [1:317] NA NA 4 NA NA NA NA NA 23 NA ...\n $ wk29        : num [1:317] NA NA 4 NA NA NA NA NA 22 NA ...\n $ wk30        : num [1:317] NA NA 4 NA NA NA NA NA 33 NA ...\n $ wk31        : num [1:317] NA NA 4 NA NA NA NA NA 36 NA ...\n $ wk32        : num [1:317] NA NA 3 NA NA NA NA NA 43 NA ...\n $ wk33        : num [1:317] NA NA 3 NA NA NA NA NA NA NA ...\n $ wk34        : num [1:317] NA NA 3 NA NA NA NA NA NA NA ...\n $ wk35        : num [1:317] NA NA 4 NA NA NA NA NA NA NA ...\n $ wk36        : num [1:317] NA NA 5 NA NA NA NA NA NA NA ...\n $ wk37        : num [1:317] NA NA 5 NA NA NA NA NA NA NA ...\n $ wk38        : num [1:317] NA NA 9 NA NA NA NA NA NA NA ...\n $ wk39        : num [1:317] NA NA 9 NA NA NA NA NA NA NA ...\n $ wk40        : num [1:317] NA NA 15 NA NA NA NA NA NA NA ...\n $ wk41        : num [1:317] NA NA 14 NA NA NA NA NA NA NA ...\n $ wk42        : num [1:317] NA NA 13 NA NA NA NA NA NA NA ...\n $ wk43        : num [1:317] NA NA 14 NA NA NA NA NA NA NA ...\n $ wk44        : num [1:317] NA NA 16 NA NA NA NA NA NA NA ...\n $ wk45        : num [1:317] NA NA 17 NA NA NA NA NA NA NA ...\n $ wk46        : num [1:317] NA NA 21 NA NA NA NA NA NA NA ...\n $ wk47        : num [1:317] NA NA 22 NA NA NA NA NA NA NA ...\n $ wk48        : num [1:317] NA NA 24 NA NA NA NA NA NA NA ...\n $ wk49        : num [1:317] NA NA 28 NA NA NA NA NA NA NA ...\n $ wk50        : num [1:317] NA NA 33 NA NA NA NA NA NA NA ...\n $ wk51        : num [1:317] NA NA 42 NA NA NA NA NA NA NA ...\n $ wk52        : num [1:317] NA NA 42 NA NA NA NA NA NA NA ...\n $ wk53        : num [1:317] NA NA 49 NA NA NA NA NA NA NA ...\n $ wk54        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk55        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk56        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk57        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk58        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk59        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk60        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk61        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk62        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk63        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk64        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk65        : num [1:317] NA NA NA NA NA NA NA NA NA NA ...\n $ wk66        : logi [1:317] NA NA NA NA NA NA ...\n $ wk67        : logi [1:317] NA NA NA NA NA NA ...\n $ wk68        : logi [1:317] NA NA NA NA NA NA ...\n $ wk69        : logi [1:317] NA NA NA NA NA NA ...\n $ wk70        : logi [1:317] NA NA NA NA NA NA ...\n $ wk71        : logi [1:317] NA NA NA NA NA NA ...\n $ wk72        : logi [1:317] NA NA NA NA NA NA ...\n $ wk73        : logi [1:317] NA NA NA NA NA NA ...\n $ wk74        : logi [1:317] NA NA NA NA NA NA ...\n $ wk75        : logi [1:317] NA NA NA NA NA NA ...\n $ wk76        : logi [1:317] NA NA NA NA NA NA ...\n\n\n\nCodebillboard |>\n  pivot_longer(\n    cols = starts_with(\"wk\"), \n    names_to = \"week\", \n    names_prefix = \"wk\",\n    names_transform = as.numeric,\n    values_to = \"rank\"\n  )\n\n\n\n  \n\n\n\n\nThis doesn’t just apply to longitudinal data. This is also important when thinking about iteration.\nFor example, if you variables can be grouped into different categories (covariates, IVs/predictors, DVs/outcomes, moderators, etc.), then your column names contain implicit data\nThe data below contain both time, variable, and category information\n\n\nCode# load the codebook\n(codebook <- read_csv(\"https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/06-week6-review/week6-codebook.csv\") |>\n    mutate(old_name = str_to_lower(old_name)))\n\n\n\n  \n\n\nCodeold.names <- codebook$old_name # get old column names\nnames(old.names) <- codebook$new_name # get new column names\nsoep <- read_csv(\"https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/06-week6-review/week6-data.csv\") |>\n    select(all_of(old.names))\n\n\nExercise\n\nBy pivoting our data longer, we can more easily extract information from the column names\nPivot the data below longer. Some hints:\n\ndon’t make the procedural or demographic variables long\nsplit the column names you make long into four chunks:\n\n“category”, “label”, “item_name”, “year”\n\n\ndrop NA values\n\n\n\nSolution:\n\nCodesoep_long <- soep |>\n  pivot_longer(\n    cols = c(-starts_with(\"Proc\"), -starts_with(\"Dem\"))\n    , names_to = c(\"category\",  \"label\",    \"item_name\",    \"year\")\n    , names_pattern = \"(.*)_(.*)_(.*)_(.*)\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) |> mutate(year = as.numeric(year))\nsoep_long\n\n\n\n  \n\n\n\n\nLong format data are easier to clean (we’ll come back to this but we’ll create the cleaned data frame to use for merging practice)\n\n\nCodesoep_big5 <- soep_long |>\n  filter(category == \"big5\") |>\n  mutate(value = mapvalues(value, seq(-8,0), rep(NA, 9))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label, year) |>\n  summarize(value = mean(value)) |>\n  ungroup()\n\nsoep_le <- soep_long |>\n  filter(category == \"le\") |>\n  mutate(value = mapvalues(value, seq(-8,1), c(rep(NA, 6), 0, NA, NA, 1))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label) |>\n  summarize(value = sum(value)) |>\n  ungroup()\n\nsoep_clean <- soep_big5 |>\n  rename(trait = label, p_value = value) |>\n  inner_join(\n    soep_le |>\n      rename(le = label, le_value = value)\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#pivot_wider",
     "href": "06-week6-workbook.html#pivot_wider",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "2. pivot_wider()\n",
     "text": "2. pivot_wider()\n\n\n(Formerly spread()) Makes wide data long, based on a key \n\nCore arguments:\n\n\ndata: the data, blank if piped\n\nnames_from: name(s) of key column(s) in new long data frame (string or string vector)\n\nnames_sep: separator in column headers, if multiple keys\n\nnames_glue: specify multiple or custom separators of multiple keys\n\nvalues_from: name of values in new long data frame (string)\n\nvalues_fn: function applied to data with duplicate labels \n\n\n\nWhy would I pivot wider?\n\nSome analyses require wide format data\nFor example, SEM in lavaan in R requires that both indicators and time are wide format.\nThe code below uses the codebook to rename items according to a numbered format that isn’t specific to any trait\n\n\nCodebig5 <- codebook |> filter(category == \"big5\")\nsoep_lavaan <- soep_long |>\n  filter(category == \"big5\") |>\n  mutate(item_name = mapvalues(item_name, big5$item_name, big5$lavaan_name, warn_missing = F))\nsoep_lavaan\n\n\n\n  \n\n\n\nExercise\n\nChange the soep_lavaan data frame to be in wide format using pivot_wider():\n\npull the names from two sources: item_name() and year\n\n\n\n\n\nCodesoep_lavaan |>\n  pivot_wider(\n    names_from = c(\"item_name\", \"year\")\n    , values_from = \"value\"\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#the-_join-functions",
     "href": "06-week6-workbook.html#the-_join-functions",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "The _join() Functions",
     "text": "The _join() Functions\n\nOften we may need to pull different data from different sources\nThere are lots of reasons to need to do this\nWe don’t have time to get into all the use cases here, so we’ll talk about them in high level terms\nWe’ll focus on:\n\nfull_join()\ninner_join()\nleft_join()\nright_join()"
   },
   {
     "objectID": "06-week6-workbook.html#full_join",
     "href": "06-week6-workbook.html#full_join",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "3. full_join()\n",
     "text": "3. full_join()\n\n\nMost simply, we can put those back together keeping all observations.\nPro: sometimes we want to maintain missing data (i.e. some people are randomly missing variables and we don’t want to drop them completely)\nCon: can leave you with lots of NAs\nJoin the codebook to the data below using full_join()\nLook at the data. What’s going on here\n\n\nCodesoep_long |>\n  filter(!category == \"big5\") |> \n  full_join(\n    # your code here\n  ) |> \n    View()\n\n\nHere’s the solution:\n\nCodesoep_long |>\n  filter(!category == \"big5\") |>\n  full_join(codebook |> select(category, label, item_name, year, item_text)) \n\n\n\n  \n\n\n\n\nnote we have lots of missing data because the Big Five portions of the codebook were joined even though we removed that data"
   },
   {
     "objectID": "06-week6-workbook.html#inner_join",
     "href": "06-week6-workbook.html#inner_join",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "4. inner_join()\n",
     "text": "4. inner_join()\n\n\nWe can also keep all rows present in both data frames\nPro: Won’t add rows with missing values in key variables\nCon: will drop observations that you want want for counts, correlations, etc.\nJoin the codebook to the data below using inner_join()\nLook at the data. What’s going on here\n\n\nCodesoep_long |>\n  filter(!category == \"big5\")\n  full_join(\n    # your code here\n  ) |> \n    View()\n\n\n\nNote that filtering, renaming/selecting, and joining is a common workflow\n\n\nCodesoep_long |>\n  filter(category == \"big5\") |>\n  select(Proc_SID, trait = label, item_name, year, p_value = value) |>\n  inner_join(\n    soep_long |>\n    filter(category == \"le\") |>\n    select(Proc_SID, le = label, year, le_value = value)\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#left_join",
     "href": "06-week6-workbook.html#left_join",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "5. left_join()\n",
     "text": "5. left_join()\n\n\nOr all rows present in the left (first) data frame, perhaps if it’s a subset of people with complete data\n\n\nCodesoep_long |>\n  filter(category == \"big5\") |>\n  select(Proc_SID, trait = label, item_name, year, p_value = value) |>\n  left_join(\n    soep_long |>\n    filter(category == \"le\") |>\n    select(Proc_SID, le = label, year, le_value = value)\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#right_join",
     "href": "06-week6-workbook.html#right_join",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "6. right_join()\n",
     "text": "6. right_join()\n\n\nOr all rows present in the right (second) data frame, such as I do when I join a codebook with raw data\n\n\nCodesoep_long |>\n  filter(category == \"big5\") |>\n  select(Proc_SID, trait = label, item_name, year, p_value = value) |>\n  right_join(\n    soep_long |>\n    filter(category == \"le\") |>\n    select(Proc_SID, le = label, year, le_value = value)\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#your-turn",
     "href": "06-week6-workbook.html#your-turn",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Your Turn",
     "text": "Your Turn\nIn small groups, discuss what’s happening when you use full_join(), left_join(), right_join(), inner_join(), and anti_join() with the code below. Which is correct in this use case?\n\nCodesoep_long |>\n  filter(category == \"big5\") |>\n  select(Proc_SID, trait = label, item_name, year, p_value = value) |>\n  [x]_join(\n    soep_long |>\n    filter(category == \"le\") |>\n    select(Proc_SID, le = label, year, le_value = value)\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#bringing-it-all-together-split-apply-combine",
     "href": "06-week6-workbook.html#bringing-it-all-together-split-apply-combine",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Bringing it all together: Split-Apply-Combine",
     "text": "Bringing it all together: Split-Apply-Combine\n\nMuch of the power of dplyr functions lay in the split-apply-combine method\n\nA given set of of data are:\n\n\nsplit into smaller chunks\nthen a function or series of functions are applied to each chunk\nand then the chunks are combined back together"
   },
   {
     "objectID": "06-week6-workbook.html#group_by",
     "href": "06-week6-workbook.html#group_by",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "3. group_by()\n",
     "text": "3. group_by()\n\n\nThe group_by() function is the “split” of the method\nIt basically implicitly breaks the data set into chunks by whatever bare quoted column(s)/variable(s) are supplied as arguments."
   },
   {
     "objectID": "06-week6-workbook.html#mutate",
     "href": "06-week6-workbook.html#mutate",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "4. mutate()\n",
     "text": "4. mutate()\n\n\n\nmutate() is one of your “apply” functions\nWhen you use mutate(), the resulting data frame will have the same number of rows you started with\nYou are directly mutating the existing data frame, either modifying existing columns or creating new ones"
   },
   {
     "objectID": "06-week6-workbook.html#summarize-summarise",
     "href": "06-week6-workbook.html#summarize-summarise",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "5. summarize() / summarise()\n",
     "text": "5. summarize() / summarise()\n\n\n\nsummarize() is one of your “apply” functions\nThe resulting data frame will have the same number of rows as your grouping variable\nYou number of groups is 1 for ungrouped data frames"
   },
   {
     "objectID": "06-week6-workbook.html#question-1",
     "href": "06-week6-workbook.html#question-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 1:",
     "text": "Question 1:\n\nLet’s start with the Big Five data:\n\n\n\nfilter() out only Big Five rows\n\nmutate() each observation so that values less than one are changed to NA\n\nRemove any missing values using filter() or drop_na()\n\nGroup (split) the data so that you have a “group” for each person x trait x year combination\n\nsummarize() the values to get a composite score for each Big Five trait for each person in each year:\n\nSolution\nRemember when I said that long format data are easier to clean. Let’s do that now.\n\nCodesoep_big5 <- soep_long |>\n  filter(category == \"big5\") |>\n  mutate(value = mapvalues(value, seq(-8,0), rep(NA, 9))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label, year) |>\n  summarize(value = mean(value)) |>\n  ungroup()\nsoep_big5"
   },
   {
     "objectID": "06-week6-workbook.html#question-2",
     "href": "06-week6-workbook.html#question-2",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 2:",
     "text": "Question 2:\nNow let’s take care of the life event data:\n1. filter() out only life event rows\n2. mutate() each observation so that\n\n-2 = 0\n1 = 1\neverything else is NA\n\n\n\nRemove any missing values using filter() or drop_na()\n\nGroup (split) the data so that you have a “group” for each person x event combination\n\nsummarize() the values to get a sum score for each event for each person across all years:\n\nSolution\n\nCodesoep_le <- soep_long |>\n  filter(category == \"le\") |>\n  mutate(value = mapvalues(value, seq(-8,1), c(rep(NA, 6), 0, NA, NA, 1))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label) |>\n  summarize(value = sum(value)) |>\n  ungroup()\nsoep_le"
   },
   {
     "objectID": "06-week6-workbook.html#question-3",
     "href": "06-week6-workbook.html#question-3",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 3:",
     "text": "Question 3:\nJust for practice, now make your Big Five data frame wide, leaving the time variable (year) long\nSolution\n\nCodesoep_big5 |>\n  pivot_wider(\n    names_from = \"label\"\n    , values_from = \"value\"\n  )"
   },
   {
     "objectID": "06-week6-workbook.html#question-4",
     "href": "06-week6-workbook.html#question-4",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 4:",
     "text": "Question 4:\n\nNow, let’s join the data frames back together.\nWhich join function do you think is most appropriate?\nHint: You will need to rename the label and value columns to reflect the category of the data\n\nSolution\n\nCodesoep_clean <- soep_big5 |>\n  rename(trait = label, p_value = value) |>\n  inner_join(\n    soep_le |>\n      rename(le = label, le_value = value)\n  )\nsoep_clean"
   },
   {
     "objectID": "06-week6-workbook.html#functions-1",
     "href": "06-week6-workbook.html#functions-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Functions",
     "text": "Functions\nHow to approach writing functions? (broad recipe)\n\nExperiment with performing the task outside of a function\n\nExperiment with performing task with different sets of inputs\nOften, you must revise this code, when an approach that worked outside a function does not work within a function\n\n\nWrite the function\nTest the function\n\nTry to “break” it\n\n\n\nContinual improvement. As you use the function, make continual improvements going back-and-forth between steps 1-3"
   },
   {
     "objectID": "06-week6-workbook.html#basics-of-writing-functions",
     "href": "06-week6-workbook.html#basics-of-writing-functions",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Basics of writing functions",
     "text": "Basics of writing functions\nThree components of a function:\n\n\nFunction name\n\nDefine a function using function() and give it a name using the assignment operator <-\n\n\n\n\nFunction arguments (sometimes called “inputs”)\n\nInputs that the function takes; they go inside the parentheses of function()\n\nCan be vectors, data frames, logical statements, strings, etc.\n\n\nIn the above hypothetical code, the function took three inputs arg1, arg2, arg3, but we could have written:\n\n\nfunction(x, y, z) or function(Larry, Curly, Moe)\n\n\n\nIn the “function call,” you specify values to assign to these function arguments\n\n\n\nFunction body\n\nWhat the function does to the inputs\nFunction body goes inside the pair of curly brackets ({}) that follows function()\n\nAbove hypothetical function doesn’t do anything, but your function can return a value (covered in later section)"
   },
   {
     "objectID": "06-week6-workbook.html#num_negative-function",
     "href": "06-week6-workbook.html#num_negative-function",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "\nnum_negative() function",
     "text": "num_negative() function\nTask: Write function called num_negative()\n\nWrite a function that counts the number of observations with negative values for a specific variable\nApply this function to variables from dataframe df (created below)\nAdapted from Ben Skinner’s Programming 1 R Workshop HERE\n\n\n\nCode# Sample dataframe `df` that contains some negative values\ndf"
   },
   {
     "objectID": "06-week6-workbook.html#steps",
     "href": "06-week6-workbook.html#steps",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Steps:",
     "text": "Steps:\nRecommended steps:\n\nPerform task outside of function\n\nHINT: sum(data_frame_name$var_name<0)\n\n\n\nWrite function\nApply/test function on variables\n\nStep 1: Perform task outside of function\n\nCodenames(df) # identify variable names\n\n[1] \"id\"     \"age\"    \"sibage\" \"parage\"\n\nCodedf$age # print observations for a variable\n\n  [1]  17  15 -97  13 -97  12 -99 -97  16  16 -98  20 -99  20  11  20  12  17\n [19]  19  17 -97 -99  12  13  11  15  20  14 -99  11  20 -98  11 -98  12  16\n [37]  12  18  12  19  12 -97  20  17  11  19  19  12 -98  11  15  18  15 -98\n [55]  15  19 -97  13 -98  16  13  12  16  19 -99  19 -98  13 -97  20  15  19\n [73]  15  12  18 -99  18 -98 -98 -98 -97  12  14  19 -97  11  20  18  14 -99\n [91]  15  20 -97  14  14  19  18  17  20  15\n\nCode#BaseR\nsum(df$age<0) # count number of obs w/ negative values for variable \"age\"\n\n[1] 27\n\n\nStep 2: Write function\n\nCodenum_missing <- function(x){\n  sum(x<0)\n}\n\n\nStep 3: Apply function\n\nCodenum_missing(df$age)\n\n[1] 27\n\nCodenum_missing(df$sibage)\n\n[1] 22"
   },
   {
     "objectID": "06-week6-workbook.html#num_missing-function",
     "href": "06-week6-workbook.html#num_missing-function",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "\nnum_missing() function",
     "text": "num_missing() function\nTask: Write function called num_negative()\n\nWrite a function that counts number of missing observations for a variable and allows you to specify which values are associated with missing for that variable. This function will take two arguments:\n\n\nx: The variable (e.g., df$sibage)\n\nmiss_vals: Vector of values you want to associate with “missing” variable\n\nValues to associate with missing for df$age: -97,-98,-99\n\nValues to associate with missing for df$sibage: -97,-98,-99\n\nValues to associate with missing for df$parage: -4,-7,-8"
   },
   {
     "objectID": "06-week6-workbook.html#steps-1",
     "href": "06-week6-workbook.html#steps-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Steps",
     "text": "Steps\nRecommended steps:\n\nPerform task outside of function\n\nHINT: sum(data_frame_name$var_name %in% c(-4,-5))\n\n\n\nWrite function\nApply/test function on variables\n\nStep 1: Perform task outside of function\n\nCodesum(df$age %in% c(-97,-98,-99))\n\n[1] 27\n\n\nStep 2: Write function\n\nCodenum_missing <- function(x, miss_vals){\n\n  sum(x %in% miss_vals)\n}\n\n\nStep 3: Apply function\n\nCodenum_missing(df$age,c(-97,-98,-99))\n\n[1] 27\n\nCodenum_missing(df$sibage,c(-97,-98,-99))\n\n[1] 22\n\nCodenum_missing(df$parage,c(-4,-7,-8))\n\n[1] 17"
   },
   {
     "objectID": "06-week6-workbook.html#purrrmap",
     "href": "06-week6-workbook.html#purrrmap",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "purrr::map()\n",
     "text": "purrr::map()\n\n\n\nmap() functions are the tidyverse alternative to for loops and chaotic lists with deep nesting structures\n\nmap() functions, unlike _apply() functions can take any number of inputs, which mimics nested for loops\n\nmap() functions can return any output type, including heterogeneous outputs (at least if you return it as a list)\n\nInputs\n\nYou control how many inputs using the following:\n\n\nmap(): one input, arguments are map(.x, .f)\n\n\nmap2(): two inputs, arguments are map2(.x, y., .f)\n\n\npmap(): any number of inputs, arguments are pmap(.l, .f)\n\nNote the .l becuase this means we have to wrap inputs in a list()\n\n\n\n\n\nOuputs\n\nYou can also control the output of purrr::map():\n\n\nmap(): outputs a list\n\nmap_chr(): outputs a character vector\n\n\nmap_dbl(): outputs a numeric vector\n\n\nmap_lgl(): outputs a logical vector\n\n\nmap_int(): outputs a integer vector\n\n\nmap_vec(): outputs essentially any type of vector\n\n\nNote that if one input combination fails, all will fail and nothing will be outputted\nError handling\n\nHaving everything fail because one thing went wrong is really frustrating\nThere are a number of functions in purrr to help with that:\n\n\npossibly(.f, otherwise): returns whatever you ask it return with otherwise when a .f call fails\n\nsafely(.f): returns a list with the output, if successful, and errors, if unsuccessful\nOthers: see documentation.\n\n\nList columns\n\nOne of the easiest ways to work with purrr is using list columns in nested data frames\n\n\n\n\nYou can create a nested data frame using tidyr::nest() or tibble() (where one column is a list itself)\n\n\nCodesoep_clean |>\n  group_by(trait, year, le) |>\n  nest() |>\n  ungroup()\n\n\n\n  \n\n\n\n\n\nYou can then call map() within a mutate call to modify the list column or create new columns in your data frame\n\n\nCodetibble(\n  x = c(1,2,3)\n  , y = list(letters[1:5], letters[6:10], letters[11:15])\n)"
   },
   {
     "objectID": "06-week6-workbook.html#question-1-1",
     "href": "06-week6-workbook.html#question-1-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 1:",
     "text": "Question 1:\n\nCreate a data frame called soep_nested that creates a list column of the data split by trait and life event.\n\nSolution\n\nCodesoep_nested <- soep_clean |>\n  group_by(trait, le) |>\n  nest() |>\n  ungroup()"
   },
   {
     "objectID": "06-week6-workbook.html#question-2-1",
     "href": "06-week6-workbook.html#question-2-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 2:",
     "text": "Question 2:\n\nUsing mutate(), create a new list column called model that runs the following function\n\n\nCodelmer_fun <- function(d){\n  d <- d |> \n    mutate(wave = year - 2005) |>\n    group_by(Proc_SID) |>\n    filter(n() > 1)\n  m <- lmer(p_value ~ wave + le_value + le_value:wave + (1 + wave | Proc_SID), data = d)\n  return(m)\n}\n\n\nSolution\n\nCodesoep_nested <- soep_nested |>\n  mutate(model = map(data, lmer_fun))\nsoep_nested"
   },
   {
     "objectID": "06-week6-workbook.html#question-3-1",
     "href": "06-week6-workbook.html#question-3-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 3:",
     "text": "Question 3:\n\nUse the following function to extract the number of people we estimated slopes for in this model. Output the result as an integer to a new column called npeople\n\n\n\nCodenslopes_fun <- function(m) summary(m)$ngrps\n\n\nSolution\n\nCodesoep_nested <- soep_nested |>\n  mutate(npeople = map_int(model, nslopes_fun))\nsoep_nested"
   },
   {
     "objectID": "06-week6-workbook.html#question-4-1",
     "href": "06-week6-workbook.html#question-4-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 4:",
     "text": "Question 4:\n\nUse the tidy() function from the broom.mixed package to extract the coefficients from the model and their confidence intervals. Save it to the column “tidy”\nHints:\n\nUse the argument conf.int = T to get the confidence intervals\nAdditional arguments to the .f function called in map() can be just included as addition arguments (e.g., map(.x, .f, conf.int = T))\n\n\n\nSolution\n\nCodesoep_nested <- soep_nested |>\n  mutate(tidy = map(model, broom.mixed::tidy, conf.int = T))"
   },
   {
     "objectID": "06-week6-workbook.html#question-5",
     "href": "06-week6-workbook.html#question-5",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 5:",
     "text": "Question 5:\n\nLet’s practice making a super simple table. Do the following:\n\n\nremove the data and model columns from the data frame\n\nunnest() the tidy column\nKeep only fixed effects (effect == \"fixed\")\nWe only care about the interaction, so only keep the interaction term\n\nround the estimate, conf.low, and conf.high columns to 2 decimal places\nKeep the trait, le, estimate, conf.low, and conf.high columns only\n\npivot_wider() by trait for estimate, conf.low, and conf.high\n\n\nSolution\n\nCodesoep_tab <- soep_nested |>\n  select(-data, -model) |>\n  unnest(tidy) |>\n  filter(effect == \"fixed\" & grepl(\":\", term)) |>\n  mutate(across(c(estimate, conf.low, conf.high), \\(x) round(x, 2))) |>\n  select(trait, le, estimate, conf.low, conf.high) |>\n  pivot_wider(\n    names_from = \"trait\"\n    , names_glue = \"{trait}_{.value}\"\n    , values_from = c(estimate, conf.low, conf.high)\n  )\nsoep_tab"
   },
   {
     "objectID": "06-week6-workbook.html#question-6",
     "href": "06-week6-workbook.html#question-6",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 6:",
     "text": "Question 6:\nUse the function below to get model predictions\n\nCodepred_fun <- function(m){\n  d <- m@frame |>\n      select(-p_value) |>\n      distinct()\n  bind_cols(d, pred = predict(m, newdata = d))\n}\n\n\nSolution\n\nCodesoep_nested <- soep_nested |>\n  mutate(pred = map(model, pred_fun))\nsoep_nested"
   },
   {
     "objectID": "06-week6-workbook.html#question-7",
     "href": "06-week6-workbook.html#question-7",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 7:",
     "text": "Question 7:\n\nLet’s practice making a super simple table. Do the following:\n\n\nremove the data, model, and tidy columns from the data frame\n\nunnest() the tidy column\n\ngroup_by() life event and nest() + ungroup()\n\nsave this as soep_pred\n\n\nSolution\n\nCodesoep_pred <- soep_nested |>\n  select(-data, -model, -tidy) |>\n  unnest(pred) |>\n  group_by(trait) |>\n  nest() |>\n  ungroup()\nsoep_pred"
   },
   {
     "objectID": "06-week6-workbook.html#question-8",
     "href": "06-week6-workbook.html#question-8",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Question 8:",
     "text": "Question 8:\n\nUse the following function to create a new column p that contains spaghetti plots\nNote that the function takes two inputs!\n\n\nCodespag_plot_fun <- function(d, trait){\n  set.seed(6)\n  d |>\n    group_by(le) |>\n    nest() |>\n    mutate(data = map(data, ~filter(., Proc_SID %in% sample(unique(.$Proc_SID), 100)))) |>\n    unnest(data) |>\n    ungroup() |>\n    mutate(le_value = ifelse(le_value > 1, 1, le_value)) |>\n    ggplot(aes(x = wave, y = pred)) + \n      geom_line(aes(group = Proc_SID, color = factor(le_value)), alpha = .3) + \n      geom_smooth(method = \"lm\", se = F, color = \"darkblue\") + \n      scale_color_manual(values = c(\"grey\", \"blue\"), labels = c(\"No Event\", \"Event\")) + \n      labs(x = \"Wave\", y = \"Predicted Trait Levels\", color = \"Life Event\", title = trait) + \n      facet_wrap(~le) + \n      theme_classic() + \n      theme(legend.position = c(.7, .1))\n}\n\n\nSolution\n\nCodesoep_pred <- soep_pred |>\n  mutate(p = map2(data, trait, spag_plot_fun))\n\nsoep_pred$p[[1]]"
   },
   {
     "objectID": "06-week6-workbook.html#wrap-up-1",
     "href": "06-week6-workbook.html#wrap-up-1",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Wrap-Up",
     "text": "Wrap-Up\n\nToday’s goal was to review the coding concepts we’ve used so far and ask you to apply them using a series of guided examples\nThe biggest takeaway I wanted you to have is chaining, or how you can use tidyverse functions in chains to accomplish a bunch of goals simultaneously\nWe cleaned, composited, and ran 50 models across thousands of people, including predictions and tables in less than 100 lines of code. Just doing the models, tidy(), and predict() parts of that alone would have been 150 lines of code and introduced huge opportunities for errors!"
   },
   {
     "objectID": "06-week6-workbook.html#full-code",
     "href": "06-week6-workbook.html#full-code",
-    "title": "Week 6 - Review",
+    "title": "Week 6 (Review) Workbook",
     "section": "Full Code",
     "text": "Full Code\nData\n\nCode# load the codebook\n(codebook <- read_csv(\"week6-codebook.csv\") |>\n    mutate(old_name = str_to_lower(old_name)))\n\nold.names <- codebook$old_name # get old column names\nnew.names <- codebook$new_name # get new column names\nsoep <- read_csv(\"week6-data.csv\") |>\n    select(all_of(old.names))\n\n\nPivot Long\n\nCodesoep_long <- soep |>\n  setNames(new.names) |>\n  pivot_longer(\n    cols = c(-starts_with(\"Proc\"), -starts_with(\"Dem\"))\n    , names_to = c(\"category\",  \"label\",    \"item_name\",    \"year\")\n    , names_pattern = \"(.*)_(.*)_(.*)_(.*)\"\n    , values_to = \"value\"\n    , values_drop_na = T\n  ) |> mutate(year = as.numeric(year))\nsoep_long\n\n\nRecode and Composite\n\nCodesoep_big5 <- soep_long |>\n  filter(category == \"big5\") |>\n  mutate(value = mapvalues(value, seq(-8,0), rep(NA, 9))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label, year) |>\n  summarize(value = mean(value)) |>\n  ungroup()\n\nsoep_le <- soep_long |>\n  filter(category == \"le\") |>\n  mutate(value = mapvalues(value, seq(-8,1), c(rep(NA, 6), 0, NA, NA, 1))) |>\n  drop_na(value) |>\n  group_by(Proc_SID, label) |>\n  summarize(value = sum(value)) |>\n  ungroup()\n\nsoep_clean <- soep_big5 |>\n  rename(trait = label, p_value = value) |>\n  inner_join(\n    soep_le |>\n      rename(le = label, le_value = value)\n  )\n\n\nModels\n\nCodesoep_nested <- soep_clean |>\n  group_by(trait, le) |>\n  nest() |>\n  ungroup()\n\nlmer_fun <- function(d){\n  d <- d |> \n    mutate(wave = year - 2005) |>\n    group_by(Proc_SID) |>\n    filter(n() > 1)\n  m <- lmer(p_value ~ wave + le_value + le_value:wave + (1 + wave | Proc_SID), data = d)\n  return(m)\n}\n\nsoep_nested <- soep_nested |>\n  mutate(model = map(data, lmer_fun))\nsoep_nested\n\n\nResults\nTables\n\nCodenslopes_fun <- function(m) summary(m)$ngrps\n\nsoep_nested <- soep_nested |>\n  mutate(npeople = map_int(model, nslopes_fun))\nsoep_nested\n\nsoep_nested <- soep_nested |>\n  mutate(tidy = map(model, broom.mixed::tidy, conf.int = T))\n\nsoep_tab <- soep_nested |>\n  select(-data, -model) |>\n  unnest(tidy) |>\n  filter(effect == \"fixed\" & grepl(\":\", term)) |>\n  mutate(across(c(estimate, conf.low, conf.high), \\(x) round(x, 2))) |>\n  select(trait, le, estimate, conf.low, conf.high) |>\n  pivot_wider(\n    names_from = \"trait\"\n    , names_glue = \"{trait}_{.value}\"\n    , values_from = c(estimate, conf.low, conf.high)\n  )\nsoep_tab\n\n\nModel Predictions\n\nCodepred_fun <- function(m){\n  d <- m@frame |>\n      select(-p_value) |>\n      distinct()\n  bind_cols(d, pred = predict(m, newdata = d))\n}\n\nsoep_nested <- soep_nested |>\n  mutate(pred = map(model, pred_fun))\nsoep_nested\n\nsoep_pred <- soep_nested |>\n  select(-data, -model, -tidy) |>\n  unnest(pred) |>\n  group_by(trait) |>\n  nest() |>\n  ungroup()\nsoep_pred\n\nspag_plot_fun <- function(d, trait){\n  set.seed(6)\n  d |>\n    group_by(le) |>\n    nest() |>\n    mutate(data = map(data, ~filter(., Proc_SID %in% sample(unique(.$Proc_SID), 100)))) |>\n    unnest(data) |>\n    ungroup() |>\n    mutate(le_value = ifelse(le_value > 1, 1, le_value)) |>\n    ggplot(aes(x = wave, y = pred)) + \n      geom_line(aes(group = Proc_SID, color = factor(le_value)), alpha = .3) + \n      geom_smooth(method = \"lm\", se = F, color = \"darkblue\") + \n      scale_color_manual(values = c(\"grey\", \"blue\"), labels = c(\"No Event\", \"Event\")) + \n      labs(x = \"Wave\", y = \"Predicted Trait Levels\", color = \"Life Event\", title = trait) + \n      facet_wrap(~le) + \n      theme_classic() + \n      theme(legend.position = c(.7, .1))\n}\n\nsoep_pred <- soep_pred |>\n  mutate(p = map2(data, trait, spag_plot_fun))\n\nsoep_pred$p[[1]]"
   },
