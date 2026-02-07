@@ -11,4 +11,3 @@ title: "Problem Set 2"
 <iframe class="slide-deck" src="/static/ps/problemset2.html" width="100%" height="800">
 
 </iframe>
-

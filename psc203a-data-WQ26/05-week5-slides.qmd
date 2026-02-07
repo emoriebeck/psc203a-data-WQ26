@@ -1,0 +1,13 @@
+---
+title: "Week 5 (Functions & `purrr`) Slides"
+---
+
+Welcome to Week 5! This week, we'll talk about writing functions to streamlines your workflow and reduce mistakes and coupling that with purrr for iteration. [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/05-week5-purrr/week-5.zip) a zip of these files.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/05-week5-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>

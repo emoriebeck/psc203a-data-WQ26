@@ -1,0 +1,227 @@
+---
+title: "Problem Set #3"
+author: "INSERT YOUR NAME HERE"
+date: "insert date here"
+urlcolor: blue
+format: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", highlight = TRUE)
+```
+
+In this problem set, which is a substitution for the President's Day missed class, you'll practice putting together everything you'd learned thus far. The basic goal is to use your own data and step through data cleaning from codebook to data set up for models. This is no small feat, particularly because I want to challenge you to do it using frameworks in class (i.e. not having hundreds or thousands of lines of code to do so). 
+
+Obviously, for a homework assignment, I don't expect you to completely redo data cleaning for a project that you've already done, but I would like to challenge you to do it for a subset. If you don't want to use your own data, you can also use some provided sets (see below).
+
+The problem set below is structured so that your assignment is not simply "Clean your data." But, of course, the structure may not make sense for your data and not all sections may be applicable. So while you can modify the structure below to fit your data within reason, I do expect to see application of concepts we've learned in class and basic data cleaning descriptive checks throughout. The goal of making this rather open-ended is that I hope you will use it toward something you are working on, so try to make as many connections to challenges you typically encounter as possible. 
+
+# Packages 
+
+<!-- Load your packages here -->
+
+# Part 1: Codebooks  
+## Data Overview
+Provide an overview of your data set. What is it? How was it collected? 
+
+## Codebook 
+
+For this assignment, use the codebook you created for PS2. If your data don't make sense, feel free to use the SOEP data and codebook, the psych::bfi data, or any others. (e.g., lme4::sleepstudy, brms::loss, etc.)
+
+# Part 2: Loading Your Data 
+
+Next, load your raw data into `R`. Don't make any transformations other than removing columns you aren't using (as I showed you in class) or you need to remove the first two rows if reading in a wonky qualtrics data set (`filter(df, !row_number() %in% 1:2)`). 
+
+```{r load data}
+# your code here
+```
+
+Now look at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r raw desc}
+# your code here
+```
+
+And the zero-order correlations:
+```{r raw cors}
+# your code here
+```
+
+# Part 3: Loading Your Codebook 
+
+Next, load in your codebook into `R`. Also create data frames with variable names for different categories like we did in class.
+
+```{r load codebook}
+# your code here
+```
+
+
+```{r create reference dfs}
+# your code here
+```
+
+# Part 4: Merge Your Data and Codebook 
+
+Merge the information from your codebook into your data using `left_join()` or `right_join()`. What variables did you merge? 
+
+```{r merge data and codebook}
+# your code here
+```
+
+# Part 5: Recoding and Transformations  
+
+Using your codebook as a reference, recode, reverse score, or otherwise transform your variables as we did in class. 
+
+## Recode 
+
+```{r recode}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r recode desc}
+# your code here
+```
+
+And the zero-order correlations:
+
+```{r recode cors}
+# your code here
+```
+
+## Reverse Score 
+
+```{r reverse}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r reverse desc}
+# your code here
+```
+
+And the zero-order correlations:
+
+```{r reverse cors}
+# your code here
+```
+
+# Part 6: Compositing and Creating Your Data 
+
+Now, let's create any composites and do final cleaning steps within each category of data. 
+
+Even if your variables are already on the scale you'd like, practice something like z-scoring, POMP-scoring, or centering. z-scoring approximates standardized estimates, and POMP is great for putting your results in terms that are great for science translation (e.g., a 10% drop is affect is associated with a 10% decrease in reaction time). In some cases, it can even be useful to have different variables on these scales (e.g., a 10% drop in affect is associated with 5 ms slowing in reaction time, which is comparable the effects of one night's total sleep deprivation). 
+
+## Covariates / Demographics / Moderators / etc. 
+
+```{r cov clean}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r cov desc}
+# your code here
+```
+
+And the zero-order correlations:
+
+```{r cov cors}
+# your code here
+```
+
+## Predictors / Independent Variables / etc. 
+
+Note: Feel free to make this into multiple different sets if needed.
+
+```{r pred clean}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r pred desc}
+# your code here
+```
+
+And the zero-order correlations:
+
+```{r pred cors}
+# your code here
+```
+
+## Outcomes / Dependent Variables / etc. 
+
+Note: Feel free to make this into multiple different sets if needed.
+
+```{r out clean}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r out desc}
+# your code here
+```
+
+And the zero-order correlations:
+
+```{r out cors}
+# your code here
+```
+
+## Combine Data 
+
+Combine data back together using whichever `_join()` functions best suit your needs. Remember to `select()`, `rename()`, `pivot_longer()`, or `pivot_wider()` as needed in order to get your data into the correct merge format. 
+
+```{r merge data}
+# your code here
+```
+
+Now look again at the descriptives using the `describe()` function or `tidyverse` functions. 
+
+```{r merge desc}
+# your code here
+```
+
+And the zero-order correlations other other appropriate descriptives:
+
+```{r merge cors}
+# your code here
+```
+
+And write an output of the data as an: 
+
+`.RData`: `save(obj, file = "your_path.RData")` 
+`.csv`: `write_csv(obj, file = your_path.csv")`
+
+```{r output data}
+# your code here
+```
+
+# Render to html and submit problem set  
+
+**Render to html** by clicking the "Render" button near the top of your RStudio window (icon with blue arrow) 
+
+-   Go to the Canvas --\> Assignments --\> Problem Set 3
+-   Submit both .qmd and .html files\
+-   Use this naming convention "lastname_firstname_ps#" for your .qmd and html files (e.g. beck_emorie_ps3.qmd & beck_emorie_ps3.html)
+

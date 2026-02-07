@@ -654,7 +654,7 @@ data <- combine(data)
 
 ::: fragment
 ```{r get data}
-data_source <- "https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/04-workshops/05-week5-purrr/week-5.zip"
+data_source <- "https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/05-week5-purrr/week-5.zip"
 data_dest <- "~/Desktop/week-5.zip"
 download.file(data_source, data_dest)
 ```

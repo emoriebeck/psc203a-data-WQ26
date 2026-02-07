@@ -471,9 +471,9 @@
   {
     "objectID": "06-week6-slides.html",
     "href": "06-week6-slides.html",
-    "title": "Week 6 Slides",
+    "title": "Week 6 (Review) Slides",
     "section": "",
-    "text": "Welcome to Week 4! This week, we’ll talk about data documentation, readable codebooks, and data cleaning workflows."
+    "text": "Welcome to Week 6! This (async) week, you’ll do a problem set instead of having class. These slides provide a review of the core coding concepts we’ve covered this far. Download a zip of these files."
   },
   {
     "objectID": "ps4-week4.html",
@@ -1059,9 +1059,9 @@
   {
     "objectID": "05-week5-slides.html",
     "href": "05-week5-slides.html",
-    "title": "Week 5 Slides",
+    "title": "Week 5 (Functions & purrr) Slides",
     "section": "",
-    "text": "Welcome to Week 5! This week, we’ll talk about data documentation, readable codebooks, and data cleaning workflows."
+    "text": "Welcome to Week 5! This week, we’ll talk about writing functions to streamlines your workflow and reduce mistakes and coupling that with purrr for iteration. Download a zip of these files."
   },
   {
     "objectID": "ps1-week1.html",

@@ -1,0 +1,13 @@
+---
+title: "Week 6 (Review) Slides"
+---
+
+Welcome to Week 6! This (async) week, you'll do a problem set instead of having class. These slides provide a review of the core coding concepts we've covered this far. [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/06-week6-review/week-6.zip) a zip of these files.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/06-week6-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>

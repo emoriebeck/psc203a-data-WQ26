@@ -1,0 +1,13 @@
+---
+title: "Problem Set 3"
+---
+
+**Due Date**: Monday, February 23, 2:00 PM PST.
+
+[Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/03-ps3/ps3.zip) your problem set for PS3 below or on Canvas.
+
+<!-- Answers can be found [here](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/01-ps1/problemset1-solutions.zip). -->
+
+<iframe class="slide-deck" src="/static/ps/problemset3.html" width="100%" height="800">
+
+</iframe>
