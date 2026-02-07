@@ -37,9 +37,9 @@ website:
         - 04-week4-slides.qmd
         - 04-week4-workbook.qmd
         - 05-week5-slides.qmd
-        # - 05-week5-workbook.qmd
+        - 05-week5-workbook.qmd
         - 06-week6-slides.qmd
-        # - 06-week6-workbook.qmd
+        - 06-week6-workbook.qmd
         # - 07-week7-slides.qmd
         # - 07-week7-workbook.qmd
         # - 08-week8-slides.qmd
@@ -57,7 +57,7 @@ website:
       contents:
         - ps1-week1.qmd
         - ps2-week3-4.qmd
-        # - ps3-week3.qmd
+        - ps3-week6.qmd
         # - ps4-week4.qmd
         # - ps5-week5.qmd
         

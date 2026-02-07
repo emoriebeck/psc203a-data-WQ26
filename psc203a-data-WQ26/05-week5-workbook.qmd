@@ -1,5 +1,5 @@
 ---
-title: "Week 5 (Functions and `purrr`) Workbook"
+title: "Week 5 (Functions & `purrr`) Workbook"
 author: "Emorie D Beck"
 format: 
   html:
