@@ -1,5 +1,5 @@
 ---
-title: "Week 7 - Strings & Dates"
+title: "Week 7 (Strings & Dates) Workbook"
 author: "Emorie D Beck"
 format: 
   html:
@@ -71,7 +71,7 @@ We will use `rtweet` to pull Twitter data from the PAC-12 universities. We will 
 
 ```{r}
 # Load previously pulled Twitter data
-p12_full_df <- readRDS("week7-data.RDS")
+p12_full_df <- readRDS(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/07-week7-strings/week7-data.RDS"))
 glimpse(p12_full_df)
 
 p12_df <- p12_full_df |> 
@@ -701,7 +701,7 @@ str_view_all(string = p12_df$text[119], pattern = "\\s\\w{3,5}\\s")
 -   `\b` can be used to help detect word boundaries, and `\B` can be used to help match characters within a word.
 
 | String  | Character | Description                                             |
-|:--------|:----------|:--------------------------------------------------------|
+|:------------|:------------|:---------------------------------------------|
 | `"^"`   | `^`       | Start of string, or start of line in multi-line pattern |
 | `"$"`   | `$`       | End of string, or end of line in multi-line pattern     |
 | `"\\b"` | `\b`      | Word boundary                                           |
