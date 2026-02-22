@@ -2,7 +2,7 @@
 title: "Problem Set 4"
 ---
 
-**Due Date**: Monday, March 3, 2026, 2:00 PM PST.
+**Due Date**: Monday, March 9, 2026, 2:00 PM PST.
 
 [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/04-ps4/ps4.zip) your problem set for PS4 below or on Canvas.
 
