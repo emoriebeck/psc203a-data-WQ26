@@ -1,0 +1,13 @@
+---
+title: "Week 7 (Strings & Dates) Slides"
+---
+
+Welcome to Week 7! This week, we zoom back out a little and tackle the trickiest classes in coding: strings and dates. [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/07-week7-strings/week-7.zip) a zip of these files.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/07-week7-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>
