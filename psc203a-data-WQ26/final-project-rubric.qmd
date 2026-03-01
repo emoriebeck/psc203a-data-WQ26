@@ -9,7 +9,7 @@ format: html
 -   Due at 11:59 PM PST on March 18, 2026 on Canvas
 
 | Section / Description | Points |
-|-------------------------------------------------------|-----------------|
+|----|----|
 | **Short Background**: What is the project you are working on? Basically, this section should give me enough information to understand the research project (if applicable) or 1-2 paragraphs is sufficient in most cases. | 5 points |
 | **Motivation**: Clearly state why you are creating the product. What problems does it address? How will you integrate it into your workflow? How will it change your workflow, etc. There is no minimum of maximum length, but my guess is 1-2 paragraphs. | 5 points |
 | **Approach**: Short description of how you went about creating your product. Describe what tools you used, how you went about creating the product (e.g., built a shell and then built the rest out from there). There is no minimum of maximum length, but my guess is no less than 2-3 paragraphs. | 10 points |
