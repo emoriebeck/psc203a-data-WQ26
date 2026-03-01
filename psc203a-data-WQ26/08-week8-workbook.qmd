@@ -1,5 +1,5 @@
 ---
-title: "Week 8 - Functional Tables and Figures"
+title: "Week 8 (Tables & Figures) Workbook"
 author: "Emorie D Beck"
 format: 
   html:
@@ -96,7 +96,7 @@ The data we'll use fall into three categories:\
 3. **Covariates:** Age, gender (0 = male, 1 = female, education (0 = high school or below, 1 = college, 2 = higher than college), gross wages, self-rated health, smoking (0 = never smoked 1 = ever smoked), exercise, BMI, religion, parental education, and parental occupational prestige (ISEI). Each of these were composited for all available data up to the measured personality years.
 
 ```{r}
-(gsoep <- read_csv("week8-data.csv"))
+(gsoep <- read_csv("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/08-week8-tables/week8-data.csv"))
 ```
 
 # Basic: One DV/Outcome, Multiple Model Terms
@@ -353,7 +353,7 @@ For this example, we'll use a different data set from the SOEP that have the ite
 
 ```{r}
 rev_code <- c("Big5__A_coarse", "Big5__C_lazy", "Big5__E_reserved", "Big5__N_dealStress")
-(gsoep2 <- read_csv("week8-data-2.csv") %>%
+(gsoep2 <- read_csv("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/08-week8-tables/week8-data-2.csv") %>%
    mutate_at(vars(matches("Big5")), function(x) {x[x < 0] <- NA; x}) %>%
    mutate_at(vars(matches("LifeEvent")), ~mapvalues(., seq(-7,1), c(rep(NA, 5), 0, NA, NA, 1), warn_missing = F)) %>%
     mutate_at(
@@ -654,7 +654,7 @@ gsoep_nested3 <- gsoep_nested3 %>%
 Remember how I said that the reason we created the `terms` tibble was because it would make `extract_fun()` more flexible / portable? Let's see that in action. We'll create a new one that lists only the key additional terms in this model and use that to extract those estimates.
 
 ```{r}
-gsoep_nested3 <- readRDS("gsoep_nested3.RDS")
+load(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/08-week8-tables/gsoep_nested3.RData"))
 terms <- tribble(
   ~path,     ~new,
   "le_value~i", "Intercept",
@@ -948,7 +948,7 @@ gsoep_nested2 <- gsoep_nested2 %>%
 ```
 
 ```{r, echo = F}
-gsoep_nested2 <- readRDS("gsoep_nested2.RDS")
+load(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/08-week8-tables/gsoep_nested2.RData"))
 ```
 
 Once we've estimated the predictions, we can graph them just like we did for the previous example. (Again, a full discussion of plotting is beyond the scope of this course and is covered for a whole quarter in my data visualization class instead.)
