@@ -1,0 +1,720 @@
+---
+title: "Week 1 - Getting Situated in R & Quarto"
+author: "Emorie D Beck"
+format: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+    # height: 900
+    footer: "PSC 290 - Data Cleaning and Management FQ23"
+    logo: "https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/ucdavis_logo_blue.png"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(knitr)
+library(psych)
+library(plyr)
+library(tidyverse)
+```
+
+# Goals for Today
+
+-   Course Overview
+-   What Is a Workflow?
+-   Fundamentals of R
+-   Brief Quarto Overview
+
+# Course Overview
+
+## Course Goals & Learning Outcomes
+
+After successful completion of this course, you will be able to:
+
+1.  Build your own research workflow that can be ported to future projects.
+
+2.  Learn new programming skills that will help you efficiently, accurately, and deliberately clean and manage your data.
+
+3.  Create a bank of code and tools that can be used for a variety of types of research.
+
+## Course Expectations
+
+-   \~50% of the course will be in R
+-   You will get the most from this course if you:
+    -   have your own data you can apply course content to
+    -   know how to clean clean, transform, and manage that data
+    -   today's workshop is a good litmus test for this
+
+## Course Materials
+
+-   All materials will be posted on Canvas, and assignments will be submitted there
+-   But the course website will be your best resource because you will have free access to it, even after you complete the course.
+
+## Course Materials
+
+-   All materials (required and optional) are free and online
+    -   Wickham & Grolemond: *R for Data Science* <https://r4ds.had.co.nz>
+    -   Wickham: *Advanced R* <http://adv-r.had.co.nz>
+    -   [Data Camp](https://www.datacamp.com/groups/shared_links/47a82efe9c4fee59e3ba4592743caa2326d5c091badc782aec969e244e98ab5e): All paid content unlocked
+
+## Assignments
+
+| **Assignment Weights** | **Percent** |
+|------------------------|-------------|
+| Class Participation    | 20%         |
+| Problem Sets           | 40%         |
+| Final Project Proposal | 10%\*       |
+| Class Presentation     | 10%\*       |
+| Final Project          | 20%\*       |
+| Total                  | 100%        |
+
+### Class Participation
+
+-   There are lots of ways to participate, both in and outside class meetings
+-   Classes will be technologically hybrid
+-   The goal of this is for accessibility and to create recordings
+-   If you need to miss 2+ classes (i.e. 20+% of total class time), maybe consider taking the course in a different year
+
+### Problem Sets
+
+-   The main homework in the course are weekly problem sets
+-   The goal is to let you apply concepts from that week to your own data (or whatever data you'll focus on for the class)
+-   Problem sets will be posted on Mondays before class
+-   Due 2:00 PM every other Monday (starting two weeks from now)
+
+### Final Projects
+
+-   Final project replaces final exam (there are no exams)
+-   This is a bring your own data class, so the goal of the course is to apply what you're learning to your own research throughout the term
+-   Details of the final project will be posted by the end of January, but will generally include
+    -   Stage 1: Proposals (due 02/16/26)
+    -   Stage 2: In-class presentations (03/09/26; \*although see note on schedule)
+    -   Stage 3: Final project submission (03/18/26)
+
+### Extra Credit
+
+-   Participate in a <https://www.tidytuesday.com>.
+
+-   2 pt extra credit for each one you participate in (max 6 pt total).
+
+-   Can post on BlueSky/X or just create a document with the code and output
+
+-   Submit on Canvas
+
+    -   If posting, link the post in the Canvas submission
+    -   If not posting, attach the knitted file on Canvas
+
+## Grading Scale
+
+92.5% - 100% = A; 89.5% - 92.4% = A-\
+87.5% - 89.4% = B+; 82.5% - 87.4% = B; 79.5% - 82.4% = B-\
+77.5% - 79.4% = C+; 72.5% - 77.4% = C; 69.5% - 72.4% = C-\
+67.5% - 69.4% = D+; 62.5% - 67.4% = D; 59.5% - 62.4% = D-\
+0% - 59.4% = F
+
+## Schedule
+
+### Option 1:
+
+-   Week 1: Intro & Basics\
+-   Week 2: Reproducibility & `dplyr`\
+-   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
+-   Week 4: Codebooks & importing data\
+-   Week 5: Functions & `purrr`
+-   Week 6: Review & Integration\
+-   Week 7: Data structures & transformation (RECORDING due to President's Day)\
+-   Week 8: Reproducible Tables and Figures in `R`\
+-   Week 9: Efficient R & parallelization\
+-   Week 10: Presentations / Odds and ends & help with projects
+
+### Option 2:
+
+-   Week 1: Intro & Basics\
+-   Week 2: Reproducibility & `dplyr`\
+-   Week 3: Data Quality & `tidyr` (RECORDING due to MLK Day)\
+-   Week 4: Codebooks & importing data\
+-   Week 5: Functions & `purrr`
+-   Week 6: Review & Integration\
+-   **Week 7: WEEK OFF; Focus on Project Planning**
+-   Week 8: Data structures & transformation\
+-   Week 9: Reproducible Tables and Figures in `R`\
+-   **Week 10: Efficient R & parallelization**
+
+### Option 3:
+
+-   Week 1: Intro & Basics\
+-   Week 2: Reproducibility & `dplyr`\
+-   **Week 3: WEEK OFF**
+-   Week 4: Data Quality & `tidyr`\
+-   Week 5: Codebooks & importing data\
+-   Week 6: Functions & `purrr`
+-   **Week 7: Review & Integration (Self-Guided workshop packet (HW 3))**
+-   Week 8: Data structures & transformation\
+-   Week 9: Reproducible Tables and Figures in `R`\
+-   **Week 10: Efficient R & parallelization**
+
+# What is a workflow?
+
+-   Dictionary definition: "the sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion"
+-   Research Workflow: "The process of conducting research from conceptualization to dissemination"
+
+## Why Should I Care?
+
+-   Whether you like it or not, you have a workflow
+-   You have ways you go about doing a project that you maybe haven't thought too much about
+-   Issues arise when
+    1.  A workflow has *missing steps*
+    2.  Your workflow is *inconsistent* across projects
+    3.  Your workflow is *inefficient*, which can lead to mistakes
+-   A workflow is a work in progress. If it no longer serves you, let it go
+
+### An example:
+
+**A workflow win:**
+
+-   A few years ago, I got a revision in a top aging journal. In the second revision, a reviewer asked us to redo all of our one-stage analyses (hundreds of models across 8 predictors and 14 outcomes along with a number of sensitivity tests) using the more traditional two-stage approach
+-   Two things saved me here:
+    -   My data and code were set up to optimally modularized;
+    -   I had previously written a set of functions to do both the one- and two-stage approaches for a different project
+-   What could have taken me weeks or months took 1-2 hours of active work (plus inactive model running time) because I had an intentionally set up workflow
+
+### Another Example:
+
+**A workflow / data management disaster:**
+
+> "Geneticists use a lot of labels to do their work. And it turns out that the Excel autocorrect feature didn’t appreciate those labels. In 2016, a team of researchers led by Mark Ziemann, now the head of of Bioinformatics at the Burnet Institute in Australia, authored a paper outline just how bad the problem was. Per Ziemann and team, “Microsoft Excel, when used with default settings, is known to convert gene names to dates and floating-point numbers. **A programmatic scan of leading genomics journals reveals that approximately one-fifth of papers with supplementary Excel gene lists contain erroneous gene name conversions.” Twenty percent of the papers — hardly a drop in the bucket — had an avoidable error.** The problem was so bad that, as Zieman wrote in The Conversation, “the Human Gene Name Consortium, the official body responsible for naming human genes, renamed the most problematic genes. MARCH1 and SEPT1 were changed to MARCHF1 and SEPTIN1 respectively, and others had similar changes.” (That last link goes to the gene’s Wikipedia entry, which reflects the change.)"
+
+[Source](https://nowiknow.com/excel-has-bad-genes/)
+
+## How Do I Build a Workflow?
+
+-   Building a good workflow is both top-down (i.e. big steps to smaller ones) and bottom-up (i.e. necessary smaller steps make certain larger ones necessary)
+-   What?
+
+::::: columns
+::: column
+**Example: New Data Collection**\
+1. Conceptualization\
+2. Funding acquisition\
+3. Preregistration\
+4. Project Building\
+5. Data Collection\
+6. Data Cleaning\
+7. Data Analysis\
+8. Writing (and rewriting)\
+9. Submission\
+10. Revision (and possibly crying)\
+11. ACCEPTANCE
+:::
+
+::: column
+**Example: Secondary Data**\
+1. Conceptualization\
+2. Data search\
+3. Project Building\
+4. Data documentation\
+5. Preregistration\
+6. Data Cleaning\
+7. Data Analysis\
+8. Writing (and rewriting)\
+9. Submission\
+10. Revision (and possibly crying)\
+11. ACCEPTANCE
+:::
+:::::
+
+### Workflows Are Hierarchical: Example -- Data Cleaning Steps
+
+::::: columns
+::: column
+**Experimental Data**
+
+1\. Gather all data files\
+2. Quality checks for each file\
+3. Load all files\
+4. Merge all files\
+5. Check all descriptives\
+6. Scoring, coding, and data transformation\
+7. Recheck all descriptives\
+8. Correlations and visualization\
+9. Restructure data for analyses
+:::
+
+::: column
+**Secondary Data**
+
+1\. Gather all data files\
+2. Load each file\
+3. Extract variables used\
+4. Rename variables, possibly deal with time variables\
+4. Merge all files\
+5. Check all descriptives\
+6. Scoring, coding, and data transformation\
+7. Recheck all descriptives\
+8. Correlations and visualization\
+9. Restructure data for analyses
+:::
+:::::
+
+## Workflows: Overview of the Course
+
+In this class, we will focus on building tools for:
+
+-   Documenting Data (both before and after collection)\
+
+-   File management (how do I build a machine and human navigable directory)\
+
+-   Loading data files\
+
+-   All steps of cleaning data\
+
+-   Restructuring Data\
+
+-   DESCRIPTIVES DESCRIPTIVES DESCRIPTIVES\
+
+-   Efficient Programming (plz stop copy-pasting)
+
+-   This class does not focus on modeling but rather how you get your data set up to run models (Weeks 1-5/6) AND how to extract and present data after you run them (Weeks 6/7-9)
+
+-   We will focus on classes of models in R you will most likely encounter (`lm()`, `glm()`, `lmer()`, `nlme()`, `lavaan`, `brms`)
+
+-   If you run other kinds of models, most tools we will use are portable to many packages and other object classes
+
+-   By the end of this class, my goal is that you:\
+
+1.  Have a documented workflow for the kind of research you work on\
+2.  Have a set of tools and skills that apply to each piece of that workflow\
+3.  Have a skillset that will allow you to adapt and build new workflows for different kinds of research
+
+# Fundamentals of R
+
+## What is R? Why R?
+
+-   An "open source" programming language and software that provide collections of interrelated "functions"
+-   "open source" means that *R* is free and created by the user community. The user community can modify basic things about *R* and add new capabilities to what R can do the user community can modify R and
+-   a "function" is usually something that takes in some "input," processes this input in some way, and creates some "output"
+    -   e.g., the `max()` function takes as input a collection of numbers (e.g., 3,5,6) and returns as output the number with the maximum value
+    -   e.g., the `lm()` function takes in as inputs a dataset and a statistical model you specify within the function, and returns as output the results of the regression model
+
+## Base R vs. R packages
+
+::::: columns
+::: column
+Base R
+
+-   When you install R, you automatically install the ["Base R"](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html) set of functions
+-   Example of a few of the functions in in Base R:
+    -   `as.character()` function
+    -   `print()` function
+    -   `setwd()` function
+:::
+
+::: column
+R packages
+
+-   an R "package" (or "library") is a collection of (related) functions developed by the R community
+-   Examples of R packages:
+    -   `tidyverse` package for manipulating and visualizing data
+    -   `igraph` package for network analyses
+    -   `leaflet` package for mapping
+    -   `rvest` package for webscraping
+    -   `rtweet` package for streaming and downloading data from Twitter
+-   **All** R packages are free!
+:::
+:::::
+
+## Why Use RStudio (or Positron)
+
+::::: columns
+::: {.column width="60%"}
+-   Also free
+-   Basically a GUI for R
+-   Organize files, import data, etc. with ease
+-   RMarkdown, Quarto, and more are powerful tools (they were used to create these slides!)
+-   Lots of new features and support
+:::
+
+::: {.column width="40%"}
+```{r, echo = F}
+knitr::include_graphics("https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/RStudio-Logo-Flat.png")
+
+knitr::include_graphics("https://positron.posit.co/assets/images/positron-logo_fullcolor-TM.png")
+```
+:::
+:::::
+
+## Why Use the `tidyverse`
+
+::::: columns
+::: {.column width="70%"}
+-   Maintained by Posit
+-   No one should have to use a for loop to change data from long to wide
+-   Tons of integrated tools for data cleaning, manipulation, transformation, and visualization
+-   Even increasing support for modeling (e.g., `tidymodels`)
+:::
+
+::: {.column width="30%"}
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/emoriebeck/psc290-data-viz-2022/raw/main/01-week1-intro/02-code/02-images/tidyverse.png")
+```
+:::
+:::::
+
+::: {layout="[[1,1, 1, 1, 1, 1], [1,1, 1, 1, 1,1]]"}
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/tidyr.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/stringr.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/shiny.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/rmarkdown.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/quarto.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/knitr.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/ggplot2.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/forcats.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/dplyr.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/broom.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/tibble.png")
+```
+
+```{r, fig.align='center', echo = F}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/raw/main/thumbs/purrr.png")
+```
+:::
+
+## Why use Quarto
+
+[Quarto](https://quarto.org/)
+
+![](quarto.png){fig-align="center"}
+
+-   These slides\
+-   The course website\
+-   Your homework\
+-   My lab website
+-   Automated personalized feedback reports I give to participants
+
+All written in Quarto
+
+## Some R Basics
+
+### Executing R commands
+
+Three ways to execute commands in R
+
+1.  Type/copy commands directly into the "console"
+2.  \`code chunks' in RMarkdown (.Rmd files)
+    -   **Cmd/Ctrl + Enter**: execute highlighted line(s) within chunk
+    -   **Cmd/Ctrl + Shift + k**: "knit" entire document
+3.  R scripts (.R files)
+    -   **Cmd/Ctrl + Enter**: execute highlighted line(s)
+    -   **Cmd/Ctrl + Shift + Enter** (without highlighting any lines): run entire script
+
+### Assignment
+
+**Assignment** refers to creating an "object" and assigning values to it
+
+-   The object may be a variable, a dataset, a bit of text that reads "la la la"
+-   `<-` is the assignment operator
+    -   in other languages `=` is the assignment operator
+-   general syntax:
+    -   `object_name <- object_values`
+    -   good practice to put a space before and after assignment operator
+
+### Objects
+
+R is an "object-oriented" programming language (like Python, JavaScript). So, what is an "object"?
+
+-   formal computer science definitions are confusing because they require knowledge of concepts we haven't introduced yet
+-   More intuitively, I think objects as anything I assign values to
+    -   For example, below, `a` and `b` are the names of objects I assigned values to
+
+```{r, echo = T}
+a <- 5
+a
+b <- "yay!"
+b
+```
+
+-   [Ben Skinner](https://www.btskinner.io) says "Objects are like boxes in which we can put things: data, functions, and even other objects."
+
+-   Many commercial statistical software packages (e.g., SPSS, Stata) operate on datasets, which consist of rows of observations and columns of variables
+
+-   Usually, these packages can open only one dataset at a time
+
+-   By contrast, in R everything is an object and there is no limit to the number of objects R can hold (except memory)
+
+### Vectors
+
+The fundamental data structure in R is the "vector"
+
+-   A vector is a collection of values
+
+-   The individual values within a vector are called "elements"
+
+-   Values in a vector can be numeric, character (e.g., "Apple"), or some other *type*
+
+-   Below we use the combine function `c()` to create a numeric vector that contains three elements
+
+-   Help file says that `c()` "combines values into a vector or list"
+
+```{r, echo = T}
+#?c # to see help file for the c() "combine" function
+x <- c(4, 7, 9) # create object called x, which is a vector with three elements 
+# (each an integer)
+x # print object x
+```
+
+Vector where the elements are characters
+
+```{r, echo = T}
+animals <- c("lions", "tigers", "bears", "oh my") # create object called animals
+animals
+```
+
+## EXERCISE
+
+Either in the R console or within the R markdown file, do the following:
+
+1.  Create a vector called `v1` with three elements, where all the elements are numbers. Then print the values.
+2.  Create a vector called `v2` with four elements, where all the elements are characters (i.e., enclosed in single '' or double "" quotes). Then print the values.
+3.  Create a vector called `v3` with five elements, where some elements are numeric and some elements are characters. Then print the values.
+
+## Solution to Exercise
+
+```{r, echo = T}
+v1 <- c(1, 2, 3) 
+# create a vector called v1 with three elements
+# all the elements are numbers
+v1 # print value
+```
+
+```{r, echo = T}
+v2 <- c("a", "b", "c", "d") 
+# create a vector called v2 with four elements
+# all the elements are characters
+v2 # print value
+```
+
+```{r, echo = T}
+v3 <- c(1, 2, 3, "a", "b") 
+# create a vector called v3 with five element
+# some elements are numeric and some elements are characters
+v3 # print value
+```
+
+## Formal classification of vectors in R
+
+-   Here, I introduce the classification of vectors by Grolemund and Wickham
+
+-   There are two broad types of vectors
+
+1.  **Atomic vectors**. An object that contains elements. Six "types" of atomic vectors:
+    -   **logical**, **integer**, **double**, **character**, **complex**, and **raw**.
+        -   **Integer** and **double** vectors are collectively known as **numeric** vectors.
+2.  **Lists**. Like atomic vectors, lists are objects that contain elements
+    -   elements within a list may be atomic vectors
+    -   elements within a list may also be other lists; that is lists can contain other lists
+
+One difference between atomic vectors and lists: **homogeneous** vs. **heterogeneous** elements
+
+-   atomic vectors are **homogeneous**: all elements within atomic vector must be of the same type
+-   lists can be **heterogeneous**: e.g., one element can be an integer and another element can be character
+
+Problem with this classification:
+
+-   Not conceptually intutive
+-   Technically, lists are a type of vector, but people often think of atomic vectors and lists as fundamentally different things
+
+**Classification used by Ben Skinner**:
+
+-   data **type**: logical, numeric (integer and double), character, etc.
+-   data **structure**: vector, list, matrix, etc.
+
+## Using R functions
+
+### What are functions
+
+-   **Functions** are pre-written bits of code that accomplish some task.
+
+-   Functions generally follow three sequential steps:
+
+1.  take in an **input** object(s)
+2.  **process** the input.
+3.  **return** (A) a new object or (B) a visualizatoin (e.g., plot)
+
+-   For example, `sum()` function calculates sum of elements in a vector
+
+1.  **input**. takes in a vector of elements (numeric or logical)
+2.  **processing**. Calculates the sum of elements
+3.  **return**. Returns numeric vector of length=1; value is sum of input vector
+
+```{r, echo = T}
+sum(c(1,2,3))
+typeof(sum(c(1,2,3))) # type of object created by sum()
+length(sum(c(1,2,3))) # length of object created by sum()
+```
+
+### Function syntax
+
+Components of a function
+
+-   function name (e.g., `sum()`, `length()`, `seq()`)
+-   function arguments
+    -   Inputs that the function takes, which determine what function does
+        -   can be vectors, data frames, logical statements, etc.
+    -   In "function call" you specify values to assign to these function arguments
+        -   e.g., `sum(c(1,2,3))`
+    -   Separate arguments with a comma `,`
+        -   e.g., `seq(10,15)`
+-   Example: the sequence function, `seq()`
+
+```{r, echo = T}
+seq(10,15)
+```
+
+### Function syntax: More on function arguments
+
+Usually, function arguments have names
+
+-   e.g., the `seq()` function includes the arguments `from`, `to`, `by`
+-   when you call the function, you need to assign values to these arguments; but you usually don't have to specify the name of the argument
+
+::: fragment
+```{r, echo = T}
+seq(from=10, to=20, by=2)
+seq(10,20,2)
+```
+:::
+
+Many function arguments have "default values", set by whoever wrote the function
+
+-   if you don't specify a value for that argument, the default value is inserted
+-   e.g., partial list of default values for `seq()`: `seq(from=1, to=1, by=1)`
+
+::: fragment
+```{r, echo = T}
+seq()
+seq(to=10)
+seq(10) # R assigned value of 10 to "to" rather than "from" or "by"
+```
+:::
+
+### Help files for functions
+
+::::: columns
+::: column
+To see help file on a function, type `?function_name` without parentheses
+
+```{r, eval=FALSE, echo = T}
+?sum
+?seq
+```
+:::
+
+::: column
+**Contents of help files**
+
+-   **Description**. What the function does
+-   **Usage**. Syntax, including default values for arguments
+-   **Arguments**. Description of function arguments
+-   **Details**. Details and idiosyncracies of about how the function works.
+-   **Value**. What (object) the function "returns"
+    -   e.g., `sum()` returns vector of length 1 whose value is sum of input vector
+-   **References**. Additional reading
+-   **See Also**. Related functions
+-   **Examples**. Examples of function in action
+-   Bottom of help file identifies the package the function comes from
+:::
+:::::
+
+# Brief Quarto Overview
+
+## What is Quarto
+
+-   Quarto documents embed R code, output associated with R code, and text into one document
+-   An Quarto document is a "'Living' document that updates every time you compile \["Render"\] it"
+-   Quarto documents have the extension .qmd
+    -   Can think of them as text files with the extension .qmd rather than .txt
+-   At top of .qmd file you specify the "output" style, which dictates what kind of formatted document will be created
+    -   e.g., `html_document` or `pdf_document` (this document was created with `revealjs`)
+-   When you compile \["Render"\] a .qmd file, the resulting formatted document can be an HTML document, a PDF document, an MS Word document, or many other types
+
+## Creating Quarto documents
+
+**Do this with a partner**
+
+Approach for creating a Quarto document.
+
+1.  Point-and-click from within RStudio
+    -   Click on *File* \>\> *New File* \>\> *Quarto Document...* \>\> choose *HTML* \>\> click *OK*
+        -   Optional: add title (this is not the file name, just what appears at the top of document)
+        -   Optional: add author name
+    -   Save the .qmd file; *File* \>\> *Save As*
+        -   Any file name
+        -   Recommend you save it in same folder you saved this lecture
+    -   "Render" the entire .qmd file
+        -   Point-and-click OR shortcut: **Cmd/Ctrl + Shift + k**
+
+## Creating and Formatting Quarto Documents
+
+Take a few minutes and have you peruse the [Quarto site](https://quarto.org/docs/get-started/hello/rstudio.html) to build familiarity (I still access it all the time when I forget how to do specific things)
+
+I especially want you to take some time to peruse documents on YAML headers:
+
+-   [HTML documents](https://quarto.org/docs/reference/formats/html.html)
+-   [PDF documents](https://quarto.org/docs/reference/formats/pdf.html)
+-   [Word documents](https://quarto.org/docs/reference/formats/docx.html)
+-   [Websites](https://quarto.org/docs/reference/projects/websites.html)
+-   [RevealJS slides](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+-   [Beamer slides](https://quarto.org/docs/reference/formats/presentations/beamer.html)
+-   [Powerpoint Slides](https://quarto.org/docs/reference/formats/presentations/pptx.html)
+
+# Course Reminders
+
+-   Problem set 1 posted by Monday
+-   Make sure to check out the readings
+-   There are exercises at the end that can be helpful to do. You can even download the directory of the bookdown/quarto book from GitHub (link in book)
+-   Next time:
+    -   Bring your data, ideally loaded into R (or at a piece of it is)
+    -   Part 1: Reproducibility and Using Workflows to Reflect Your Values
+    -   Part 2: Data Manipulation: `dplyr`
