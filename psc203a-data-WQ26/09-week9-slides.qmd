@@ -1,0 +1,13 @@
+---
+title: "Week 9 (Git & Parallelization) Slides"
+---
+
+Welcome to Week 8! This week, we dig more into the application of functions and purrr for creating reproducible figures and tables without copy-pasting. [Download](https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/09-week9-tables/week-9.zip) a zip of these files.
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/slides/09-week9-slides-code.html" width="1200" height="800"></iframe>
+```
+
+</div>

@@ -317,9 +317,9 @@
   {
     "objectID": "09-week9-slides.html",
     "href": "09-week9-slides.html",
-    "title": "Week 9 Slides",
+    "title": "Week 9 (Git & Parallelization) Slides",
     "section": "",
-    "text": "Welcome to Week 9! This week, we’ll talk about building Git, GitHub, parallelization, future, and furrr."
+    "text": "Welcome to Week 8! This week, we dig more into the application of functions and purrr for creating reproducible figures and tables without copy-pasting. Download a zip of these files."
   },
   {
     "objectID": "07-week7-workbook.html",
@@ -1311,413 +1311,413 @@
   {
     "objectID": "09-week9-workbook.html",
     "href": "09-week9-workbook.html",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "",
-    "text": "Codepkg <- c(\"knitr\", \"psych\", \"palmerpenguins\", \"lavaan\", \"future\", \"plyr\", \"tidyverse\", \"furrr\")\npkg <- pkg[!pkg %in% rownames(installed.packages())]\nif(length(pkg) > 0) map(pkg, install.packages)\n\nlibrary(knitr)\nlibrary(psych)\nlibrary(lavaan)\n\nThis is lavaan 0.6-15\nlavaan is FREE software! Please report any bugs.\n\n\n\nAttaching package: 'lavaan'\n\n\nThe following object is masked from 'package:psych':\n\n    cor2cov\n\nCodelibrary(future)\nlibrary(plyr)\nlibrary(tidyverse)\n\n── Attaching packages\n───────────────────────────────────────\ntidyverse 1.3.2 ──\n\n\n✔ ggplot2 3.4.2     ✔ purrr   1.0.2\n✔ tibble  3.2.1     ✔ dplyr   1.1.3\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.2     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\n\nCodelibrary(furrr) # note loading this last ONLY because it depends on tidyverse and will not mask it"
+    "text": "Codepkg <- c(\"knitr\", \"psych\", \"palmerpenguins\", \"lavaan\", \"future\", \"plyr\", \"tidyverse\", \"furrr\")\npkg <- pkg[!pkg %in% rownames(installed.packages())]\nif(length(pkg) > 0) map(pkg, install.packages)\n\nlibrary(knitr)\nlibrary(psych)\nlibrary(lavaan)\n\nThis is lavaan 0.6-19\nlavaan is FREE software! Please report any bugs.\n\n\n\nAttaching package: 'lavaan'\n\n\nThe following object is masked from 'package:psych':\n\n    cor2cov\n\nCodelibrary(future)\nlibrary(plyr)\nlibrary(tidyverse)\n\nWarning: package 'purrr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.6.0\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.1     \n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()     masks psych::%+%()\n✖ ggplot2::alpha()   masks psych::alpha()\n✖ dplyr::arrange()   masks plyr::arrange()\n✖ purrr::compact()   masks plyr::compact()\n✖ dplyr::count()     masks plyr::count()\n✖ dplyr::desc()      masks plyr::desc()\n✖ dplyr::failwith()  masks plyr::failwith()\n✖ dplyr::filter()    masks stats::filter()\n✖ dplyr::id()        masks plyr::id()\n✖ dplyr::lag()       masks stats::lag()\n✖ dplyr::mutate()    masks plyr::mutate()\n✖ dplyr::rename()    masks plyr::rename()\n✖ dplyr::summarise() masks plyr::summarise()\n✖ dplyr::summarize() masks plyr::summarize()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n\nCodelibrary(furrr) # note loading this last ONLY because it depends on tidyverse and will not mask it"
   },
   {
     "objectID": "09-week9-workbook.html#what-and-why-use-git-and-github",
     "href": "09-week9-workbook.html#what-and-why-use-git-and-github",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What and why use Git and GitHub?",
     "text": "What and why use Git and GitHub?\nVideo from Will Doyle, Professor at Vanderbilt University"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-version-control",
     "href": "09-week9-workbook.html#what-is-version-control",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is version control?",
     "text": "What is version control?\n\n\nVersion control is a “system that records changes to a file or set of files over time so that you can recall specific versions later”\nKeeps records of changes, who made changes, and when those changes were made\nYou or collaborators take “snapshots” of a document at a particular point in time. Later on, you can recover any previous snapshot of the document."
   },
   {
     "objectID": "09-week9-workbook.html#how-version-control-works",
     "href": "09-week9-workbook.html#how-version-control-works",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "How version control works:",
     "text": "How version control works:\n\nImagine you write a simple text file document that gives a recipe for yummy chocolate chip cookies and you save it as cookies.txt\n\nLater on, you make changes to cookies.txt (e.g., add alternative baking time for people who like “soft and chewy” cookies)\nWhen using version control to make these changes, you don’t save entirely new version of cookies.txt; rather, you save the changes made relative to the previous version of cookies.txt"
   },
   {
     "objectID": "09-week9-workbook.html#why-use-git-and-github",
     "href": "09-week9-workbook.html#why-use-git-and-github",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Why use Git and GitHub?",
     "text": "Why use Git and GitHub?\nWhy use version control when you can just save new version of document?\n\nSaving entirely new document each time a change is made is very inefficient from a memory/storage perspective\n\nWhen you save a new version of a document, much of the contents are the same as the previous version\nInefficient to devote space to saving multiple copies of the same content\n\n\nWhen document undergoes lots of changes – especially a document that multiple people are collaborating on – it’s hard to keep track of so many different documents. Easy to end up with a situation like this:"
   },
   {
     "objectID": "09-week9-workbook.html#why-use-git-and-github-1",
     "href": "09-week9-workbook.html#why-use-git-and-github-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Why use Git and GitHub?",
     "text": "Why use Git and GitHub?\n\n\n\n\nCredit: Jorge Chan (and also, lifted this example from Benjamin Skinner’s intro to Git/GitHub lecture)"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-git-from-git-website",
     "href": "09-week9-workbook.html#what-is-git-from-git-website",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is Git? (from git website)",
     "text": "What is Git? (from git website)\n\n“Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency”\n\n\nGit is a particular version control software created by The Git Project\n\n\nGit is free and open source software, meaning that anyone can use, share, and modify the software\nAlthough Microsoft owns Github (described) below, it thankfully does not own Git!\n\n\nGit can be used by:\n\nAn individual/standalone developer\nFor collaborative projects, where multiple people collaborate on each file"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-a-git-repository",
     "href": "09-week9-workbook.html#what-is-a-git-repository",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is a Git repository?",
     "text": "What is a Git repository?\n\nA Git repository is any project managed in Git\nFrom Git Handbook by github.com:\n\nA repository “encompasses the entire collection of files and folders associated with a project, along with each file’s revision history”\nBecause git is a distributed version control system, “repositories are self-contained units and anyone who owns a copy of the repository can access the entire codebase and its history”\n\n\nThis course is a Git repository (PSC290 FQ23 repository)"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-a-git-repository-1",
     "href": "09-week9-workbook.html#what-is-a-git-repository-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is a Git repository?",
     "text": "What is a Git repository?\n\nLocal vs. remote git repository:\n\n\nLocal git repository: git repository for a project stored on your machine\n\nRemote git repository: git repository for a project stored on the internet\n\n\nTypically, a local git repository is connected to a remote git repository\n\nYou can make changes to local repository on your machine and then push those changes to the remote repository\nOther collaborators can also make changes to their local repository, push them to the remote repository, and then you can pull these changes into your local repository"
   },
   {
     "objectID": "09-week9-workbook.html#private-vs.-public-repositories",
     "href": "09-week9-workbook.html#private-vs.-public-repositories",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Private vs. public repositories",
-    "text": "Private vs. public repositories\n\nPublic repositories: anyone can access the repository\n\ne.g., PSC290 FQ23, the git repository we created to develop this course is a public repository because we want the public to benefit from this course\n\n\nPrivate repositories: only those who have been granted access by a repository “administrator” can access the repository"
+    "text": "Private vs. public repositories\n\nPublic repositories: anyone can access the repository\n\ne.g., PSC290 FQ23, the git repository we created to develop the Rclass2 course is a public repository because we want the public to benefit from this course\n\n\nPrivate repositories: only those who have been granted access by a repository “administrator” can access the repository"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-github",
     "href": "09-week9-workbook.html#what-is-github",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is GitHub?",
     "text": "What is GitHub?\n\n\nGitHub is the industry standard hosting site/service for Git repositories\n\nHosting services allow people/organizations to store files on the internet and make those files available to others\n\n\nMicrosoft acquired Github in 2018 for $7.5 billion\nGithub is where remote git repositories live"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow",
     "href": "09-week9-workbook.html#git-workflow",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\nVersion control systems that save differences: - Prior to Git, “centralized version control systems” were the industry standard version control systems (From Getting Started - About Version Control) - In these systems, a central server stored all the versions of a file and “clients” (e.g., a programmer working on a project on their local computer) could “check out” files from the central server - These centralized version control systems stored multiple versions of a file as “differences” - The below figure portrays version control systems that store data as changes relative to the base version of each file:"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow-1",
     "href": "09-week9-workbook.html#git-workflow-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\n\nCredit: Getting Started - What is Git"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow-2",
     "href": "09-week9-workbook.html#git-workflow-2",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\nGit stores data as snapshots rather than differences:\n\nGit doesn’t think of data as differences relative to the base version of each file\nRather, Git thinks of data as “a series of snapshots of a miniature filesystem” or, said differently, a series of snapshots of all files in the repository\nFor files that have changed:\n\nthe “commit” will save lines that you have changed or added [like “differences”]\nlines that have not changed will not be re-saved; because these lines have been saved in previous commit(s) that are linked to the current commit"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow-3",
     "href": "09-week9-workbook.html#git-workflow-3",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\n\nThe below figure portrays storing data as a stream of snapshots over time:\n\n\nCredit: Getting Started - What is Git"
   },
   {
     "objectID": "09-week9-workbook.html#what-is-a-commit",
     "href": "09-week9-workbook.html#what-is-a-commit",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "What is a commit?",
     "text": "What is a commit?\n\nA commit is a snapshot of all files in the repository at a particular time\nExample: Imagine you are working on a project (repository) that contains a dozen files\n\nYou change two files and make a commit\nGit takes a snapshot of the full repository (all files)\nContent that remains unchanged relative to the previous commit is stored vis-a-vis a link to the previous commit"
   },
   {
     "objectID": "09-week9-workbook.html#three-components-of-a-git-project",
     "href": "09-week9-workbook.html#three-components-of-a-git-project",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Three components of a Git project",
     "text": "Three components of a Git project\n\n\n\nCredit: Lucas Maurer, medium.com"
   },
   {
     "objectID": "09-week9-workbook.html#three-components-of-a-git-project-1",
     "href": "09-week9-workbook.html#three-components-of-a-git-project-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Three components of a Git project",
     "text": "Three components of a Git project\n\n\nLocal working directory (also called “working tree”)\n\nThis is the area where all your work happens! You are writing Rmd files, debugging R scripts, adding and deleting files\nThese changes are made on your local machine!\n\n\n\nGit index/staging area (git add <filename(s)> command)\n\nThe staging area is the area between your local working directory and the repository, where you list changes you have made in the local working directory that you would like to commit to the repository\n\n\n\nRepository (git commit command)\n\nThis is the actual repository where Git permanently stores the changes you’ve made in the local working directory and added to the staging area"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow-4",
     "href": "09-week9-workbook.html#git-workflow-4",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\nHypothetical work flow to cookies.txt:\n\n\nAdd changes from local working directory to staging area\n\n\nCommit changes from staging area to repository\n\nEach commit to the repository is a different version of the file that represents a snapshot of the file at a particular time\nCommits are made to branches in the repo\n\nBy default, a git repository comes with one main branch (typically called main)\nBut we can also create other branches (discussed more later)"
   },
   {
     "objectID": "09-week9-workbook.html#git-workflow-5",
     "href": "09-week9-workbook.html#git-workflow-5",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Git Workflow",
     "text": "Git Workflow\n\n\nLocal vs. remote repository\n\nWhen you add a change to the staging area and then commit the change to your repository, this changes your local repository (i.e., on your computer) rather than your remote repository (i.e., on GitHub)\n\n\nIf you want to change the remote repository (typically named origin), you must push the change from your local repository to your remote repository\n\nAs seen below, each circle represents a commit. After you make commits on a branch in your local repository (i.e., main), you need to push them in order for the corresponding branch on the remote repository (i.e., origin/main) to be up-to-date with your changes."
   },
   {
     "objectID": "09-week9-workbook.html#github-desktop",
     "href": "09-week9-workbook.html#github-desktop",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "GitHub Desktop",
     "text": "GitHub Desktop\n\nPractically, in this class, I’m going to show you how to use GitHub Desktop, which is a GUI (graphical user interface) for managing git repositories and commits.\nRelative to the command line, using a GUI means you’re ready to be “up and running with git immediately and don’t have to learn bash syntax"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-setting-up-github-desktop",
     "href": "09-week9-workbook.html#exercise-setting-up-github-desktop",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise: Setting Up GitHub Desktop",
     "text": "Exercise: Setting Up GitHub Desktop\n\nRather than stepping through in the slides, I’m going to have each of you navigate to this link: https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop.\nFollow it to the end of Part 1 (Installing and authenticating) and then pause\nRaise your hand if you need help\nIf you don’t already have a GitHub account and don’t want to set one up, work with someone around you"
   },
   {
     "objectID": "09-week9-workbook.html#the-basic-workflow",
     "href": "09-week9-workbook.html#the-basic-workflow",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "The basic workflow",
     "text": "The basic workflow\nFirst time\n\n\nClone the repository that you want to work on from GitHub onto your local machine\nWork on the files/scripts, e.g., penguins.R\n\nNext, you will commit your changes and include an informative message, e.g. “Plot distribution of flipper length”\nThen, you will push your changes to the remote repository\nSubsequent times\n\n\nPull any changes from the remote repository that your collaborators might have made\nRepeat steps 2-4 above"
   },
   {
     "objectID": "09-week9-workbook.html#cloning",
     "href": "09-week9-workbook.html#cloning",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Cloning",
     "text": "Cloning"
   },
   {
     "objectID": "09-week9-workbook.html#exercise",
     "href": "09-week9-workbook.html#exercise",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
     "text": "Exercise\nThe repo walice/git-tutorial contains the penguins.R script, which works with data from the palmerpenguins library.\nCredit: 5 Minute Git"
   },
   {
     "objectID": "09-week9-workbook.html#work-on-the-files",
     "href": "09-week9-workbook.html#work-on-the-files",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Work on the files",
     "text": "Work on the files\n\nCodeggplot(penguins, \n       aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + \n  geom_point() +\n  labs(title = \"Penguin bills\") + \n  theme_classic()"
   },
   {
     "objectID": "09-week9-workbook.html#staging-your-files",
     "href": "09-week9-workbook.html#staging-your-files",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Staging your files",
     "text": "Staging your files\n\n\nStage your file"
   },
   {
     "objectID": "09-week9-workbook.html#commit-your-changes",
     "href": "09-week9-workbook.html#commit-your-changes",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Commit your changes",
     "text": "Commit your changes"
   },
   {
     "objectID": "09-week9-workbook.html#commit-your-changes-1",
     "href": "09-week9-workbook.html#commit-your-changes-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Commit your changes",
     "text": "Commit your changes\nUse an informative commit message\n\n(Not great) “Analyze data” 😞\n(Better) “Estimate logistic regression” 🎉\nHave a consistent style\n\nStart with an action verb\nCapitalize message\nCommits are cheap, use them often!"
   },
   {
     "objectID": "09-week9-workbook.html#push-your-changes",
     "href": "09-week9-workbook.html#push-your-changes",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Push your changes",
     "text": "Push your changes"
   },
   {
     "objectID": "09-week9-workbook.html#why-use-github",
     "href": "09-week9-workbook.html#why-use-github",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Why Use Git/Hub",
     "text": "Why Use Git/Hub\n\nDirect link to the Open Science Framework via “Add-ons,” so you don’t have to maintain / copy files multiple places\nEasy collaboration with better tools for dealing with conflicts due to remotes\nEasy to restore back to an earlier “snapshot”\nCan directly link to files, data, etc.\n\nby default, the links will be to the “main”\nswap this out for “raw” and it will link to the raw file, which will open a raw text page for text files (including .csv) or download (including .docx, .pdf, etc.)"
   },
   {
     "objectID": "09-week9-workbook.html#guarding-your-resources",
     "href": "09-week9-workbook.html#guarding-your-resources",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Guarding your resources",
     "text": "Guarding your resources\n\nComputers have finite resources\nA common source of issues in R is a cluttered environment\n\nObjects you aren’t using\nObjects unrelated to whatever you’re working on, etc."
   },
   {
     "objectID": "09-week9-workbook.html#cleaning-up-your-environment",
     "href": "09-week9-workbook.html#cleaning-up-your-environment",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Cleaning up your environment",
     "text": "Cleaning up your environment\n\nThe best ways to avoid issues due to a cluttered environment are:\n\nAlways start from a blank environment\nWrite scripts systematically. You shouldn’t be skipping around and should be careful about overwriting objects\nSave object(s), not your whole workspace to allow you to bring back in things you were working on previously\nUse object names with clear patterns to allow you clean up your environment\n\nrm(list=ls()[grepl(\"RQ1\", ls()])\nrm(list=ls()[!ls() %in% c(\"df1\", \"df2\")])\n\n\nOccasionally call gc() after cleaning up your environment"
   },
   {
     "objectID": "09-week9-workbook.html#guarding-your-resources-1",
     "href": "09-week9-workbook.html#guarding-your-resources-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Guarding your resources",
     "text": "Guarding your resources\n\nAll of the above guard your RAM, but another cause of issues with resources is that you take full advantage of your computing power\nMost modern computers have 8+ physical and virtual cores and powerful graphics cards\nTogether, these allow us to parallelize processes, which just means to do multiple different processes in parallel at the same time"
   },
   {
     "objectID": "09-week9-workbook.html#parallel-processing",
     "href": "09-week9-workbook.html#parallel-processing",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Parallel Processing",
     "text": "Parallel Processing\n\nYou’ve likely used parallel processing in R before\nMany packages, like lavaan, lme4, and any bootstrapping have an argument called parallel, with values like TRUE/FALSE or “fork”/“multisession”/“multicore”\nThis just means that they are using one of many available packages / tools to speed up the estmation of whatever your function is doing"
   },
   {
     "objectID": "09-week9-workbook.html#why-use-future-for-parallelization",
     "href": "09-week9-workbook.html#why-use-future-for-parallelization",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Why use future for parallelization?",
     "text": "Why use future for parallelization?\n\nA Unifying Parallelization Framework in R for Everyone\nRequire only minimal changes to parallelize existing R code\n“Write once, Parallelize anywhere\nSame code regardless of operating system and parallel backend\nLower the bar to get started with parallelization\nFewer decisions for the developer to make\nStay with your favorite coding style\nWorry-free: globals, packages, output, warnings, errors just work\nStatistically sound: Built-in parallel random number generation (RNG)\nCorrectness and reproducibility of highest priority"
   },
   {
     "objectID": "09-week9-workbook.html#three-atomic-building-blocks",
     "href": "09-week9-workbook.html#three-atomic-building-blocks",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Three atomic building blocks",
     "text": "Three atomic building blocks\nThere are three atomic building blocks that do everything we need:\n\n\nf  <- future(expr) : evaluates an expression via a future (non-blocking, if possible)\n\nrs <- resolved(f) : TRUE if future is resolved, otherwise FALSE (non-blocking)\n\nv  <- value(f) : the value of the future expression expr (blocking until resolved)"
   },
   {
     "objectID": "09-week9-workbook.html#example",
     "href": "09-week9-workbook.html#example",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Example",
     "text": "Example\nTo break down what’s happening, let’s use a bad function, called slow_sum()\n\nCodeslow_sum <- function(x) {\n  sum <- 0\n  for (kk in seq_along(x)) {\n    sum <- sum + x[kk]\n    Sys.sleep(0.1)  # emulate 0.1 second cost per addition\n  }\n  sum\n}\n\n\nCredit: future tutorial useR 2022"
   },
   {
     "objectID": "09-week9-workbook.html#example-1",
     "href": "09-week9-workbook.html#example-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Example",
     "text": "Example\nIf we then call, the following, it takes about 10 seconds\n\nCodex <- 1:100\nv <- slow_sum(x)\nv\n\n[1] 5050\n\nCode#> [1] 5050\n\n\nBut we could do the same in future and see that time to evaluate has been cut in half:\n\nCodelibrary(future)\nplan(multisession) # evaluate futures in parallel\n\nx <- 1:100\nf <- future(slow_sum(x))\nv <- value(f)\n#> [1] 5050"
   },
   {
     "objectID": "09-week9-workbook.html#anatomy-of-future",
     "href": "09-week9-workbook.html#anatomy-of-future",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Anatomy of future()\n",
     "text": "Anatomy of future()\n\nWhen we call:\n\nCodef <- future(slow_sum(x))\n\n\nthen:\n\na future is created, comprising:\n\nthe R expression slow_sum(x),\nfunction slow_sum(), and\ninteger vector x\n\n\nThese future components are sent to a parallel worker, which starts evaluating the R expression\nThe future() function returns immediately a reference f to the future, and before the future evaluation is completed"
   },
   {
     "objectID": "09-week9-workbook.html#anatomy-of-value",
     "href": "09-week9-workbook.html#anatomy-of-value",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Anatomy of value()\n",
     "text": "Anatomy of value()\n\nWhen we call:\n\nCodev <- value(f)\n\n\nthen:\n\nthe future asks the worker if it’s ready or not (using resolved() internally)\nif it is not ready, then it waits until it’s ready (blocking)\nwhen ready, the results are collected from the worker\nthe value of the expression is returned"
   },
   {
     "objectID": "09-week9-workbook.html#benefits-of-future",
     "href": "09-week9-workbook.html#benefits-of-future",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Benefits of future:",
     "text": "Benefits of future:\n\nYou can keep doing other things while your code runs in the background and then eventually check whether it’s done using resolved() or value()\n\nYou can do multiple different futures at the same time"
   },
   {
     "objectID": "09-week9-workbook.html#benefits-of-future-1",
     "href": "09-week9-workbook.html#benefits-of-future-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Benefits of future:",
     "text": "Benefits of future:\nWhen we run code normally, we experience blocking, which means that the next line can’t run until the previous one is done.\n\nCodex_head <- head(x, 50)\nx_tail <- tail(x, 50)\n\nv1 <- slow_sum(x_head)         ## ~5 secs (blocking)\nv2 <- slow_sum(x_tail)         ## ~5 secs (blocking)\nv <- v1 + v2\n\n\nBut with future, we can parallelize and continue to run other things:\n\nCodef1 <- future(slow_sum(x_head)) ## ~5 secs (in parallel)\nf2 <- future(slow_sum(x_tail)) ## ~5 secs (in parallel)\n\n## Do other things\nz <- sd(x)\n\nv <- value(f1) + value(f2)     ## ready after ~5 secs"
   },
   {
     "objectID": "09-week9-workbook.html#setting-up-your-future-backend",
     "href": "09-week9-workbook.html#setting-up-your-future-backend",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Setting up your future backend",
     "text": "Setting up your future backend\nTo fully make use of future, you need to understand:\n\nparallel backends\n“workers”\nglobals\n\npackages"
   },
   {
     "objectID": "09-week9-workbook.html#parallel-backends",
     "href": "09-week9-workbook.html#parallel-backends",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Parallel backends",
     "text": "Parallel backends\n\nThere are multiple ways that you can run parallel processes in R that depend on:\n\nyour OS\nwhether you are running local or remote sessions\n\n\n\n\n\nplan(sequential): default, will block\n\nplan(multisession): parallel, no blocking\n(plan(future.batchtools::batchtools_slurm))\n(plan(future.callr::callr, workers = 4))\nMore to come"
   },
   {
     "objectID": "09-week9-workbook.html#workers",
     "href": "09-week9-workbook.html#workers",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Workers",
-    "text": "Workers\n\nRemember, R resources are finite\nAs a rule of thumb, you don’t want to call more resources than you have\n\n\nCodeparallel::detectCores()\n\n[1] 16"
+    "text": "Workers\n\nRemember, R resources are finite\nAs a rule of thumb, you don’t want to call more resources than you have\n\n\nCodeparallel::detectCores()\n\n[1] 14"
   },
   {
     "objectID": "09-week9-workbook.html#workers-1",
     "href": "09-week9-workbook.html#workers-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Workers",
     "text": "Workers\nin future, workers are basically the number of cores you want to use for parallel processing\n\nCodeplan(multisession, workers = 8)\nnbrOfWorkers()\n#> [1] 8\n\nplan(multisession, workers = 2)\nnbrOfWorkers()\n#> [1] 2"
   },
   {
     "objectID": "09-week9-workbook.html#workers-2",
     "href": "09-week9-workbook.html#workers-2",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Workers",
     "text": "Workers\nin future, workers are basically the number of cores you want to use for parallel processing\n\nCodeplan(multisession, workers = 2)\nnbrOfWorkers()\n#> [1] 2\n\nf1 <- future(slow_sum(x_head))\nf2 <- future(slow_sum(x_tail))\nf3 <- future(slow_sum(1:200))   ## <= blocks here\n\nresolved(f1)\n#> [1] TRUE\nresolved(f2)\n#> [1] TRUE\nresolved(f3)\n#> [1] FALSE"
   },
   {
     "objectID": "09-week9-workbook.html#globals",
     "href": "09-week9-workbook.html#globals",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Globals",
     "text": "Globals\n-globals is an argument for future(). By default, it is set to TRUE - Alternatively, it could be a character vector including only those globals you want the future() call to have access to\n\nCodex_head <- head(x, 50)\nx_tail <- tail(x, 50)\n\nplan(multisession, workers = 2)\nf1 <- future(slow_sum(x_head), globals = c(\"slow_sum\", \"x_head\"))\nf2 <- future(slow_sum(x_tail), globals = c(\"slow_sum\", \"x_head\")) ## doesn't work"
   },
   {
     "objectID": "09-week9-workbook.html#packages",
     "href": "09-week9-workbook.html#packages",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Packages",
     "text": "Packages\n\n\npackages is an argument for future(). By default, it is set to NULL\n\nAlternatively, it could be a character vector including only those packages you want to import into the parallel calls\n\nUseful when working with package conflicts, remote clusters"
   },
   {
     "objectID": "09-week9-workbook.html#furrr",
     "href": "09-week9-workbook.html#furrr",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "furrr",
     "text": "furrr\n\nI personally use furrr frequently when I need to a bunch of stuff in parallel but not so much I find myself needing to reach for an HPC\nWhy? It works just like purrr functions but allows me to run them in parallel!\n\n\nCodeplan(multisession, workers = 2)\n\n1:10 %>%\n  future_map(rnorm, n = 10, .options = furrr_options(seed = 123)) %>%\n  future_map_dbl(mean)"
   },
   {
     "objectID": "09-week9-workbook.html#furrr-1",
     "href": "09-week9-workbook.html#furrr-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "furrr",
     "text": "furrr\n\nI also use furrr because it works just like future:\n\nfuture_map(.x, .f, .options = furrr_options())\n\n\nfurrr_options() basically takes all the same arguments a typical future() call would take, including globals and packages\n\n\nSo with very little experience, you can shift an existing purrr workflow (or pieces of it) to parallel"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-1",
     "href": "09-week9-workbook.html#exercise-1",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
-    "text": "Exercise\nAs a brief exercise, let’s revisit some of the latent growth models we ran last week:\n\nCodegsoep2_lavaan <- readRDS(\"week9-data.RDS\")"
+    "text": "Exercise\nAs a brief exercise, let’s revisit some of the latent growth models we ran last week:\n\nCodegsoep2_lavaan <- readRDS(url(\"https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/09-week9-advanced/week9-data.RDS\"))"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-2",
     "href": "09-week9-workbook.html#exercise-2",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
     "text": "Exercise\nBelow is the lavaan syntax we ran:\n\nCodemod <- '\n  W1 =~ NA*I1_2005 + lambda1*I1_2005 + lambda2*I2_2005 + lambda3*I3_2005\n  W2 =~ NA*I1_2009 + lambda1*I1_2009 + lambda2*I2_2009 + lambda3*I3_2009\n  W3 =~ NA*I1_2013 + lambda1*I1_2013 + lambda2*I2_2013 + lambda3*I3_2013\n  \n  i =~ 1*W1 + 1*W2 + 1*W3\n  s =~ -1*W1 + 0*W2 + 1*W3\n  \n  ## intercepts\n  I1_2005 ~ t1*1\n  I1_2009 ~ t2*1\n  I1_2013 ~ t3*1\n  \n  I2_2005 ~ t1*1\n  I2_2009 ~ t2*1\n  I2_2013 ~ t3*1\n  \n  I3_2005 ~ t1*1\n  I3_2009 ~ t2*1\n  I3_2013 ~ t3*1\n  \n  ## correlated residuals across time\n  I1_2005 ~~ I1_2009 + I1_2013\n  I1_2009 ~~ I1_2013\n  I2_2005 ~~ I2_2009 + I2_2013\n  I2_2009 ~~ I2_2013\n  I3_2005 ~~ I3_2009 + I3_2013\n  I3_2009 ~~ I3_2013\n  \n  ## latent variable intercepts\n  W1 ~ 0*1\n  W2 ~ 0*1\n  W3 ~ 0*1\n  \n  #model constraints for effect coding\n  ## loadings must average to 1\n  lambda1 == 3 - lambda2 - lambda3\n  ## means must average to 0\n  t1 == 0 - t2 - t3\n  '"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-3",
     "href": "09-week9-workbook.html#exercise-3",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
     "text": "Exercise\nAnd the function we ran:\n\nCodelavaan_fun <- function(d, trait){\n  m <- growth(\n    mod\n    , data = d\n    , missing = \"fiml\"\n  )\n  # saveRDS(m, file = sprintf(\"results/models/%s.RDS\", trait))\n  return(m)\n}"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-4",
     "href": "09-week9-workbook.html#exercise-4",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
-    "text": "Exercise\nBut instead of running the model using map2(), let’s run it using future_map2()\n\nCodestart <- Sys.time()\ngsoep_nested2 <- gsoep2_lavaan %>%\n  group_by(category, trait) %>%\n  nest() %>%\n  ungroup() %>%\n  mutate(m = map2(data, trait, lavaan_fun))\nend <- Sys.time()\nprint(end - start)\n\nTime difference of 6.229419 secs\n\nCode# > Time difference of 4.413002 secs"
+    "text": "Exercise\nBut instead of running the model using map2(), let’s run it using future_map2()\n\nCodestart <- Sys.time()\ngsoep_nested2 <- gsoep2_lavaan %>%\n  group_by(category, trait) %>%\n  nest() %>%\n  ungroup() %>%\n  mutate(m = map2(data, trait, lavaan_fun))\nend <- Sys.time()\nprint(end - start)\n\nTime difference of 1.923896 secs\n\nCode# > Time difference of 4.413002 secs"
   },
   {
     "objectID": "09-week9-workbook.html#exercise-5",
     "href": "09-week9-workbook.html#exercise-5",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Exercise",
-    "text": "Exercise\nIn this case, we’re only saving a few seconds, but in the case having many more models or models that run longer, this can HUGELY add up\n\nCodestart <- Sys.time()\nplan(multisession, workers = 5L)\ngsoep_nested2 <- gsoep2_lavaan %>%\n  group_by(category, trait) %>%\n  nest() %>%\n  ungroup() %>%\n  mutate(m = future_map2(data, trait, lavaan_fun))\nend <- Sys.time()\nprint(end - start)\n\nTime difference of 3.919519 secs\n\nCode# Time difference of 2.993128 secs"
+    "text": "Exercise\nIn this case, we’re only saving a few seconds, but in the case having many more models or models that run longer, this can HUGELY add up\n\nCodestart <- Sys.time()\nplan(multisession, workers = 5L)\ngsoep_nested2 <- gsoep2_lavaan %>%\n  group_by(category, trait) %>%\n  nest() %>%\n  ungroup() %>%\n  mutate(m = future_map2(data, trait, lavaan_fun))\nend <- Sys.time()\nprint(end - start)\n\nTime difference of 1.975542 secs\n\nCode# Time difference of 2.993128 secs"
   },
   {
     "objectID": "09-week9-workbook.html#caution-data-transfer",
     "href": "09-week9-workbook.html#caution-data-transfer",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Caution: Data transfer",
     "text": "Caution: Data transfer\n\nThe goal of furrr is to combine purrr’s family of mapping functions with future’s parallel processing capabilities. The result is near drop in replacements for purrr functions such as map() and map2_dbl(), which can be replaced with their furrr equivalents of future_map() and future_map2_dbl() to map in parallel.\n\n\nBetter alternative: don’t export large objects using furrr but save the output to a local environment that can be loaded in later"
   },
   {
     "objectID": "09-week9-workbook.html#next-week-review",
     "href": "09-week9-workbook.html#next-week-review",
-    "title": "Week 9 Workbook",
+    "title": "Week 9 (Git & Parallelization) Workbook",
     "section": "Next Week: Review",
     "text": "Next Week: Review\n\nNext week, we’ll wrap up with a one hour “overview” highlighting big takeaways, reminders, etc. for the course\nThen, everyone will have the chance to (optionally) share their favorite R hacks (hint: this is a good excuse / nudge to remember the bonus points you can get by submitting tidy tuesday style code)\nFinally, we’ll have time to work on final projects"
   },
@@ -2265,6 +2265,6 @@
     "href": "ps4-week7-8.html",
     "title": "Problem Set 4",
     "section": "",
-    "text": "Due Date: Monday, March 3, 2026, 2:00 PM PST.\nDownload your problem set for PS4 below or on Canvas."
+    "text": "Due Date: Monday, March 9, 2026, 2:00 PM PST.\nDownload your problem set for PS4 below or on Canvas."
   }
 ]

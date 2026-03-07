@@ -1,0 +1,337 @@
+---
+title: "Problem Set #2"
+author: "INSERT YOUR NAME HERE"
+date: "insert date here"
+urlcolor: blue
+output: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", highlight = TRUE)
+```
+
+# Part 1: Data Manipulation 
+In the last problem set, you used `tidyverse` functions such as `filter()`, `arrange()`, and `select()` to perform data manipulations. 
+
+This time, You'll also be practicing variable creation in this problem set, using both `mutate()` in combination with `if_else()`, `case_when()` as well as the base R approach.
+
+## Question 1: Data manipulation using pipes
+
+1. In the code chunk below, complete the following:
+
+    - Load the `tidyverse` library
+    - Use the `load()` and `url()` functions to download the `df_school_all` dataframe from the url: `https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/05-assignments/02-ps2/recruit_school_allvars.RData`
+      - Each row in `df_school_all` represents a high school (includes both public and private)
+      - There are columns (e.g., `visit_by_100751`) indicating the number of times a university visited that high school
+      - The variable `total_visits` identifies the number of visits the high school received from all (16) public research universities in this data collection sample
+
+```{r}
+library(tidyverse)
+load(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/05-assignments/02-ps2/recruit_school_allvars.RData"))
+```
+
+2. Use the functions `arrange()`, `select()`, and `head()` to do the following:
+
+    - Sort `df_school_all` descending by `total_visits`
+    - Select the following variables: `name`, `state_code`, `city`, `school_type`, `total_visits`, `med_inc`, `pct_white`, `pct_black`, `pct_hispanic`, `pct_asian`, `pct_amerindian`
+    - Show the first 10 rows of the dataframe, which represents the top 10 most visited schools by the 16 universities
+    
+    Complete this using pipes (`%>%`) using 1 line of code
+    
+__Using pipes ('%>%')__:
+
+```{r}
+cls <- c("name", "state_code", "city", "school_type", "total_visits", "med_inc", "pct_white", "pct_black", "pct_hispanic", "pct_asian", "pct_amerindian")
+
+df_school_all %>%
+  arrange(total_visits) %>%
+  select(cls) %>% 
+  head(n = 10)
+```
+
+3. Building upon the previous question, use the functions `arrange()`, `select()`, `filter()`, and `head()` to do the following (select same variables as above):  
+
+    (A) Top 10 most visited public high schools in California
+    (B) Top 10 most visited private high schools in California
+    
+    Complete this using pipes (`%>%`) using 1 line of code each
+
+__Using pipes ('%>%')__:
+
+```{r}
+# public
+df_school_all %>%
+  filter(school_type == "public") %>%
+  arrange(total_visits) %>%
+  select(cls) %>%
+  head(n = 10)
+
+# private
+df_school_all %>%
+  filter(school_type == "private") %>%
+  arrange(total_visits) %>%
+  select(cls) %>%
+  head(n = 10)
+
+# bonus: combined!
+df_school_all %>%
+  arrange(school_type, total_visits) %>%
+  group_by(school_type) %>%
+  slice_head(n = 10)
+```
+
+
+## Question 2: Variable creation using `tidyverse`'s `mutate()`
+
+**Above you used a data set provided for the homework set. For the rest of the questions, I invite you to load in your own data and use it when appropriate / you're able. In some cases, you may have a variable (e.g., like race, which is used below) that you can directly sub in from your own data. In other cases, you will not, so I invite you to use a different variable on the same scale (e.g., numeric, count, categorical).** 
+
+If you find this isn't possible, don't worry -- next week, your homework will be different, asking you to take everything you've learned so far and clean your data, turning in a script that does everything from reading in your data to descriptives. For that homework, what variables are of interest are up to you, and you won't have the same level of detail in instructions. 
+
+Often before creating new "analysis" variables, you may want to investigate the values of "input" variables. Here are some examples of checking variable values using `count()`:
+
+```{r eval=FALSE}
+# Counts the total number of observations (i.e., rows) in `df_school_all`
+df_school_all %>% count()
+
+# Counts the number of observations that have missing values for the variable `med_inc`
+df_school_all %>% filter(is.na(med_inc)) %>% count()
+
+# Frequency count of the variable `school_type`
+df_school_all %>% count(school_type)
+```
+
+
+1. Use `mutate()` with `if_else()` to create a 0/1 indicator and then use `count()` to generate the following frequency tables:
+
+    - Create 0/1 indicator called `ca_school` for whether the high school is in California and generate the frequency table for the values of `ca_school`
+    - Create 0/1 indicator called `ca_pub_school` for whether the high school is a public school in California and generate the frequency table for the values of `ca_pub_school`
+
+    Note: You do not need to assign/retain the indicator variables in the `df_school_all` dataframe.
+
+```{r}
+df_school_all %>%
+  mutate(
+    ca_school = if_else(state_code == "CA", 1, 0)
+  ) %>% 
+  count(ca_school)
+
+
+df_school_all %>%
+  mutate(
+    ca_pub_school = ifelse(state_code == "CA" & school_type == "public", 1, 0)
+  ) %>% 
+  count(ca_pub_school)
+```
+
+
+2. Complete the following steps to create an analysis variable using `mutate()` and `if_else()`:
+
+    - First, use `select()` to select the variables `name`, `pct_black`, `pct_hispanic`, `pct_amerindian` from `df_school_all`, and assign the resulting dataframe to `df_race`. You'll be using `df_race` for the remaining bullet points below.
+    - Use `filter()`, `is.na()`, and `count()` to investigate whether or not the following variables have missing values: `pct_black`, `pct_hispanic`, `pct_amerindian`
+    - Use `mutate()` to create a new variable `pct_bl_hisp_nat` in `df_race` that is the sum of `pct_black`, `pct_hispanic`, and `pct_amerindian`. Remember to assign to `df_race`.
+    - Create a 0/1 indicator called `gt50pct_bl_hisp_nat` for whether more than 50% of students identify as black, latinx, or native american and generate a frequency table for the values of `gt50pct_bl_hisp_nat`
+
+
+```{r}
+cls <- c("name", "pct_black", "pct_hispanic", "pct_amerindian")
+df_race <- df_school_all %>%
+  select(cls)
+
+df_race %>% 
+  filter(!is.na(pct_black) | !is.na(pct_hispanic) | !is.na(pct_amerindian)) %>%
+  count(pct_black, pct_hispanic, pct_amerindian)
+
+cls <- c("pct_black", "pct_hispanic", "pct_amerindian")
+df_race <- df_race %>%
+  rowwise() %>%
+  mutate(pct_bl_hisp_nat = sum(c_across(all_of(cls)))) %>%
+  ungroup() %>%
+  mutate(gt50pct_bl_hisp_nat = if_else(pct_bl_hisp_nat > 50, 1, 0))
+
+df_race %>%
+  count(gt50pct_bl_hisp_nat)
+```
+
+
+3. Complete the following steps to create an analysis variable using `mutate()` and `case_when()`:
+
+    - First, use `select()` to select the variables `name` and `state_code` from `df_school_all`, and assign the resulting dataframe to `df_schools`
+    - Use `case_when()` to create a new variable in `df_schools` called `region` whose values are:
+      - `Northeast`, if `state_code` is in: `'CT', 'ME', 'MA', 'NH', 'RI', 'VT', 'NJ', 'NY', 'PA'`
+      - `Midwest`, if `state_code` is in: `'IN', 'IL', 'MI', 'OH', 'WI', 'IA', 'KS', 'MN', 'MO', 'NE', 'ND', 'SD'`
+      - `West`, if `state_code` is in: `'AZ', 'CO', 'ID', 'NM', 'MT', 'UT', 'NV', 'WY', 'AK', 'CA', 'HI', 'OR', 'WA'`
+      - `South`, if `state_code` is not any of the above states (Hint: Use `TRUE` as the condition to specify default value. You can see an example [here](https://dplyr.tidyverse.org/reference/case_when.html).)
+    
+```{r}
+df_schools <- df_school_all %>%
+  select(name, state_code) %>%
+  mutate(region = case_when(
+    state_code %in% c('CT', 'ME', 'MA', 'NH', 'RI', 'VT', 'NJ', 'NY', 'PA') ~ "Northeast",
+    state_code %in% c('IN', 'IL', 'MI', 'OH', 'WI', 'IA', 'KS', 'MN', 'MO', 'NE', 'ND', 'SD') ~ "Midwest",
+    state_code %in% c('AZ', 'CO', 'ID', 'NM', 'MT', 'UT', 'NV', 'WY', 'AK', 'CA', 'HI', 'OR', 'WA') ~ "West",
+    .default = "South"
+    ) 
+  )
+```
+
+4. Complete the following steps to recode variables using `mutate()` and `recode()`:
+
+    - In the `df_schools` dataframe, replace the values of the `region` variable as follows:
+      - Change `Northeast` to `NE`
+      - Change `Midwest` to `MW`
+      - Change `West` to `W`
+      - Change `South` to `S`
+    - In the `df_schools` dataframe, create a new variable `state_name` whose value is:
+      - `California`, if `state_code` is `CA`
+      - `New York`, if `state_code` is `NY`
+      - Choose another state of your choice to recode
+      - `Other`, if `state_code` is any other state (Hint: Use `.default` to specify the default value)
+    
+```{r}
+df_schools <- df_schools %>%
+  mutate(
+    region = recode(region,
+      `Northeast` = "NE",
+      `Midwest` = "MW",
+      `West` = "W",
+      `South` = "S"
+      )
+    , state_name = recode(state_code,
+      `CA` = "California",
+      `NY` = "New York",
+      `MO` = "Missouri",
+      .default = "Other"
+    )
+    
+  )
+df_schools
+```
+
+## Question 3: Grouping and summarizing
+
+1. Now, we will use `group_by()` in conjunction with `summarise()` to calculate summary results for public and private schools in each state. First, group by state (`state_code`) and type (`school_type`) and calculate the following statistics for each combination:
+
+    - The total number of students (`total_students`)
+    - The percentage of students who identify as each of the following race/ethnicity category:
+      - `pct_white`
+      - `pct_black`
+      - `pct_hispanic`
+      - `pct_asian`
+      - `pct_amerindian`
+      - `pct_other`
+      
+      Lastly, sort by the number of students per state-type combinaiton in descending order, and answer the following question. 
+      
+    - In one or two sentences, what is something you find interesting about these results?
+      - **ANSWER**: 
+
+```{r}
+df_school_all %>%
+  group_by(state_code, school_type) %>%
+  summarize(
+    total_students = sum(total_students)
+    , pct_white = mean(pct_white)
+    , pct_black = mean(pct_black)
+    , pct_hispanic = mean(pct_hispanic)
+    , pct_asian = mean(pct_asian)
+    , pct_amerindian = mean(pct_amerindian)
+    , pct_other = mean(pct_other)
+    )
+```
+
+
+2. Next, we will look at the students' median household income (`med_inc`) by state and type. Group by type state (`state_code`) and (`school_type`) and calculate the following statistics for each type:
+
+    - The total number of students
+    - The total number of visits where `med_inc` is missing
+    - The average median household income of students
+    - The maximum median household income of students
+    - The minimum median household income of students
+
+    Lastly, sort by the number of students per state in descending order.
+
+```{r}
+df_school_all %>%
+  group_by(state_code, school_type) %>%
+  summarize(
+    total_students = sum(total_students)
+    , total_students_miss = sum(total_students[is.na(med_inc)])
+    , av_med_inc = mean(med_inc, na.rm = T)
+    , max_med_inc = max(med_inc, na.rm = T)
+    , min_med_inc = min(med_inc, na.rm = T)
+  )
+```
+
+## Question 4: Fun with YAML Headers  
+
+Explore the documentation on YAML headers for html on Quarto's [website](https://quarto.org/docs/reference/formats/html.html). Also look at the defaults I've set. 
+
+Test out at least three options (but as many as you want) not currently in the YAML header from the Quarto website and note them here (If you test more than three, just list the three you thought were the coolest or where you learned the most): 
+
+1. 
+2. 
+3. 
+
+Next, change the options for at least three things already in the YAML header and note what happens. How does the appearance change? How does the directory structure change (if at all)?
+
+1. 
+2. 
+3. 
+
+
+In the first parts of the problem set, you used data I provided to complete your assignment. Now, I'd like you to use your own data. This problem set is more open ended. For time, I'm going to have you focus on creating a codebook. You'll use this for your next problem set, which will be a broad review of course content so far. 
+
+# Part 2: Codebooks  
+## Data Overview
+Provide an overview of your data set. What is it? How was it collected? 
+
+## Codebook 
+
+Using the codebook provided in class as a reference, document the variables (or a subset of the variables) for an ongoing (or completed) research project you are involved in. Please also make the "Key" and "Overview" sheets providing overviews of your study. 
+
+As a reminder, here's a description of the column names I traditionally use. Feel free to omit or add columns as you see fit: 
+
+1.  **dataset**: this column indexes the **name** of the dataset that you will be pulling the data from. This is important because we will use this info later on (see purrr tutorial) to load and clean specific data files. Even if you don't have multiple data sets, I believe consistency is more important and suggest using this.\
+2.  **category**: broad categories that different variables can be put into. I'm a fan of naming them things like "outcome", "predictor", "moderator", "demographic", "procedural", etc. but sometimes use more descriptive labels like "Big 5" to indicate the model from which the measures are derived.\
+3.  **name**: label is basically one level lower than category. So if the category is Big 5, the label would be, or example, "A" for Agreeableness, "SWB" for subjective well-being, etc. This column is most important and useful when you have multiple items in a scales, so I'll typically leave this blank when something is a standalone variable (e.g. sex, single-item scales, etc.).\
+4.  **item_name**: This is the lowest level and most descriptive variable. It indicates which item in scale something is. So it may be "kind" for Agreebleness or "sex" for the demographic biological sex variable.\
+5.  **old_name**: this column is the name of the variable in the data you are pulling it from. This should be exact. The goal of this column is that it will allow us to select() variables from the original data file and rename them something that is more useful to us.\
+6.  **item_text**: this column is the original text that participants saw or a description of the item.\
+7.  **scale**: this column tells you what the scale of the variable is. Is it a numeric variable, a text variable, etc. This is helpful for knowing the plausible range.
+8.  **recode_text**: sometimes, we want to recode variables for analyses (e.g. for categorical variables with many levels where sample sizes for some levels are too small to actually do anything with it). I use this column to note the kind of recoding I'll do to a variable for transparency.
+9. **recode**: I write the R code I'll parse by reading my codebook into R into this column. 
+
+Here are additional columns that will make our lives easier or are applicable to some but not all data sets:
+
+10. **reverse**: this column tells you whether items in a scale need to be reverse coded. I recommend coding this as 1 (leave alone) and -1 (reverse) for reasons that will become clear later.\
+11. **mini**: this column represents the minimum value of scales that are numeric. Leave blank otherwise.\
+12. **maxi**: this column represents the maximumv alue of scales that are numeric. Leave blank otherwise.\
+13. **year**: for longitudinal data, we have several waves of data and the name of the same item across waves is often different, so it's important to note to which wave an item belongs. You can do this by noting the wave (e.g. 1, 2, 3), but I prefer the actual year the data were collected (e.g. 2005, 2009, etc.)\
+14. **meta**: Some datasets have a meta name, which essentially means a name that variable has across all waves to make it clear which variables are the same. They are not always useful as some data sets have meta names but no great way of extracting variables using them. But they're still typically useful to include in your codebook regardless.
+15. **notes**: Add any notes you may have about the variables that you think will be helpful for future you or others. 
+
+
+# Render to html and submit problem set  
+
+**Render to html** by clicking the "Render" button near the top of your RStudio window (icon with blue arrow) 
+
+-   Go to the Canvas --\> Assignments --\> Problem Set 2
+-   Submit both .qmd and .html files\
+-   Use this naming convention "lastname_firstname_ps#" for your .qmd and html files (e.g. beck_emorie_ps2.qmd & beck_emorie_ps2.html)
+

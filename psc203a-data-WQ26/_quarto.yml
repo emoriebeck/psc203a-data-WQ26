@@ -44,8 +44,8 @@ website:
         - 07-week7-workbook.qmd
         - 08-week8-slides.qmd
         - 08-week8-workbook.qmd
-        # - 09-week9-slides.qmd
-        # - 09-week9-workbook.qmd
+        - 09-week9-slides.qmd
+        - 09-week9-workbook.qmd
         # - 10-week10-slides.qmd
         # - 10-week10-workbook.qmd
         
