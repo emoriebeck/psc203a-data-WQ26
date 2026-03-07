@@ -1,0 +1,540 @@
+---
+title: "Problem Set #4"
+author: "INSERT YOUR NAME HERE"
+date: "insert date here"
+urlcolor: blue
+format: 
+  html:
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    code-link: true
+    theme: united
+    highlight-style: tango
+    df-print: paged
+    code-fold: show
+    toc: true
+    toc-float: true
+    self-contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", highlight = TRUE)
+```
+
+```{r}
+library(psych)
+library(lme4)
+library(tidyverse)
+
+df <- psych::bfi %>%
+  rownames_to_column("id")
+```
+
+
+# Part 1: Using Functions
+
+Functions are really useful when you have to do something many times. 
+
+## Practicing Function Writing 
+
+Write a function to z-standardize data ((observed - mean)/standard deviation). Apply it to at least 2 variables in your data. (Note: if your data are in long form, you will either need to make your data wide by some key variable (stimuli, question, etc. or will need to use your function on a grouped data frame))
+
+```{r z-scoring}
+# your code here
+z_score <- function(x) (x - mean(x, na.rm = T))/sd(x, na.rm = T)
+df <- df %>%
+  mutate_at(vars(matches("[AECNO]\\d")), lst(z = z_score))
+```
+
+Now look at your descriptives, do the descriptives suggest your function worked correctly? (Hint: if in long form, make sure you're looking at the descriptives grouped)
+
+```{r z-desc}
+# your code here
+df %>%
+  select(id, matches("[AECNO]\\d")) %>%
+  describe()
+```
+
+# Part 2: Iteration
+
+In class, we talked about iteration as `for` loops, `lapply()`, and `purrr:::map()`. But we've actually been doing iteration for weeks using functions like `mutate_at()` and `mutate_all()`. Another alternative is using `mutate(across())`, which works similar to `mutate_at()` but is more generic. So for example the code below reverse scores the BFI items that are negatively keyed: 
+
+```{r, eval = F}
+psych::bfi %>%
+  mutate(across(c(A1, C4, C5, E1, E2, O2, O5), ~6 - .))
+```
+
+1. Using at least two methods of iteration, apply a function to multiple columns, subsets (e.g., participants, stimuli, waves, etc.). For example, as above use two methods to mutate multiple columns (hint: see `?apply` or `?map_dbl`) or to calculate descriptives, correlations, etc. (hint: see `?lappy` and `?map). 
+
+```{r method 1}
+# your code here
+apply(df %>% select(matches("E\\d$")), 2, z_score)
+```
+
+```{r method 2}
+# your code here
+map_df(df %>% select(matches("E\\d$")), z_score)
+```
+
+Do you get the same results? If not, why? 
+
+**Yes, but the output are different object classes (array v. data frame)**
+
+2. Write a function that estimates multiple descriptives (mean, median, sd, min, max, n, n missing). Using any form of iteration, apply that function to all continuous variables in your data frame. (Hints: you could (1) pivot your data to long and `group_by()` item, either nesting and applying your function or writing a data frame function or (2) use a function like apply() or across to estimate them. Note the format challenges you experience [e.g., errors, your data are super wide].)
+
+Ultimately, you want to end up with a data frame with items / indicators, etc. as rows (indexed by a column) and columns for each of the descriptives. 
+
+# Part 3: Strings
+
+## Working with strings
+
+1. Load the following packages in the code chunk below: `tidyverse` and `lubridate`.
+
+```{r, message=F}
+desc_fun <- function(x){
+  x %>% 
+    summarize(
+      N = n()
+      , n_missing = sum(is.na(value))
+      , mean = mean(value, na.rm = T)
+      , median = median(value, na.rm = T)
+      , sd = sd(value, na.rm = T)
+      , min = min(value, na.rm = T)
+      , max = max(value, na.rm = T)
+    )
+}
+
+df %>% 
+  select(id, ends_with("z")) %>%
+  pivot_longer(
+    cols = -id
+    , names_to = "item"
+    , values_to = "value"
+  ) %>%
+  group_by(item) %>%
+  nest() %>%
+  ungroup() %>%
+  mutate(desc = map(data, desc_fun)) %>%
+  select(-data) %>%
+  unnest(desc)
+```
+
+
+2. Using `str_c()` and the following objects as input, create the string: `"Roses are red, Violets are blue"`  
+
+    - We encourage you to first sketch out what you want to do on some scratch paper.
+    - Recall from the lecture example on "Using str_c() on vectors of different lengths", when multiple vectors of different length are provided in the str_c() function, the elements of shorter vectors are recycled. See below.
+    
+```{r eval=FALSE}
+str_c("@", c("emorie ", "sgtpepper ", "apple "), sep = "", collapse = ",")
+
+#[1] "@emorie ,@sgtpepper ,@apple "
+```
+    
+    - Now try it yourself.
+```{r}
+vec_1 <- c("Roses", "Violets")
+vec_2 <- c("red", "blue")
+
+str_1 <- "are"
+
+# Write your code here
+str_c(vec_1, str_1, vec_2, sep = " ", collapse = ", ")
+
+```
+
+
+3. [Pig Latin](https://en.wikipedia.org/wiki/Pig_Latin) is a language game in which the first consonant of each word is moved to the end of the word, then `"ay"` is appended to create a suffix. For example, the word `"Wikipedia"` would become `"Ikipediaway"`.
+
+    - Using `str_c()` and `str_sub()`, turn the given `pig_latin` vector into the string: `"igpay atinlay"`
+    - We encourage you to first sketch out what you want to do on some scratch paper.
+        - First, think about what the final outcome will look like.
+        - Then, think about how you can get there. Play around with the `str_sub()` function. What happens when you include different values in the `str_sub()` function?  
+    - this is low-key the trickiest question in the problem set. So if you get stuck, ask a question to your group or github and move on. and come back to it later.
+
+```{r}
+pig_latin <- c('pig', 'latin')
+
+# Write your code here
+str_c(
+  str_sub(pig_latin, start = 2, end = -1)
+  , str_sub(pig_latin, start = 1, end = 1) 
+  , "ay"
+)
+
+
+```
+
+
+4. Using `str_c()` and `str_sub()`, decode the given `secret_message`. Your output should be a string.  
+
+    - Follow the same logic from above.
+    - Sketch out what you want to do on some scratch paper. Break it down step by step. Play around with different values for the `str_sub()` function. 
+    
+```{r}
+secret_message <- c('ollowfay', 'ouryay', 'earthay')
+
+# Write your code here
+str_c(
+  str_sub(secret_message, start = -3, end = -3)
+  , str_sub(secret_message, end = -4)
+)
+```
+
+
+## Working with Twitter data  
+
+
+1. You will be using Twitter data we fetched from the following Twitter handles: `UniNoticias`, `FoxNews`, and `CNN`.  
+
+    - This data has been saved as an Rdata file.
+    - Use the `load()` and `url()` functions to download the `news_df` dataframe from the url: `https://github.com/emoriebeck/psc203a-data-FQ26/raw/main/05-assignments/04-ps4/twitter_news.RData`
+    - Report the dimensions of the `news_df` data frame (rows and columns). Use the `dim()` function.  
+
+
+```{r}
+# Write your code here
+load(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/05-assignments/04-ps4/twitter_news.RData"))
+dim(news_df)
+```
+
+
+2. Subset your dataframe `news_df` and create a new dataframe called `news_df2` keeping only the following variables: `user_id`, `status_id`, `created_at`, `screen_name`, `text`, `followers_count`, `profile_expanded_url`.  
+
+    - Note in the following questions we will ask you to create a new column and that means you have to assign `<-` the new changes you are making to the existing dataframe `news_df2`. Ex. `news_df2 <- news_df %>% mutate(newvar = mean(oldvar))`
+
+```{r}
+cls <- c("user_id", "status_id", "created_at", "screen_name", "text", "followers_count", "profile_expanded_url")
+# Write your code here
+news_df2 <- news_df %>%
+  select(cls)
+```
+
+
+3. Create a new column in `news_df2` called `text_len` that contains the length of the character variable `text`.
+
+    - What is the `class` and `type` of this new column? Make sure to include your code in the code chunk below.
+      - __ANSWER__: 
+    
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(text_len = str_length(text))
+class(news_df2$text_len)
+typeof(news_df2$text_len)
+```
+
+
+4. Create an additional column in `news_df2` called `handle_followers` that stores the twitter handle and the number of followers associated with that twitter handle in a string. For example, the entries in the `handle_followers` column should look like this: `@[twitter_handle] has [number] followers.`
+
+    - What is the `class` and `type` of this new column? Make sure to include your code in the code chunk below.
+      - __ANSWER__: 
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(handle_followers = sprintf("@%s has %i followers", screen_name, followers_count))
+class(news_df2$handle_followers)
+typeof(news_df2$handle_followers)
+```
+
+
+5. Lastly, create a column in `news_df2` called `short_web` that contains a short version of the `profile_expanded_url` without the `http://www.` part of the url. For example, the entries in that column should look something like this: `nytimes.com`.
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(short_web = str_remove_all(profile_expanded_url, "http://www."))
+```
+
+# Part 4: Dates 
+## Working with dates/times
+
+1. Using the column `created_at`, create a new column in `news_df2` called `dt_chr` that is a character version of `created_at`.
+
+    - What is the `class` of the `created_at` and `dt_chr` columns? Make sure to include your code in the code chunk below.
+      - __ANSWER__: Character
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(dt_chr = as.character(created_at))
+class(news_df2$dt_chr)
+typeof(news_df2$dt_chr)
+```
+
+
+2. Create another column in `news_df2` called `dt_len` that stores the length of `dt_chr`.
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(dt_len = as.character(dt_chr))
+news_df2$dt_chr
+```
+
+
+3. Next, create additional columns in `news_df2` for each of the following date/time components:
+
+    a. Create a new column `date_chr` for date (e.g. `2020-03-26`) using the column `dt_chr` and the `str_sub()` function.
+    a. Do the same for year `yr_chr` (e.g. `2020`).
+    a. Do the same for month `mth_chr` (e.g. `03`).
+    a. Do the same for day `day_chr` (e.g. `26`).
+    a. Do the same for time `time_chr` (e.g. `22:41:09`).  
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(
+    date_chr = str_sub(dt_chr, start = 1, end = 10)
+    , yr_chr = str_sub(dt_chr, start = 1, end = 4)
+    , mth_chr = str_sub(dt_chr, start = 6, end = 7)
+    , mthday_chr_chr = str_sub(dt_chr, start = 9, end = 10)
+    , time_chr = str_sub(dt_chr, start = 12, end = 19)
+    )
+```
+
+
+4. Using the column we created in the previous question `time_chr`, create additional columns in `news_df2` for the following time components: 
+
+    a. Create a new column `hr_chr` for hour (e.g. `22`) using the column `time_chr` and the `str_sub()` function.
+    a. Do the same for minutes `min_chr` (e.g. `41`).
+    a. Do the same for seconds `sec_chr` (e.g. `09`).
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(
+    hr_chr = str_sub(time_chr, start = 1, end = 2)
+    , min_chr = str_sub(time_chr, start = 4, end = 5)
+    , sec_chr = str_sub(time_chr, start = 7, end = 8)
+  )
+```
+
+
+
+5. Now let's get some practice with the `lubridate` package.  
+
+    a. Using the `year()` function from the `lubridate` package, create a new column in `news_df2` called `yr_num` that contains the year (e.g. `2020`) extracted from `date_chr`.
+    a. Do the same for month `mth_num`.
+    a. Do the same for day `day_num`.
+    a. Do the same for hour `hr_num`, but extract from `created_at` column instead of `date_chr`.
+    a. Do the same for minutes `min_num`. 
+    a. Do the same for seconds `sec_num`.
+
+```{r}
+# Write your code here
+news_df2 <- news_df2 %>%
+  mutate(
+    yr_num = year(date_chr)
+    , mth_num = month(date_chr)
+    , day_num = day(date_chr)
+    , hr_num = hour(date_chr)
+    , min_num = minute(date_chr)
+    , sec_num = second(date_chr)
+  )
+```
+
+6. Using the **new numeric columns** (e.g. day_num, mth_num) you've created in the previous step, reconstruct the date and datetime columns. Namely, add the following columns to `news_df2`:
+
+    a. Use `make_date()` to create new column called `my_date` that contains the date (year, month, day).
+    a. Use `make_datetime()` to create new column called `my_datetime` that contains the datetime (year, month, day, hour, minutes, seconds).
+    
+    - What is the `class` of your `my_date` and `my_datetime` columns? Make sure to include your code in the code chunk below.
+      - __ANSWER__: 
+
+```{r}
+# Write your code here
+news_df2 %>%
+  mutate(
+    my_date = make_date(
+      year = yr_num
+      , month = mth_num
+      , day = day_num
+      )
+    , my_datetime = make_datetime(
+      year = yr_num
+      , month = mth_num
+      , day = day_num
+      , hour = hr_num
+      , min = min_num
+      , sec = sec_num
+      )
+    )
+```
+
+The purpose of this problem set is for you to understand how the backslash escape character (`\`) works in R strings, as well as to practice writing regular expressions. You will be using the `str_view_all()` function to see all the matches from your regex. You'll get practice combining character classes, quantifiers, anchors, ranges, groups, and more to build your regular expressions for each question.
+
+# Part 5: Regex
+## Backslash (`\`) escape character
+
+In this section, you will practice working with strings that include backslashes, such as for escaping characters or for writing special characters. You will be using both the `print()` and `writeLines()` functions to print out your string and compare the difference. This section is not specific to/does not involve regular expressions.
+
+\textcolor{red}{\textbf{/1}}
+
+1. Create a short string (could be a phrase or sentence) that contains both the single quote (`'`) and double quote (`"`) inside your string, and save it as an object called `string_with_quotes`. Use both `print()` and `writeLines()` to print out your string.  
+
+    _Hint_: You will need to use a backslash to escape either the single quote (`'`) or the double quote (`"`) depending on if you used single or double quotes to enclose your string. 
+
+```{r}
+# Write your code here
+string_with_quotes <- "This is the day's \"test\""
+print(string_with_quotes)
+writeLines(string_with_quotes)
+```
+
+2. Create a short string (could be a phrase or sentence) that contains both the tab and newline special characters, and save it to `string_with_spchars`. Use both `print()` and `writeLines()` to print out your string.
+
+```{r}
+string_with_spchars <- "This\tis just\nmean"
+print(string_with_spchars)
+writeLines(string_with_spchars)
+# Write your code here
+```
+
+3. Create a string that contains your first name where each letter is separated by a backslash (e.g., `y\o\u\r\n\a\m\e`), and save it to `string_with_backslashes`. Use both `print()` and `writeLines()` to print out your string.
+
+    _Hint_: Your `writeLines()` output should show single backslashes between each letter of your name.
+
+```{r}
+string_with_backslashes <- "e\\m\\o\\r\\i\\e"
+print(string_with_backslashes)
+writeLines(string_with_backslashes)
+# Write your code here
+```
+
+4. With respect to the previous questions, explain in general why the output created by the `print()` function differs from the output created by the `writeLines()` function.
+
+**One is parsing the syntax, while the other is not. **
+
+## Matching characters
+
+In this section and the next, you will practice writing regular expressions to match specific text. Use `str_view_all()` for all the following questions to show the matches.
+
+1. Show all matches to single quotes (`'`) in your `string_with_quotes` that you created in Part I.
+
+```{r}
+str_view(string_with_quotes, pattern = "'")
+# Write your code here
+```
+
+2. Show all matches to double quotes (`"`) in `string_with_quotes`.
+
+```{r}
+# Write your code here
+str_view(string_with_quotes, '"')
+```
+
+3. Show all matches to tab characters in `string_with_spchars`.
+
+```{r}
+# Write your code here
+str_view(string_with_spchars, "\\t")
+```
+
+4. Show all matches to newline characters in `string_with_spchars`.
+
+```{r}
+# Write your code here
+str_view(string_with_spchars, "\\n")
+```
+
+5. Show all matches to backslashes (`\`) in `string_with_backslashes`.
+
+```{r}
+str_view(string_with_backslashes, "\\\\")
+```
+
+
+## Regular expressions
+
+\textcolor{red}{\textbf{/1}}
+
+1. Copy the following code to create the character vector `text`:
+
+```{r}
+    text <- c("In 5... 4... 3... 2...",
+              "It can cost anywhere between $50 to $100 (... or even $1k!)",
+              "These are parenthesis (), while these are brackets []... I think.")
+```
+
+```{r}
+# Write your code here
+```
+
+2. Show all matches to a capital `I` at the beginning of the string.
+
+```{r}
+# Write your code here
+str_view(text, pattern = "^I")
+```
+
+3. Show all matches to a period at the end of the string. 
+
+```{r}
+# Write your code here
+str_view(text, pattern = "[.]$")
+```
+
+4. Show all matches to 1 or more digits.
+
+```{r}
+# Write your code here
+str_view(text, pattern = "\\d+")
+```
+
+5. Show all matches to all dollar amounts, including the dollar sign and `k` if there is one (i.e., `$50`, `$100`, `$1k`)
+
+```{r}
+# Write your code here
+str_view(text, pattern = "\\$(\\d+k|\\d+)")
+```
+
+6. Show all matches to ellipses (`...`)
+
+```{r}
+# Write your code here
+str_view(text, pattern = "[.]{3}")
+```
+
+7. Show all matches to parentheses, including the contents between the parentheses if there are any.
+
+```{r}
+# Write your code here
+str_view(text, pattern = "(?<=\\().*(?=\\))")
+```
+
+8. Show all matches to words (define words as containing only letters, upper or lowercase)
+
+```{r}
+# Write your code here
+str_view(text, pattern = "[A-Za-z]+")
+```
+
+9. Show all matches to either a word that's 4 or more letters long _or_ ellipses.
+
+```{r}
+# Write your code here
+str_view(text, pattern = "[A-Za-z]{4,}|\\.\\.\\.")
+```
+
+10. Show all matches to any digit or vowel (upper or lowercase) that repeats 2 times in a row (i.e., the same digit or vowel repeated twice in a row)
+
+```{r}
+# Write your code here
+str_view(text, pattern = "([aeiouAEIOU0-9])\\1")
+```
+
+# Render to html and submit problem set  
+
+**Render to html** by clicking the "Render" button near the top of your RStudio window (icon with blue arrow) 
+
+-   Go to the Canvas --\> Assignments --\> Problem Set 4
+-   Submit both .qmd and .html files\
+-   Use this naming convention "lastname_firstname_ps#" for your .qmd and html files (e.g. beck_emorie_ps4.qmd & beck_emorie_ps4.html)
+
