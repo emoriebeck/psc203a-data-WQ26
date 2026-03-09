@@ -571,7 +571,7 @@ plan(multisession, workers = 2)
 As a brief exercise, let's revisit some of the latent growth models we ran last week:
 
 ```{r}
-gsoep2_lavaan <- readRDS("week9-data.RDS")
+gsoep2_lavaan <- readRDS(url("https://github.com/emoriebeck/psc203a-data-WQ26/raw/refs/heads/main/04-workshops/09-week9-advanced/week9-data.RDS"))
 ```
 
 ## Exercise {.smaller}

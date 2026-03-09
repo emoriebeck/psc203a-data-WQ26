@@ -58,12 +58,25 @@ options(
   )
 ```
 
-# Outline
+# Outline {.smaller}
 
 1.  Questions on Homework
+  - Updated link for PS4 (Sorry, GitHub changed how it does raw links during the course of this class, which has been creating mess; earlier PS's and materials use the old, while newer ones use the new) 
+  - NO PS5 
+  - All keys posted as of class time 
 2.  Git/GitHub
 3.  Parallelization using `future`
 4.  `furrr`
+
+## [Course Evaluations]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/black-top.png" background-size="100%"}
+
+- Please fill out your course evaluations! 
+- I will send a separate eval with the opportunity to give more feedback on specific topics included (or not included) 
+- Formal course evals are important for: 
+
+    * Merit / promotion 
+    * Course prioritization 
+    * TA allocation 
 
 ## [What and why use Git and GitHub?]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/green-top.png" background-size="100%"}
 
@@ -96,7 +109,7 @@ Why use version control when you can just save new version of document?
 
 *Credit: Jorge Chan (and also, lifted this example from Benjamin Skinner's [intro to Git/GitHub lecture](https://edquant.github.io/past/2020/spring/edh7916/lessons/intro.html))*
 
-## [What is **Git**? (from git [website](https://git-scm.com/))]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/blue-top.png" background-size="100%" .smaller}
+## [What is **Git**? (from git [[website](https://git-scm.com/)]{style="color:white;"})]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/blue-top.png" background-size="100%" .smaller}
 
 > "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency"
 
@@ -113,7 +126,7 @@ Why use version control when you can just save new version of document?
 -   From [Git Handbook](https://guides.github.com/introduction/git-handbook/) by github.com:
     -   A repository "encompasses the entire collection of files and folders associated with a project, along with each file’s revision history"
     -   Because git is a **distributed** version control system, "repositories are self-contained units and anyone who owns a copy of the repository can access the entire codebase and its history"
--   This course is a Git repository ([PSC290 FQ23 repository](https://github.com/emoriebeck/psc290-data-FQ23/))
+-   This course is a Git repository ([PSC203a WQ26 repository](https://github.com/emoriebeck/psc203a-data-WQ26/))
 
 ## [What is a **Git repository**?]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/blue-top.png" background-size="100%"}
 
@@ -126,9 +139,9 @@ Why use version control when you can just save new version of document?
 
 ## [Private vs. public repositories]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/blue-top.png" background-size="100%"}
 
--   Public repositories: anyone can access the repository
-    -   e.g., [PSC203A WQ23](https://github.com/emoriebeck/psc203a-data-WQ26/), the git repository we created to develop the course is a public repository because I want the public to benefit from this course (and for you to access it for a long time)
--   Private repositories: only those who have been granted access by a repository "administrator" can access the repository
+-   **Public repositories**: anyone can access the repository
+    -   e.g., [PSC203A WQ26](https://github.com/emoriebeck/psc203a-data-WQ26/), the git repository we created to develop the course is a public repository because I want the public to benefit from this course (and for you to access it for a long time)
+-   **Private repositories**: only those who have been granted access by a repository "administrator" can access the repository
 
 ## [What is **GitHub**?]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/red-top.png" background-size="100%"}
 
@@ -215,7 +228,7 @@ Hypothetical work flow to `cookies.txt`:
 ## [GitHub Desktop]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/green-top.png" background-size="100%"}
 
 -   Practically, in this class, I'm going to show you how to use GitHub Desktop, which is a GUI (graphical user interface) for managing git repositories and commits.
--   Relative to the command line, using a GUI means you're ready to be "up and running with git immediately and don't have to learn bash syntax
+-   Relative to the command line, using a GUI means you're ready to be "up and running" with git immediately and don't have to learn bash syntax
 
 ## [Exercise: Setting Up GitHub Desktop]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/black-top.png" background-size="100%"}
 
@@ -341,6 +354,28 @@ ggplot(penguins,
     -   by default, the links will be to the "main"
     -   swap this out for "raw" and it will link to the raw file, which will open a raw text page for text files (including .csv) or download (including .docx, .pdf, etc.)
 
+## [Some Last Notes: Branching]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/black-top.png" background-size="100%"}
+
+- Branching is a useful feature for collaboration in Git. 
+- Say that both a collaborator and I want to work on the project, we can pull a current copy to a branch and work on it there and then merge back to the main branch. 
+- This avoids issues with accidental "saving over" 
+
+:::: fragment 
+
+```{r, echo = F, fig.align='center'}
+knitr::include_graphics("images/git-branches-merge.png")
+```
+
+::::
+
+## [Some Last Notes: Branching]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/black-top.png" background-size="100%"}
+
+- This also allows you to have parallel branches for different purposes. 
+- For example, most of my repos have a `gh-pages` branch where I source front-facing web content that is available as a standalone webpage using GitHub Pages ([username].github.io/[repo]) 
+- These slides and this course website are built via quarto and hosted for free indefinitely on GitHub! 
+- Quickstart guide on hosting on GitHub pages [here](https://docs.github.com/en/pages/quickstart). 
+
+
 # Parallel Processing in R {background-color="blue"}
 
 ## [Guarding your resources]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/blue-top.png" background-size="100%"}
@@ -371,7 +406,8 @@ ggplot(penguins,
 
 -   You've likely used parallel processing in R before
 -   Many packages, like `lavaan`, `lme4`, and any bootstrapping have an argument called `parallel`, with values like `TRUE`/`FALSE` or "fork"/"multisession"/"multicore"
--   This just means that they are using one of many available packages / tools to speed up the estmation of whatever your function is doing
+-   This just means that they are using one of many available packages / tools to speed up the estimation of whatever your function is doing
+
 
 # The future package {background-color="#c00000"}
 
@@ -379,7 +415,7 @@ ggplot(penguins,
 
 -   A Unifying Parallelization Framework in R for Everyone
 -   Require only minimal changes to parallelize existing R code
--   “Write once, Parallelize anywhere
+-   “Write once, Parallelize anywhere"
 -   Same code regardless of operating system and parallel backend
 -   Lower the bar to get started with parallelization
 -   Fewer decisions for the developer to make
@@ -490,13 +526,14 @@ v <- v1 + v2; v
 But with future, we can parallelize and continue to run other things:
 
 ```{r}
+plan(multisession(workers = 2L))
 f1 <- future(slow_sum(x_head)) ## ~5 secs (in parallel)
 f2 <- future(slow_sum(x_tail)) ## ~5 secs (in parallel)
 
-## Do other things
-z <- sd(x)
+z <- sd(x) ## Do other things
 
 v <- value(f1) + value(f2); v ## ready after ~5 secs
+plan(sequential)
 ```
 
 ## [Setting up your future backend]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/red-top.png" background-size="100%"}
@@ -568,7 +605,8 @@ resolved(f3)
 
 ## [Globals]{style="color:black;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/mint-top.png" background-size="100%"}
 
-\-`globals` is an argument for `future()`. By default, it is set to `TRUE` - Alternatively, it could be a character vector including only those globals you want the `future()` call to have access to
+-`globals` is an argument for `future()`. By default, it is set to `TRUE` 
+- Alternatively, it could be a character vector including only those globals you want the `future()` call to have access to
 
 ```{r, eval = F}
 x_head <- head(x, 50)
@@ -592,15 +630,18 @@ f2 <- future(slow_sum(x_tail), globals = c("slow_sum", "x_head")) ## doesn't wor
 ## [`furrr`]{style="color:white;"} {background-color="white" background-image="https://github.com/emoriebeck/psc203a-data-WQ26/raw/main/psc203a-data-WQ26/images/mykonos-top.png" background-size="100%"}
 
 -   I personally use `furrr` frequently when I need to a bunch of stuff in parallel but not so much I find myself needing to reach for an HPC
+  * It's even useful for simpler tasks, like loading in data or model results, creating large numbers of tables and figures, etc.!
 -   Why? It works just like `purrr` functions but allows me to run them in parallel!
 
 ::: fragment
-```{r, eval = F}
+```{r, eval = T}
 plan(multisession, workers = 2)
 
 1:10 %>%
   future_map(rnorm, n = 10, .options = furrr_options(seed = 123)) %>%
   future_map_dbl(mean)
+
+plan(sequential)
 ```
 :::
 
@@ -687,14 +728,12 @@ lavaan_fun <- function(d, trait){
 But instead of running the model using `map2()`, let's run it using `future_map2()`
 
 ```{r}
-start <- Sys.time()
 gsoep_nested2 <- gsoep2_lavaan %>%
   group_by(category, trait) %>%
   nest() %>%
   ungroup() %>%
   mutate(m = map2(data, trait, lavaan_fun))
 end <- Sys.time()
-print(end - start)
 # > Time difference of 4.413002 secs
 ```
 
@@ -703,7 +742,6 @@ print(end - start)
 In this case, we're only saving a few seconds, but in the case having many more models or models that run longer, this can HUGELY add up
 
 ```{r}
-start <- Sys.time()
 plan(multisession, workers = 5L)
 gsoep_nested2 <- gsoep2_lavaan %>%
   group_by(category, trait) %>%
@@ -711,7 +749,6 @@ gsoep_nested2 <- gsoep2_lavaan %>%
   ungroup() %>%
   mutate(m = future_map2(data, trait, lavaan_fun))
 end <- Sys.time()
-print(end - start)
 # Time difference of 2.993128 secs
 ```
 
@@ -719,7 +756,12 @@ print(end - start)
 
 > The goal of furrr is to combine purrr’s family of mapping functions with future’s parallel processing capabilities. The result is near drop in replacements for purrr functions such as map() and map2_dbl(), which can be replaced with their furrr equivalents of future_map() and future_map2_dbl() to map in parallel.
 
--   Better alternative: don't export large objects using `furrr` but save the output to a local environment that can be loaded in later
+-   Better alternative: don't export large objects using `furrr` but save the output to a local environment that can be loaded in later (e.g., GitHub, SFTP, etc.)
+
+# Last Word  {background-color="black"} 
+
+- [Some last notes will be posted in the next week to pick up some loose ends.]{style="color:white;"} 
+- [Thank you for a great quarter!]{style="color:white;"}
 
 # Acknowledgments
 
